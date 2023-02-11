@@ -14,4 +14,4 @@
 ## Работа с внешним API.
 8. [Работа с библиотекой requests, http-запросы](9.http.requests/)  
 
-[Файлы для домашних заданий](py-homework-basic-files)
+[Файлы для домашних заданий](homework-basic-files/)
