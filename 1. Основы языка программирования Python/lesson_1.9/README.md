@@ -13,5 +13,5 @@
 ### [Контекстный менеджер и 2 способа его написания. Конструкция WITH (Видео в YouTube)](https://www.youtube.com/watch?v=IG6oIbuSwCc)
 
 ### [Код ДЗ. Задача №1 на GitHub](IO/Home_Task/Task_3/Task_1.py)
-### [Код ДЗ. Задача №2 на GitHub](https://github.com/Inna949Festchuk/lesson_1.9/blob/main/IO/Home_Task/Task_3/Task_2.py)
-### [Код ДЗ. Задача №3 на GitHub](https://github.com/Inna949Festchuk/lesson_1.9/blob/main/IO/Home_Task/Task_3/Task_3.py)
+### [Код ДЗ. Задача №2 на GitHub](IO/Home_Task/Task_3/Task_2.py)
+### [Код ДЗ. Задача №3 на GitHub](IO/Home_Task/Task_3/Task_3.py)
