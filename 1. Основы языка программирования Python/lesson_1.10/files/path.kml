@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+  <Document>
+    <Placemark>
+      <name>Маршрут №1</name>
+      <description>02.11.2022 9:33:51</description>
+      <Style>
+        <LineStyle>
+          <color>A60000FF</color>
+          <width>2</width>
+        </LineStyle>
+      </Style>
+      <LineString>
+        <extrude>1</extrude>
+        <coordinates>20.5702932414942,54.887981835005,0 20.6094226522021,54.6716370558637,0 20.405598696104,54.6499477010704,0 19.8309292631385,54.4676753795606,0 20.6348193919918,54.3832252998409,0 21.3084186351559,54.3475394565204,0 20.6094870611116,54.6716308845745,0 </coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>
