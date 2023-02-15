@@ -1,0 +1,10 @@
+coverage==5.5
+deprecation==2.1.0
+eyed3==0.9.7
+filetype==1.2.0
+greenlet==2.0.2
+packaging==23.0
+SQLAlchemy==2.0.3
+tinytag==1.8.1
+toml==0.10.2
+typing_extensions==4.5.0
