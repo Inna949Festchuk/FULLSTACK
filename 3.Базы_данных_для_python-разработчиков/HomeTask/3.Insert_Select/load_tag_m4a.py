@@ -1,5 +1,4 @@
 from tinytag import TinyTag
-import psycopg2
 
 def track_info_m4a(filename):
     tag = TinyTag.get(filename)
