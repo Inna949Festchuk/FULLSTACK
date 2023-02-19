@@ -46,24 +46,3 @@ def duration_from_seconds(s):
                                                       int(s))
     return timelapsed
 
-def insert_db(genre):
-	conn = psycopg2.connect(database='musicdb', user='postgres', password='Atoer949')
-	with conn.cursor() as cursor:
-            try:
-                cursor.execute(f"INSERT INTO genre(name_genre) VALUES('{genre.get('name_genre')}');")
-                conn.commit()
-            except psycopg2.IntegrityError:
-                print('Внимание! Найдено дублирующее значение жанра.')
-
-if __name__ == '__main__':
-    import os
-    # Файлы в дирректории dir
-    dir = 'musicfile'
-
-    filelist = list(filter(lambda i: '.m4a' in i, os.listdir(dir)))
-    print(filelist)
-    
-    for file_el in filelist:
-        metadatas = track_info_m4a(dir+'/'+file_el)
-        insert_db(metadatas)
-        print(metadatas)
