@@ -1,5 +1,5 @@
 from load_tag_m4a import track_info_m4a
-from insert_db import insert_db_genre, insert_db_performer#, insert_db_album
+from insert_db import insert_db_genre, insert_db_performer, insert_db_album
 
 
 if __name__ == '__main__':
@@ -14,7 +14,6 @@ if __name__ == '__main__':
         metadatas = track_info_m4a(dir+'/'+file_el)
         insert_db_genre(metadatas.get('name_genre'))
         insert_db_performer(metadatas.get('name_performer'))
-        # insert_db_album(metadatas.get('name_album'), metadatas.get('date_album'))
+        insert_db_album(metadatas.get('name_album'), metadatas.get('date_album'))
         print(metadatas)
-
-    
+ 

@@ -25,12 +25,11 @@ def insert_db_performer(performer):
             except psycopg2.IntegrityError:
                 print('Внимание! Найдено дублирующее значение исполнителя.')
 
-# def insert_db_album(album, date):
-# 	conn = psycopg2.connect(database='musicdb', user='postgres', password='Atoer949')
-# 	with conn.cursor() as cursor:
-#             try:
-#                 cursor.execute(f"INSERT INTO performer(name_performer) VALUES('{album}');")
-#                 cursor.execute(f"INSERT INTO performer(date_album) VALUES('{date}');")
-#                 conn.commit()
-#             except psycopg2.IntegrityError:
-#                 print('Внимание! Найдено дублирующее значение исполнителя.')
+def insert_db_album(album, date):
+	conn = psycopg2.connect(database='musicdb', user='postgres', password='Atoer949')
+	with conn.cursor() as cursor:
+            try:
+                cursor.execute(f"INSERT INTO album(name_album, date_album) VALUES('{album}','{date}');")
+                conn.commit()
+            except psycopg2.IntegrityError:
+                print('Внимание! Год издания < 1990.')

@@ -24,13 +24,14 @@ def track_info_m4a(filename):
     # print(tag.year)          # year or date as string
 
     name_genre = tag.genre # Жанр
-    name_performer = tag.composer  # Исполнитель
+    name_artist = tag.albumartist # Исполнитель
+    name_performer = tag.composer  # Композитор
     name_album = tag.album # Альбом
-    date_album = tag.year # Дата альбома
-    name_track = tag.track_total # Трэк
+    date_album = tag.year[:10] # Дата альбома
+    name_track = tag.title # Трэк
     duration_track = duration_from_seconds(tag.duration) # Продолжительность трэка
     
-    metalist = {'name_genre':name_genre, 'name_performer':name_performer, 'name_album':name_album,
+    metalist = {'name_genre':name_genre, 'name_performer':f'{name_artist}, {name_performer}', 'name_album':name_album,
                 'date_album':date_album, 'name_track':name_track, 'duration_track':duration_track}
     return metalist
 
