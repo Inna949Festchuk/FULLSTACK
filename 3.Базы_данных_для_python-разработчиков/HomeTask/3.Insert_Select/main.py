@@ -1,5 +1,5 @@
-from load_tag_m4a import track_info_m4a
-from insert_db import insert_db_genre, insert_db_performer, insert_db_album, insert_db_genreperformer
+from load_tag_m4a import meta_info_m4a
+from insert_db import *
 
 if __name__ == '__main__':
     import os
@@ -11,12 +11,45 @@ if __name__ == '__main__':
     
     # Заполнение атрибутов в БД
     for file_el in filelist:
-        metadatas = track_info_m4a(dir+'/'+file_el) # Чтение значений атрибутов из метаданных файлов
-        insert_db_genre(metadatas.get('name_genre'))
+        metadatas = meta_info_m4a(dir+'/'+file_el) # Чтение значений тегов из метаданных муз.файлов
+        
+        # Заполнение таблиц genre и performer
+        insert_db_genre(metadatas.get('name_genre')) 
         insert_db_performer(metadatas.get('name_performer'))
-        insert_db_album(metadatas.get('name_album'), metadatas.get('date_album'))
-        print(metadatas)
 
-    # Насстройка связи M:N (жанры:исполнители)
-    insert_db_genreperformer([1, 2, 2], [1, 2, 3])
+        # Ручная Насстройка связей M:N (жанры:исполнители)
+        # insert_db_genreperformer([1, 2, 2], [1, 2, 3])
+        
+        # Автоматицированное установление связей M:N (жанры:исполнители)
+        genre_field = select_db_genreperformer('genre_id', 
+                                            'genre', 
+                                            'name_genre', 
+                                            metadatas.get('name_genre')
+                                            ) # Выборка id по по условию 
+                                              # равенства тега муз.файла значению поля
+        performer_field = select_db_genreperformer('performer_id', 
+                                                'performer', 
+                                                'name_performer', 
+                                                metadatas.get('name_performer')
+                                                )
+        # Заполнение таблицы связей M:N
+        insert_db_genreperformer(genre_field, performer_field )
+        print(genre_field, performer_field)
+        
+        # Заполнение таблицs album
+        insert_db_album(metadatas.get('name_album'), metadatas.get('date_album'))
+        
+        # Автоматицированное установление связей M:N (альбомы:исполнители)
+        album_field = select_db_performeralbum('album_id', 
+                                                'album', 
+                                                'name_album',
+                                                'date_album',
+                                                metadatas.get('name_album'),
+                                                metadatas.get('date_album')
+                                                )
+        # Заполнение таблицы связей M:N
+        insert_db_performeralbum(album_field, performer_field)
+        print(album_field , performer_field)
+
+
     

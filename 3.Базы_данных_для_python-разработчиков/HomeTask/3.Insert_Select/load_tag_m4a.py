@@ -1,6 +1,6 @@
 from tinytag import TinyTag
 
-def track_info_m4a(filename):
+def meta_info_m4a(filename):
     tag = TinyTag.get(filename)
     """Module Built To Read M4A Track Data."""
     # print(tag.album)         # album as string
