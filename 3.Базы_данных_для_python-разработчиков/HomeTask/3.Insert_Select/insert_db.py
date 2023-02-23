@@ -84,3 +84,13 @@ def insert_db_performeralbum(id_performer, id_album):
                     conn.commit()
             except psycopg2.IntegrityError:
                 print('Внимание! Связи уже установлены.')
+
+# Insert
+def insert_db_track(track, duration, album):
+	conn = psycopg2.connect(database='musicdb', user='postgres', password='Atoer949')
+	with conn.cursor() as cursor:
+            try:
+                cursor.execute(f"INSERT INTO track(name_track, duration_track, album_field) VALUES('{track}','{duration}','{album}');")
+                conn.commit()
+            except psycopg2.IntegrityError:
+                print('Внимание! Найдено дублирующее значение трека.')

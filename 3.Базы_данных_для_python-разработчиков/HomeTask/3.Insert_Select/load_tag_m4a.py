@@ -31,7 +31,8 @@ def meta_info_m4a(filename):
     duration_track = duration_from_seconds(tag.duration) # Продолжительность трэка
     
     metalist = {'name_genre':name_genre, 'name_performer':f'{name_artist}, {name_performer}', 'name_album':name_album,
-                'date_album':date_album, 'name_track':name_track, 'duration_track':duration_track}
+                'date_album':date_album, 'name_track':name_track.replace("'", ""), 'duration_track':duration_track}
+    # В тегах как оказалось есть символ ' он мешает - гад -> гоухом)))
     return metalist
 
 def duration_from_seconds(s):
@@ -40,9 +41,8 @@ def duration_from_seconds(s):
     m, s = divmod(s, 60)
     h, m = divmod(m, 60)
     d, h = divmod(h, 24)
-    timelapsed = "{:01d}:{:02d}:{:02d}:{:02d}".format(int(d),
-                                                      int(h),
-                                                      int(m),
-                                                      int(s))
+    timelapsed = "{:02d}:{:02d}:{:02d}".format(int(h),
+                                               int(m),
+                                               int(s))
     return timelapsed
 

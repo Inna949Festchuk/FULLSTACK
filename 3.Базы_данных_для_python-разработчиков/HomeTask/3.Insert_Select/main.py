@@ -20,7 +20,7 @@ if __name__ == '__main__':
         # Ручная Насстройка связей M:N (жанры:исполнители)
         # insert_db_genreperformer([1, 2, 2], [1, 2, 3])
         
-        # Автоматицированное установление связей M:N (жанры:исполнители)
+        # Автоматизированное установление связей M:N (жанры:исполнители)
         genre_field = select_db_genreperformer('genre_id', 
                                             'genre', 
                                             'name_genre', 
@@ -39,7 +39,7 @@ if __name__ == '__main__':
         # Заполнение таблицs album
         insert_db_album(metadatas.get('name_album'), metadatas.get('date_album'))
         
-        # Автоматицированное установление связей M:N (альбомы:исполнители)
+        # Автоматизированное установление связей M:N (альбомы:исполнители)
         album_field = select_db_performeralbum('album_id', 
                                                 'album', 
                                                 'name_album',
@@ -49,7 +49,12 @@ if __name__ == '__main__':
                                                 )
         # Заполнение таблицы связей M:N
         insert_db_performeralbum(album_field, performer_field)
-        print(album_field , performer_field)
+        print(album_field, performer_field)
+
+        # Заполнение таблицs album и установление связей 1:M (альбом:треки)
+        insert_db_track(metadatas.get('name_track'), 
+                        metadatas.get('duration_track'), 
+                        album_field[0])
 
 
     
