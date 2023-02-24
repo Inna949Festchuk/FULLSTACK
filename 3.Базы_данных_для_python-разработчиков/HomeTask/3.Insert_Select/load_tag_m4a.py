@@ -30,8 +30,14 @@ def meta_info_m4a(filename):
     name_track = tag.title # Трэк
     duration_track = duration_from_seconds(tag.duration) # Продолжительность трэка
     
-    metalist = {'name_genre':name_genre, 'name_performer':f'{name_artist}, {name_performer}', 'name_album':name_album,
-                'date_album':date_album, 'name_track':name_track.replace("'", ""), 'duration_track':duration_track}
+    metalist = {'name_artist':name_artist,
+                'name_genre':name_genre, 
+                'name_performer':f'{name_artist}, {name_performer}', 
+                'name_album':name_album,
+                'date_album':date_album, 
+                'name_track':name_track.replace("'", ""), 
+                'duration_track':duration_track
+                }
     # В тегах как оказалось есть символ ' он мешает - гад -> гоухом)))
     return metalist
 
