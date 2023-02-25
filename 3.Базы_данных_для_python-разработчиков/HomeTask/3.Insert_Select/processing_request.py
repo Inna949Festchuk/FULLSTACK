@@ -49,7 +49,7 @@ def select_db(select_field, select_table, where_field_1, select_where_1, where_f
             # print('Внимание! Связи уже установлены.')
 
 # M:N
-def insert_db_M_N(table, FK_M, FK_N, PK_M, PK_N):
+def insert_db_M_N(table, FK_M, FK_N, PK_M:list, PK_N:list):
     '''Функция заполнения таблицы связей M:N'''
     conn = psycopg2.connect(database='musicdb', user='postgres', password='Atoer949')
     with conn.cursor() as cursor:
