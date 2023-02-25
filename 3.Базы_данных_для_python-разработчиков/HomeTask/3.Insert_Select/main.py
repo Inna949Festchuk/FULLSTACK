@@ -47,8 +47,6 @@ if __name__ == '__main__':
             insert_db('collection', 'name_coll', metadatas.get('name_album'), 'date_coll', metadatas.get('date_album'))
             PK_track_field = select_db('track_id', 'track', 'name_track', metadatas.get('name_track'))
             PK_coll_field = select_db('coll_id', 'collection', 'name_coll', metadatas.get('name_album'), 'date_coll', metadatas.get('date_album'))
-
-            # Заполнение таблицы связей M:N trackcollection
             insert_db_M_N('trackcollection', 'track_field', 'coll_field', PK_track_field, PK_coll_field)
     
 
