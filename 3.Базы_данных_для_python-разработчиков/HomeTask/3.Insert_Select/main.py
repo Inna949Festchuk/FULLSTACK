@@ -21,64 +21,34 @@ if __name__ == '__main__':
         # insert_db_genreperformer([1, 2, 2], [1, 2, 3])
         
         # Автоматизированное установление связей M:N (жанры:исполнители)
-        genre_field = select_db_genreperformer('genre_id', 
-                                            'genre', 
-                                            'name_genre', 
-                                            metadatas.get('name_genre')
-                                            ) # Выборка id по по условию 
-                                              # равенства тега муз.файла значению поля
-        performer_field = select_db_genreperformer('performer_id', 
-                                                'performer', 
-                                                'name_performer', 
-                                                metadatas.get('name_performer')
-                                                )
-        # Заполнение таблицы связей M:N
-        insert_db_genreperformer(genre_field, performer_field )
-        print(genre_field, performer_field)
+        # Выборка id по по условию равенства тега муз.файла значению поля
+        PK_genre_field = select_db('genre_id', 'genre', 'name_genre', metadatas.get('name_genre'))
+        PK_performer_field = select_db('performer_id', 'performer', 'name_performer', metadatas.get('name_performer'))
 
-        # Заполнение таблицы album
-        insert_db_album(metadatas.get('name_album'), metadatas.get('date_album'))
+        # Заполнение таблицы связей M:N genreperformer
+        insert_db_M_N('genreperformer', 'genre_field', 'performer_field', PK_genre_field, PK_performer_field)
+        
+         # Заполнение таблицы album
+        insert_db('album', 'name_album', metadatas.get('name_album'), 'date_album', metadatas.get('date_album'))
 
         # Автоматизированное установление связей M:N (альбомы:исполнители)
-        album_field = select_db_performeralbum('album_id', 
-                                                'album', 
-                                                'name_album',
-                                                'date_album',
-                                                metadatas.get('name_album'),
-                                                metadatas.get('date_album')
-                                                )
-        print(album_field, metadatas.get('name_album'), metadatas.get('date_album'))
-        performer_field2 = select_db_genreperformer('performer_id', 
-                                                'performer', 
-                                                'name_performer', 
-                                                metadatas.get('name_performer')
-                                                )
+        PK_album_field = select_db('album_id', 'album', 'name_album', metadatas.get('name_album'), 'date_album', metadatas.get('date_album'))
+        PK_performer_field = select_db('performer_id', 'performer', 'name_performer', metadatas.get('name_performer'))
       
-        # Заполнение таблицы связей M:N
-        insert_db_performeralbum(album_field, performer_field2)
-        # print(album_field, performer_field2)
+        # Заполнение таблицы связей M:N performeralbum
+        insert_db_M_N('performeralbum', 'album_field', 'performer_field', PK_album_field, PK_performer_field)
 
         # Заполнение таблицs album и установление связей 1:M (альбом:треки)
-        insert_db_track(metadatas.get('name_track'), 
-                        metadatas.get('duration_track'), 
-                        album_field[0])
+        insert_db('track', 'name_track', metadatas.get('name_track'), 'duration_track', metadatas.get('duration_track'), 'album_field', PK_album_field[0])
         
         # Заполнение таблицы collection
         if metadatas.get('name_artist') == 'Разные артисты':
-            insert_db_collection(metadatas.get('name_album'), metadatas.get('date_album'))
-            track_field = select_db_genreperformer('track_id', 
-                                                'track', 
-                                                'name_track', 
-                                                metadatas.get('name_track')
-                                                )
-            coll_field = select_db_performeralbum('coll_id', 
-                                                    'collection', 
-                                                    'name_coll',
-                                                    'date_coll',
-                                                    metadatas.get('name_album'),
-                                                    metadatas.get('date_album')
-                                                    )
-            insert_db_trackcollection(track_field, coll_field)
+            insert_db('collection', 'name_coll', metadatas.get('name_album'), 'date_coll', metadatas.get('date_album'))
+            PK_track_field = select_db('track_id', 'track', 'name_track', metadatas.get('name_track'))
+            PK_coll_field = select_db('coll_id', 'collection', 'name_coll', metadatas.get('name_album'), 'date_coll', metadatas.get('date_album'))
+
+            # Заполнение таблицы связей M:N trackcollection
+            insert_db_M_N('trackcollection', 'track_field', 'coll_field', PK_track_field, PK_coll_field)
     
 
     
