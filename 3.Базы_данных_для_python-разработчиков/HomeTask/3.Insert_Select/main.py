@@ -3,6 +3,7 @@ from processing_request import *
 
 if __name__ == '__main__':
     import os
+    from tqdm import tqdm
     
     # Чтение музыкальных файлв .m4a из дирректории dir в список
     dir = 'musicfile'
@@ -10,7 +11,7 @@ if __name__ == '__main__':
     # print(filelist)
     
     # Заполнение атрибутов в БД
-    for file_el in filelist:
+    for file_el in tqdm(filelist):
         metadatas = meta_info_m4a(dir+'/'+file_el) # Чтение значений тегов из метаданных муз.файлов
         
         # Заполнение таблиц genre и performer

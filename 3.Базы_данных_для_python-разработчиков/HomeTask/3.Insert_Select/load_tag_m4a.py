@@ -30,10 +30,11 @@ def meta_info_m4a(filename):
     name_track = tag.title # Трэк
     duration_track = duration_from_seconds(tag.duration) # Продолжительность трэка
     
-    metalist = {'name_artist':name_artist,
-                'name_genre':name_genre, 
+
+    metalist = {'name_artist':name_artist.replace("'", ""),
+                'name_genre':name_genre.replace("'", ""), 
                 'name_performer':f'{name_artist}, {name_performer}', 
-                'name_album':name_album,
+                'name_album':name_album.replace("'", ""),
                 'date_album':date_album, 
                 'name_track':name_track.replace("'", ""), 
                 'duration_track':duration_track
