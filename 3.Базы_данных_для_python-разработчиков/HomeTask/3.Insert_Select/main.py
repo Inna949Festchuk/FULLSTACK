@@ -14,12 +14,8 @@ if __name__ == '__main__':
         metadatas = meta_info_m4a(dir+'/'+file_el) # Чтение значений тегов из метаданных муз.файлов
         
         # Заполнение таблиц genre и performer
-        # insert_db_genre(metadatas.get('name_genre'))
-        # insert_db_performer(metadatas.get('name_performer'))
-        # # ----- 
-        
-        insert_db('genre', {'name_genre':metadatas.get('name_genre')})
-        insert_db('performer', {'name_performer':metadatas.get('name_performer')})
+        insert_db('performer', 'name_performer', metadatas.get('name_performer'))
+        insert_db('genre', 'name_genre', metadatas.get('name_genre'))
         
         # Ручная Насстройка связей M:N (жанры:исполнители)
         # insert_db_genreperformer([1, 2, 2], [1, 2, 3])
@@ -41,17 +37,7 @@ if __name__ == '__main__':
         print(genre_field, performer_field)
 
         # Заполнение таблицы album
-        # insert_db_album(metadatas.get('name_album'), metadatas.get('date_album'))
-        # -----
-        insert_db('album', {'name_album':metadatas.get('name_album'), 
-                            'date_album':metadatas.get('date_album')
-                            })
-    # delite_dubl_db()
-    # filelist2 = list(filter(lambda i: '.m4a' in i, os.listdir(dir)))
-    # print(filelist2)
-    # for file_el2 in filelist2:
-    #     print(file_el2)
-
+        insert_db_album(metadatas.get('name_album'), metadatas.get('date_album'))
 
         # Автоматизированное установление связей M:N (альбомы:исполнители)
         album_field = select_db_performeralbum('album_id', 

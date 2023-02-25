@@ -7,17 +7,16 @@
 import psycopg2
 
 # Insert
-def insert_db(table:str, field_value:dict):
+def insert_db(table, field, value):
     '''Функция обработки запроса для заполнения таблицы базы данных
     table - имя таблицы
-    field_value - словарь имя поля:значения поля
-    '''
+    field - имя поля
+    value - значения поля'''
     conn = psycopg2.connect(database='musicdb', user='postgres', password='Atoer949')
     with conn.cursor() as cursor:
             try:
-                for k, v in field_value.items():
-                    cursor.execute(f"INSERT INTO {table}({k}) VALUES('{v}');")
-                    conn.commit()
+                cursor.execute(f"INSERT INTO {table}({field}) VALUES('{value}');")
+                conn.commit()
             except psycopg2.IntegrityError:
                 print(f'Внимание! Найдено дублирующее значение.')
 
