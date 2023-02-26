@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-# =============================================================================
-"""Module insert data base."""
+"""Module insert data base"""
 # File Name: processing_request.py
-# =============================================================================
 
 import psycopg2
 # Для установки драйвера смени путь PATH=$PATH:/Applications/Postgres.app/Contents/Versions/12/bin/ pip install psycopg2
