@@ -9,6 +9,8 @@
 - [Работа с PostgreSQL из Python](./Lesson/05/)
 - [Python и БД. ORM](./Lesson/06/)
 
+## [Домашняя работа](./HomeTask/)
+
 ## Статьи c [Блога ЯндексПрактикума](https://practicum.yandex.ru/blog)
 - [Как устроен язык SQL и почему он так востребован](https://practicum.yandex.ru/blog/chto-takoe-sql/)
 - [Базовые вопросы: как SQL помогает анализировать данные для бизнеса](https://practicum.yandex.ru/blog/operatory-sql/)
