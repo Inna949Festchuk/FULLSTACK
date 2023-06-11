@@ -26,5 +26,5 @@
   {"model": "sale", "pk": 3, "fields": {"price": "10.50", "date_sale": "2018-10-25T09:52:22.194Z", "count": 9, "stock": 6}},
   {"model": "sale", "pk": 4, "fields": {"price": "16.00", "date_sale": "2018-10-25T10:59:56.230Z", "count": 5, "stock": 5}},
   {"model": "sale", "pk": 5, "fields": {"price": "16.00", "date_sale": "2018-10-25T10:59:56.230Z", "count": 5, "stock": 9}},
-  {"model": "sale", "pk": 6, "fields": {"price": "16.00", "date_sale": "2018-10-25T10:59:56.230Z", "count": 1, "stock": 4}},
+  {"model": "sale", "pk": 6, "fields": {"price": "16.00", "date_sale": "2018-10-25T10:59:56.230Z", "count": 1, "stock": 4}}
 ]
