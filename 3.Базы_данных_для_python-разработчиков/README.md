@@ -1,5 +1,14 @@
 # Базы данных
 ![](https://gbcdn.mrgcdn.ru/uploads/post/881/og_cover_image/92fe3500d2ba0153671fba31a445eed6)
+
+## Материалы курса
+- Введение в базы данных. Типы баз данных
+- [Работа с PostgreSQL. Создание БД](./Lesson/02/)
+- [Select-запросы, выборки из одной таблицы](./Lesson/03/)
+- [Продвинутая выборка данных](./Lesson/04/)
+- [Работа с PostgreSQL из Python](./Lesson/05/)
+- [Python и БД. ORM](./Lesson/06/)
+
 ## Статьи c [Блога ЯндексПрактикума](https://practicum.yandex.ru/blog)
 - [Как устроен язык SQL и почему он так востребован](https://practicum.yandex.ru/blog/chto-takoe-sql/)
 - [Базовые вопросы: как SQL помогает анализировать данные для бизнеса](https://practicum.yandex.ru/blog/operatory-sql/)
