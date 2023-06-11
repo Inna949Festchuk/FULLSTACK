@@ -16,4 +16,4 @@
 Результатом работы будет 3 файла (с INSERT, SELECT запросами и CREATE запросами из предыдущего задания) в формате .sql (или .py/.ipynb, если вы будете писать запросы с использованием SQLAlchemy).   
 В случае если INSERT- и CREATE-запросы остались без изменений, приложите файлы c ними из предыдущих домашних заданий.
 
-**Файл с INSERT, SELECT и CREATE запросами из предыдущего задания находятся в [этом репозитории](https://github.com/Inna949Festchuk/FULLSTACK/tree/4a7d9fb8a6c254b9133c3f2ef17d3baaec768be0/3.%D0%91%D0%B0%D0%B7%D1%8B_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85_%D0%B4%D0%BB%D1%8F_python-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%BE%D0%B2/HomeTask/3.Insert_Select)
+**Файл с INSERT, SELECT и CREATE запросами из предыдущего задания находятся в предыдущих репозиториях
