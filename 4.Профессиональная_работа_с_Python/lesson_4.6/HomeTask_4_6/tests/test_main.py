@@ -48,8 +48,8 @@ class TestUnittestCase(unittest.TestCase):
     Тест unittest test_main.py тестирует возвращаемые результаты функций из задач №№_1-4.
     Тест запускается под конкретную задачу, для этого ее название нужно ввести после начала тестирования
     по команде в cmd:
-    python -m unittest tests/test_yandex_disk.py -v для MacOS
-    py -m unittest tests/test_yandex_disk.py -v для Windows
+    python -m unittest tests/test_main.py -v для MacOS
+    py -m unittest tests/test_main.py -v для Windows
     где -v - расширенная информация о результатах теста
     '''
     
