@@ -26,5 +26,9 @@
 - [Psycopg 2.9.5 documentation](https://www.psycopg.org/docs/index.html)
 
 ## Миграции БД. YandexCloud
+- [Пишем и тестируем миграции БД с Alembic. Доклад Яндекса](https://habr.com/ru/companies/yandex/articles/511892/)
+- [Создаем начальную миграцию с alembic для существующей базы](https://habr.com/ru/articles/585228/)
+- [FastAPI - Базы данных и миграции Alembic](https://youtu.be/hO7b4yh-Qfs)
+
 - [Статья. Миграция базы данных из стороннего кластера PostgreSQL в Managed Service for PostgreSQL](https://cloud.yandex.ru/docs/managed-postgresql/tutorials/outbound-replication)
 - [Инструкции. Миграция базы данных из стороннего кластера PostgreSQL в Managed Service for PostgreSQL](https://cloud.yandex.ru/docs/managed-postgresql/quickstart)
