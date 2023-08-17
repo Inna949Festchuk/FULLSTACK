@@ -33,4 +33,4 @@ https://disk.yandex.ru/d/rd41KpLQuIDtrg (разные книги по Django)
 
 [Курс по django](https://proglib.io/p/kurs-django-chast-1-django-chto-eto-obzor-i-ustanovka-freymvorka-struktura-proekta-2023-07-25)
 
-### [Домашняя работа](./1.1-first-project)
+### [Домашняя работа](../dj-homeworks/1.1-first-project/)
