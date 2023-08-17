@@ -30,7 +30,7 @@ def time_view(request):
     # возвращается просто текст
     current_data = datetime.date.isoformat(datetime.date.today())
     current_time = time.strftime('%A %I:%M:%S %p')
-    msg = f'Teкущая дата: {current_data}/n Текущее время: {current_time}'
+    msg = f'Teкущая дата и время: {current_data} {current_time}'
     return HttpResponse(msg)
 
 
