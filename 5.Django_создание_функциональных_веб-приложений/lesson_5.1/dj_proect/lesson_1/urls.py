@@ -16,10 +16,38 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from demo.views import index, time
+from demo.views import (
+    index, 
+    time, 
+    hello_view, 
+    hello, sum, 
+    user_report, 
+    team_report,
+    DateConverter
+)
+
+# По итогу описания класса можно зарегистрировать его как конвертер. 
+# Для этого в функции register_converter надо указать описанный класс и название конвертера, 
+# чтобы использовать его в маршрутах.
+from django.urls import register_converter
+register_converter(DateConverter, 'date')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
-    path('time/', time)
+    path('time/', time),
+    path('helloview/', hello_view),
+    # - - - - - - - - - - - - -
+    # ПАРАМЕТРИЗАЦИЯ ЗАПРОСОВ
+    # - - - - - - - - - - - - -
+    path('hello/', hello),
+    # path('sum/<a>/<b>', sum)
+    # воспользуемся конвертером
+    path('sum/<int:a>/<int:b>', sum),
+    # - - - - - - - - - - - - -
+    # КОНВЕРТОРЫ МАРШРУТОВ
+    # - - - - - - - - - - - - -
+    path('users/<int:id>/reports/<date:dt>/', user_report, name='user_report'),
+    path('teams/<int:id>/reports/<date:dt>/', team_report, name='team_report'),
 ]
