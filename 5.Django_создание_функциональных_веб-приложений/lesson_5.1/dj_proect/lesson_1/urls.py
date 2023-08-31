@@ -20,7 +20,8 @@ from demo.views import (
     index, 
     time, 
     hello_view, 
-    hello, sum, 
+    hello, 
+    sum, 
     user_report, 
     team_report,
     DateConverter

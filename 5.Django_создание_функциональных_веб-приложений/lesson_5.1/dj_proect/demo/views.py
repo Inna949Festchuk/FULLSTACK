@@ -53,9 +53,9 @@ class DateConverter:
 def user_report(request, id: int, dt):
    # больше никакой валидации в обработчиках
    # сразу правильные типы и никак иначе
-   return id
+   return f'Отчет пользователя {id} от {dt}'
 
 def team_report(request, id: int, dt):
    # больше никакой валидации в обработчиках
    # сразу правильные типы и никак иначе
-   return id
+   return f'Отчет команды {id} от {dt}'
