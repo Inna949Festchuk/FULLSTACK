@@ -19,7 +19,7 @@ from django.urls import path
 from demo.views import (
     index, 
     time, 
-    hello_view, 
+    hello_view,
     hello, 
     sum, 
     user_report, 
@@ -49,6 +49,8 @@ urlpatterns = [
     # - - - - - - - - - - - - -
     # КОНВЕРТОРЫ МАРШРУТОВ
     # - - - - - - - - - - - - -
+    # Статья по теме
+    # https://habr.com/ru/companies/yandex_praktikum/articles/541068/
     path('users/<int:id>/reports/<date:dt>/', user_report, name='user_report'),
     path('teams/<int:id>/reports/<date:dt>/', team_report, name='team_report'),
 ]

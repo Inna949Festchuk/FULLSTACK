@@ -33,29 +33,34 @@ def hello(request):
 # (в веб-браузере ввести sum/2/5)
 def sum(request, a, b):
     # result = int(a) + int(b)
-    # или если воспользоваться конвертером см. в url.py то можно так
+    # или если воспользоваться конвертером 
+    # см. в url.py то можно так
     result = a + b
     return HttpResponse(f'{a} + {b} = {result}')
 
 # - - - - - - - - - - - - -
 # КОНВЕРТОРЫ МАРШРУТОВ
 # - - - - - - - - - - - - -
-class DateConverter:
-   regex = r'[0-9]{4}-[0-9]{2}-[0-9]{2}'
-   format = '%Y-%m-%d'
-
-   def to_python(self, value: str) -> datetime:
-      return datetime.strptime(value, self.format)
-
-   def to_url(self, value: datetime) -> str:
-       return value.strftime(self.format)
+# Статья по теме
+# https://habr.com/ru/companies/yandex_praktikum/articles/541068/
+class DateConverter: # Класс для конвертации
+    regex = r'[0-9]{4}-[0-9]{2}-[0-9]{2}'
+    format = '%Y-%m-%d'
+    # Конвертируем из строки в объект Python
+    def to_python(self, value: str) -> datetime:
+        return datetime.strptime(value, self.format)
+    # Конвертируем из объекта Python в строку
+    def to_url(self, value: datetime) -> str:
+        return value.strftime(self.format)
 
 def user_report(request, id: int, dt):
    # больше никакой валидации в обработчиках
    # сразу правильные типы и никак иначе
-   return f'Отчет пользователя {id} от {dt}'
+   return HttpResponse(f'{id}, {dt}')
 
 def team_report(request, id: int, dt):
-   # больше никакой валидации в обработчиках
-   # сразу правильные типы и никак иначе
-   return f'Отчет команды {id} от {dt}'
+   return HttpResponse(f'{id}, {dt}')
+
+# Валидация — это процесс проверки данных различных типов 
+# по критериям корректности и полезности для 
+# конкретного применения.
