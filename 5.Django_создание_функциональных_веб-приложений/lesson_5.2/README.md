@@ -88,5 +88,7 @@ def user_report(request, id: int, dt: datetime):
 
 - [Курс по django](https://proglib.io/p/kurs-django-chast-1-django-chto-eto-obzor-i-ustanovka-freymvorka-struktura-proekta-2023-07-25)
 
+- [ОЧЕНЬ КРУТОЙ курс по django на YouTube](https://www.youtube.com/playlist?list=PLA0M1Bcd0w8yU5h2vwZ4LO7h1xt8COUXl)
+
 ### [Домашняя работа](../dj-homeworks/1.1-first-project/)
 
