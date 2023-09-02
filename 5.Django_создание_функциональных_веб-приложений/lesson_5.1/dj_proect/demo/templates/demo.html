@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p style="color: blue; font-size: 20px">
+Hello from django
+<!-- Передача параметров в шаблон при помощи контекста -->
+</p>
+<h3>
+{{ test }}
+</h3>
+<ul>
+    {% for x in data_list %}
+    {% if x > 5 %}
+    <li>{{ x }}</li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{{ val.upper }}
+</body>
+</html>

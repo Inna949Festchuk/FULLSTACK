@@ -21,12 +21,13 @@ def hello_view(request):
 # - - - - - - - - - - - - -
 # ПАРАМЕТРИЗАЦИЯ ЗАПРОСОВ
 # - - - - - - - - - - - - -
-# с помощью GET-параметров в запросе
-# (в веб-браузере ввести hello/?name=Sacha&age=22)
+# с помощью GET-параметров в запросе 
+# (в веб-браузере ввести hello/?name=Sacha&age=22, что представляется словарем
+# {name:Sacha, age=22})
 def hello(request):
     name = request.GET.get('name')
     age = int(request.GET.get('age', 20))
-    print(age)
+    print(age) # Тестим принтом
     return HttpResponse(f'Hello its django. Hello its {name} my {age}')
 
 # с помощью URL
@@ -43,16 +44,18 @@ def sum(request, a, b):
 # - - - - - - - - - - - - -
 # Статья по теме
 # https://habr.com/ru/companies/yandex_praktikum/articles/541068/
+# (в браузере ввести http://127.0.0.1:8000/users/8/reports/2023-year08-mon30-day/)
 class DateConverter: # Класс для конвертации
-    regex = r'[0-9]{4}-[0-9]{2}-[0-9]{2}'
-    format = '%Y-%m-%d'
-    # Конвертируем из строки в объект Python
+    regex = r'[0-9]{4}-year[0-9]{2}-mon[0-9]{2}-day' # Выбираем из urlпо этому шаблону
+    format = '%Y-year%m-mon%d-day' #Задаем формат даты 
+    # Конвертируем из выбранного в соответствии с регулчркой фрагента
+    # url-строки в объект Python
     def to_python(self, value: str) -> datetime:
         return datetime.strptime(value, self.format)
     # Конвертируем из объекта Python в строку
     def to_url(self, value: datetime) -> str:
         return value.strftime(self.format)
-
+# Возвращаем строку со сконвертированным значением dt
 def user_report(request, id: int, dt):
    # больше никакой валидации в обработчиках
    # сразу правильные типы и никак иначе
@@ -64,3 +67,16 @@ def team_report(request, id: int, dt):
 # Валидация — это процесс проверки данных различных типов 
 # по критериям корректности и полезности для 
 # конкретного применения.
+
+
+# - - - - - - - - - - - - -
+# ШАБЛОНЫ
+# - - - - - - - - - - - - -
+def hello_html(request):
+    # Передача параметров в шаблон при помощи контекста
+    context = {
+        'test': 5,
+        'data_list': [1, 5, 8],
+        'val': 'hello',
+    }
+    return render(request, 'demo.html', context) # 'demo.html' - это путь к html-шаблону

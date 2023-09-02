@@ -24,7 +24,8 @@ from demo.views import (
     sum, 
     user_report, 
     team_report,
-    DateConverter
+    DateConverter,
+    hello_html,
 )
 
 # По итогу описания класса можно зарегистрировать его как конвертер. 
@@ -53,4 +54,8 @@ urlpatterns = [
     # https://habr.com/ru/companies/yandex_praktikum/articles/541068/
     path('users/<int:id>/reports/<date:dt>/', user_report, name='user_report'),
     path('teams/<int:id>/reports/<date:dt>/', team_report, name='team_report'),
+    # - - - - - - - - - - - - -
+    # ШАБЛОНЫ
+    # - - - - - - - - - - - - -
+    path('hellohtml/', hello_html, name='hello_html'),
 ]
