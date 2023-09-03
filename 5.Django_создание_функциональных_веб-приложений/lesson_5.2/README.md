@@ -90,5 +90,7 @@ def user_report(request, id: int, dt: datetime):
 
 - [ОЧЕНЬ КРУТОЙ курс по django на YouTube](https://www.youtube.com/playlist?list=PLA0M1Bcd0w8yU5h2vwZ4LO7h1xt8COUXl)
 
+### [Мой код по материалам занятий](../lesson_5.1/dj-project/)
+
 ### [Домашняя работа](../dj-homeworks/1.1-first-project/)
 
