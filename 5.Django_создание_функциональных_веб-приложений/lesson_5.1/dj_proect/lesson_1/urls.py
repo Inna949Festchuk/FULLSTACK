@@ -26,13 +26,14 @@ from demo.views import (
     team_report,
     DateConverter,
     hello_html,
+    pagi
 )
 
 # По итогу описания класса можно зарегистрировать его как конвертер. 
 # Для этого в функции register_converter надо указать описанный класс и название конвертера, 
 # чтобы использовать его в маршрутах.
 from django.urls import register_converter
-register_converter(DateConverter, 'date')
+register_converter(DateConverter, 'date') # date - это название нового регистрированного конвертора
 
 
 urlpatterns = [
@@ -58,4 +59,8 @@ urlpatterns = [
     # ШАБЛОНЫ
     # - - - - - - - - - - - - -
     path('hellohtml/', hello_html, name='hello_html'),
+    # - - - - - - - - - - - - -
+    # ПАГИНАЦИЯ
+    # - - - - - - - - - - - - -
+    path('pagi/', pagi),
 ]

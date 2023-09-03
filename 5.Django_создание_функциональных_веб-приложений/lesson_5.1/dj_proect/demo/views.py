@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.core.paginator import Paginator
 
 # именно так надо импортировать настройки из модуля settings.py
 from django.conf import settings
@@ -44,6 +45,8 @@ def sum(request, a, b):
 # - - - - - - - - - - - - -
 # Статья по теме
 # https://habr.com/ru/companies/yandex_praktikum/articles/541068/
+# Конвертор лучше вынести в отдельный модуль converters.py
+# Смотри видео https://www.youtube.com/watch?v=jjsVHbTBHFw
 # (в браузере ввести http://127.0.0.1:8000/users/8/reports/2023-year08-mon30-day/)
 class DateConverter: # Класс для конвертации
     regex = r'[0-9]{4}-year[0-9]{2}-mon[0-9]{2}-day' # Выбираем из urlпо этому шаблону
@@ -55,6 +58,7 @@ class DateConverter: # Класс для конвертации
     # Конвертируем из объекта Python в строку
     def to_url(self, value: datetime) -> str:
         return value.strftime(self.format)
+
 # Возвращаем строку со сконвертированным значением dt
 def user_report(request, id: int, dt):
    # больше никакой валидации в обработчиках
@@ -80,3 +84,25 @@ def hello_html(request):
         'val': 'hello',
     }
     return render(request, 'demo.html', context) # 'demo.html' - это путь к html-шаблону
+
+# - - - - - - - - - - - - -
+# ПАГИНАЦИЯ
+# - - - - - - - - - - - - -
+# Создадим обработчик, который будет выдавать контент постранично (порциями)
+CONTENT = [str(i) for i in range(10000)] # создаем контент, который нужно пагигнировать
+def pagi(request):
+    # Чтобы предоставить пользователю возможность самому
+    # выбирать нужную страницу делай так
+    page_number = int(request.GET.get("page", 1))
+    # в браузере тогда набирай http://127.0.0.1:8000/pagi/?page=89
+    paginator = Paginator(CONTENT, 10)
+    # 10 - это число элементов на одной странице
+    # Организуем переход на страницу 5
+    # page = paginator.get_page(5)
+    page = paginator.get_page(page_number)
+    # Передаем переменную page в контекст для доступа к ней из шаблона
+    context = {
+        'page': page
+    }
+    return render(request, 'pagi.html', context)
+
