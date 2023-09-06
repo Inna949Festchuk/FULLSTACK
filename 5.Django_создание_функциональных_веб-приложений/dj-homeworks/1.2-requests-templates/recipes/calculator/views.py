@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 DATA = {
@@ -28,3 +29,35 @@ DATA = {
 #     'ингредиент2': количество2,
 #   }
 # }
+
+
+def index(request):
+    # context = {'dat': (', ').join(list(DATA.keys()))}
+    context = {list(DATA.keys())[0]: 'omlet',
+               'pasta': 'pasta', 
+               'buter': 'buter'}
+    return render (request, 'calculator/link.html', context)
+
+# ВАРИАНТ_№1 для url
+# http://127.0.0.1:8000/omlet/?servings=4
+
+def prepare(request, recipe):
+    servings = request.GET.get('servings', 1)
+    context = {
+        'dish':recipe,
+        'servings':servings,
+        'recipe':{
+            k:v*int(servings) for k, v in DATA.get(recipe, {}).items()
+        }
+    }
+    return render (request, 'calculator/index.html', context)
+
+# ВАРИАНТ_№2 для url
+# http://127.0.0.1:8000/prepare/?recipe=omlet&servings=4
+
+# def prepare(request):
+#     recipe = request.GET.get('recipe')
+#     servings = request.GET.get('servings', 1)
+#     context = {'recipe':{k:v*int(servings) for k, v in DATA.get(recipe, {}).items()}}
+#     # return render (request, 'calculator/index.html', context)
+#     return HttpResponse(f'Это ваши рецепты {context}')

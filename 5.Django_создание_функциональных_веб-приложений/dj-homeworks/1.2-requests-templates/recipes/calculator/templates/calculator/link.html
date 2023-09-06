@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепты</title>
+</head>
+<body>
+    <h2 style="color: rgb(204, 54, 54); font-size: 16px;">
+        Это Ваши рецепты:  
+    </h2>
+    <a href = "{%  url 'recipes' recipe=omlet %}">
+    <li>{{ 'omlet' }}</li>
+    </a>
+    <a href = "{%  url 'recipes' recipe=pasta %}">
+    <li>{{ 'pasta' }}</li>
+    </a>
+    <a href = "{%  url 'recipes' recipe=buter %}">
+    <li>{{ 'buter' }}</li>
+    </a>
+</body>
+</html>
