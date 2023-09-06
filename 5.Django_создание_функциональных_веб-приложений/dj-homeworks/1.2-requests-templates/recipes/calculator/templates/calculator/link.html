@@ -11,9 +11,9 @@
     </h2>
 
     <!-- На основе списка ингридиентов делаем ссылки на блюда -->
-    {% for dich in data_list %}
-    <a href = "{%  url 'recipes' recipe=dich %}">
-    <li>{{ dich }}</li>
+    {% for data_dish in data_list %}
+    <a href = "{%  url 'recipes' recipe=data_dish %}">
+    <li>{{ data_dish }}</li>
     </a>
     {% endfor %}
     
