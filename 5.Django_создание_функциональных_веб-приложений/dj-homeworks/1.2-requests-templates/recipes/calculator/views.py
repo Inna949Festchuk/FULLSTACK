@@ -32,10 +32,8 @@ DATA = {
 
 
 def index(request):
-    # context = {'dat': (', ').join(list(DATA.keys()))}
-    context = {list(DATA.keys())[0]: 'omlet',
-               'pasta': 'pasta', 
-               'buter': 'buter'}
+    # Создадим лист ингридиентов для передачи его элементов в шаблон link.html
+    context = {'data_list': list(DATA.keys())}
     return render (request, 'calculator/link.html', context)
 
 # ВАРИАНТ_№1 для url

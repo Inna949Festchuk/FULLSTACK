@@ -5,17 +5,17 @@
     <title>Рецепты</title>
 </head>
 <body>
+    
     <h2 style="color: rgb(204, 54, 54); font-size: 16px;">
         Это Ваши рецепты:  
     </h2>
-    <a href = "{%  url 'recipes' recipe=omlet %}">
-    <li>{{ 'omlet' }}</li>
+
+    <!-- На основе списка ингридиентов делаем ссылки на блюда -->
+    {% for dich in data_list %}
+    <a href = "{%  url 'recipes' recipe=dich %}">
+    <li>{{ dich }}</li>
     </a>
-    <a href = "{%  url 'recipes' recipe=pasta %}">
-    <li>{{ 'pasta' }}</li>
-    </a>
-    <a href = "{%  url 'recipes' recipe=buter %}">
-    <li>{{ 'buter' }}</li>
-    </a>
+    {% endfor %}
+    
 </body>
 </html>
