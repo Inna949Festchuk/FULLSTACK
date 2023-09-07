@@ -93,5 +93,5 @@ def user_report(request, id: int, dt: datetime):
 
 ### [Мой код по материалам занятий](../lesson_5.1/dj_proect/)
 
-### [Домашняя работа](../dj-homeworks/1.1-first-project/)
+### [Домашняя работа](../dj-homeworks/1.2-requests-templates/)
 
