@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'demo', # НАШЕ НОВОЕ ПРИЛОЖЕНИЕ
+    'demo', # НАШЕ НОВОЕ ПРИЛОЖЕНИЕ регистрируем здесь
 ]
 
 MIDDLEWARE = [
@@ -77,8 +77,10 @@ WSGI_APPLICATION = 'lesson_1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'demoorm',
+        'USER': 'postgres',
+        'PASSWORD': ':)',
     }
 }
 
