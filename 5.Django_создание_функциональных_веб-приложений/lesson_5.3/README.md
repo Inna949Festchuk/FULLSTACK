@@ -67,7 +67,7 @@ SELECT person.name, car.brand, car.name
 
 Например, можно реализовать магический метод str, чтобы получить желаемое отображение объекта при выводе на экран:
 
-```SQL
+```Python
 class Car(models.Model):
     …
 

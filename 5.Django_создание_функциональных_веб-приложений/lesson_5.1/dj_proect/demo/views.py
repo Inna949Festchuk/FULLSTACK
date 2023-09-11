@@ -1,4 +1,5 @@
 from datetime import datetime
+from demo.models import Car
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.core.paginator import Paginator
@@ -106,3 +107,13 @@ def pagi(request):
     }
     return render(request, 'pagi.html', context)
 
+# ---------------------------------------------------------------
+# ORM
+# ---------------------------------------------------------------
+# Создаеем обработчик для создания новой записи в таблице Car
+def create_car(request):
+    # Новая запись в таблице - это экземпляр модели Car
+    сar = Car(brand='demo', model='demo', color='demo')
+    сar.save() # сохраняем запись в БД
+    return HttpResponse(f'Новая машина: {сar.brand}, {сar.model}')
+    
