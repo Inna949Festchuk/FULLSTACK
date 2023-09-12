@@ -1,5 +1,6 @@
 from datetime import datetime
-from demo.models import Car
+import random
+from demo.models import Car, Person
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.core.paginator import Paginator
@@ -110,10 +111,58 @@ def pagi(request):
 # ---------------------------------------------------------------
 # ORM
 # ---------------------------------------------------------------
-# Создаеем обработчик для создания новой записи в таблице Car
+# # Создаеем обработчик для создания новой записи в таблице Car
+# def create_car(request):
+#     # Новая запись в таблице - это экземпляр модели Car
+#     сar = Car(brand='demo', model='demo', color='demo')
+#     сar.save() # сохраняем запись в БД
+#     return HttpResponse(f'Новая машина: {сar.brand}, {сar.model}')
+# 
+# Cоздание запросов
 def create_car(request):
     # Новая запись в таблице - это экземпляр модели Car
-    сar = Car(brand='demo', model='demo', color='demo')
+    сar = Car(
+        brand=random.choice(['B1', 'B2', 'B3']), 
+        model=random.choice(['M1', 'М2', 'M3']), 
+        color=random.choice(['C1', 'C2', 'C3']),
+    )
     сar.save() # сохраняем запись в БД
     return HttpResponse(f'Новая машина: {сar.brand}, {сar.model}')
-    
+
+# Создадим обработчик запросов к БД
+def list_car(request):
+    # Выборка всех объектов all()
+    car_objects = Car.objects.all() 
+    # Car - модель, objects - менеджер позволяющий управлять всеми объектами в БД,
+    # all() - метод выбирающий все строки из БД
+    # Выборка объектов по условию filter() 
+    # car_objects = Car.objects.filter(brand='B2') 
+    # МОДИФИКАТОРЫ
+    # Выборка объектов по условию filter() содержащих '2'
+    # car_objects = Car.objects.filter(brand__contains='2') 
+    # Модификатор __contains выбирает объекты СОДЕРЖАЩИЕ '2'
+    # car_objects = Car.objects.filter(brand__startswith='2') 
+    # Модификатор __startswith говорит что выборка должна НАЧИНАТЬСЯ с '2'
+    cars = [f'{c.id}. {c.brand}, {c.model}: {c.color} | {c.owners.count()}' for c in car_objects]
+    # c.owners.count() - count() количество владельцев этим авто, можно применять filter()
+    return HttpResponse('<br>'.join(cars)) 
+    # тег <br> это перенос в списке на новую строку
+
+# Создадим обработчик для модели Person владельцы авто
+def create_person(request):
+    # Выбираем из БД все авто и создаем для каждой из них владельца
+    cars = Car.objects.all()
+    for car in cars:
+        print(car)
+        # Первый вариант
+        # Person(name='P', car=car).save()
+        # name и car - это поля в таблице
+        # Второй вариант
+        Person.objects.create(name='P', car=car)
+    return HttpResponse('Люди добавлены')
+
+def list_person(request):
+    person_objects = Person.objects.all()
+    people = [f'{p.name}: {p.car}' for p in person_objects]
+    return HttpResponse('<br>'.join(people))
+

@@ -27,7 +27,10 @@ from demo.views import (
     DateConverter,
     hello_html,
     pagi,
-    create_car
+    create_car,
+    list_car,
+    create_person,
+    list_person,
 )
 
 # По итогу описания класса можно зарегистрировать его как конвертер. 
@@ -67,5 +70,10 @@ urlpatterns = [
     # ---------------------------------------------------------------
     # ORM
     # ---------------------------------------------------------------
-    path('new_car/', create_car)
+    path('new_car/', create_car),
+    # Обработчик запросов к БД
+    path('cars/', list_car),
+    path('new_person/', create_person),
+    path('people/', list_person),
+
 ]
