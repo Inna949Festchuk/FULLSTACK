@@ -16,10 +16,10 @@ class Car(models.Model):
 
 class Person(models.Model):
     name = models.CharField(max_length=50)
-    # Свяжем модель с моделью Car по полю car(FK)
+    # Свяжем модель с моделью Car по полю car(FK), тип связи 1:M
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='owners')
     # где Car-модель; 
     # on_delete=models.CASCADE стандартное поведение записи о человеке 
     # при удалении машины из БД (каскадное удаление)
-    # related_name='owners' связь 1:М (т.н. обратное слово)
-    # т.е. показывает сколько владельцев у данного авто
+    # related_name='owners' - т.н. обратное слово, связи 1:М 
+    # говорит кто из персон является владельцем того или иного авто
