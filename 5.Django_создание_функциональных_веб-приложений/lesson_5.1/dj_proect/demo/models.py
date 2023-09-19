@@ -13,7 +13,6 @@ class Car(models.Model):
     def __str__(self):
         return f'{self.brand}, {self.model}: {self.color}'
 
-
 class Person(models.Model):
     name = models.CharField(max_length=50)
     # Свяжем модель с моделью Car по полю car(FK), тип связи 1:M
