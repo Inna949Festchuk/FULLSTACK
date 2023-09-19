@@ -92,4 +92,15 @@ class Car(models.Model):
 ### [Мой код по материалам занятий](../lesson_5.1/dj_proect/)
 
 ### [Домашняя работа](../dj-homeworks/2.1-databases/)
+#### Дополнительные материалы по домашке:
+#### Пункт задания: Значение поля `slug` должно устанавливаться слагифицированным значением поля `name`:
 
+- [Slug поле - помогите разобраться?](https://ru.stackoverflow.com/questions/1392051/slug-%D0%BF%D0%BE%D0%BB%D0%B5-%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8%D1%82%D0%B5-%D1%80%D0%B0%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C%D1%81%D1%8F)
+
+- [SlugField – Django Models (синтаксис)](https://www.geeksforgeeks.org/slugfield-django-models/#field-options)
+
+- [Добавляем слаги (slug) к URL-адресам](https://proproprogs.ru/django/dobavlyaem-slagi-slug-k-url-adresam)
+
+#### Пункт задания: Написать скрипт для переноса данных из csv-файла в модель `Phone`:
+
+- [Создание management commands в Django](https://habr.com/ru/articles/415049/)
