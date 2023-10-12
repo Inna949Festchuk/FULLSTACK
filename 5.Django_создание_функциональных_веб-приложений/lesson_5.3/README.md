@@ -101,6 +101,8 @@ class Car(models.Model):
 
 - [Добавляем слаги (slug) к URL-адресам](https://proproprogs.ru/django/dobavlyaem-slagi-slug-k-url-adresam)
 
+- [Автоматическое формирование slug, обработка кириллицы в Django](https://proghunter.ru/articles/django-base-2023-automatic-slug-generation-cyrillic-handling-in-django-9)
+
 #### Пункт задания: Написать скрипт для переноса данных из csv-файла в модель `Phone`:
 
 - [Создание management commands в Django](https://habr.com/ru/articles/415049/)
