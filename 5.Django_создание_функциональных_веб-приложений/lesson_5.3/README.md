@@ -76,6 +76,7 @@ class Car(models.Model):
 ```
 
 - **Запросы к БД**
+[Все виды запросов здесь](https://docs.djangoproject.com/en/3.2/ref/models/querysets/#field-lookups)
 - **Создание БД проекта. Управление БД из админки Django**
 - **Обратная связь по видео**
 - **Презентация к видео "Работа с ORM"**
