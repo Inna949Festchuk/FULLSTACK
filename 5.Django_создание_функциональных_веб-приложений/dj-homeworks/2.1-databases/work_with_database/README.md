@@ -60,7 +60,7 @@ python manage.py migrate
 - Команда для загрузки данных из csv в БД
 
 ```bash
-python manage.py import_phones
+python manage.py import_phones --create
 ```
 
 - Команда для запуска приложения
