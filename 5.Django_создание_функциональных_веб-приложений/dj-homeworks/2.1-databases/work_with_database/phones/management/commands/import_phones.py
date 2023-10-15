@@ -35,6 +35,7 @@ class Command(BaseCommand):
 
         else:
             print('Для наполнения базы данных введите python manage.py import_phones -c')
+
 # {'id': '1', 
 #  'name': 'Samsung Galaxy Edge 2', 
 #  'image': 'https://avatars.mds.yandex.net/get-mpic/364668/img_id5636027222104023144.jpeg/orig', 

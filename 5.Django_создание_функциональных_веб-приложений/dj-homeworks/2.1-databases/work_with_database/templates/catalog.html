@@ -18,6 +18,8 @@
     </div>
 
     <div class="content">
+      
+      {% include "pagination.html" with page=phones %}
       {% for phone in phones %}
         <div class="phone">
           <a href="{% url 'phone' phone.slug %}">
@@ -26,7 +28,7 @@
           <div class="price">Стоимость: {{ phone.price }} ₽</div>
           <img height="400" src="{{ phone.image }}" alt="{{ phone.name }}"/>
         </div>
-      {% endfor %}
+      {% endfor %}      
     </div>
   </div>
 {% endblock %}
