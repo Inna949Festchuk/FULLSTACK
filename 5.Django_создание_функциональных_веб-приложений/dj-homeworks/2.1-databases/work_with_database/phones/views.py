@@ -21,6 +21,7 @@ def show_catalog(request):
         phones = phones.order_by('-price')
     
     # Постраничная разбивка с 2 постами на страницу 
+    # (!работает некоректно, нужно дорабатывать! но это за рамками задания)
     paginator = Paginator(phones, 2)
     page_number = request.GET.get('page', 1)
     phones = paginator.page(page_number)

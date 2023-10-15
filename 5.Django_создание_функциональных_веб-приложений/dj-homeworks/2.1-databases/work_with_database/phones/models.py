@@ -3,6 +3,7 @@ from django.db import models
 class Phone(models.Model):
     # TODO: Добавьте требуемые поля
     name = models.CharField(max_length=255, verbose_name='Марка')
+    # verbose_name - имя поля в админке
     image = models.URLField(verbose_name='Внешний вид')
     price = models.IntegerField(verbose_name='Цена')
     release_date = models.DateField(auto_now_add=True, verbose_name='Дата изготовления')
