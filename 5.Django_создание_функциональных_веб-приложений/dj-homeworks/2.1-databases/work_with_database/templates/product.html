@@ -3,12 +3,14 @@
 {% load static %}
 
 {% block title %}{{ phone.name }}{% endblock %}
+<!-- phone - это экземпляр модели Phone, имеющий атрибуты(поля),например name, задаваемые в models.py -->
 
 {% block content %}
   <div class="container">
   <div class="header">
     <h5>
       <a href="{% url 'catalog' %}">Вернуться в каталог</a>
+      <!-- catalog - это имя пути каталога телефонов задаваемое в url -->
     </h5>
     <h1>{{ phone.name }}</h1>
   </div>

@@ -8,7 +8,7 @@ def index(request):
 
 
 def show_catalog(request):
-    phones = Phone.objects.all()
+    phones = Phone.objects.all() # Создаем экземпляры модели Phone
     template = 'catalog.html'
 
     # сортировка
@@ -33,8 +33,9 @@ def show_catalog(request):
 
 def show_product(request, slug):
     template = 'product.html'
-    phone = Phone.objects.get(slug=slug)
+    phone = Phone.objects.get(slug=slug) # Создаем экземпляр модели Phone в соответствии с переданным в url аргументом slug
     context = {'phone':phone}
+    # отправляем контекст в шаблон product.html
     return render(request, template, context)
 
 
