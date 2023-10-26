@@ -15,4 +15,4 @@
 
 ### [Мой код по материалам занятий](../lesson_5.1/dj_proect/)
 
-### [Домашняя работа](../dj-homeworks/2.1-databases-2/)
+### [Домашняя работа](../dj-homeworks/2.2-databases-2/)
