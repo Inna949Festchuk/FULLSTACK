@@ -22,3 +22,23 @@ class Person(models.Model):
     # при удалении машины из БД (каскадное удаление)
     # related_name='owners' - т.н. обратное слово, связи 1:М 
     # говорит кто из персон является владельцем того или иного авто
+
+# ---------------------------------------------------------------
+# ORM M:M
+# ---------------------------------------------------------------
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.IntegerField()
+    category = models.CharField(max_length=50)
+
+# Создаем сязь M:M
+class Order(models.Model):
+    produsts = models.ManyToManyField(Product, related_name='orders') # orders позволит из продукта достучаться до заказа
+
+# Создаем промежуточную модель
+class OrderPositions(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='positions') # positions позволит из продукта достучаться до его позиции
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='positions') # positions позволит из закаа достучаться до его позиции
+    # позволит указать сколько единиц товара в этом заказе
+    quantity = models.IntegerField()

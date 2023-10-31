@@ -1,18 +1,89 @@
 {% extends "blog/base.html" %}
+{% load blog_tags %}
 
-{% block title %}My Blog{% endblock %}
+{% block title %}Мой блог{% endblock %}
 
 {% block content %}
-  <h1>My Blog</h1>
-  {% for post in posts %}
-    <h2>
-      <a href="{% url 'blog:post_detail' post.id %}">
-        {{ post.title }}
-      </a>
-    </h2>
-    <p class="date">
-      Published {{ post.publish }} by {{ post.author }}
-    </p>
-    {{ post.body|truncatewords:30|linebreaks }}
-  {% endfor %}
-{% endblock %}
+
+    <h1>Мой блог</h1>
+    <!-- Тегирование -->
+    <!-- Если пользователь зайдет в блог, то он увидит список всех постов. Если он
+    будет фильтровать по постам, помеченным конкретным тегом, то увидит тег,
+    по которому он фильтрует. -->
+    {% if tag %}
+        <h2>Посты отфильтрованные по тегу "#{{ tag.name }}"</h2>
+        <p>
+            <a href="{% url "blog:post_list" %}">Сбросить фильтрацию по тегу "#{{ tag.name }}"</a>
+        </p>
+    {% endif %}
+    
+    {% for post in posts %}
+        <h2>
+            <a href="{{ post.get_absolute_url }}">
+                {{ post.title }}
+            </a>
+        </h2>
+        <!-- Теггирование -->
+        <!-- <p class="tags">Tags: {{ post.tags.all|join:", " }}</p> -->
+        <!-- Шаблонный фильтр join работает так же, как метод Python string.join(),
+        чтобы конкатенировать элементы с заданной строкой. 
+        Далее мы отредактируем представление post_list -->
+
+        <!-- Заменяем на  -->
+        <p class="tags"></p>
+           
+            <!-- Тегирование -->
+            Теги:
+            {% for tag in post.tags.all %}
+                <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                    #{{ tag.name }}
+                </a>
+                {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            <!-- В приведенном выше исходном коде прокручиваются в цикле все теги
+            поста, отображающие конкретно-прикладную ссылку на URL-адрес, чтобы
+            фильтровать посты по этому тегу. URL-адрес формируется с помощью
+            тега url "blog:post_list_by_tag" tag.slug, используя имя URL-адреса и тег
+            slug в качестве его параметра. Теги отделяются запятыми. -->
+
+        <p class="date">
+            Published {{ post.publish }} by {{ post.author }}
+        </p>
+        <!-- {{ post.body|truncatewords:30|linebreaks }} -->
+        {{ post.body|markdown|truncatewords_html:30 }}
+        <!-- В шаблонную переменную {{ post.body }} был добавлен новый фильтр
+        markdown. Этот фильтр преобразовывает контент в формате Markdown в фор-
+        мат HTML. Поэтому мы заменили приведенный выше фильтр truncatewords
+        фильтром truncatewords_html. Данный фильтр усекает строку после опреде-
+        ленного числа слов, избегая незакрытых HTML-тегов. -->
+    {% endfor %}
+    <!-- Размещаем шаблон для пагинации
+    include "pagination.html" with page=posts -->
+
+    <!-- # - - - - - - - - - - - - - - - - -
+    # Использование представления на основе класса
+    # для отображения списка постов (см. начало в urls.py приложения blog)
+    # Заменим на -->
+
+    <!-- include "pagination.html" with page=page_obj -->
+    
+    <!-- Встроенное в Django типовое представление ListView передает запрошенную
+    страницу в переменную с именем page_obj. В связи с этим необходимо соот-
+    ветствующим образом отредактировать шаблон post/list.html, заменив 
+    include "pagination.html" with page=posts на include "pagination.html" with page=page_obj -->
+    
+    <!-- При тегировании заменим строку выше на  -->
+    {% include "pagination.html" with page=posts %}
+    <!-- и добавим выше if tag ... -->
+
+    {% endblock %}
+
+<!-- Шаблонный тег include загружает данный шаблон и прорисовы-
+вает его с использованием текущего контекста шаблона. Ключевое слово
+with используется для того, чтобы передавать дополнительные контекстные
+переменные в шаблон. Для прорисовки в шаблоне постраничной разбивки
+используется переменная page, при этом объект Page, который мы передаем
+из представления в шаблон, называется posts. Мы используем выражение
+with page=posts, чтобы передавать переменную, ожидаемую шаблоном по-
+страничной разбивки. Описанному методу можно следовать для применения
+шаблона постраничной разбивки для любого типа объекта. -->
