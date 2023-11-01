@@ -77,5 +77,6 @@ urlpatterns = [
     # %}, чтобы вставлять его в два других шаблона.
     # Внутри каталога templates/blog/post/ создайте новый каталог includes/.
     # В этот каталог добавьте новый файл и назовите его comment_form.html.
+    path('search/', views.post_search, name='post_search'),
 ]
 

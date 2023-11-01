@@ -1,0 +1,40 @@
+{% extends "blog/base.html" %}
+{% load blog_tags %}
+{% block title %}Поиск{% endblock %}
+{% block content %}
+    {% if query %}
+        <h1>Посты, содержащие "{{ query }}"</h1>
+        <h3>
+            {% with results.count as total_results %}
+                Найдено {{ total_results }} result{{ total_results|pluralize }}
+            {% endwith %}
+        </h3>
+        {% for post in results %}
+            <h4>
+                <a href="{{ post.get_absolute_url }}">
+                    {{ post.title }}
+                </a>
+            </h4>
+            {{ post.body|markdown|truncatewords_html:12 }}
+        {% empty %}
+            <p>По Вашему запросу результатов не найдено.</p>
+        {% endfor %}
+        <p><a href="{% url "blog:post_search" %}"><input type="submit" value="Повторить поиск"></a></p>
+    {% else %}
+        <h1>Поиск по постам</h1>
+        <p>
+            <a href="{% url "blog:post_list" %}">Вернуться к списку постов</a>
+        </p>
+        <form method="get">
+            {{ form.as_p }}
+            <input type="submit" value="Начать поиск">
+        </form>
+    {% endif %}
+{% endblock %}
+
+<!-- Как и в представлении поиска, по наличию параметра query определяется,
+что форма была передана на обработку. Перед передачей запроса мы ото-
+бражаем форму и кнопку передачи формы. После передачи формы поиска
+на обработку отображается выполненный запрос, общее число результатов
+и список постов, совпадающих с поисковым запросом.
+Наконец, отредактируйте файл urls.py приложения blog -->

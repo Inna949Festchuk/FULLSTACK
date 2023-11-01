@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sites', # Добавление карты сайта. Ассоциация объекты с теми или иными 
     # вебсайтами, работающими вместе с вашим проектом. 
     'django.contrib.sitemaps', # Добавление карты сайта
+    'django.contrib.postgres', # Полнотекстовый поиск в PostgreSQL
 
 
 ]
@@ -86,12 +87,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 # Переключение базыданных на sqllite3
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Переключение базыданных на postgresql
 # ЭКСПОРТ ДАННЫХ ИЗ СТАРОЙ БД 
@@ -100,14 +101,14 @@ DATABASES = {
 # CREATE DATABASE blog OWNER blog ENCODING 'UTF8'; # Теперь давайте создадим базу данных blog и передадим права на владение этой базой данных только что созданному пользователю.
 # python manage.py dumpdata --indent=2 --output=mysite_data.json # Создание фикстуры
 # python -Xutf8 manage.py dumpdata --indent=2 --output=mysite_data.json # Создание фикстуры если возникает ошибка кодировки
-# DATABASES = {
-#         'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'blog',
-#         'USER': 'blog',
-#         'PASSWORD': ':)',
-#     }
-# }
+DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'blog',
+        'PASSWORD': ':)',
+    }
+}
 # ИМПОРТ ДАННЫХ В НОВУЮ БД 
 # Установить драйвер pip install psycopg2
 # python manage.py migrate
