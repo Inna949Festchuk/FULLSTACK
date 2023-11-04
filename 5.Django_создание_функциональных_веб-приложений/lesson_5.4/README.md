@@ -33,6 +33,55 @@ order_products = some_order.products.all()
 product_orders = some_product.orders.all()
 ```
 - **Django Debug Toolbar**
+
+Для удобного мониторинга и отладки проекта можно установить специальную библиотеку - **Django Debug Toolbar**.
+
+[Полное руководство по библиотеке](https://django-debug-toolbar.readthedocs.io/en/latest/index.html)
+
+Чтобы запустить Django Debug Toolbar необходимо выполнить несколько действий:
+установить библиотеку:
+`pip install django-debug-toolbar`
+
+Настроить переменную `INSTALLED_APPS` в `settings.py`: убедиться, что присутствует приложение `django.contrib.staticfiles` и добавить новое приложение `debug_toolbar` (обязательно добавить его после `django.contrib.staticfiles`):
+```Python
+INSTALLED_APPS = [
+    # ...
+    'django.contrib.staticfiles',
+    # ...
+    'debug_toolbar',
+]
+```
+Настроить переменную `STATIC_URL` в `settings.py`:
+`STATIC_URL = '/static/'`
+Убедиться, что в переменной `TEMPLATES` в `settings.py` параметр `APP_DIRS` установлен в значение `True`
+Добавить в переменную `MIDDLEWARE` в `settings.py` в самое начало:
+```Python
+MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # ...
+]
+```
+Добавить переменную `INTERNAL_IPS` в `settings.py`:
+```Python
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+```
+Добавить маршрут в самый конец `urlpatterns` в файле `urls.py`:
+```Python
+import debug_toolbar
+from django.conf import settings
+from django.urls import include, path
+
+urlpatterns = [
+    ...
+    path('__debug__/', include(debug_toolbar.urls)),
+]
+```
+После выполнения всех действий при ответе сервера в браузере справа будет доступен инструмент `Django Debug Toolbar`.
+
+[Пример настроенного проекта](https://github.com/jazzband/django-debug-toolbar/tree/main/example)
+
 - **Презентация к видео "Работа с ORM"**
 
 - **[Код к занятию (листинг)](../DJ_code/orm_advanced)**
