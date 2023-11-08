@@ -34,11 +34,24 @@ class Product(models.Model):
 
 # Создаем сязь M:M
 class Order(models.Model):
-    produsts = models.ManyToManyField(Product, related_name='orders') # orders позволит из продукта достучаться до заказа
+    # produsts = models.ManyToManyField(Product, related_name='orders') # orders позволит из продукта достучаться до заказа
+    pass
+    # Чтобы избежать дублирования информации в админке от этой связи теперь можно избавиться
+    # ее все равно заменяет модель ниже
+
+# # Many-to-many с помощью through
+# class Order(models.Model):
+#     products = models.ManyToManyField(Product, related_name='orders', through='OrderPosition')
+#     # Теперь можно получать продукты из заказа простым способом:
+#     # order_products = some_order.products.all()
+#     # Аналогично с заказами, в которых участвует продукт:
+#     # product_orders = some_product.orders.all()
 
 # Создаем промежуточную модель
 class OrderPositions(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='positions') # positions позволит из продукта достучаться до его позиции
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='positions') # positions позволит из закаа достучаться до его позиции
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='positions') # positions позволит из закаа достучаться до его позиции, 
+    # Т.о. позиция связывает продукт и заказ
     # позволит указать сколько единиц товара в этом заказе
     quantity = models.IntegerField()
+

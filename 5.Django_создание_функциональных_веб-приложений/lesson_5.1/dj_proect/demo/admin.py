@@ -2,10 +2,10 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Person, Car
+from .models import Person, Car, Product, Order, OrderPositions
 
 # Создаем админ класс для каждой модели 
-# и регистрируем его путем применения декоратора
+# и регистрируем его путем применения декоратора @admin.register()
 
 # в браузерен ввести /admin
 
@@ -18,7 +18,7 @@ class CarAdmin(admin.ModelAdmin):
         'model',
         'color',
     ]
-    pass
+    
     # для отображения выборки создаем лист-фильтр
     list_filter = [
         'brand',
@@ -31,4 +31,35 @@ class Person(admin.ModelAdmin):
         'id',
         'name',
         'car',
+    ]
+
+# Создаем инлайнмодель
+class OrderPositionInline(admin.TabularInline):
+    # указываем модель в которую будет встраиваться данный инлайн
+    model = OrderPositions
+    extra = 3 # Количиство строк встраиваемой таблички если 0 то новых строк не будет а
+    # в админке нужно будет нажать на + для их добавления
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = [
+        'id',
+        'name',
+        'price',
+        'category',
+    ]
+    list_filter = [
+        'category',
+    ]
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = [
+        'id',
+    ]
+    # Перечисляем используемые инлайны
+    # Инланы позволяют встраивать в текущее отображение админки 
+    # другое отображение
+    inlines = [
+        OrderPositionInline,
     ]

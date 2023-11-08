@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for order in orders %}
+<p>Заказ №{{ order.id }}</p>
+{% for position in order.positions.all %}
+<!-- order.positions.all это такойже менеджер как, например, Order.objects.all() -->
+<p>{{ position.product.name }}: {{ position.quantity }}</p>
+<!-- Выводим название продукта в закаазе и их количество -->
+{% endfor %}
+{% endfor %}
+</body>
+</html>

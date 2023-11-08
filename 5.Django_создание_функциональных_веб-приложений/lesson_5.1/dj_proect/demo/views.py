@@ -1,6 +1,6 @@
 from datetime import datetime
 import random
-from demo.models import Car, Person
+from demo.models import Car, Person, Order
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.core.paginator import Paginator
@@ -166,3 +166,15 @@ def list_person(request):
     people = [f'{p.name}: {p.car}' for p in person_objects]
     return HttpResponse('<br>'.join(people))
 
+# М:М (занятие 2) - - - - - - - - 
+# Создаем обработчик заказов и продуктов
+def list_orders(request):
+    # orders = Order.objects.all() # Получаем все заказы
+    # А если нужно достать продукты с ценой выше 600 рублей то заменяем на строку ниже -->
+    orders = Order.objects.filter(positions__product__price__gte=600)
+    # Используя модификаторы __ проваливаемся в соответствующие сущности
+    # например, у позиции есть продукт, а у продукта есть цена, мы не можем использовать знаки больше
+    # или меньше, для этого есть модификаторы __gte - это больше или равно __lte - меньше или равно
+    # __gt - строго больше, __lt - строго меньше
+    context = {'orders': orders}
+    return render(request, 'orders.html', context)

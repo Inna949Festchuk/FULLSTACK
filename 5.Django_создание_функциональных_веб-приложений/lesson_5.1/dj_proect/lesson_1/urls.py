@@ -31,6 +31,7 @@ from demo.views import (
     list_car,
     create_person,
     list_person,
+    list_orders,
 )
 
 # По итогу описания класса можно зарегистрировать его как конвертер. 
@@ -75,5 +76,10 @@ urlpatterns = [
     path('cars/', list_car),
     path('new_person/', create_person),
     path('people/', list_person),
+    # ---------------------------------------------------------------
+    # ORM 2
+    # ---------------------------------------------------------------
+    path('orders/', list_orders),
+
 
 ]
