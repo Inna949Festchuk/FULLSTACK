@@ -5,17 +5,32 @@
 {% block content %}
 <div class="row">
   <ul>
-  {% for student in object_list %}
-    <li>Student: {{ student.name }} {{ student.group }} 
-      <br>Teacher{{ student.teachers.all|pluralize }}:
-      {% for teacher in student.teachers.all %}
-        <br>- {{ teacher.name }}: {{ teacher.subject }}
+    {% for student in object_students %}
+      <li>Student: {{ student.name }} {{ student.group }} 
+        <br>Teacher:
+        {% for teacher in student.teachers.all %}
+          <br>- {{ teacher.name }}: {{ teacher.subject }}
         {% endfor %}
-    </li>
-  {% endfor %}
+      </li>
+    {% endfor %}
+    <br>
+    {% for teather, cnt in pairs %}
+      <li>
+        {{ teather.name }} обучает {{ cnt }} студента
+      </li>
+    {% endfor %}
   </ul>
 </div>
 {% endblock %}
 
+<!-- context = dict(pairs=zip(list_one, list_two))
+return render(request, 'some/under.html', context)
 
+{% for item_from_list_one, item_from_list_two in context.pairs %}
+<li>
+    <p>{{ item_from_list_one }}</p>
+    <span class="count">{{ item_from_list_two }}%</span>
+    <span class="index" style="width: {{ item_from_list_two }}%"></span>
+</li>
+{% endfor %} -->
 
