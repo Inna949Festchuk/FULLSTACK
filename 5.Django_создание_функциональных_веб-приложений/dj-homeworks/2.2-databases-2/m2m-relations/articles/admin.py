@@ -4,17 +4,6 @@ from django.forms import BaseInlineFormSet
 from .models import Article, Tags, TagsArticle
 
 
-# class TagsArticleInlineFormset(BaseInlineFormSet):
-#     '''Проверка на единство основного Тега'''
-#     def clean(self):
-#         super().clean() # вызываем базовый код переопределяемого метода
-#         # Проверяем словари форм по ключу is_main и если ключ = True суммируем единицы,
-#         # если результирующая сумма единиц больше 1 выдать предупреждение ValidationError 
-#         main_scopes_count = sum(1 for form in self.forms if form.cleaned_data.get('is_main'))
-#         # В form.cleaned_data это словарь с проверяемыми данными
-#         if main_scopes_count != 1:
-#             raise ValidationError("Основной раздел может быть только один")
-
 class TagsArticleInlineFormset(BaseInlineFormSet):
     def clean(self):
         is_main_counter = 0
@@ -43,6 +32,21 @@ class ArticleAdmin(admin.ModelAdmin):
         'title', 
         'published_at',
     ]
+    list_filter = [
+        'published_at',
+    ]
+    # Поиск статьи для изменения
+    search_fields = [
+        'title',
+    ]
+    # Ссылка на поле title в админке
+    list_display_links = [
+        'title',
+    ]
+    # Пагинация в админке 2 страницы
+    list_per_page = 2
+
+    # Интеграция инлайнмодели на страницу редактирования статей
     inlines = [
         TagsArticleInline,
     ]
@@ -55,3 +59,6 @@ class TagsAdmin(admin.ModelAdmin):
         'id', 
         'name',
     ]
+
+
+    

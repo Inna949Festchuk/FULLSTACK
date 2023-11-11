@@ -18,6 +18,7 @@
             {% for scope in article.scopes.all %}
               <span class="badge {% if scope.is_main %}badge-primary{% else %}badge-secondary{% endif %}">{{ scope.tag.name }}</span>
             {% endfor %}
+            <div class="d-flex justify-content-between align-items-center"></div>
           </div>
         </div>
       </div>

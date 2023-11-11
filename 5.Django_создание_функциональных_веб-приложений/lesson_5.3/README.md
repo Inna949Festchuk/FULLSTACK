@@ -85,6 +85,7 @@ class Car(models.Model):
 ### Дополнительные материалы:
 
 - [Настройка конфигурации для дебаггера в VS Code](../lesson_5.1/debug_config)
+- [Пример настроенного файла конфигурации для дебага проекта Django](.vscode)
 
 - [Курс по django](https://proglib.io/p/kurs-django-chast-1-django-chto-eto-obzor-i-ustanovka-freymvorka-struktura-proekta-2023-07-25)
 
