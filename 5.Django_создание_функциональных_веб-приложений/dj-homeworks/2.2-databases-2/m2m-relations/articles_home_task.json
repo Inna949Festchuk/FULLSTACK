@@ -1,0 +1,1799 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-11-09T18:24:20.582Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Космос",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2023-11-09T18:24:41.762Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Международные отношения",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2023-11-09T18:24:52.924Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Наука",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2023-11-09T18:25:10.626Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Культура",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2023-11-09T18:25:20.874Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Здоровье",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2023-11-09T18:25:27.793Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Город",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2023-11-09T18:26:45.209Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "В \"Детском мире\" на Лубянке откроют музей",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - \\u041a\\u0443\\u043b\\u044c\\u0442\\u0443\\u0440\\u0430\"}}, {\"added\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - \\u0413\\u043e\\u0440\\u043e\\u0434\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2023-11-09T18:27:49.936Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Ученые доказали вред периодического курения",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"article scope\", \"object\": \"\\u0423\\u0447\\u0435\\u043d\\u044b\\u0435 \\u0434\\u043e\\u043a\\u0430\\u0437\\u0430\\u043b\\u0438 \\u0432\\u0440\\u0435\\u0434 \\u043f\\u0435\\u0440\\u0438\\u043e\\u0434\\u0438\\u0447\\u0435\\u0441\\u043a\\u043e\\u0433\\u043e \\u043a\\u0443\\u0440\\u0435\\u043d\\u0438\\u044f - \\u0417\\u0434\\u043e\\u0440\\u043e\\u0432\\u044c\\u0435\"}}, {\"added\": {\"name\": \"article scope\", \"object\": \"\\u0423\\u0447\\u0435\\u043d\\u044b\\u0435 \\u0434\\u043e\\u043a\\u0430\\u0437\\u0430\\u043b\\u0438 \\u0432\\u0440\\u0435\\u0434 \\u043f\\u0435\\u0440\\u0438\\u043e\\u0434\\u0438\\u0447\\u0435\\u0441\\u043a\\u043e\\u0433\\u043e \\u043a\\u0443\\u0440\\u0435\\u043d\\u0438\\u044f - \\u041d\\u0430\\u0443\\u043a\\u0430\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2023-11-09T18:28:14.696Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Директор ИКИ РАН прокомментировал инициативы по созданию базы на Луне",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"article scope\", \"object\": \"\\u0414\\u0438\\u0440\\u0435\\u043a\\u0442\\u043e\\u0440 \\u0418\\u041a\\u0418 \\u0420\\u0410\\u041d \\u043f\\u0440\\u043e\\u043a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0438\\u0440\\u043e\\u0432\\u0430\\u043b \\u0438\\u043d\\u0438\\u0446\\u0438\\u0430\\u0442\\u0438\\u0432\\u044b \\u043f\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0438\\u044e \\u0431\\u0430\\u0437\\u044b \\u043d\\u0430 \\u041b\\u0443\\u043d\\u0435 - \\u041c\\u0435\\u0436\\u0434\\u0443\\u043d\\u0430\\u0440\\u043e\\u0434\\u043d\\u044b\\u0435 \\u043e\\u0442\\u043d\\u043e\\u0448\\u0435\\u043d\\u0438\\u044f\"}}, {\"added\": {\"name\": \"article scope\", \"object\": \"\\u0414\\u0438\\u0440\\u0435\\u043a\\u0442\\u043e\\u0440 \\u0418\\u041a\\u0418 \\u0420\\u0410\\u041d \\u043f\\u0440\\u043e\\u043a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0438\\u0440\\u043e\\u0432\\u0430\\u043b \\u0438\\u043d\\u0438\\u0446\\u0438\\u0430\\u0442\\u0438\\u0432\\u044b \\u043f\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0438\\u044e \\u0431\\u0430\\u0437\\u044b \\u043d\\u0430 \\u041b\\u0443\\u043d\\u0435 - \\u041a\\u043e\\u0441\\u043c\\u043e\\u0441\"}}, {\"added\": {\"name\": \"article scope\", \"object\": \"\\u0414\\u0438\\u0440\\u0435\\u043a\\u0442\\u043e\\u0440 \\u0418\\u041a\\u0418 \\u0420\\u0410\\u041d \\u043f\\u0440\\u043e\\u043a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0438\\u0440\\u043e\\u0432\\u0430\\u043b \\u0438\\u043d\\u0438\\u0446\\u0438\\u0430\\u0442\\u0438\\u0432\\u044b \\u043f\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0438\\u044e \\u0431\\u0430\\u0437\\u044b \\u043d\\u0430 \\u041b\\u0443\\u043d\\u0435 - \\u041d\\u0430\\u0443\\u043a\\u0430\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2023-11-09T19:42:48.763Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Ree",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2023-11-09T20:02:29.093Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "В \"Детском мире\" на Лубянке откроют музей",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - \\u041a\\u0443\\u043b\\u044c\\u0442\\u0443\\u0440\\u0430\", \"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2023-11-09T20:03:46.735Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Город",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2023-11-09T20:04:18.495Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "В \"Детском мире\" на Лубянке откроют музей",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - \\u0413\\u043e\\u0440\\u043e\\u0434\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2023-11-09T20:32:27.614Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Город",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2023-11-09T20:32:48.400Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Ree",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2023-11-09T20:32:56.787Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Город",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2023-11-09T20:33:20.284Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Здоровье",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2023-11-09T20:33:27.415Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Культура",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2023-11-09T20:33:31.805Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Наука",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2023-11-09T20:33:39.201Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Международные отношения",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2023-11-09T20:33:44.731Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Космос",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2023-11-09T20:46:43.717Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "В \"Детском мире\" на Лубянке откроют музей",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - \\u041a\\u0443\\u043b\\u044c\\u0442\\u0443\\u0440\\u0430\", \"fields\": [\"Is main\"]}}, {\"changed\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - \\u0413\\u043e\\u0440\\u043e\\u0434\", \"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2023-11-09T20:48:02.264Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Город",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2023-11-09T20:48:34.826Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "Город",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2023-11-09T20:49:00.517Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "В \"Детском мире\" на Лубянке откроют музей",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - \\u0413\\u043e\\u0440\\u043e\\u0434\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2023-11-09T21:01:15.631Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "Город",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2023-11-09T21:01:15.701Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Здоровье",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2023-11-09T21:01:15.702Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Культура",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2023-11-09T21:01:15.704Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Наука",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2023-11-09T21:01:15.706Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Международные отношения",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2023-11-09T21:01:15.707Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Космос",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2023-11-09T21:02:01.075Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Город",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2023-11-09T21:02:16.619Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Деревня",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2023-11-09T21:02:35.071Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Деревня",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2023-11-09T21:02:45.758Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Деревня",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2023-11-09T21:03:22.671Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "12",
+    "object_repr": "Деревня",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2023-11-09T21:04:07.168Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Деревня",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2023-11-09T21:04:14.037Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "12",
+    "object_repr": "Деревня",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2023-11-09T21:04:57.286Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Город",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2023-11-09T21:05:11.785Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "13",
+    "object_repr": "Город",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2023-11-09T21:05:22.695Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "14",
+    "object_repr": "Деревня",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2023-11-09T21:05:57.172Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "13",
+    "object_repr": "Город",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2023-11-09T21:06:19.104Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "14",
+    "object_repr": "Деревня",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2023-11-09T21:06:45.432Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "15",
+    "object_repr": "ромоморм",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2023-11-09T21:06:58.264Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "15",
+    "object_repr": "ромоморм",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2023-11-09T21:07:37.182Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "15",
+    "object_repr": "ромоморм",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2023-11-09T21:07:43.063Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "16",
+    "object_repr": "оилт",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2023-11-09T21:14:48.322Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "16",
+    "object_repr": "оилт",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2023-11-09T21:15:14.609Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "17",
+    "object_repr": "ffff",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2023-11-09T21:15:41.027Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "ggg",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2023-11-09T21:15:43.432Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "В \"Детском мире\" на Лубянке откроют музей",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - ffff\"}}, {\"added\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - ggg\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2023-11-09T21:15:58.993Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "ggg",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2023-11-09T21:16:01.640Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "17",
+    "object_repr": "ffff",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2023-11-09T21:22:54.153Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "В \"Детском мире\" на Лубянке откроют музей",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - ffff\", \"fields\": [\"Is main\"]}}, {\"changed\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - ggg\", \"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2023-11-09T21:23:23.535Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "ggg",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2023-11-09T21:23:25.919Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "В \"Детском мире\" на Лубянке откроют музей",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - ffff\", \"fields\": [\"Is main\"]}}, {\"changed\": {\"name\": \"article scope\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - ggg\", \"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2023-11-09T21:23:40.706Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "17",
+    "object_repr": "ffff",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2023-11-09T21:32:28.441Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "19",
+    "object_repr": "kkk",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2023-11-09T21:32:59.041Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "20",
+    "object_repr": "uuuuu",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2023-11-11T02:22:56.809Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Культура",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2023-11-11T02:23:08.039Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Город",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2023-11-11T02:23:16.930Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "В \"Детском мире\" на Лубянке откроют музей",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"tags article\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - \\u041a\\u0443\\u043b\\u044c\\u0442\\u0443\\u0440\\u0430\"}}, {\"added\": {\"name\": \"tags article\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - \\u0413\\u043e\\u0440\\u043e\\u0434\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2023-11-11T02:24:32.286Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Здоровье",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2023-11-11T02:24:41.652Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "Наука",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2023-11-11T02:24:49.816Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "Космос",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2023-11-11T02:25:34.519Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "6",
+    "object_repr": "Международные отноше",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2023-11-11T02:29:08.877Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Директор ИКИ РАН прокомментировал инициативы по созданию базы на Луне",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0414\\u0430\\u0442\\u0430 \\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u0430\\u0446\\u0438\\u0438\"]}}, {\"added\": {\"name\": \"tags article\", \"object\": \"\\u0414\\u0438\\u0440\\u0435\\u043a\\u0442\\u043e\\u0440 \\u0418\\u041a\\u0418 \\u0420\\u0410\\u041d \\u043f\\u0440\\u043e\\u043a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0438\\u0440\\u043e\\u0432\\u0430\\u043b \\u0438\\u043d\\u0438\\u0446\\u0438\\u0430\\u0442\\u0438\\u0432\\u044b \\u043f\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0438\\u044e \\u0431\\u0430\\u0437\\u044b \\u043d\\u0430 \\u041b\\u0443\\u043d\\u0435 - \\u041d\\u0430\\u0443\\u043a\\u0430\"}}, {\"added\": {\"name\": \"tags article\", \"object\": \"\\u0414\\u0438\\u0440\\u0435\\u043a\\u0442\\u043e\\u0440 \\u0418\\u041a\\u0418 \\u0420\\u0410\\u041d \\u043f\\u0440\\u043e\\u043a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0438\\u0440\\u043e\\u0432\\u0430\\u043b \\u0438\\u043d\\u0438\\u0446\\u0438\\u0430\\u0442\\u0438\\u0432\\u044b \\u043f\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0438\\u044e \\u0431\\u0430\\u0437\\u044b \\u043d\\u0430 \\u041b\\u0443\\u043d\\u0435 - \\u041c\\u0435\\u0436\\u0434\\u0443\\u043d\\u0430\\u0440\\u043e\\u0434\\u043d\\u044b\\u0435 \\u043e\\u0442\\u043d\\u043e\\u0448\\u0435\"}}, {\"added\": {\"name\": \"tags article\", \"object\": \"\\u0414\\u0438\\u0440\\u0435\\u043a\\u0442\\u043e\\u0440 \\u0418\\u041a\\u0418 \\u0420\\u0410\\u041d \\u043f\\u0440\\u043e\\u043a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0438\\u0440\\u043e\\u0432\\u0430\\u043b \\u0438\\u043d\\u0438\\u0446\\u0438\\u0430\\u0442\\u0438\\u0432\\u044b \\u043f\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0438\\u044e \\u0431\\u0430\\u0437\\u044b \\u043d\\u0430 \\u041b\\u0443\\u043d\\u0435 - \\u041a\\u043e\\u0441\\u043c\\u043e\\u0441\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2023-11-11T02:31:15.086Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Ученые доказали вред периодического курения",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"tags article\", \"object\": \"\\u0423\\u0447\\u0435\\u043d\\u044b\\u0435 \\u0434\\u043e\\u043a\\u0430\\u0437\\u0430\\u043b\\u0438 \\u0432\\u0440\\u0435\\u0434 \\u043f\\u0435\\u0440\\u0438\\u043e\\u0434\\u0438\\u0447\\u0435\\u0441\\u043a\\u043e\\u0433\\u043e \\u043a\\u0443\\u0440\\u0435\\u043d\\u0438\\u044f - \\u0417\\u0434\\u043e\\u0440\\u043e\\u0432\\u044c\\u0435\"}}, {\"added\": {\"name\": \"tags article\", \"object\": \"\\u0423\\u0447\\u0435\\u043d\\u044b\\u0435 \\u0434\\u043e\\u043a\\u0430\\u0437\\u0430\\u043b\\u0438 \\u0432\\u0440\\u0435\\u0434 \\u043f\\u0435\\u0440\\u0438\\u043e\\u0434\\u0438\\u0447\\u0435\\u0441\\u043a\\u043e\\u0433\\u043e \\u043a\\u0443\\u0440\\u0435\\u043d\\u0438\\u044f - \\u041d\\u0430\\u0443\\u043a\\u0430\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2023-11-11T02:49:55.038Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "6",
+    "object_repr": "Международные отношения",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0430\\u0437\\u0434\\u0435\\u043b\", \"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2023-11-11T02:50:18.844Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "6",
+    "object_repr": "Международные отношения",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2023-11-11T02:50:56.444Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "7",
+    "object_repr": "еее",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2023-11-11T02:51:10.672Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Директор ИКИ РАН прокомментировал инициативы по созданию базы на Луне",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"tags article\", \"object\": \"\\u0414\\u0438\\u0440\\u0435\\u043a\\u0442\\u043e\\u0440 \\u0418\\u041a\\u0418 \\u0420\\u0410\\u041d \\u043f\\u0440\\u043e\\u043a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0438\\u0440\\u043e\\u0432\\u0430\\u043b \\u0438\\u043d\\u0438\\u0446\\u0438\\u0430\\u0442\\u0438\\u0432\\u044b \\u043f\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0438\\u044e \\u0431\\u0430\\u0437\\u044b \\u043d\\u0430 \\u041b\\u0443\\u043d\\u0435 - \\u0435\\u0435\\u0435\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2023-11-11T03:03:49.901Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "7",
+    "object_repr": "еее",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2023-11-11T03:03:57.392Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "6",
+    "object_repr": "Международные отношения",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2023-11-11T03:11:46.706Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Директор ИКИ РАН прокомментировал инициативы по созданию базы на Луне",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2023-11-11T03:12:19.643Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "Наука",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2023-11-11T03:12:28.114Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "6",
+    "object_repr": "Международные отношения",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2023-11-11T03:12:30.291Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Директор ИКИ РАН прокомментировал инициативы по созданию базы на Луне",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2023-11-11T03:43:30.169Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Директор ИКИ РАН прокомментировал инициативы по созданию базы на Луне",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"tags article\", \"object\": \"\\u0414\\u0438\\u0440\\u0435\\u043a\\u0442\\u043e\\u0440 \\u0418\\u041a\\u0418 \\u0420\\u0410\\u041d \\u043f\\u0440\\u043e\\u043a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0438\\u0440\\u043e\\u0432\\u0430\\u043b \\u0438\\u043d\\u0438\\u0446\\u0438\\u0430\\u0442\\u0438\\u0432\\u044b \\u043f\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0438\\u044e \\u0431\\u0430\\u0437\\u044b \\u043d\\u0430 \\u041b\\u0443\\u043d\\u0435 - \\u041a\\u043e\\u0441\\u043c\\u043e\\u0441\", \"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2023-11-11T03:43:49.628Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Директор ИКИ РАН прокомментировал инициативы по созданию базы на Луне",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2023-11-11T03:44:29.358Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "В \"Детском мире\" на Лубянке откроют музей",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"tags article\", \"object\": \"\\u0412 \\\"\\u0414\\u0435\\u0442\\u0441\\u043a\\u043e\\u043c \\u043c\\u0438\\u0440\\u0435\\\" \\u043d\\u0430 \\u041b\\u0443\\u0431\\u044f\\u043d\\u043a\\u0435 \\u043e\\u0442\\u043a\\u0440\\u043e\\u044e\\u0442 \\u043c\\u0443\\u0437\\u0435\\u0439 - \\u041a\\u0443\\u043b\\u044c\\u0442\\u0443\\u0440\\u0430\", \"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2023-11-11T03:44:54.806Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Ученые доказали вред периодического курения",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"tags article\", \"object\": \"\\u0423\\u0447\\u0435\\u043d\\u044b\\u0435 \\u0434\\u043e\\u043a\\u0430\\u0437\\u0430\\u043b\\u0438 \\u0432\\u0440\\u0435\\u0434 \\u043f\\u0435\\u0440\\u0438\\u043e\\u0434\\u0438\\u0447\\u0435\\u0441\\u043a\\u043e\\u0433\\u043e \\u043a\\u0443\\u0440\\u0435\\u043d\\u0438\\u044f - \\u0417\\u0434\\u043e\\u0440\\u043e\\u0432\\u044c\\u0435\", \"fields\": [\"Is main\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2023-11-11T03:45:03.155Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Ученые доказали вред периодического курения",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2023-11-11T03:45:09.049Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Ученые доказали вред периодического курения",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2023-11-11T03:45:15.744Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "В \"Детском мире\" на Лубянке откроют музей",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2023-11-11T03:45:22.843Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Директор ИКИ РАН прокомментировал инициативы по созданию базы на Луне",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2023-11-11T03:48:04.514Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Директор ИКИ РАН прокомментировал инициативы по созданию базы на Луне",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"tags article\", \"object\": \"\\u0414\\u0438\\u0440\\u0435\\u043a\\u0442\\u043e\\u0440 \\u0418\\u041a\\u0418 \\u0420\\u0410\\u041d \\u043f\\u0440\\u043e\\u043a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0438\\u0440\\u043e\\u0432\\u0430\\u043b \\u0438\\u043d\\u0438\\u0446\\u0438\\u0430\\u0442\\u0438\\u0432\\u044b \\u043f\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0438\\u044e \\u0431\\u0430\\u0437\\u044b \\u043d\\u0430 \\u041b\\u0443\\u043d\\u0435 - \\u0417\\u0434\\u043e\\u0440\\u043e\\u0432\\u044c\\u0435\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2023-11-11T03:48:15.393Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Директор ИКИ РАН прокомментировал инициативы по созданию базы на Луне",
+    "action_flag": 2,
+    "change_message": "[{\"deleted\": {\"name\": \"tags article\", \"object\": \"\\u0414\\u0438\\u0440\\u0435\\u043a\\u0442\\u043e\\u0440 \\u0418\\u041a\\u0418 \\u0420\\u0410\\u041d \\u043f\\u0440\\u043e\\u043a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0438\\u0440\\u043e\\u0432\\u0430\\u043b \\u0438\\u043d\\u0438\\u0446\\u0438\\u0430\\u0442\\u0438\\u0432\\u044b \\u043f\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0438\\u044e \\u0431\\u0430\\u0437\\u044b \\u043d\\u0430 \\u041b\\u0443\\u043d\\u0435 - \\u0417\\u0434\\u043e\\u0440\\u043e\\u0432\\u044c\\u0435\"}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add Статья",
+    "content_type": 7,
+    "codename": "add_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change Статья",
+    "content_type": 7,
+    "codename": "change_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete Статья",
+    "content_type": 7,
+    "codename": "delete_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view Статья",
+    "content_type": 7,
+    "codename": "view_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add scope",
+    "content_type": 8,
+    "codename": "add_scope"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change scope",
+    "content_type": 8,
+    "codename": "change_scope"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete scope",
+    "content_type": 8,
+    "codename": "delete_scope"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view scope",
+    "content_type": 8,
+    "codename": "view_scope"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add article scope",
+    "content_type": 9,
+    "codename": "add_articlescope"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change article scope",
+    "content_type": 9,
+    "codename": "change_articlescope"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete article scope",
+    "content_type": 9,
+    "codename": "delete_articlescope"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view article scope",
+    "content_type": 9,
+    "codename": "view_articlescope"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add tags",
+    "content_type": 10,
+    "codename": "add_tags"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change tags",
+    "content_type": 10,
+    "codename": "change_tags"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete tags",
+    "content_type": 10,
+    "codename": "delete_tags"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view tags",
+    "content_type": 10,
+    "codename": "view_tags"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add tags article",
+    "content_type": 11,
+    "codename": "add_tagsarticle"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change tags article",
+    "content_type": 11,
+    "codename": "change_tagsarticle"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete tags article",
+    "content_type": 11,
+    "codename": "delete_tagsarticle"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view tags article",
+    "content_type": 11,
+    "codename": "view_tagsarticle"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$YZMbSK73rlfUlFiHdGe7uf$a+Z/ibnNW2/AdfddV4UFoTw/OvuyWJn5/vFCEhKxr34=",
+    "last_login": "2023-11-09T19:07:35.374Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-11-09T03:56:16.099Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "articles",
+    "model": "article"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "articles",
+    "model": "scope"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "articles",
+    "model": "articlescope"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "articles",
+    "model": "tags"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "articles",
+    "model": "tagsarticle"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ioi53agn02dcrlehv801mkdz5jf9z0uk",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEwWB4u3fcbyMCMUjWQlHZl_HfbpAvd3nPOfYuI61Li2nmOE4mL0OL0uyXMT647oAfWe5O51WWektwVedAux0b8uh7u30HBXraavbNwUxYGGpwDpzn4hKDPJpFPyiulXWIOgbRWsLlggwlIxmZjLKH4fAG2Kja0:1r0wA8:32lTHxHuO8mfWorE_zNrr5-POPdAnii2ABHp6rllnzk",
+    "expire_date": "2023-11-23T03:57:00.542Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "vp2y3qj3n09p3no2304spl5fs57qi995",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEwWB4u3fcbyMCMUjWQlHZl_HfbpAvd3nPOfYuI61Li2nmOE4mL0OL0uyXMT647oAfWe5O51WWektwVedAux0b8uh7u30HBXraavbNwUxYGGpwDpzn4hKDPJpFPyiulXWIOgbRWsLlggwlIxmZjLKH4fAG2Kja0:1r1ANL:ejDEjLh0ZX_q5_ZR1eI7ItsIBPUWntkQD1AdOp7WK0Y",
+    "expire_date": "2023-11-23T19:07:35.402Z"
+  }
+},
+{
+  "model": "articles.article",
+  "pk": 1,
+  "fields": {
+    "title": "В \"Детском мире\" на Лубянке откроют музей",
+    "text": "\"В Москве нет музея, связанного с темой детства, игрушки, детскими играми, и это отрицательно сказывается на образе столицы\", - считает заведующий музейно-выставочным отделом департамента культуры Москвы Антон Горянов.",
+    "published_at": "2018-09-30T19:26:52Z",
+    "image": "th_946876594_EntghVT.jpg"
+  }
+},
+{
+  "model": "articles.article",
+  "pk": 2,
+  "fields": {
+    "title": "Ученые доказали вред периодического курения",
+    "text": "Кливлендские ученые опубликовали результаты исследования 78 пар близнецов, в каждой из которых один из двойняшек курил, а второй нет.",
+    "published_at": "2018-08-30T20:04:44Z",
+    "image": "th_1488217075_CVC0Ltk.jpg"
+  }
+},
+{
+  "model": "articles.article",
+  "pk": 3,
+  "fields": {
+    "title": "Директор ИКИ РАН прокомментировал инициативы по созданию базы на Луне",
+    "text": "Лунная база должна быть международным проектом — ни одна из космических держав сегодня не может осваивать спутник Земли без помощи партнеров, заявил директор Института космических исследований РАН, член-корреспондент РАН Анатолий Петрукович.",
+    "published_at": "2023-07-30T20:08:20Z",
+    "image": "th_1521804489_cfyJCMV.jpg"
+  }
+},
+{
+  "model": "articles.tags",
+  "pk": 1,
+  "fields": {
+    "name": "Культура"
+  }
+},
+{
+  "model": "articles.tags",
+  "pk": 2,
+  "fields": {
+    "name": "Город"
+  }
+},
+{
+  "model": "articles.tags",
+  "pk": 3,
+  "fields": {
+    "name": "Здоровье"
+  }
+},
+{
+  "model": "articles.tags",
+  "pk": 4,
+  "fields": {
+    "name": "Наука"
+  }
+},
+{
+  "model": "articles.tags",
+  "pk": 5,
+  "fields": {
+    "name": "Космос"
+  }
+},
+{
+  "model": "articles.tags",
+  "pk": 6,
+  "fields": {
+    "name": "Международные отношения"
+  }
+},
+{
+  "model": "articles.tagsarticle",
+  "pk": 1,
+  "fields": {
+    "article": 1,
+    "tag": 1,
+    "is_main": true
+  }
+},
+{
+  "model": "articles.tagsarticle",
+  "pk": 2,
+  "fields": {
+    "article": 1,
+    "tag": 2,
+    "is_main": false
+  }
+},
+{
+  "model": "articles.tagsarticle",
+  "pk": 3,
+  "fields": {
+    "article": 3,
+    "tag": 4,
+    "is_main": false
+  }
+},
+{
+  "model": "articles.tagsarticle",
+  "pk": 4,
+  "fields": {
+    "article": 3,
+    "tag": 6,
+    "is_main": false
+  }
+},
+{
+  "model": "articles.tagsarticle",
+  "pk": 5,
+  "fields": {
+    "article": 3,
+    "tag": 5,
+    "is_main": true
+  }
+},
+{
+  "model": "articles.tagsarticle",
+  "pk": 6,
+  "fields": {
+    "article": 2,
+    "tag": 3,
+    "is_main": true
+  }
+},
+{
+  "model": "articles.tagsarticle",
+  "pk": 7,
+  "fields": {
+    "article": 2,
+    "tag": 4,
+    "is_main": false
+  }
+}
+]
