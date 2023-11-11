@@ -23,6 +23,20 @@ class TagsArticleInline(admin.TabularInline):
     formset = TagsArticleInlineFormset # Проверка на единство основного Тега
     extra = 1 # Число строк встраиваемой модели
 
+# Регистрация модели Теги в админке
+@admin.register(Tags)
+class TagsAdmin(admin.ModelAdmin):
+    list_display = [
+        'id', 
+        'name',
+    ]
+    search_fields = [
+        'name',
+    ]
+    list_display_links = [
+        'name',
+    ]
+    list_per_page = 5  
 
 # Регистрация модели Статьи в админке
 @admin.register(Article)
@@ -32,9 +46,11 @@ class ArticleAdmin(admin.ModelAdmin):
         'title', 
         'published_at',
     ]
+    # Фильтрация статей по дате публикации
     list_filter = [
         'published_at',
     ]
+
     # Поиск статьи для изменения
     search_fields = [
         'title',
@@ -52,13 +68,9 @@ class ArticleAdmin(admin.ModelAdmin):
     ]
 
 
-# Регистрация модели Теги в админке
-@admin.register(Tags)
-class TagsAdmin(admin.ModelAdmin):
-    list_display = [
-        'id', 
-        'name',
-    ]
+
+
+
 
 
     
