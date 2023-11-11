@@ -127,3 +127,9 @@ python manage.py loaddata articles.json
 ```bash
 python manage.py runserver
 ```
+
+Создать фикстуру базы данных проекта:
+
+```bash
+python -Xutf8 manage.py dumpdata --indent=2 --output=articles_home_task.json
+```
