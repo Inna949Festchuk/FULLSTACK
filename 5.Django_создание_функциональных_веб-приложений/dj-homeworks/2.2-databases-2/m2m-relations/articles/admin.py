@@ -53,6 +53,9 @@ class ArticleAdmin(admin.ModelAdmin):
         'published_at',
         'scopes__tag__name',
     ]
+    # где scopes - это related_name промежуточной модели TagsArticle, 
+    # tag - поле FK модели TagsArticle
+    # name - поле модели Tags
 
     # Поиск статьи для изменения
     search_fields = [
