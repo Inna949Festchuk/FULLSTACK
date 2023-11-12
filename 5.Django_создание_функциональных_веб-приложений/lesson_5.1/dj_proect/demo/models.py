@@ -43,9 +43,10 @@ class Order(models.Model):
 # class Order(models.Model):
 #     products = models.ManyToManyField(Product, related_name='orders', through='OrderPosition')
 #     # Теперь можно получать продукты из заказа простым способом:
-#     # order_products = some_order.products.all()
+#     order_products = some_order.products.all()
 #     # Аналогично с заказами, в которых участвует продукт:
-#     # product_orders = some_product.orders.all()
+#     product_orders = some_product.orders.all()
+
 
 # Создаем промежуточную модель
 class OrderPositions(models.Model):
@@ -54,4 +55,3 @@ class OrderPositions(models.Model):
     # Т.о. позиция связывает продукт и заказ
     # позволит указать сколько единиц товара в этом заказе
     quantity = models.IntegerField()
-
