@@ -25,7 +25,7 @@ REST API — архитектурный стиль проектирования 
 
 - **Презентация "Знакомство с API на примере Django REST framework"**
 - **Презентация к видео "Работа с ORM"**
-- **Тест** Внимание!!!!! [Готовясь к тесту читай это и верь только этому! GPT врет! :)]([https://datatracker.ietf.org/doc/html/rfc7231#section-4](https://datatracker.ietf.org/doc/html/rfc9110#name-methods))
+- **Тест** Внимание!!!!! [Готовясь к тесту читай это и верь только этому! GPT врет! :)](https://datatracker.ietf.org/doc/html/rfc9110#name-methods)
 
 - **[Код к занятию (листинг)](../DJ_code/orm_advanced)**
 
