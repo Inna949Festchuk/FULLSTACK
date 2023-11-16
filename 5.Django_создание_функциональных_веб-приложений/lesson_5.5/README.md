@@ -13,12 +13,11 @@ REST API — архитектурный стиль проектирования 
 3. строгое именование ресурсов;
 4. использование семантики HTTP-методов и определенных кодов возврата.
 
-![Как_именуются_ресурсы.png](../lesson_5.5/images/Как_именуются_ресурсы.png)
-
-*Стандарт* [RFC:9110 HTTP Semantics](https://datatracker.ietf.org/doc/html/rfc9110#name-methods)
+![Как_именуются_ресурсы.png](../lesson_5.5/images/Как_именуются_ресурсы.png) 
+<br> *Стандарт* [RFC:9110 HTTP Semantics](https://datatracker.ietf.org/doc/html/rfc9110#name-methods)
 
 - **Установка и настройка DRF**
-`pip install djangorestframework`
+<br> `pip install djangorestframework`
 - **Компоненты DRF**
 - **Generic APIView классы**
 
