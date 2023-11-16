@@ -15,6 +15,9 @@ REST API — архитектурный стиль проектирования 
 
 ![Как_именуются_ресурсы.png](../lesson_5.5/images/Как_именуются_ресурсы.png)
 
+*Стандарт*
+[RFC:9110 HTTP Semantics](https://datatracker.ietf.org/doc/html/rfc9110#name-methods)
+
 - **Установка и настройка DRF**
 - **Компоненты DRF**
 - **Generic APIView классы**
@@ -23,7 +26,7 @@ REST API — архитектурный стиль проектирования 
 
 - **Презентация "Знакомство с API на примере Django REST framework"**
 - **Презентация к видео "Работа с ORM"**
-- **Тест** Внимание!!!!! [Готовясь к тесту читай это и верь только этому! GPT врет! :)](https://datatracker.ietf.org/doc/html/rfc7231#section-4)
+- **Тест** Внимание!!!!! [Готовясь к тесту читай это и верь только этому! GPT врет! :)]([https://datatracker.ietf.org/doc/html/rfc7231#section-4](https://datatracker.ietf.org/doc/html/rfc9110#name-methods))
 
 - **[Код к занятию (листинг)](../DJ_code/orm_advanced)**
 
