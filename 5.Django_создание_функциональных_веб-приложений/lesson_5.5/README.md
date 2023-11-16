@@ -1,4 +1,4 @@
-## lesson 5.5 Работа с ORM (часть 2)
+## lesson 5.5 Знакомство с API на примере Django REST framework
 
 ### Учебный материал:
 - **Введение в занятие Знакомство с API на примере Django REST framework**
