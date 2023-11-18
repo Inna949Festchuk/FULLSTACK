@@ -6,6 +6,14 @@ POST http://localhost:8000/demo/
 
 ###
 
+GET http://localhost:8000/democlass/
+
+###
+
+POST http://localhost:8000/democlass/
+
+###
+
 GET http://localhost:8000/weapon/1/
 
 

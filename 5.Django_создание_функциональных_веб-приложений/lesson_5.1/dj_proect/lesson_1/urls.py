@@ -19,7 +19,7 @@ from django.urls import path
 from demo.views import (
     DemoView,
     WeaponView,
-    # demo,
+    demo,
     index, 
     time, 
     hello_view,
@@ -86,11 +86,11 @@ urlpatterns = [
     # ---------------------------------------------------------------
     # DRF
     # ---------------------------------------------------------------
-    # path('demo/', demo),
-    path('demo/', DemoView.as_view()),
+    path('demo/', demo),
+    path('democlass/', DemoView.as_view()),
     # .as_view() превращает класс в функцию для возможности его регистрации в urls.py
     # так как идет выборка одного конкретного образца в запросе необходимо
     # указывать идентификатор этого образца, передающегося
-    #  в виде параметра pk
+    # в виде параметра pk
     path('weapon/<pk>/', WeaponView.as_view()),
 ]

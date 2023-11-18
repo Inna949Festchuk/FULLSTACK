@@ -218,15 +218,27 @@ def list_orders(request):
 # # Декоратор для преобразования простого в API обработчик
 # # Параметр декоратора - это тип запроса на который должен отвечать обработчик
 # # GET, POST, PUT PATH
-# @api_view(['GET'])
-# def demo(requests):
-#     weaponts = Weaponts.objects.all()
-#     ser = WeaponSerializer(weaponts, many=True)
-#     # many=True означает что серриалайзер выдаст нам целый список объектов, а не какой-нибудь один
-#     data = {'message': 'Hello, world!'}
-#     return Response(ser.data)
-# # Response - класс аналог HttpResponse но для API обработчика
-# # ser.data - берем сериализованные данные
+
+@api_view(['GET'])
+def demo(requests):
+    weaponts = Weaponts.objects.all()
+    ser = WeaponSerializer(weaponts, many=True)
+    # many=True означает что серриалайзер выдаст нам все объекты weaponts, 
+    # а не какой-нибудь один
+
+    # dictdata = {'message': 'Hello, world!'} 
+    # Словарь передается в Response без сериализации
+    # return Response(dictdata)
+
+    # Объекты модели, для сохранения или передачи,
+    # нужно СЕРИАЛИЗОВЫВАТЬ (weaponts -> ser) - 
+    # преобразовывать в байт-код (поток) 
+    return Response(ser.data) 
+
+    # .data - ДЕССИРИЛИЗАЦИЯ (преобразование 
+    # серриализованныех данныех (потока) обратно в структуру словаря
+# Response - класс аналог HttpResponse но для API обработчика
+# ser.data - берем сериализованные данные
 
 # # Добавим к обработчику еще и POST запрос
 # @api_view(['GET', 'POST'])
@@ -234,8 +246,6 @@ def list_orders(request):
 #     if requests.method == 'GET':
 #         weaponts = Weaponts.objects.all()
 #         ser = WeaponSerializer(weaponts, many=True)
-#         # many=True означает что серриалайзер выдаст нам целый список объектов, а не какой-нибудь один
-#         data = {'message': 'Hello, world!'}
 #         return Response(ser.data)
 #     if requests.method == 'POST':
 #         return Response({'status': 'OK'})
@@ -255,10 +265,10 @@ def list_orders(request):
 #         return Response({'status': 'OK'})
 
 class DemoView(ListAPIView):
-    # от куда береем данные передаем в queryset (название переменной не менять)
+    # откуда береем данные передаем в queryset (название переменной не менять)
     queryset = Weaponts.objects.all()
-    # с помощью чего превратить объекты в json
-    # т.е. указать наш сериалайзер
+    # с помощью какого сериалайзера превратить объекты модели 
+    # в поток и после сохранения или передачи в словарь JSON
     serializer_class = WeaponSerializer
     
     # если нужно реализовать дополнительное поведение
