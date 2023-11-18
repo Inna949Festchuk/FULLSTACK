@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'demo', # НАШЕ НОВОЕ ПРИЛОЖЕНИЕ регистрируем здесь
+    'rest_framework' # регистрация DRF
 ]
 
 MIDDLEWARE = [

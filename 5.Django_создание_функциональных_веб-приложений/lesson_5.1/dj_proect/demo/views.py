@@ -1,9 +1,18 @@
 from datetime import datetime
 import random
+
+from .serializers import WeaponSerializer
 from demo.models import Car, Person, Order
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.core.paginator import Paginator
+# API
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .models import Weaponts
+from .serializers import WeaponSerializer
+from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 
 # именно так надо импортировать настройки из модуля settings.py
 from django.conf import settings
@@ -137,16 +146,28 @@ def list_car(request):
     # all() - метод выбирающий все строки из БД
     # Выборка объектов по условию filter() 
     # car_objects = Car.objects.filter(brand='B2') 
+
     # МОДИФИКАТОРЫ
     # Выборка объектов по условию filter() содержащих '2'
     # car_objects = Car.objects.filter(brand__contains='2') 
     # Модификатор __contains выбирает объекты СОДЕРЖАЩИЕ '2'
     # car_objects = Car.objects.filter(brand__startswith='2') 
     # Модификатор __startswith говорит что выборка должна НАЧИНАТЬСЯ с '2'
+
     cars = [f'{c.id}. {c.brand}, {c.model}: {c.color} | {c.owners.count()}' for c in car_objects]
     # c.owners.count() - count() количество владельцев этим авто, можно применять filter()
     return HttpResponse('<br>'.join(cars)) 
     # тег <br> это перенос в списке на новую строку
+
+    # car_objects = Car.objects.get(id=1)
+    # # Получаем собственников авто с id=1 из связной (1:N)
+    # # модели Person с помощью related_name
+    # owners_its_car = car_objects.owners.all()
+    # # Выводим каждого из собственников на основе полученного QuerySet'a
+    # owner_its_car = [owner_its_car.name for owner_its_car in owners_its_car]
+    # owner = '<br>'.join(owner_its_car)
+    # return HttpResponse(f'{car_objects.model} -> {owner}')
+
 
 # Создадим обработчик для модели Person владельцы авто
 def create_person(request):
@@ -163,7 +184,14 @@ def create_person(request):
 
 def list_person(request):
     person_objects = Person.objects.all()
-    people = [f'{p.name}: {p.car}' for p in person_objects]
+    # people = [f'{p.name} -> {p.car}' for p in person_objects]
+    # ТАК КАК car - это FK с моделью Car у которой метод __str__ 
+    # переопределен на f'{self.brand}, {self.model}: {self.color}'
+    # мы получим 
+    # >>> Mr Smith -> Mersedes, e5: green
+    # Причем можно вывести отдельно поля Car например
+    people = [f'{p.name} -> {p.car.color}' for p in person_objects]
+    # >>> Mr Smith -> green
     return HttpResponse('<br>'.join(people))
 
 # М:М (занятие 2) - - - - - - - - 
@@ -178,3 +206,64 @@ def list_orders(request):
     # __gt - строго больше, __lt - строго меньше
     context = {'orders': orders}
     return render(request, 'orders.html', context)
+
+# ---------------------------------------------------------------
+# DRF
+# ---------------------------------------------------------------
+
+# # Декоратор для преобразования простого в API обработчик
+# # Параметр декоратора - это тип запроса на который должен отвечать обработчик
+# # GET, POST, PUT PATH
+# @api_view(['GET'])
+# def demo(requests):
+#     weaponts = Weaponts.objects.all()
+#     ser = WeaponSerializer(weaponts, many=True)
+#     # many=True означает что серриалайзер выдаст нам целый список объектов, а не какой-нибудь один
+#     data = {'message': 'Hello, world!'}
+#     return Response(ser.data)
+# # Response - класс аналог HttpResponse но для API обработчика
+# # ser.data - берем сериализованные данные
+
+# # Добавим к обработчику еще и POST запрос
+# @api_view(['GET', 'POST'])
+# def demo(requests):
+#     if requests.method == 'GET':
+#         weaponts = Weaponts.objects.all()
+#         ser = WeaponSerializer(weaponts, many=True)
+#         # many=True означает что серриалайзер выдаст нам целый список объектов, а не какой-нибудь один
+#         data = {'message': 'Hello, world!'}
+#         return Response(ser.data)
+#     if requests.method == 'POST':
+#         return Response({'status': 'OK'})
+    
+# # Такую (слишком ветвленую) логику
+# # заменяют специальным классом APIView
+# class DemoView(APIView):
+#     def get(self, request):
+#         '''Метод принимающий на вход и запросы GET'''
+#         weaponts = Weaponts.objects.all()
+#         ser = WeaponSerializer(weaponts, many=True)
+#         # many=True означает что серриалайзер выдаст нам целый список объектов, а не какой-нибудь один
+#         data = {'message': 'Hello, world!'}
+#         return Response(ser.data)
+#     def post(self, request):
+#         '''Метод принимающий на вход и запросы POST'''
+#         return Response({'status': 'OK'})
+
+class DemoView(ListAPIView):
+    # от куда береем данные передаем в queryset (название переменной не менять)
+    queryset = Weaponts.objects.all()
+    # с помощью чего превратить объекты в json
+    # т.е. указать наш сериалайзер
+    serializer_class = WeaponSerializer
+    
+    # если нужно реализовать дополнительное поведение
+    # делаем это через def post(self, request):
+    def post(self, request):
+        return Response({'status': 'OK'})
+    
+# Если нужна информация по единственному виду оружия (например)
+class WeaponView(RetrieveAPIView):
+    queryset = Weaponts.objects.all()
+    serializer_class = WeaponSerializer
+

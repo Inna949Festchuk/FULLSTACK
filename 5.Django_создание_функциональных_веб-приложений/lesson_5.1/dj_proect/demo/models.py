@@ -55,3 +55,17 @@ class OrderPositions(models.Model):
     # Т.о. позиция связывает продукт и заказ
     # позволит указать сколько единиц товара в этом заказе
     quantity = models.IntegerField()
+
+# ---------------------------------------------------------------
+# DRF
+# ---------------------------------------------------------------
+class Weaponts(models.Model):
+    power = models.IntegerField()
+    rerity = models.CharField(max_length=50)
+    value = models.IntegerField()
+
+# Наполняем БД
+# python manage.py shell
+# >>> from demo.models import Weaponts
+# >>> Weaponts(power=10, rerity='epic', value=100).save()
+# >>> Weaponts(power=50, rerity='rare', value=300).save()
