@@ -25,9 +25,9 @@ REST API — архитектурный стиль проектирования 
 
 **Десериализация (deserialization)** — это процесс создания структуры данных из битовой последовательности путем перевода этой последовательности в объекты и их упорядочивания (структуризации).
 
-![](https://images.app.goo.gl/mu5dbfYiYGRCgFRq7)
+![Сериализация и десериализация](https://images.app.goo.gl/mu5dbfYiYGRCgFRq7)
 
-![Сериализация в Django REST framework](https://www.django-rest-framework.org/api-guide/fields/#imagefield)
+[Сериализация в Django REST framework](https://www.django-rest-framework.org/api-guide/fields/#imagefield)
 
 - **Generic APIView классы**
 
