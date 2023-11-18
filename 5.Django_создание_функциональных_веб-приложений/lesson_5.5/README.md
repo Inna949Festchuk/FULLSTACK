@@ -27,6 +27,8 @@ REST API — архитектурный стиль проектирования 
 
 ![](https://images.app.goo.gl/mu5dbfYiYGRCgFRq7)
 
+![Сериализация в Django REST framework](https://www.django-rest-framework.org/api-guide/fields/#imagefield)
+
 - **Generic APIView классы**
 
 В DRF реализованы основные классы для работы с данными, такие как ListAPIView, RetrieveAPIView и т.п. Подробнее про такие классы и их возможности можно почитать [на этом ресурсе](https://www.django-rest-framework.org/api-guide/generic-views/)
