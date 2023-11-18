@@ -138,35 +138,39 @@ def create_car(request):
     сar.save() # сохраняем запись в БД
     return HttpResponse(f'Новая машина: {сar.brand}, {сar.model}')
 
+# 1:М - - - - - - - -
 # Создадим обработчик запросов к БД
 def list_car(request):
-    # Выборка всех объектов all()
-    car_objects = Car.objects.all() 
-    # Car - модель, objects - менеджер позволяющий управлять всеми объектами в БД,
-    # all() - метод выбирающий все строки из БД
-    # Выборка объектов по условию filter() 
-    # car_objects = Car.objects.filter(brand='B2') 
+    # # Выборка всех объектов all()
+    # car_objects = Car.objects.all() 
+    # # Car - модель, objects - менеджер позволяющий управлять всеми объектами в БД,
+    # # all() - метод выбирающий все строки из БД
+    # # Выборка объектов по условию filter() 
+    # # car_objects = Car.objects.filter(brand='B2') 
 
-    # МОДИФИКАТОРЫ
-    # Выборка объектов по условию filter() содержащих '2'
-    # car_objects = Car.objects.filter(brand__contains='2') 
-    # Модификатор __contains выбирает объекты СОДЕРЖАЩИЕ '2'
-    # car_objects = Car.objects.filter(brand__startswith='2') 
-    # Модификатор __startswith говорит что выборка должна НАЧИНАТЬСЯ с '2'
+    # # МОДИФИКАТОРЫ
+    # # Выборка объектов по условию filter() содержащих '2'
+    # # car_objects = Car.objects.filter(brand__contains='2') 
+    # # Модификатор __contains выбирает объекты СОДЕРЖАЩИЕ '2'
+    # # car_objects = Car.objects.filter(brand__startswith='2') 
+    # # Модификатор __startswith говорит что выборка должна НАЧИНАТЬСЯ с '2'
 
-    cars = [f'{c.id}. {c.brand}, {c.model}: {c.color} | {c.owners.count()}' for c in car_objects]
-    # c.owners.count() - count() количество владельцев этим авто, можно применять filter()
-    return HttpResponse('<br>'.join(cars)) 
-    # тег <br> это перенос в списке на новую строку
+    # cars = [f'{c.id}. {c.brand}, {c.model}: {c.color} | {c.owners.count()}' for c in car_objects]
+    # # c.owners.count() - count() количество владельцев этим авто, можно применять filter()
+    # return HttpResponse('<br>'.join(cars)) 
+    # # тег <br> это перенос в списке на новую строку
 
-    # car_objects = Car.objects.get(id=1)
-    # # Получаем собственников авто с id=1 из связной (1:N)
-    # # модели Person с помощью related_name
-    # owners_its_car = car_objects.owners.all()
-    # # Выводим каждого из собственников на основе полученного QuerySet'a
-    # owner_its_car = [owner_its_car.name for owner_its_car in owners_its_car]
-    # owner = '<br>'.join(owner_its_car)
-    # return HttpResponse(f'{car_objects.model} -> {owner}')
+    # Выборка с применением реляционного имени
+    # - - - - - - - - - - 
+    car_object = Car.objects.get(id=1)
+    # Задача: Определить всех собственников авто с id=1
+    # Получаем собственников авто с id=1 из связной (1:M)
+    # модели Person с помощью related_name
+    owners_this_car = car_object.owners.all()
+    # Выводим каждого из собственников на основе полученного QuerySet'a
+    owner_this_car = [owner_this_car.name for owner_this_car in owners_this_car]
+    owner = '<br>'.join(owner_this_car)
+    return HttpResponse(f'{car_object.model} -> {owner}')
 
 
 # Создадим обработчик для модели Person владельцы авто

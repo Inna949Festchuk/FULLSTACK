@@ -10,7 +10,7 @@ class Car(models.Model):
     model = models.CharField(max_length=50)
     color = models.CharField(max_length=20)
 
-    def __str__(self):
+    def __str__(self): # Переопределяем формат строки по-умолчанию
         return f'{self.brand}, {self.model}: {self.color}'
 
 class Person(models.Model):
