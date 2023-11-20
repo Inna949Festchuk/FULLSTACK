@@ -34,7 +34,6 @@ REST API — архитектурный стиль проектирования 
 В DRF реализованы основные классы для работы с данными, такие как ListAPIView, RetrieveAPIView и т.п. Подробнее про такие классы и их возможности можно почитать [на этом ресурсе](https://www.django-rest-framework.org/api-guide/generic-views/)
 
 - **Презентация "Знакомство с API на примере Django REST framework"**
-- **Презентация к видео "Работа с ORM"**
 - **Тест** Внимание!!!!! [Готовясь к тесту читай это и верь только этому! GPT врет! :)](https://datatracker.ietf.org/doc/html/rfc9110#name-methods)
 
 - **[Код к занятию (листинг)](../DJ_code/orm_advanced)**
@@ -46,4 +45,4 @@ REST API — архитектурный стиль проектирования 
 
 ### [Мой код по материалам занятий](../lesson_5.1/dj_proect/)
 
-### [Домашняя работа](../dj-homeworks/2.2-databases-2/)
+### [Домашняя работа](../dj-homeworks/3.1-drf-intro/)

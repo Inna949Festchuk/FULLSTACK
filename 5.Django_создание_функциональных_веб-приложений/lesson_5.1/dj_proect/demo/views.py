@@ -215,7 +215,7 @@ def list_orders(request):
 # DRF
 # ---------------------------------------------------------------
 
-# # Декоратор для преобразования простого в API обработчик
+# # Декоратор для преобразования простого обработчика в API-бработчик
 # # Параметр декоратора - это тип запроса на который должен отвечать обработчик
 # # GET, POST, PUT PATH
 
@@ -257,8 +257,6 @@ def demo(requests):
 #         '''Метод принимающий на вход и запросы GET'''
 #         weaponts = Weaponts.objects.all()
 #         ser = WeaponSerializer(weaponts, many=True)
-#         # many=True означает что серриалайзер выдаст нам целый список объектов, а не какой-нибудь один
-#         data = {'message': 'Hello, world!'}
 #         return Response(ser.data)
 #     def post(self, request):
 #         '''Метод принимающий на вход и запросы POST'''
@@ -274,9 +272,13 @@ class DemoView(ListAPIView):
     # если нужно реализовать дополнительное поведение
     # делаем это через def post(self, request):
     def post(self, request):
+        # Добавляем запись в БД(например создаем НОВЫЙ заказ)
+        # Weaponts(power=500, rerity='силища', value=555).save()
         return Response({'status': 'OK'})
     
-# Если нужна информация по единственному виду оружия (например)
+# Если нужна информация по единственному виду оружия 
+# (по id поля <pk> указываемого в пути в urls.py, 
+# н-р: path('weapon/<pk>/', WeaponView.as_view()))
 class WeaponView(RetrieveAPIView):
     queryset = Weaponts.objects.all()
     serializer_class = WeaponSerializer
