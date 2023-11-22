@@ -1,45 +1,69 @@
 # примеры API-запросов
 
-@baseUrl = http://localhost:8000/api
+@baseUrl = http://127.0.0.1:8000/api
 
-# получение датчиков
-GET {{baseUrl}}/sensors/
-Content-Type: application/json
-
-###
-
-# создание датчика
-POST {{baseUrl}}/sensors/
-Content-Type: application/json
-
-{
-  "name": "ESP32",
-  "description": "Датчик на кухне за холодильником"
-}
+# # получение датчиков
+# GET {{baseUrl}}/show_sensors/
+# Content-Type: application/json
 
 ###
+# В адресной строке браузера должен быть сформирован такой запрос:
+GET http://127.0.0.1:8000/api/show_sensors/
 
-# обновление датчика
-PATCH {{baseUrl}}/sensors/1/
-Content-Type: application/json
+# ###
+# # создание датчика
+# POST {{baseUrl}}/create_sensor/
+# Content-Type: application/json
 
-{
-  "description": "Перенес датчик на балкон"
-}
-
-###
-
-# добавление измерения
-POST {{baseUrl}}/measurements/
-Content-Type: application/json
-
-{
-  "sensor": 1,
-  "temperature": 22.3
-}
+# {
+#   "name": "ESP32",
+#   "description": "Датчик на кухне за холодильником"
+# }
 
 ###
+# В адресной строке браузера должен быть сформирован такой запрос:
+POST http://127.0.0.1:8000/api/create_sensor/?name=ESP32&description=Датчик на кухне за холодильником
 
-# получение информации по датчику
-GET {{baseUrl}}/sensors/1/
-Content-Type: application/json
+# ###
+# # обновление датчика
+# PATCH {{baseUrl}}/patch_sensor/
+# Content-Type: application/json
+
+# {
+#   "name": "ESP32",
+#   "new_name": "ESP33",
+#   "description": "Перенес датчик на балкон"
+# }
+
+###
+# В адресной строке браузера должен быть сформирован такой запрос:
+PATCH http://127.0.0.1:8000/api/patch_sensor/?name=ESP32&new_name=ESP33&description=Перенес датчик на балкон
+
+# ###
+# # добавление измерения
+# POST {{baseUrl}}/measurement/
+# Content-Type: application/json
+
+# {
+#   "sensor": 1,
+#   "temperature": 22.3,
+# }
+
+###
+# В адресной строке браузера должен быть сформирован такой запрос:
+POST http://127.0.0.1:8000/api/measurement/?sensor=1&temperature=22.3
+
+
+# ###
+# # получение информации по датчику
+# GET {{baseUrl}}/sensors/1/
+# Content-Type: application/json
+
+###
+# В адресной строке браузера должен быть сформирован такой запрос:
+GET http://127.0.0.1:8000/api/sensors/1/
+
+### 
+# просмотр всех измерений через класс дженерика ListCreateAPIView
+# выдруг понадобятся графики строить
+GET http://127.0.0.1:8000/api/measurement_class   
