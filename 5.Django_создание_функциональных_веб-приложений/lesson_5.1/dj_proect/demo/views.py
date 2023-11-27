@@ -282,4 +282,3 @@ class DemoView(ListAPIView):
 class WeaponView(RetrieveAPIView):
     queryset = Weaponts.objects.all()
     serializer_class = WeaponSerializer
-

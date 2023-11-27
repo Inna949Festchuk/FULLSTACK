@@ -4,10 +4,16 @@ from .models import Measurement, Sensor
 # TODO: опишите необходимые сериализаторы
 
 
-class SensorSerializer(serializers.Serializer):
-    id = serializers.IntegerField()
-    name = serializers.CharField()
-    description = serializers.CharField()
+# class SensorSerializer(serializers.Serializer):
+#     id = serializers.IntegerField()
+#     name = serializers.CharField()
+#     description = serializers.CharField()
+
+# ИЛИ ТАК
+class SensorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sensor
+        fields = ['id', 'name', 'description'] 
 
 
 class MeasurementSerializer(serializers.ModelSerializer):
