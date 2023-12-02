@@ -69,3 +69,29 @@ class Weaponts(models.Model):
 # >>> from demo.models import Weaponts
 # >>> Weaponts(power=10, rerity='epic', value=100).save()
 # >>> Weaponts(power=50, rerity='rare', value=300).save()
+
+# ---------------------------------------------------------------
+# CRUD in DRF
+# ---------------------------------------------------------------
+from django.contrib.auth.models import User
+
+
+class Coments(models.Model):
+    # Связь 1:M с пользователем (User - это стандартная модель Джанго ее создавать не нужно а только импортировать)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+    # автодата коментария
+    created_at = models.DateTimeField(auto_now_add=True)
+
+# python manage.py shell
+# >>> from demo.models import Coments
+# >>> from django.contrib.auth.models import User
+# >>> u = User.objects.first()
+# >>> u
+# <User: admin>
+# >>> c = Coments(user=u, text='demo text')
+# >>> c
+# <Coments: Coments object (None)>
+# >>> c.save()
+
+# Идем в views.py для создания API коментариев с плмощью ViewSet 

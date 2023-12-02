@@ -282,3 +282,38 @@ class DemoView(ListAPIView):
 class WeaponView(RetrieveAPIView):
     queryset = Weaponts.objects.all()
     serializer_class = WeaponSerializer
+
+# ---------------------------------------------------------------
+# CRUD in DRF
+# ---------------------------------------------------------------
+# ViewSet - позволяет создать и описать сразу все обработчики
+# ресурса вместо того чтобы писать отдельные API (создания, удаления коментов и т.д.)
+from rest_framework.viewsets import ViewSet, ModelViewSet
+
+# class ComentViewSet(ViewSet):
+    
+#     # ViewSet выводит список всех объектов данного ресурса (все коментарии)
+#     def list(self, request):
+#         return Response({'status': 'OK'})
+
+#     # ViewSet выводит какой-то конкретный объект
+#     def retrieve(self, request):
+#         pass
+
+#     # ViewSet удаления объекта
+#     def destroy(self, request):
+#         pass
+
+#     # ViewSet обновления объекта
+#     def update(self, request):
+#         pass
+
+#     # ViewSet создания объекта
+#     def create(self, request):
+#         pass
+
+# Но в DRF есть еще более удобный ViewSet это ModelViewSet
+
+
+class ComentViewSet(ModelViewSet):
+    pass
