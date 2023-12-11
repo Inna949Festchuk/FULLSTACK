@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from demo.views import (
+    ComentViewSet,
     DemoView,
     WeaponView,
     demo,
@@ -42,7 +43,22 @@ from demo.views import (
 # чтобы использовать его в маршрутах.
 from django.urls import register_converter
 register_converter(DateConverter, 'date') # date - это название нового регистрированного конвертора
+from rest_framework.routers import DefaultRouter
 
+# ---------------------------------------------------------------
+# CRUD in DRF
+# ---------------------------------------------------------------
+# Создадим роутер (роутеры позволяют правильно регистрировать ViewSet-
+# набор обработчиков в путях (т.к. as_view() преобразует только один обработчик в функцию,
+# но не их набор))
+router = DefaultRouter()
+# и зарегистрируем в роутере наш ViewSet
+router.register('coments', ComentViewSet)
+# prefix - это путь в браузере к нашему ресурсу 
+# http://127.0.0.1:8000/coments/
+# в данном примере prefix = coments
+# и теперь к существующим маршрутам ниже просто добавляем те что лежат в роутере
+# + router.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -93,4 +109,4 @@ urlpatterns = [
     # указывать идентификатор этого образца, передающегося
     # в виде параметра pk
     path('weapon/<pk>/', WeaponView.as_view()),
-]
+] + router.urls

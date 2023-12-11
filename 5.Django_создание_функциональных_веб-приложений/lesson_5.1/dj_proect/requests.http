@@ -16,4 +16,55 @@ POST http://localhost:8000/democlass/
 
 GET http://localhost:8000/weapon/1/
 
+###
+GET http://localhost:8000/coments/
 
+# Создадим новый коментарий
+###
+POST http://localhost:8000/coments/
+Content-Type: application/json
+
+{
+    "user": 1,
+    "text": "text from rest client"
+}
+
+# Получение коментария с конкретным идентификатором
+###
+GET http://localhost:8000/coments/2/
+
+# Заменим тексе коментария с id=2 на новый
+###
+PATCH http://localhost:8000/coments/2/
+Content-Type: application/json
+
+{
+    "text": "new text"
+}
+
+# Удаление коментария с конкретным идентификатором
+###
+DELETE http://localhost:8000/coments/2/
+
+# Фильтрация коментария по параметру
+###
+GET http://localhost:8000/coments/?user=1
+
+# Поисковая Фильтрация коментария
+###
+GET http://localhost:8000/coments/?search=demo
+
+# Упорядочивание
+###
+# GET http://localhost:8000/coments/?ordering=-id
+GET http://localhost:8000/coments/?ordering=-created_at,-id
+
+# Пагинация в DRF
+###
+GET http://localhost:8000/coments/?page=2
+
+###
+GET http://localhost:8000/coments/?offset=2&limit=3
+
+# offset - с какого объекта начинать
+# limit - сколько объектов отображать

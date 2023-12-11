@@ -1,4 +1,4 @@
-from .models import Weaponts
+from .models import Coments, Weaponts
 from rest_framework import serializers
 
 # В сериалайзер передаются все объекты модели,
@@ -21,3 +21,8 @@ class WeaponSerializer(serializers.ModelSerializer):
         model = Weaponts # Указываем модель из models.py 
         fields = ['id', 'power', 'rerity'] # Указываем поля модели которые мы хотим отобразить
         # 'id' указываем при применении класса RetrieveAPIView
+
+class ComentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Coments
+        fields = ['id', 'user', 'text', 'created_at']

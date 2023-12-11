@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'demo', # НАШЕ НОВОЕ ПРИЛОЖЕНИЕ регистрируем здесь
-    'rest_framework' # регистрация DRF
+    'rest_framework', # регистрация DRF
+    'django_filters', # Фильтрация в DRF
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,18 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CONTANCT_EMAIL = 'innabori@mail.ru'
+
+# НАСТРОЙКА ФИЛЬТРАЦИИ
+# Создаем список фильтров
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        # фильтрация по параметру (если равно некому значению, то ресурс попаждает в выборку)
+        'django_filters.rest_framework.DjangoFilterBackend', #(иди в ViewSet и укажи атрибут filterset_fields)
+    ],
+    # если нужно поменять зарезервированный для поиска параметр search
+    # или упорядочивания парметр  ordering
+    # 'SEARCH_PARAM': 'q',
+    # 'ORDERING_PARAM' 'o',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', # Пагинация в DRF один из классов
+    'PAGE_SIZE': 2, # количество коментариев на странице
+}

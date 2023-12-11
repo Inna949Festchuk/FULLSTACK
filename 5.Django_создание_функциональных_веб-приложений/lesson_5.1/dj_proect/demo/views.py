@@ -1,8 +1,8 @@
 from datetime import datetime
 import random
 
-from .serializers import WeaponSerializer
-from demo.models import Car, Person, Order
+from .serializers import ComentsSerializer, WeaponSerializer
+from demo.models import Car, Person, Order, Coments
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.core.paginator import Paginator
@@ -13,7 +13,8 @@ from .models import Weaponts
 from .serializers import WeaponSerializer
 from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-
+from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework.pagination import LimitOffsetPagination
 # именно так надо импортировать настройки из модуля settings.py
 from django.conf import settings
 
@@ -313,7 +314,30 @@ from rest_framework.viewsets import ViewSet, ModelViewSet
 #         pass
 
 # Но в DRF есть еще более удобный ViewSet это ModelViewSet
-
+# в котором все методы ViewSet уже реализованы
 
 class ComentViewSet(ModelViewSet):
-    pass
+    queryset = Coments.objects.all()
+    serializer_class = ComentsSerializer
+    # после создания сериализаторы регистрируем маршрут к этому классу
+
+    # НАСТРОЙКА ФИЛЬТРАЦИИ (второй способ)
+    filter_backends = [
+        # DjangoFilterBackend,
+        SearchFilter, # это поисковый фильтр
+        OrderingFilter, # фильтр упорядочивания данных
+    ]
+    # фильтрация по параметрам по полям (параметры передаются в GET запросе после ?user=1)
+    filterset_fields = ['user', ]
+
+    # поисковая фильтрация по полям
+    search_fields = ['text', ] #(в GET указать ?search=то что мы ищем)
+
+    # упорядочивание по полям
+    ardering_fields = ['id', 'user', 'text', 'created_at']
+
+    # второй способ настройки пагинации
+    pagination_class = LimitOffsetPagination
+    # класс имеет два параметра
+    # offset - с какого объекта начинать
+    # limit - сколько объектов отображать
