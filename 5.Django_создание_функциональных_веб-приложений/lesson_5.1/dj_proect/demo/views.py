@@ -356,7 +356,7 @@ class AvdViewSet(ModelViewSet):
     # РАЗДЕЛЕНИЕ ДОСТУПА
     # Пользователь должен быть АУТЕНТИФИЦИРОВАН И ВЛАДЕТЬ ресурсом
     permission_classes = [
-        # IsAuthenticated, 
+        IsAuthenticated, 
         IsOnwer
         ]
     # IsAuthenticated - требует чтобы пользователь был аутентифицирован то есть представил свой токен
