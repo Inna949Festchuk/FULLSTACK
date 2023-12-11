@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from demo.views import (
     ComentViewSet,
+    AvdViewSet,
     DemoView,
     WeaponView,
     demo,
@@ -45,6 +46,7 @@ from django.urls import register_converter
 register_converter(DateConverter, 'date') # date - это название нового регистрированного конвертора
 from rest_framework.routers import DefaultRouter
 
+
 # ---------------------------------------------------------------
 # CRUD in DRF
 # ---------------------------------------------------------------
@@ -59,6 +61,11 @@ router.register('coments', ComentViewSet)
 # в данном примере prefix = coments
 # и теперь к существующим маршрутам ниже просто добавляем те что лежат в роутере
 # + router.urls
+# ---------------------------------------------------------------
+# Разделение доступа in DRF
+# ---------------------------------------------------------------
+router.register('avd', AvdViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

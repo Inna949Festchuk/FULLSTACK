@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'demo', # НАШЕ НОВОЕ ПРИЛОЖЕНИЕ регистрируем здесь
     'rest_framework', # регистрация DRF
     'django_filters', # Фильтрация в DRF
+
+    'rest_framework.authtoken', # подключпение аутентификации 
+                                # добавляется модель хранящая в БД соответствие 
+                                # токена и пользователя поэтому примени МИГРАЦИИ
 ]
 
 MIDDLEWARE = [
@@ -130,7 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CONTANCT_EMAIL = 'innabori@mail.ru'
 
-# НАСТРОЙКА ФИЛЬТРАЦИИ
+# НАСТРОЙКА ФИЛЬТРАЦИИ, АУТЕНТИФИКАЦИИ
 # Создаем список фильтров
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': [
@@ -143,4 +147,24 @@ REST_FRAMEWORK = {
     # 'ORDERING_PARAM' 'o',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', # Пагинация в DRF один из классов
     'PAGE_SIZE': 2, # количество коментариев на странице
+
+    # НАСТРОЙКА АУТЕНТИФИКАЦИИ по токену (есть и др. варианты)
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    
+    # НАСТРОЙКА ТРОТЛИНГА
+    'DEFAULT_THROTTLE_CLASSES': [
+        # 'rest_framework.throttling.UserRateThrottle',
+        # 'rest_framework.throttling.AnonRateThrottle',
+        # Можно установить для каждого конкретного VIEWSET
+    ],
+    # Указываем для каждой группы количество запросов
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '10/minutes',
+        'anon': '2/minutes',
+    }
+    
 }
+
+

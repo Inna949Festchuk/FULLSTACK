@@ -95,3 +95,15 @@ class Coments(models.Model):
 # >>> c.save()
 
 # Идем в views.py для создания API коментариев с плмощью ViewSet 
+
+# ---------------------------------------------------------------
+# Разделение доступа in DRF
+# ---------------------------------------------------------------
+# На примере модели объявлений
+class Avd(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    open = models.BooleanField(default=True)
+
+# Идем в views.py для создания API объявлений с плмощью ViewSet (организуем доступ к этому ресурсу)  

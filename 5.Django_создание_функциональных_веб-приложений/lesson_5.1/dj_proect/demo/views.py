@@ -9,13 +9,16 @@ from django.core.paginator import Paginator
 # API
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Weaponts
-from .serializers import WeaponSerializer
+from .models import Weaponts, Avd
+from .serializers import WeaponSerializer, AvdSerializer
 from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import IsAuthenticated # РАЗДЕЛЕНИЕ ДОСТУПА В DRF
 # именно так надо импортировать настройки из модуля settings.py
+from demo.permissions import IsOnwer # наш permission_class разграничения прав доступа пользователей к ресурсам
+from rest_framework.throttling import AnonRateThrottle # троттлинг запросов
 from django.conf import settings
 
 # Create your views here.
@@ -341,3 +344,28 @@ class ComentViewSet(ModelViewSet):
     # класс имеет два параметра
     # offset - с какого объекта начинать
     # limit - сколько объектов отображать
+
+# ---------------------------------------------------------------
+# Разделение доступа in DRF
+# ---------------------------------------------------------------
+
+
+class AvdViewSet(ModelViewSet):
+    queryset = Avd.objects.all()
+    serializer_class = AvdSerializer
+    # РАЗДЕЛЕНИЕ ДОСТУПА
+    # Пользователь должен быть АУТЕНТИФИЦИРОВАН И ВЛАДЕТЬ ресурсом
+    permission_classes = [
+        # IsAuthenticated, 
+        IsOnwer
+        ]
+    # IsAuthenticated - требует чтобы пользователь был аутентифицирован то есть представил свой токен
+    # IsOnwer - созданный нами permission_class РАЗГРАНИЧЕНИЯ ПРАВ ПОЛЬЗОВАТЕЛЕЙ НА РЕСУРСЫ
+    # Включаем тротлинг для анонимных пользователей
+    trottle_classes = [AnonRateThrottle]
+
+    # передаем пользователя с соответствующим ему в БД токеном в сериализатор
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+        # self.request.user # - так как наш User и соответствующий ему токен уже хранятся в БД
+        # далее указать в сериалайзере AvdSerializer поле user как read-овое поле

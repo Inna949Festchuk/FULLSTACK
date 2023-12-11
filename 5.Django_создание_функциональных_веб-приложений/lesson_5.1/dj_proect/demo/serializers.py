@@ -1,4 +1,4 @@
-from .models import Coments, Weaponts
+from .models import Coments, Weaponts, Avd
 from rest_framework import serializers
 
 # В сериалайзер передаются все объекты модели,
@@ -26,3 +26,13 @@ class ComentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Coments
         fields = ['id', 'user', 'text', 'created_at']
+
+# ---------------------------------------------------------------
+# Разделение доступа in DRF
+# ---------------------------------------------------------------
+class AvdSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Avd
+        fields = ['id', 'user', 'text', 'created_at', 'open']
+        # указываем поле user -> read
+        read_only_fields = ['user', ]
