@@ -1,0 +1,14 @@
+body {
+    /* цвет шрифта */
+    color: red;
+    /* подложка */
+    background: wheat;
+    /* название шрифта */
+    font-family: Arial, sans-serif;
+    /* жирность */
+    font-weight: 700;
+    /* размер шрифта в пикселях px */
+    font-size: 25px;
+    /* начертание */
+    font-style: italic;
+}

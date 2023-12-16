@@ -4,18 +4,29 @@
         <title>Моя первая страница</title>
         <meta charset="utf-8"> 
         <!-- селектор CSS-->
-        <style type="text/css">
-            body{
+        <!-- <style type="text/css">
+            body {
                 color: red;
-            }
+                background: black;
+            } -->
+        <!-- Подключаем CSS по адресу href="style.css" -->
+        <link rel="stylesheet" type="text/css" href="style.css">
 
         </style>
 
     </head>
     <!-- атрибут CSS-->
     <!-- <body style="color: red; background: black;"> -->
+    <body>    
         Добро пожаловать на мой сайт
+        <!-- переход по внешней ссылке -->
+        <a href="https://netology.ru/">Перейти на др. стр.</a>
+        <!-- переход внутри страницы (якорь)-->
+        <a href="#contacts">Контакты</a>
+        <div id="contacts">список контактов</div>
+        
     </body>
+    
     
 </html>
 
