@@ -16,11 +16,11 @@
 
 from django.contrib.gis import admin
 from .models import (
-    WorldBorder, 
+    # WorldBorder, 
     WorldPoint,
 )
 
-admin.site.register(WorldBorder, admin.ModelAdmin)
+# admin.site.register(WorldBorder, admin.ModelAdmin)
 
 # @admin.register(WorldBorder)
 # class WorldBorderAdmin(admin.OSMGeoAdmin):
@@ -29,6 +29,6 @@ admin.site.register(WorldBorder, admin.ModelAdmin)
 # admin.site.register(WorldPoint, admin.ModelAdmin)
 
 @admin.register(WorldPoint)
-class WorldPointAdmin(admin.OSMGeoAdmin):
-    # начиная с django v.4 использовать GISModelAdmin
+class WorldPointAdmin(admin.GISModelAdmin):
+    # начиная с django v.4 использовать GISModelAdmin ниже OSMGeoAdmin
     list_display = ('name', 'x', 'y',)
