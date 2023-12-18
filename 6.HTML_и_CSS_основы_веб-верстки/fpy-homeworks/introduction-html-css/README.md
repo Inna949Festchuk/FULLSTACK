@@ -13,4 +13,4 @@
 Мои решения:
 1. [Верстка блока с кратким описанием языка HTML](https://codepen.io/Inna949Festchuk/pen/PoVMpvG)
 2. [Стилизация краткого описания статьи для блога «Нетологии»](https://codepen.io/Inna949Festchuk/pen/gOqVWaL)
-3. [Виджет новой статьи в блоге «Нетологии»]()
+3. [Виджет новой статьи в блоге «Нетологии»](https://codepen.io/Inna949Festchuk/pen/QWYevMr)
