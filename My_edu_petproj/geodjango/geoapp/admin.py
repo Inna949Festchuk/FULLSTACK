@@ -18,6 +18,7 @@ from django.contrib.gis import admin
 from .models import (
     # WorldBorder, 
     WorldPoint,
+    WorldLine,
 )
 
 # admin.site.register(WorldBorder, admin.ModelAdmin)
@@ -30,5 +31,18 @@ from .models import (
 
 @admin.register(WorldPoint)
 class WorldPointAdmin(admin.GISModelAdmin):
-    # начиная с django v.4 использовать GISModelAdmin ниже OSMGeoAdmin
-    list_display = ('name', 'x', 'y',)
+    # начиная с django v.4 использовать GISModelAdmin
+    list_display = ('name', )
+    # Скрыть отображение поля в админке
+    # exclude = ('myline',)
+
+@admin.register(WorldLine)
+class WorldPointAdmin(admin.GISModelAdmin):
+    # начиная с django v.4 использовать GISModelAdmin
+    list_display = ('azimuth', 'pn', 'distance', )
+    
+
+# @admin.register(PointInLine)
+# class PointInLineAdmin(admin.GISModelAdmin):
+#     # начиная с django v.4 использовать GISModelAdmin
+#     list_display = ('mypoints', 'mylines', )

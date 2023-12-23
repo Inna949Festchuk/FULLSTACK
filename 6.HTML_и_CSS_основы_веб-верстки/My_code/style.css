@@ -11,4 +11,6 @@ body {
     font-size: 25px;
     /* начертание */
     font-style: italic;
+    /* убрать подчеркивание */
+    text-decoration: none;
 }

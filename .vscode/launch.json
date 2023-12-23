@@ -10,7 +10,7 @@
             "type": "python",
             "request": "launch",
             "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/5.Django_создание_функциональных_веб-приложений/dj-homeworks/2.2-databases-2/m2m-relations/manage.py",
+            "program": "${workspaceFolder}/5.Django_создание_функциональных_веб-приложений/My_edu_petproj/geodjango/manage.py",
             "args": [
                 "runserver"
             ],
