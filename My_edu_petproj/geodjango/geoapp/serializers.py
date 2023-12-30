@@ -1,27 +1,40 @@
 from rest_framework import serializers
 from django.core.serializers import serialize, deserialize
 # from .models import WorldLine
-from .models import WorldPoint, WorldLine
+from .models import PointInLine, WorldPoint, WorldLine
 import json
 import math 
 
-# from django.contrib.gis.db.models.functions import AsWKT, Azimuth
-# from django.contrib.gis.geos import Point, LineString
-# from math import degrees
-
-# опишите необходимые сериализаторы
 
 class WorldPointSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorldPoint
         fields = ['name', 'location',] 
 
+
+# сериализатор поступившего запроса
 class WorldLineSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorldLine
-        fields = ['azimuth', 'pn', 'distance', 'location',] 
+        fields = ['name', 'azimuth', 'pn', 'distance',] 
 
-                
+
+# сериализатор записи постобработанных данных в БД
+class WorldLineSerializerPost(serializers.ModelSerializer):
+    class Meta:
+        model = WorldLine
+        fields = ['name', 'azimuth', 'pn', 'distance', 'location',] 
+        
+
+class PointInLineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PointInLine
+        fields = ['mypoints', 'mylines',] 
+
+
+
+
+
     #     # Это GeoJSON - результат сериализации (ЭТО СТРОКА не словарь!!!)
     #     {"type": "FeatureCollection", 
     #     "crs": {"type": "name", "properties": {"name": "EPSG:4326"}}, 

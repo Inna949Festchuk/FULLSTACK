@@ -1,14 +1,13 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
-from .models import WorldPoint, WorldLine
+from .models import WorldPoint, WorldLine, PointInLine
 from rest_framework.response import Response
 from django.contrib.gis.geos import GEOSGeometry, LineString
-from .serializers import WorldLineSerializer, WorldPointSerializer
+from .serializers import PointInLineSerializer, WorldLineSerializer, WorldLineSerializerPost, WorldPointSerializer
 from django.core.serializers import serialize, deserialize
 import json
 import math
 import copy
-from django.contrib.gis.db.models.functions import IsValid
 
 # получение point
 # @api_view(['GET'])
@@ -27,6 +26,30 @@ from django.contrib.gis.db.models.functions import IsValid
 #     WorldPoint(name=name, x=float(x), y=float(y), location=pnt).save()
 #     return Response({'status': 'point create'})
 
+@api_view(['POST'])
+def create_point(request):
+    '''
+    ПОДКЛЮЧИ ЭТО К КНОПКЕ
+    PATH {{baseUrl}}/api/create_point/
+    {'name': #1,
+    'location': 'SRID=4326;POINT(954158.1 4215137.1)'
+    }
+    import requests
+    url = "http://127.0.0.1:8000/api/create_point/"
+    response = requests.post(url, data={'name': #1, 'location': 'SRID=4326;POINT(954158.1 4215137.1)'})
+    response.json()
+    '''
+    # Отправляем байтстринг сериализатору
+    serialpoint = WorldPointSerializer(data=request.data)
+    # проверяем десериализованные данные на валидность
+    if serialpoint.is_valid():
+        # если данные валидны, сохраняем их в БД
+        serialpoint.save()
+        return Response(serialpoint.data)
+    else:
+        print('ERROR! No valid data!')
+        return Response(serialpoint.errors)
+
 # сервис построения схемы движения по азимутам 
 # Декоратор для преобразования простого обработчика в API-бработчик
 @api_view(['POST'])
@@ -44,7 +67,9 @@ def create_line(request):
     # расчет азимута и расстояния в пар-шагах
     def Am(x1, y1, x2, y2, Pn=0):
         '''
-        Pn - поправка направления (по-умолчанию 1 град)
+        Функция расчета азимута магнитного с учетом поправки направления
+        и расстояния между ориентирами в пар-шагах
+        Pn - поправка направления (по-умолчанию 0 град)
         '''
         # Расчитываем расстояние между точками в п.ш.
         dX = x2 - x1
@@ -54,9 +79,9 @@ def create_line(request):
         elif dY == 0:
             r = 0
         else:
-            r = (180/math.pi)*math.atan(math.sqrt((dY/dX)**2))
+            r = (180 / math.pi) * math.atan(math.fabs(dY / dX))
         
-        S = math.sqrt(dX**2 + dY**2)/1.5
+        S = math.sqrt(dX ** 2 + dY ** 2) / 1.5
         
         # Расчитываем азумут магнитный с учетом поправки направления
         if dX >= 0 and dY >= 0:
@@ -72,98 +97,101 @@ def create_line(request):
         Am_degre = a - Pn
         # Пересчитываем десятичные градусы в градусы, минуты, секунды
         Am_grad = int(Am_degre)
-        Am_min = int(60*(Am_degre - Am_grad))
-        Am_sec = round(60*(60*(Am_degre - int(Am_degre)) - Am_min), 1)
+        Am_min = int(60 * (Am_degre - Am_grad))
+        Am_sec = round(60 * (60 * (Am_degre - int(Am_degre)) - Am_min), 1)
         # Объединяем все в одну строку
         Am = ''.join([str(Am_grad)+" град ", str(Am_min)+" мин ", str(Am_sec)+' с'])
         # Округляем п.ш.
-        S = f'{S:.0f} п.ш.'
+        S = f'{S:.1f} п.ш.'
         return Am, S
     
     # извлечение координат точек из БД
     
-    # # сериализация
-    # serpoint = WorldPointSerializer(WorldPoint.objects.all(), many=True)
-    # # many=True означает что серриалайзер выдаст нам все объекты
-    # datapoint = serpoint.data # десериализация
-    # print(datapoint)
-    # # [OrderedDict([('name', 'вторая точка'), ('location', 'SRID=4326;POINT (9469366.619189991 10373434.66280238)')]), 
-    # # OrderedDict([('name', 'третья точка'), ('location', 'SRID=4326;POINT (40044173.59302919 34136100.13507251)')]), 
-    # # OrderedDict([('name', 'четвертая точка'), ('location', 'SRID=4326;POINT (5025508.686525814 33178142.73641437)')])]
-    # # Попробывать так 
-    # points = [point.location.coords for point in datapoint или serpoint]
-    # # Вместо этого
     points = [point.location.coords for point in WorldPoint.objects.all()]
-    # извлечение значения поправки направления из тела запроса
-    # если данных нет принять по-умолчанию ПН=1
-    pn = request.data.get('pn', 0)
+    
+    # извлечение значения поправки направления из тела запроса (десериализация)
+    serialline = WorldLineSerializer(data=request.data)
+    # print(serialline)
+    # проверка поступивших (влияние помех в канале передачи данных)
+    # данных на валидность
+    if serialline.is_valid():
+        name = serialline.data.get('name', 'noname')
+        # если данных нет принять по-умолчанию ПН=0
+        pn = serialline.data.get('pn', 0)
 
-    for cnt in range(len(points) - 1):
-        # рассчет азимута и расстояния в пар-шагах
-        res = Am(points[cnt][0], points[cnt][1], points[cnt + 1][0], points[cnt + 1][1], Pn=float(pn))
-        
-        # создание линий на основе извлекаемых точек
-        new_line = LineString(points[cnt], points[cnt + 1], srid=4326)
-        
-        
-        # new_line = LineString([point for point in points])
-        
-        # serline = WorldLineSerializer(WorldLine.objects.all(), many=True)
-        # dataline = serserline.data 
+        for cnt in range(len(points) - 1):
+            # рассчет азимута и расстояния в пар-шагах
+            # res = Am(points[cnt][0], points[cnt][1], points[cnt + 1][0], points[cnt + 1][1], Pn=float(pn))
+            # меняем порядок координат XY на YX для SRID = 28404
+            res = Am(points[cnt][1], points[cnt][0], points[cnt + 1][1], points[cnt + 1][0], Pn=float(pn))
 
-        # Если геометрия правильно сформирована (валидна) то записать в БД и сформировать geojson
-        # if IsValid(new_line) == True:
-            # запись в БД расчетных значений
-            # serline(azimuth=res[0], pn=float(pn), distance=res[1], location=new_line).save()
-            # WorldLine(azimuth=res[0], pn=float(pn), distance=res[1], location=new_line).save()
-            # print(float(request.data.get('pn', 1)))  
+            # создание линий на основе извлекаемых точек
+            # СК-42, 6-градусная зона №4 (SRID = 28404 = порядок YX)
+            new_line = LineString(points[cnt], points[cnt + 1], srid=28404)
+            # new_line.transform(28404) # Изменение локации согласно SRID
+
+            myname = f'Ориентир: {cnt + 1} - ориентир: {cnt + 2}'
+            # создаем структуру данных (словарь) для сериализации
+            # преобразования в байт-поток перед записью в БД
+            dictpost = dict(name=myname, azimuth=res[0], pn=float(pn), distance=res[1], location=new_line)
+            # сериализуем
+            seriallinepost = WorldLineSerializerPost(data=dictpost)
+            # если сериализованные данные валидны записать их в БД
+            if seriallinepost.is_valid():
+                seriallinepost.save()
+                # это вариант, если БД и сервис находятся на одном сервере
+                # WorldLine(azimuth=res[0], pn=float(pn), distance=res[1], location=new_line).save()
+            else:
+                print('ERROR! No valid data POST!')
+                return Response(seriallinepost.errors)
+
+        # Заполняем таблицу связей
+        # Получаем id экземпляров модели WorldLine
+        idlins = [lin.id for lin in WorldLine.objects.all()]
+        
+        listpointinline = []
+
+        for idlin in idlins:
+            # проходим по каждой линии в соответствии с ее id
+            line = WorldLine.objects.get(id=idlin)
+            # и ищем точки с которыми она пересекается location__intersects
+            # где location - поле с геометрией __intersects - метод поиска пересечений
+            pnts_intersect = WorldPoint.objects.filter(location__intersects=line.location)
             
-        WorldLine(azimuth=res[0], pn=float(pn), distance=res[1], location=new_line).save()
-        # else:
-        #     print('НЕВАЛИДНЫЕ ДАННЫЕ!')
-    
-    # pnts = [pnt.id for pnt in WorldPoint.objects.all()]
-    # lins = [lin.id for lin in WorldLine.objects.all()]
-    # # pnts_copy = copy.copy(tuple(pnts))
-    # # lins_copy = copy.copy(tuple(lins))
-    # pnts_copy = copy.copy(tuple(pnts))
-    # lins_copy = copy.copy(tuple(lins))
-    # print(pnts_copy, lins_copy)
-    # book.authors.add(author1, author2)
-    
-    # idpoints = [idpoint.id for idpoint in WorldPoint.objects.all()]
-    # idlines = [idline.id for idline in WorldLine.objects.all()]
-    
-    # for cnt in range(1, len(idpoints) - 2):
-    #     PointInLine(mypoints=WorldPoint.objects.get(id=cnt + 1), mylines=WorldLine.objects.get(id=cnt)).save()
-    #     PointInLine(mypoints=WorldPoint.objects.get(id=cnt + 1), mylines=WorldLine.objects.get(id=cnt)).save()
-    
-    
-    # for i in range(1, len(idpoints)):
-    #     world_point_instance = WorldPoint.objects.get(id=i)  # Получаем экземпляр WorldPoint
-    #     world_line_instance = WorldLine.objects.get(id=i)
-    #     posit_in_line_instance = PositInLine(mypoints=world_point_instance, mylines=world_line_instance)  # Присваиваем этот экземпляр атрибуту mypoints
-    #     posit_in_line_instance = PositInLine(mypoints=world_point_instance, mylines=world_line_instance)
-    #     # posit_in_line_instance.save()  # Сохраняем экземпляр PositInLine
-    #     print(world_point_instance)
-
-   
-    # формирование GeoJSON для визуализации в браузере с помощью Leaflet
-    # сериализация (представляет собой процесс преобразования состояния объекта в форму, пригодную для сохранения или передачи)
-    # Объекты модели, для сохранения или передачи, нужно СЕРИАЛИЗОВЫВАТЬ - преобразовывать в байт-код (поток)
-    data_geojson_str_pnt = serialize('geojson', WorldPoint.objects.all(),
-            geometry_field='location',
-            fields=('name', 'location',))
-    data_geojson_str_line = serialize('geojson', WorldLine.objects.all(),
-            geometry_field='location',
-            fields=('azimuth', 'pn', 'distance', 'location',))
-    # десериализация (преобразование серриализованныех данныех (потока) обратно в структуру словаря (str->dict))
-    context_pnt = json.loads(data_geojson_str_pnt)
-    context_line = json.loads(data_geojson_str_line)
-    
-    # возврат GeoJSON (введи response.content )
-    return Response({'content': (context_pnt, context_line)})
-
+            # формируем список со вложенными словарями пересечений
+            # это нужно чтобы сформировать связи между конкретной линией и 
+            # точками с которыми она пересекается
+            for pnt_intersect in pnts_intersect:
+                data = {'mypoints': pnt_intersect.id, 'mylines': line.id}
+                listpointinline.append(data)
+        
+        # сохраняем все записи одновременно после цикла
+        # формируя таблицу N:M
+        serialpointinline = PointInLineSerializer(data=listpointinline, many=True)
+        if serialpointinline.is_valid():
+            serialpointinline.save()
+        else:
+            print('ERROR! No valid data N:M!')
+            return Response(serialpointinline.errors)
+            
+        # # формирование GeoJSON для визуализации в браузере с помощью Leaflet
+        # # сериализация (представляет собой процесс преобразования состояния объекта в форму, пригодную для сохранения или передачи)
+        # # Объекты модели, для сохранения или передачи, нужно СЕРИАЛИЗОВЫВАТЬ - преобразовывать в байт-код (поток)
+        # data_geojson_str_pnt = serialize('geojson', WorldPoint.objects.all(),
+        #         geometry_field='location',
+        #         fields=('name', 'location',))
+        # data_geojson_str_line = serialize('geojson', WorldLine.objects.all(),
+        #         geometry_field='location',
+        #         fields=('azimuth', 'pn', 'distance', 'location',))
+        # # десериализация (преобразование серриализованныех данныех (потока) обратно в структуру словаря (str->dict))
+        # context_pnt = json.loads(data_geojson_str_pnt)
+        # context_line = json.loads(data_geojson_str_line)
+        
+        # # возврат GeoJSON (введи response.content )
+        # return Response({'content': (context_pnt, context_line)})
+        return Response(serialline.data)
+    else:
+        Response(serialline.errors)
 
 # # - - - - - - - - - - -
 # # ВТОРОЙ ВАРИАНТ

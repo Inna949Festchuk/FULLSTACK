@@ -45,46 +45,70 @@ from django.contrib.gis.db import models
 #         return self.name
 
 class WorldLine(models.Model):
-    azimuth = models.CharField(max_length=250, default=' - ', blank=True, help_text='Значение азимута магнитного с учетом поправки направления', verbose_name='Значение азимута магнитного')
-    pn = models.FloatField(help_text='Поправка направления', verbose_name='Поправка направления')
-    distance = models.CharField(max_length=250, default=' - ', blank=True, help_text='Значение расстояния в пар-шагах', verbose_name='Значение расстояния в пар-шагах')
     
-    # Это поле хранит пары координат линии    
-    location = models.LineStringField()
-
-    # Переопределим название экземпляра модели в административной панели.
-    # найдем пересекающиеся (__intersects в PostGIS) с линией WorldLine точки WorldPoint.
+    class Meta:
+        # изменить название модели в админ панели Django
+        verbose_name_plural = 'Схема движеия по азимутам'
+        # _plural - автоокончание отключено
+    
+    name = models.CharField(max_length=250, default=' - ', blank=True, verbose_name='Название схемы')
+    azimuth = models.CharField(max_length=250, default=' - ', blank=True, verbose_name='Значение азимута магнитного')
+    pn = models.FloatField(default=0, blank=True, verbose_name='Поправка направления')
+    distance = models.CharField(max_length=250, default=' - ', blank=True, verbose_name='Значение расстояния в пар-шагах')
+#     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Shema')
+    
+    # Это поле хранит пары координат линии 
+    # СК-42, 6-градусная зона №4 (SRID = 28404 = порядок YX)   
+    location = models.LineStringField(srid=28404, verbose_name='Схема')
+    
     def __str__(self):
-        pntcoords = self.location
-        points_intersect = WorldPoint.objects.filter(location__intersects=pntcoords)
-        # points_intersect = WorldLine.mypoints
-        point_names = [point.name for point in points_intersect]
-        return f'От ориентира: {point_names[0]} - до ориентира: {point_names[1]}'
+        try:
+            # Получаем объект WorldPoint [<WorldPoint: Ориентир: 2>, <WorldPoint: Ориентир: 3>] 
+            # где self это WorldLine self.mypoints.all() это related_name 
+            # по нему мы обращаемся к PointInLine и забираем значения поля mypoints
+            # [<WorldPoint: Ориентир: 2>, <WorldPoint: Ориентир: 3>] 
+            pnts = [obj_world_points.mypoints for obj_world_points in self.mypoints.all()]
+            # создаем экземпляры полученного WorldPoint и забираем его имя из поля name
+            pnt = [pnt.name for pnt in pnts]
+            return f'Название схемы: Ориентир: {pnt[0]} - ориентир: {pnt[1]}'
+        except(IndexError):
+            return f'Возникла ошибка подписей линий'
+    
 
 class WorldPoint(models.Model):
-    name = models.CharField(max_length=250, help_text='Название ориентира', verbose_name='Название ориентира')
-    # Свяжем модель точек с линиями, которые они образуют по полю line(FK), тип связи M:1
-    myline = models.ManyToManyField(WorldLine, null=True, blank=True, related_name='mypoints')
-    # on_delete=models.CASCADE стандартное поведение записи  
-    # при удалении линии также будут удаляться точки ее образующие
-    # related_name='mypoints' - т.н. обратное слово, связи M:1
-    # можно узнать из каких точек состоит линия
-    # null=True, blank=True, - Поле может быть пустым как в форме, так и в базе данных (отсутствие связи).
+
+    class Meta:
+        verbose_name_plural = 'Схема расположения ориентиров'
+
+    name = models.CharField(max_length=250, help_text='Введите название ориентира', verbose_name='Название ориентира')
     
     # Это поле хранит пары координат точки    
-    location = models.PointField()
+    location = models.PointField(srid=28404, verbose_name='Схема ориентиров')
+    # SRID stands for Spatial Reference Identifier. 
+    # Идентификатор системы пространственной привязки
+    # Используйте целое число, представляющее код EPSG системы координат.
+    # https://en.wikipedia.org/wiki/Spatial_reference_system#Identifier
 
     # Переопределим название экземпляра модели в административной панели.
     def __str__(self):
         return f'Ориентир: {self.name}'
     
-# class PointInLine(models.Model):
-#     mypoints = models.ForeignKey(WorldPoint, on_delete=models.CASCADE, related_name='mylines') 
-#     mylines = models.ForeignKey(WorldLine, on_delete=models.CASCADE, related_name='mypoints') 
+class PointInLine(models.Model):
+    mypoints = models.ForeignKey(WorldPoint, on_delete=models.CASCADE, related_name='mylines') 
+    mylines = models.ForeignKey(WorldLine, on_delete=models.CASCADE, related_name='mypoints') 
+
+# Этот код создает модель Django с двумя внешними ключами (ForeignKey). 
+# Один ключ ссылается на модель WorldPoint, а другой — на модель WorldLine. 
+# Атрибут on_delete=models.CASCADE указывает на то, что при удалении объекта из 
+# связанной таблицы (например, WorldPoint или WorldLine) все связанные объекты PointInLine также будут 
+# удалены. Параметр related_name используется для обратной ссылки на эту модель из 
+# связанных моделей WorldPoint и WorldLine.
 
 # create point SRID=4326 это WGS84
 # python manage.py shell
 # >>> from geoapp.models import WorldPoint
 # >>> from django.contrib.gis.geos import GEOSGeometry
 # >>> pnt = GEOSGeometry('SRID=4326;POINT(954158.1 4215137.1)')
-# >>> WorldPoint(name='pp', x=4215137.1, y=954158.1, location=pnt).save()
+# >>> WorldPoint(name='pp', azimuth='-', pn=5.5, distance='-', location=pnt).save()
+    
+
