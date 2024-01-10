@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Webpage Title</title>
+  <!-- Если работаем через интернет -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" /> -->
+  <!-- Если работаем без интернет указываем путь к скаченной с сайта https://leafletjs.com/download.html библиотеке leaflet.css -->
+  <link rel="stylesheet" href="My_edu_petproj/geodjango/geoapp/static/css/leaflet.css" />
+
+  <!-- Внутри архивов, скачанных по указанным выше ссылкам, вы увидите четыре вещи:
+
+  leaflet.js— Это минимизированный JavaScript-код Leaflet.
+  leaflet-src.js— Это читаемый, неминифицированный JavaScript Leaflet, который иногда полезен при отладке. (integrity=" sha256-tPonvXioSHRQt1+4ztWR5mz/1KG1X3yHNzVXprP2gLo= ")
+  leaflet.css— Это таблица стилей для Leaflet.
+  images– Это папка, содержащая изображения, на которые ссылается leaflet.css. Он должен находиться в том же каталоге, что и leaflet.css.
+  Разархивируйте загруженный архив в каталог вашего сайта и добавьте его в headсвой HTML-код:
+
+  <link rel="stylesheet" href="/path/to/leaflet.css" />
+  <script src="/path/to/leaflet.js"></script> -->
+
+</head>
+<body>
+  <!-- Ваш основной контент здесь -->
+  ...
+
+  <!-- В конце <body> разместите скрипт Leaflet -->
+  <div id="map" class="map"></div>
+
+  <script>
+
+  var map = L.map('map').setView([0, 0], 5);
+
+  L.tileLayer('{z}/{y}x{x}.png',{
+  minZoom: 5,
+  maxZoom: 10,
+  attribution: '',
+  tms: false
+  }).addTo(map);
+
+  </script>
+
+  <!-- <div id="map" style="height: 600px;"></div>
+  <script>
+    var map = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('http://localhost:8080/{z}/{x}/{y}.pbf').addTo(map);
+  </script> -->
+  <!-- Обратите внимание, что вы должны заменить http://localhost:8080/{z}/{x}/{y}.pbf 
+  на соответствующий URL вашего локального tileserver. -->
+
+  <!-- Настройка Tileserver
+  Установка tileserver-serve: 
+  npm install -g tileserver-serve
+
+  Генерация тайлов: Сначала вам нужно создать тайлы из ваших исходных данных. 
+  Обычно это можно сделать с помощью утилиты tippecanoe. Например:
+  tippecanoe -o tiles.mbtiles source.geojson
+
+  Запуск tileserver, указав путь к вашему .mbtiles файлу:
+  tileserver-serve tiles.mbtiles
+
+  Теперь у вас есть локальный tileserver, обслуживающий тайлы из вашего .mbtiles файла. -->
+
+  <!-- Если работаем через интернет -->
+  <!-- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script> -->
+  <!-- Если работаем без интернет указываем путь к скаченной с сайта https://leafletjs.com/download.html библиотеке leaflet.js -->
+  <script src="My_edu_petproj/geodjango/geoapp/static/css/leaflet.js"></script>
+</body>
+</html>
