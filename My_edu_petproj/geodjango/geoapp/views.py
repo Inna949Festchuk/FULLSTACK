@@ -31,12 +31,12 @@ def create_point(request):
     '''
     ПОДКЛЮЧИ ЭТО К КНОПКЕ
     PATH {{baseUrl}}/api/create_point/
-    {'name': #1,
-    'location': 'SRID=4326;POINT(954158.1 4215137.1)'
+    {"name": #1,
+    "location": "SRID=4326;POINT(954158.1 4215137.1)"
     }
     import requests
     url = "http://127.0.0.1:8000/api/create_point/"
-    response = requests.post(url, data={'name': #1, 'location': 'SRID=4326;POINT(954158.1 4215137.1)'})
+    response = requests.post(url, data={"name": #1, "location": "SRID=4326;POINT(954158.1 4215137.1)"})
     response.json()
     '''
     # Отправляем байтстринг сериализатору
@@ -57,10 +57,10 @@ def create_line(request):
     '''
     Создание точки
     PATCH {{baseUrl}}/create_line/
-    {'pn': 5.5}
+    {"pn": 5.5}
     import requests
     url = "http://127.0.0.1:8000/api/create_line/"
-    response = requests.post(url, data={'pn': 5.5})
+    response = requests.post(url, data={"pn": 5.5})
     response.content
     '''
 
@@ -109,13 +109,12 @@ def create_line(request):
     
     points = [point.location.coords for point in WorldPoint.objects.all()]
     
-    # извлечение значения поправки направления из тела запроса (десериализация)
+    # извлечение значения поправки направления из тела запроса (десериализация request.data)
     serialline = WorldLineSerializer(data=request.data)
     # print(serialline)
     # проверка поступивших (влияние помех в канале передачи данных)
     # данных на валидность
     if serialline.is_valid():
-        name = serialline.data.get('name', 'noname')
         # если данных нет принять по-умолчанию ПН=0
         pn = serialline.data.get('pn', 0)
 
@@ -131,10 +130,10 @@ def create_line(request):
             # new_line.transform(28404) # Изменение локации согласно SRID
 
             myname = f'Ориентир: {cnt + 1} - ориентир: {cnt + 2}'
-            # создаем структуру данных (словарь) для сериализации
+            # создаем структуру данных (словарь) для сериализации - 
             # преобразования в байт-поток перед записью в БД
             dictpost = dict(name=myname, azimuth=res[0], pn=float(pn), distance=res[1], location=new_line)
-            # сериализуем
+            # сериализуем (параметру запроса data присваеваем словарь dictpost, передаваемый в теле запроса)
             seriallinepost = WorldLineSerializerPost(data=dictpost)
             # если сериализованные данные валидны записать их в БД
             if seriallinepost.is_valid():
@@ -174,21 +173,22 @@ def create_line(request):
             print('ERROR! No valid data N:M!')
             return Response(serialpointinline.errors)
             
-        # # формирование GeoJSON для визуализации в браузере с помощью Leaflet
-        # # сериализация (представляет собой процесс преобразования состояния объекта в форму, пригодную для сохранения или передачи)
-        # # Объекты модели, для сохранения или передачи, нужно СЕРИАЛИЗОВЫВАТЬ - преобразовывать в байт-код (поток)
+        # формирование GeoJSON для визуализации в браузере с помощью Leaflet
+        # сериализация (представляет собой процесс преобразования состояния объекта в форму, пригодную для сохранения или передачи)
+        # Объекты модели, для сохранения или передачи, нужно СЕРИАЛИЗОВЫВАТЬ - преобразовывать в байт-код (поток)
         # data_geojson_str_pnt = serialize('geojson', WorldPoint.objects.all(),
         #         geometry_field='location',
         #         fields=('name', 'location',))
         # data_geojson_str_line = serialize('geojson', WorldLine.objects.all(),
         #         geometry_field='location',
         #         fields=('azimuth', 'pn', 'distance', 'location',))
-        # # десериализация (преобразование серриализованныех данныех (потока) обратно в структуру словаря (str->dict))
+        # десериализация (преобразование серриализованныех данныех (потока) обратно в структуру словаря (str->dict))
         # context_pnt = json.loads(data_geojson_str_pnt)
         # context_line = json.loads(data_geojson_str_line)
         
-        # # возврат GeoJSON (введи response.content )
+        # возврат GeoJSON (введи response.content )
         # return Response({'content': (context_pnt, context_line)})
+        
         return Response(serialline.data)
     else:
         Response(serialline.errors)
