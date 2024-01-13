@@ -2,6 +2,8 @@
 
 ### Учебный материал:
 
+**Структура HTML-документа**
+
 ```html
 <!DOCTYPE html> <!-- Объявление формата документа -->
 <html>
@@ -15,6 +17,11 @@
 </body>
 </html>
 ```
+**Объектная модель документа, DOM (document object model)**
+
+![ПРОСТЕЙШАЯ СТРУКТУРА ВЕБ-СТРАНИЦЫ](https://html5book.ru/wp-content/uploads/2014/10/DOM.png)
+
+*[далее здесь ...](https://html5book.ru/osnovy-html/)*
 
 - [Правила оформления HTML-кода](https://github.com/netology-code/codestyle/tree/master/html)
 - [Правила оформления CSS-кода](https://github.com/netology-code/codestyle/tree/master/css)
