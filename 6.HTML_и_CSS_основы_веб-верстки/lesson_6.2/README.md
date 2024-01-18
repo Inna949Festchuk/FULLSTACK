@@ -15,4 +15,4 @@
 - [ОЧЕНЬ КРУТОЙ РЕСУРС!!! >>> Веб-технологии для разработчиков HTML & CSS & JS](https://developer.mozilla.org/ru/docs/Learn/HTML)
 - [Валидатор кода](https://validator.w3.org/nu/)
 
-### [Домашняя работа](../fpy-homeworks/introduction-html-css/)
+### [Домашняя работа](../fpy-homeworks/content-tags/)
