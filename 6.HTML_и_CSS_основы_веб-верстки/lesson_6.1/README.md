@@ -130,5 +130,5 @@ a {
 - [Основы HTML & CSS](https://html5book.ru/osnovy-css/)
 - [ОЧЕНЬ КРУТОЙ РЕСУРС!!! >>> Веб-технологии для разработчиков HTML & CSS & JS](https://developer.mozilla.org/ru/docs/Learn/HTML)
 - [Валидатор кода](https://validator.w3.org/nu/)
-
+- [Как писать более чистый CSS: дюжина советов от банальных до неочевидных](https://habr.com/p/788508/)
 ### [Домашняя работа](../fpy-homeworks/introduction-html-css/)
