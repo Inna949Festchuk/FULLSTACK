@@ -1,0 +1,23 @@
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    /* внутренний отступ */
+    /* РАБОТАЕТ НАРУЖУ, УВЕЛИЧИВАЯ РАЗМЕР БЛОКА ДО */
+    /* 120 НА 120 */
+    /* padding: 20px; */
+    /* border: 30px solid red; */
+    /* внешний отступ */
+    /* margin: 20px; */
+
+    /* box-sizing: content-box; */
+    /* content-box - значение поумолчанию 
+    (то что было до применения свойства box-sizing
+    выше) */
+
+    box-sizing: border-box;
+    /* РАБОТАЕТ ВНУТРЬ, УМЕНЬШАЯ РАЗМЕР КОНТЕНТА ДО */
+    /* 60 НА 60 */
+    padding: 20px;
+    border: 30px solid red;
+}
