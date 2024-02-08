@@ -9,3 +9,9 @@
 Все задачи обязательны к выполнению. Присылать на проверку можно только когда готовы все три задачи.
 
 Работы должны соответствовать принятому стилю кода для [HTML](https://github.com/netology-code/codestyle/tree/master/html) и [CSS](https://github.com/netology-code/codestyle/tree/master/css).
+
+Мои решения:
+
+1. [История Монреаля](https://codepen.io/Inna949Festchuk/pen/PoLpVNM)
+2. [Последние новости](https://codepen.io/Inna949Festchuk/pen/NWJjVoN)
+3. [Раздел услуг веб-студии](https://codepen.io/Inna949Festchuk/pen/MWxmMgO)
