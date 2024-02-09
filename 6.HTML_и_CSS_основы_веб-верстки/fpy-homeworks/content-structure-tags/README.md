@@ -12,6 +12,6 @@
 
 Мои решения:
 
-1. [История Монреаля](https://codepen.io/Inna949Festchuk/pen/PoLpVNM)
-2. [Последние новости](https://codepen.io/Inna949Festchuk/pen/NWJjVoN)
-3. [Раздел услуг веб-студии](https://codepen.io/Inna949Festchuk/pen/MWxmMgO)
+1. [История Монреаля](https://codepen.io/Inna949Festchuk/pen/rNRrXoa)
+2. [Последние новости](https://codepen.io/Inna949Festchuk/pen/VwRGZjy)
+3. [Раздел услуг веб-студии](https://codepen.io/Inna949Festchuk/pen/jOJvzeL)
