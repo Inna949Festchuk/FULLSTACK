@@ -15,4 +15,7 @@
 - [ОЧЕНЬ КРУТОЙ РЕСУРС!!! >>> Веб-технологии для разработчиков HTML & CSS & JS](https://developer.mozilla.org/ru/docs/Learn/HTML)
 - [Валидатор кода](https://validator.w3.org/nu/)
 
+- [Гайд по flexbox](https://doka.guide/css/flexbox-guide/) 
+- [Свойство display](https://doka.guide/css/display/)
+
 ### [Домашняя работа](../fpy-homeworks/block-elements-positioning/README.md)
