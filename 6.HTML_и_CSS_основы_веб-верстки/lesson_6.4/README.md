@@ -58,7 +58,7 @@
 
 [Открыть демо](https://doka.guide/css/flexbox-guide/demos/flex-demo/flex_direction/)
 
-[Посмотреть мой проект](./lesson_6.4)
+[Посмотреть мой проект](flex.html)
 
 
 
