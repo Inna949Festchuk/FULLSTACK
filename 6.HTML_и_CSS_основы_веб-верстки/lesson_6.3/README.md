@@ -4,7 +4,7 @@
 
 ![](https://habrastorage.org/r/w1560/storage1/617fe369/2a645b1d/a197813c/012429b0.png)
 
-#### [По материалам `HTML5 новые тэги header, footer, nav, aside, section, article, hgroup, main`](http://www.websovet.com/html5-novye-tegi-header-footer-nav-aside-section-article-hgroup)
+### [По материалам `HTML5 новые тэги header, footer, nav, aside, section, article, hgroup, main`](http://www.websovet.com/html5-novye-tegi-header-footer-nav-aside-section-article-hgroup)
 
 - `header` - предназначен для определения шапки страницы.
 - `footer` - предназначен для определения подвала страницы.
@@ -103,9 +103,24 @@ main {display:block;}
 [Не стоит  необдуманно менять старые добрые div-ы на новые теги](https://habr.com/ru/articles/124993/)
 > *Не нужно использовать больше разметки только для того, чтобы использовать больше разметки. Вы просто создаете себе больше работы, но никак не улучшаете описание своего контента.*
 
-
 [Назад. HTML5 первые шаги](http://www.websovet.com/html5-pervye-shagi) . . . [Вперед. HTML5 новые тэги time, figure, video, audio, canvas](http://www.websovet.com/html5-novye-tegi-time-figure-video-audio-canvas)
 
+### [Свойство CSS {display} и его значения block, inline, inline-block, flex, grid, table-cell](https://doka.guide/css/display/)
+
+**[Пример](https://doka.guide/css/display/#**primer**)**
+Частая ситуация: на странице нужно показать иконки соцсетей со ссылками на аккаунты.
+
+**Значения свойства, которые встречаются в работе чаще всего:**
+- `none` — полностью скрывает элемент со страницы, не удаляя его при этом из HTML-разметки.
+- `block` — элемент ведёт себя как блочный.
+- `inline-block` — элемент ведёт себя снаружи как строчный, а внутри как блочный.
+- `flex` — элемент становится флекс-контейнером, ведёт себя как блочный, а вложенные элементы становятся флекс-элементами. Подробнее в [Гайде по flexbox](https://doka.guide/css/flexbox-guide/).
+- `grid` — элемент становится грид-контейнером. Снаружи грид-контейнер ведёт себя как блок. Дочерние элементы такого контейнера начинают подчиняться правилам грид-раскладки. Подробнее в [Гайде по grid](https://doka.guide/css/grid-guide/).
+
+**В чём разница между inline и inline-block?**
+Значение `display: inline` используется для элементов, которые отображаются в группе слов рядом с другими элементами, например в параграфе. Размеры строчных элементов определяются содержимым, так что установить их через CSS-свойства не получится. Так же не выйдет указать для них вертикальные `margin` и `padding`. Пример строчных элементов это `<span>` и `<a>` — свойство `display: inline` устанавливается для них браузером по умолчанию.
+
+Элементы с `display: inline-block` также располагаются в потоке текста, но вы можете установить размеры такому элементу, а так же любые значения `margin` и `padding`. Это позволит элементу отображаться в строке, но занимать пространство как блочному элементу. Примеры элементов со значением `display: inline-block` по умолчанию: `<button>` или `<textarea>`.
 
 - [Правила оформления HTML-кода](https://github.com/netology-code/codestyle/tree/master/html)
 - [Правила оформления CSS-кода](https://github.com/netology-code/codestyle/tree/master/css)
@@ -121,5 +136,11 @@ main {display:block;}
 - [Валидатор кода](https://validator.w3.org/nu/)
 
 - [ВЕБСОВЕТ. HTML5 новые тэги header, footer, nav, aside, section, article, hgroup, main](http://www.websovet.com/html5-novye-tegi-header-footer-nav-aside-section-article-hgroup)
+
+
+- [Свойство display на дока гайд](https://doka.guide/css/display/#primer)
+- [Гид по flexbox на дока гайд](https://doka.guide/css/flexbox-guide/)
+
+- [CSS: вписываем изображение в область](https://www.tune-it.ru/web/leksa/blog/-/blogs/1996258#:~:text=%D0%9F%D0%B5%D1%80%D0%B2%D1%8B%D0%B9%20%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%20%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D0%B2%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8,%D0%B2%D1%82%D0%BE%D1%80%D0%BE%D0%B5%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B1%D1%83%D0%B4%D0%B5%D1%82%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D0%BD%D0%BE%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8.)
 
 ### [Домашняя работа](../fpy-homeworks/content-structure-tags/README.md)
