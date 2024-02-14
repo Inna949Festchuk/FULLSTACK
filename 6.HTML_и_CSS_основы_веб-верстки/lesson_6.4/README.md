@@ -55,8 +55,10 @@
 - `column-reverse` — основная ось идёт вертикально снизу вверх, поперечная ось идёт горизонтально слева направо.
 
 ![](https://doka.guide/css/flexbox-guide/images/5-2200w.webp)
+
 [Открыть демо](https://doka.guide/css/flexbox-guide/demos/flex-demo/flex_direction/)
-[Посмотреть мой проект](6.HTML_и_CSS_основы_веб-верстки/lesson_6.4)
+
+[Посмотреть мой проект](./lesson_6.4)
 
 
 
