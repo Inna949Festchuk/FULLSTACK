@@ -4,7 +4,7 @@
 
 ![](https://habrastorage.org/r/w1560/storage1/617fe369/2a645b1d/a197813c/012429b0.png)
 
-### [По материалам `HTML5 новые тэги header, footer, nav, aside, section, article, hgroup, main`](http://www.websovet.com/html5-novye-tegi-header-footer-nav-aside-section-article-hgroup)
+### [По материалам: HTML5 новые тэги header, footer, nav, aside, section, article, hgroup, main](http://www.websovet.com/html5-novye-tegi-header-footer-nav-aside-section-article-hgroup)
 
 - `header` - предназначен для определения шапки страницы.
 - `footer` - предназначен для определения подвала страницы.
