@@ -22,7 +22,7 @@
 ![](https://doka.guide/css/flexbox-guide/images/4-2200w.webp)
 
 ### Свойства флекс-контейнера
-> ####  `display`
+####  `display`
 
 ```css
 .container {
@@ -40,7 +40,7 @@
 ```
 Если контейнеру задано значение `inline-flex`, то снаружи он начинает вести себя как строчный (инлайн) элемент — размеры зависят только от внутреннего контента, встаёт в строку с другими элементами. Внутри это ровно такой же флекс-контейнер, как и при предыдущем значении.
 
-> #### `flex-direction`
+#### `flex-direction`
 **Свойство управления направлением основной и поперечной осей.**
 
 ```css
@@ -64,7 +64,7 @@
 
 *Важный момент: на сайтах с направлением текста справа налево, например, на сайте на арабском языке, для значений row и row-reverse основная ось будет идти в обратном направлении. Для значений column и column-reverse своё направление поменяет поперечная ось.*
 
-> #### `flex-wrap`
+#### `flex-wrap`
 
 ```css
 .container {
@@ -83,7 +83,7 @@
 
 [Открыть демо](https://doka.guide/css/flexbox-guide/demos/flex-demo/flex_wrap/)
 
-> #### `flex-flow`
+#### `flex-flow`
 **Это свойство-шорткат для одновременного определения значений свойств** `flex-direction` и `flex-wrap`.
 
 ```css
@@ -132,7 +132,7 @@
 
 ## Хотя большинство значений поддерживаются основными браузерами, с некоторыми из них могут быть трудности. Поэтому лучше на всякий случай проверяйте поддержку на [Can I use](https://caniuse.com/#search=justify-content%20flex).
 
-> #### `align-items`
+#### `align-items`
 **Свойство выравнивания элементов внутри контейнера по поперечной оси.**
 
 ```css
@@ -154,7 +154,7 @@
 
 [Открыть демо](https://doka.guide/css/flexbox-guide/demos/flex-demo/align_items/)
 
-> #### `align-content`
+#### `align-content`
 
 ```css
 .container {
@@ -177,7 +177,7 @@
 - `space-around` — отступы у каждого ряда равнозначны отступам у любого другого ряда.
 - `space-evenly` — отступы между рядами и от краёв родителя одинаковые.
 
-> #### `gap`
+#### `gap`
 **С помощью этого свойства можно с лёгкостью задавать отступы между строками и столбцами.**
 
 Является краткой записью свойств `row-gap` и `column-gap`.
@@ -195,7 +195,7 @@
 ```
 
 ### Свойства флекс-элемента
-> #### `order`
+#### `order`
 
 ```css
 .container {
@@ -217,7 +217,7 @@
 
 [Открыть демо](https://doka.guide/css/flexbox-guide/demos/flex-demo/order/)
 
-> #### `flex-grow`
+#### `flex-grow`
 
 ```css
 .container {
@@ -235,7 +235,7 @@
 
 Если при этом одному из элементов мы зададим `flex-grow: 2`, то он постарается занять в два раза больше свободного места, чем его соседи.
 
-> #### `flex-shrink`
+#### `flex-shrink`
 
 ```css
 .container {
@@ -255,7 +255,7 @@
 
 *Два предыдущих свойства работают с пропорциональным разделением пространства, не с конкретными размерами. Они довольно непростые, даже опытный разработчик не всегда знает, как они в точности работают. Загляните в конец статьи, если хотите подробнее почитать о каждом из них.*
 
-> #### `flex-basis`
+#### `flex-basis`
 
 ```css
 .container {
@@ -272,7 +272,72 @@
 
 Если никакие размеры не заданы, а свойству `flex-basis` установлено значение `auto`, то элемент занимает столько пространства, сколько нужно для отображения контента.
 
+#### flex
+```css
+.container {
+  display: flex;
+}
 
+.item {
+  flex: 1 1 auto;
+}
+```
+Свойство-шорткат, с помощью которого **можно указать значение трёх свойств одновременно**: `flex-grow`, `flex-shrink` и `flex-basis`. Первое значение является обязательным, остальные опциональны.
+
+Значение по умолчанию: `0 1 auto`, что расшифровывается как `flex-grow: 0`, `flex-shrink: 1`, `flex-basis: auto`.
+
+**Возможные значения:**
+```css
+/* 0 0 auto */
+flex: none;
+
+/* Одно значение, число без единиц: flex-grow */
+flex: 2;
+
+/* Одно значение, ширина/высота: flex-basis */
+flex: 10em;
+flex: 30px;
+flex: auto;
+flex: content;
+
+/* Два значения: flex-grow | flex-basis */
+flex: 1 30px;
+
+/* Два значения: flex-grow | flex-shrink */
+flex: 2 2;
+
+/* Три значения: flex-grow | flex-shrink | flex-basis */
+flex: 2 2 10%;
+
+/* Глобальные значения */
+flex: inherit;
+flex: initial;
+flex: unset;
+```
+#### `align-self`
+```css
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.item {
+  align-self: flex-end;
+}
+```
+При помощи этого свойства **можно выровнять один или несколько элементов иначе, чем задано у родительского элемента.** Например, в коде выше у родителя задано выравнивание вложенных элементов по верхнему краю родителя. А для элемента с классом `.item` мы задаём выравнивание по нижнему краю.
+
+**Ссылки**
+
+- [Как реально работает flex-grow](https://medium.com/p/557d406be844)
+- [Как реально работает flex-shrink](https://medium.com/p/c41e40767194)
+- [Песочница Флексбоксов](https://yoksel.github.io/flex-cheatsheet/)
+- [Game: Flexbox Froggy](https://flexboxfroggy.com/#ru)
+- [Game: Flexbox Defense](http://www.flexboxdefense.com/)
+- [Game: Flexbox Ducky](https://courses.cs.washington.edu/courses/cse154/flexboxducky/)
+- [Курс по Флексбоксам от Wes Bos](https://flexbox.io/)
+
+**[На практике](https://doka.guide/css/flexbox-guide/#na-praktike)**
 
 - [Правила оформления HTML-кода](https://github.com/netology-code/codestyle/tree/master/html)
 - [Правила оформления CSS-кода](https://github.com/netology-code/codestyle/tree/master/css)
