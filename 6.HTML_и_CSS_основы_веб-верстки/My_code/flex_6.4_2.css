@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    /* задаем направление флекс-элементов в контейнере */
+    /* flex-direction: column; сверху вниз */
+    /* flex-direction: row-reverse; справа налево */
+    /* flex-direction: column-reverse; снизу вверх */
+    flex-direction: row; /* по умолчанию слева направо*/
+
+    /* задаем направление переноса флекс-элементов в контейнере */
+    /* flex-wrap: nowrap; */
+    flex-wrap: wrap; /* при изменении размеров браузера элементы не будут сжиматься в гармошку а будут переноситься */
+    /* flex-wrap: wrap-reverse; тоже что и выше, но переносситься на строку вверх */
+    
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+
+    background: orange;
+    margin: 10px;
+
+}

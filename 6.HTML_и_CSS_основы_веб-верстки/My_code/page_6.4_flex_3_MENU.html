@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="flex_6.4_3.css">
+</head>
+<body>
+     <!-- Контейнер №1 -->
+    <div class="menu">
+        <!-- ссылка логотипа -->
+        <a href="#" class="menu__logo-link"> 
+        <!-- внимание!!!
+        между названием блока (menu) и его элементом (logo) 
+        ставим двойное нижнее подчеркивание (__)
+        а если класс состоит из двух слов (-). 
+        Разделенному деффисом (-) классу в css 
+        можно определять разные значения свойств
+        -->
+            <img src="images/logo.webp" class="menu__logo" alt="Логотип компании Нетология">
+        </a>
+        <!-- Контейнер №2 -->
+        <div class="menu__list">
+
+            <!-- флекс-элеменнты -->
+            <div class="menu__item">
+                <a href="#" class="menu__link">Маркетинг</a>
+            </div>
+            <div class="menu__item">
+                <a href="#" class="menu__link">Бизнес и управление</a>
+            </div>
+            <div class="menu__item">
+                <a href="#" class="menu__link">Дизайн</a>
+            </div>
+            <div class="menu__item">
+                <a href="#" class="menu__link">Программирование</a>
+            </div>
+            <div class="menu__item">
+                <a href="#" class="menu__link">Data Science</a>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>
