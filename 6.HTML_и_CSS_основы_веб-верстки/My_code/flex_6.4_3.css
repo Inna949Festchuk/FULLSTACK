@@ -29,6 +29,9 @@ body {
     в гармошку а будут переноситься */
     color: #8e8e8e;
     margin-left: 25px; /* добавляем отступ от логотипа с лева при настройке флексбоксов */
+    list-style-type: none; /* убираем маркеры меню*/
+    padding: 0;
+    margin: 10px;
 }
 
 .menu__logo-link {

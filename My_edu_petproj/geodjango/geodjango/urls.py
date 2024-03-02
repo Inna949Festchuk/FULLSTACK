@@ -18,7 +18,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('geoapp.urls')),  # подключаем маршруты из приложения measurement
+    path('api/', include('geoapp.urls')),  # подключаем маршруты из приложения geoapp
+    # - - - - - - - - - - - - - - -
+    path('geoapp/', include('geoapp.urls')),
+    # - - - - - - - - - - - - - - -
 ]
 
 # Создайте пользователя-администратора

@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-# environment
+# environment на Mac:
 # conda activate //anaconda3/envs/condageoenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -50,9 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.gis',
+    'django.contrib.gis', # Настраеваем geodjango
     'rest_framework', # REST API
-    'geoapp',
+    'geoapp', # My App
 ]
 
 MIDDLEWARE = [

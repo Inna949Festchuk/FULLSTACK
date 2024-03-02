@@ -5,6 +5,13 @@ from rest_framework.response import Response
 from django.contrib.gis.geos import GEOSGeometry, LineString
 from .serializers import PointInLineSerializer, WorldLineSerializer, WorldLineSerializerPost, WorldPointSerializer
 from django.core.serializers import serialize, deserialize
+from django.contrib.gis.geos import GEOSGeometry
+
+# - - - - - - - - - - - - - - -
+# Импорт шаблонизатора
+from django.views.generic import TemplateView
+# - - - - - - - - - - - - - - -
+
 import json
 import math
 import copy
@@ -36,14 +43,22 @@ def create_point(request):
     }
     import requests
     url = "http://127.0.0.1:8000/api/create_point/"
-    response = requests.post(url, data={"name": #1, "location": "SRID=4326;POINT(954158.1 4215137.1)"})
+    response = requests.post(url, data={"name": "1", "location": "SRID=28404;POINT(4475167, 6061130)"})
     response.json()
     '''
+    
     # Отправляем байтстринг сериализатору
     serialpoint = WorldPointSerializer(data=request.data)
+    
     # проверяем десериализованные данные на валидность
     if serialpoint.is_valid():
         # если данные валидны, сохраняем их в БД
+        print(serialpoint)
+        # >>> WorldPointSerializer(data=<QueryDict: {'name': ['1'], 'location': ['SRID=28404;POINT(4475167, 6061130)']}>)
+        # ИЗВЛЕКИ location  
+        # ВСТАВЬ СЮДА pnt = GEOSGeometry('ВСТАВЬ СЮДА')
+        # ВСТАВЬ pnt в location БД
+        # сохрани serialpoint(location=pnt).save()
         serialpoint.save()
         return Response(serialpoint.data)
     else:
@@ -192,6 +207,48 @@ def create_line(request):
         return Response(serialline.data)
     else:
         Response(serialline.errors)
+
+
+
+# - - - - - - - - - - - - - - -
+# Создаем обработчик для формирования  
+# GeoJSON для визуализации в браузере с помощью Leaflet
+
+# def get_context_data(request):
+#     # формирование GeoJSON для визуализации в браузере с помощью Leaflet
+#     # сериализация (представляет собой процесс преобразования состояния объекта в форму, пригодную для сохранения или передачи)
+#     # Объекты модели, для сохранения или передачи, нужно СЕРИАЛИЗОВЫВАТЬ - преобразовывать в байт-код (поток)
+#     data_geojson_str_pnt = serialize('geojson', WorldPoint.objects.all(),
+#             geometry_field='location',
+#             fields=('name', 'location',))
+#     data_geojson_str_line = serialize('geojson', WorldLine.objects.all(),
+#             geometry_field='location',
+#             fields=('azimuth', 'pn', 'distance', 'location',))
+#     # десериализация (преобразование серриализованныех данныех (потока) обратно в структуру словаря (str->dict))
+#     context = {
+#         'context_pnt': json.loads(data_geojson_str_pnt),
+#         'context_line': json.loads(data_geojson_str_line),
+#         }
+
+#     # возврат GeoJSON (введи response.content )
+#     return render(request, 'map.html', context)
+    # - - - - - - - - - - - - - - -
+
+from django.contrib.gis.db.models.functions import AsGeoJSON
+
+def get_context_data(request):
+    context_pnt = AsGeoJSON(WorldPoint.objects.all(), geometry_field='location', fields=('name', 'location',))
+    context_line = AsGeoJSON(WorldLine.objects.all(), geometry_field='location', fields=('azimuth', 'pn', 'distance', 'location',))
+
+    context = {
+        'context_pnt': context_pnt,
+        'context_line': context_line,
+    }
+
+    return render(request, 'map.html', context)
+
+
+
 
 # # - - - - - - - - - - -
 # # ВТОРОЙ ВАРИАНТ
