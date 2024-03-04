@@ -1,3 +1,4 @@
+from django.db import IntegrityError
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from .models import WorldPoint, WorldLine, PointInLine
@@ -120,10 +121,9 @@ def create_line(request):
         S = f'{S:.1f} п.ш.'
         return Am, S
     
-    # извлечение координат точек из БД
-    
-    points = [point.location.coords for point in WorldPoint.objects.all()]
-    
+    # извлечение координат точек из БД и введенных пользователем их имен
+    points, points_name = zip(*[(point.location.coords, point.name) for point in WorldPoint.objects.all()])
+
     # извлечение значения поправки направления из тела запроса (десериализация request.data)
     serialline = WorldLineSerializer(data=request.data)
     # print(serialline)
@@ -144,22 +144,49 @@ def create_line(request):
             new_line = LineString(points[cnt], points[cnt + 1], srid=28404)
             # new_line.transform(28404) # Изменение локации согласно SRID
 
-            myname = f'Ориентир: {cnt + 1} - ориентир: {cnt + 2}'
+            myname = f'Ориентир: {points_name[cnt + 0]} - ориентир: {points_name[cnt + 1]}'
             # создаем структуру данных (словарь) для сериализации - 
             # преобразования в байт-поток перед записью в БД
             dictpost = dict(name=myname, azimuth=res[0], pn=float(pn), distance=res[1], location=new_line)
             # сериализуем (параметру запроса data присваеваем словарь dictpost, передаваемый в теле запроса)
-            seriallinepost = WorldLineSerializerPost(data=dictpost)
-            # если сериализованные данные валидны записать их в БД
-            if seriallinepost.is_valid():
-                seriallinepost.save()
-                # это вариант, если БД и сервис находятся на одном сервере
-                # WorldLine(azimuth=res[0], pn=float(pn), distance=res[1], location=new_line).save()
-            else:
-                print('ERROR! No valid data POST!')
-                return Response(seriallinepost.errors)
+            
+            # Избавляем базу данных от дубликато
+            # Для того чтобы код проверял на уникальность данные 
+            # и не записывал их в базу данных, если они одинаковы можно 
+            # воспользоваться методом get_or_create() модели для того, 
+            # чтобы проверить наличие записи с такими же данными в базе данных
+            
+            try:
+                created = WorldLine.objects.get_or_create(name=myname, azimuth=res[0], pn=float(pn), distance=res[1], location=new_line)
+                # Данные уже существуют в базе данных, не записываем их повторно
+                if not created:
+                    # Если объект уже существует, проводим необходимые операции
+                    # например, обрабатываем сообщение или выполняем другие действия (пока заглушим)
+                    pass 
+            # Если такой записи нет, продолжаем выполнение    
+            except WorldLine.DoesNotExist:
+                
+                # Сериализуем и проверяем на валидность перед записью в БД
+                seriallinepost = WorldLineSerializerPost(data=dictpost)
+                if seriallinepost.is_valid():
+                    seriallinepost.save()
+                else:
+                    print('ERROR! No valid data POST!')
+                    return Response(seriallinepost.errors)
 
-        # Заполняем таблицу связей
+                # Ошибка ".DoesNotExist" возникает в Django, когда запрашиваемый объект не существует в базе данных. 
+                # Это исключение возникает в том случае, если используется метод, который предполагает наличие объекта, 
+                # но такой объект не найден.
+
+                # Например, при работе с моделями Django, при попытке получить объект по определенным 
+                # критериям (например, использованием метода get()), если объект с такими критериями не найден в базе данных, 
+                # возникнет исключение ".DoesNotExist".
+
+                # В обработчике исключений можно использовать ".DoesNotExist" для перехвата данной ошибки и выполнении 
+                # определенных действий в зависимости от ситуации, например, создании нового объекта вместо обращения 
+                # к несуществующему.
+
+        # Заполняем таблицу связей 
         # Получаем id экземпляров модели WorldLine
         idlins = [lin.id for lin in WorldLine.objects.all()]
         
@@ -174,7 +201,7 @@ def create_line(request):
             
             # формируем список со вложенными словарями пересечений
             # это нужно чтобы сформировать связи между конкретной линией и 
-            # точками с которыми она пересекается
+            # точками с которыми она пересекается 
             for pnt_intersect in pnts_intersect:
                 data = {'mypoints': pnt_intersect.id, 'mylines': line.id}
                 listpointinline.append(data)
@@ -187,67 +214,43 @@ def create_line(request):
         else:
             print('ERROR! No valid data N:M!')
             return Response(serialpointinline.errors)
-            
-        # формирование GeoJSON для визуализации в браузере с помощью Leaflet
-        # сериализация (представляет собой процесс преобразования состояния объекта в форму, пригодную для сохранения или передачи)
-        # Объекты модели, для сохранения или передачи, нужно СЕРИАЛИЗОВЫВАТЬ - преобразовывать в байт-код (поток)
-        # data_geojson_str_pnt = serialize('geojson', WorldPoint.objects.all(),
-        #         geometry_field='location',
-        #         fields=('name', 'location',))
-        # data_geojson_str_line = serialize('geojson', WorldLine.objects.all(),
-        #         geometry_field='location',
-        #         fields=('azimuth', 'pn', 'distance', 'location',))
-        # десериализация (преобразование серриализованныех данныех (потока) обратно в структуру словаря (str->dict))
-        # context_pnt = json.loads(data_geojson_str_pnt)
-        # context_line = json.loads(data_geojson_str_line)
-        
-        # возврат GeoJSON (введи response.content )
-        # return Response({'content': (context_pnt, context_line)})
         
         return Response(serialline.data)
     else:
         Response(serialline.errors)
 
-
-
 # - - - - - - - - - - - - - - -
 # Создаем обработчик для формирования  
 # GeoJSON для визуализации в браузере с помощью Leaflet
 
-# def get_context_data(request):
-#     # формирование GeoJSON для визуализации в браузере с помощью Leaflet
-#     # сериализация (представляет собой процесс преобразования состояния объекта в форму, пригодную для сохранения или передачи)
-#     # Объекты модели, для сохранения или передачи, нужно СЕРИАЛИЗОВЫВАТЬ - преобразовывать в байт-код (поток)
-#     data_geojson_str_pnt = serialize('geojson', WorldPoint.objects.all(),
-#             geometry_field='location',
-#             fields=('name', 'location',))
-#     data_geojson_str_line = serialize('geojson', WorldLine.objects.all(),
-#             geometry_field='location',
-#             fields=('azimuth', 'pn', 'distance', 'location',))
-#     # десериализация (преобразование серриализованныех данныех (потока) обратно в структуру словаря (str->dict))
-#     context = {
-#         'context_pnt': json.loads(data_geojson_str_pnt),
-#         'context_line': json.loads(data_geojson_str_line),
-#         }
-
-#     # возврат GeoJSON (введи response.content )
-#     return render(request, 'map.html', context)
-    # - - - - - - - - - - - - - - -
-
-from django.contrib.gis.db.models.functions import AsGeoJSON
-
 def get_context_data(request):
-    context_pnt = AsGeoJSON(WorldPoint.objects.all(), geometry_field='location', fields=('name', 'location',))
-    context_line = AsGeoJSON(WorldLine.objects.all(), geometry_field='location', fields=('azimuth', 'pn', 'distance', 'location',))
-
+    # сериализация (представляет собой процесс преобразования состояния объекта в форму, пригодную для сохранения или передачи)
+    # Объекты модели, для сохранения или передачи, нужно СЕРИАЛИЗОВЫВАТЬ - преобразовывать в байт-код (поток)
+    
+    # Забираем из БД предварительно сериализовав данные (хорошо бы еще на валидность потом поверить с помлщью GEOSGeometry)
+    data_geojson_str_pnt = serialize('geojson', WorldPoint.objects.all(),
+            geometry_field='location',
+            fields=('name', 'location',))
+    data_geojson_str_line = serialize('geojson', WorldLine.objects.all(),
+            geometry_field='location',
+            fields=('name', 'azimuth', 'pn', 'distance', 'location',))
+    
+    # десериализация (преобразование серриализованныех данныех (потока) обратно в структуру словаря (str->dict))
+    # с предварительной проверкой на валидность
+    try:
+        validpoint = json.loads(data_geojson_str_pnt)
+        validline = json.loads(data_geojson_str_line)
+    except json.JSONDecodeError:
+        print('ERROR! No valid data GeoJSON')
+        return Response({'error': 'No valid GeoJSON data.'})
+    
     context = {
-        'context_pnt': context_pnt,
-        'context_line': context_line,
-    }
-
+        'context_pnt': validpoint,
+        'context_line': validline,
+        }
+      
+    # передаем контекст в шаблон map.html
     return render(request, 'map.html', context)
-
-
 
 
 # # - - - - - - - - - - -

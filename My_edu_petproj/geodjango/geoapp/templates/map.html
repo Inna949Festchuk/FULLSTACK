@@ -1,112 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- - - - - - - - - - - - - - - - -->
-{% load static %}
-<!-- - - - - - - - - - - - - - - - -->
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Webpage</title>
-
-  <!-- ... -->
-
   <!-- - - - - - - - - - - - - - - - -->
-  <!-- Это таблица стилей моей карты -->
-  <!-- /* Потом проверить, может это и не нужно тк есть в map.html */ -->
-  <link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}" />
+  {% load static %}
   <!-- - - - - - - - - - - - - - - - -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Webpage</title>
 
-  <!-- Если работаем через интернет -->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" /> -->
-  <!-- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script> -->
-  <!-- Если работаем без интернет качаем с сайта https://leafletjs.com/download.html библиотеку Leaflet -->
-  <!-- и указываем путь к ней -->
-  <!-- Внутри архивов, скачанных по указанным выше ссылкам, вы увидите четыре вещи:
-  leaflet.js— Это минимизированный JavaScript-код Leaflet.
-  leaflet-src.js— Это читаемый, неминифицированный JavaScript Leaflet, который иногда полезен при отладке. (integrity=" sha256-tPonvXioSHRQt1+4ztWR5mz/1KG1X3yHNzVXprP2gLo= ")
-  leaflet.css— Это таблица стилей для Leaflet.
-  images– Это папка, содержащая изображения, на которые ссылается leaflet.css. Он должен находиться в том же каталоге, что и leaflet.css.
-  Разархивируйте загруженный архив в каталог шаблонов templates вашего сайта и добавьте в тег head свои пути к .js и .css: -->
-  <link rel="stylesheet" type="text/css" href="{% static 'css/leaflet.css' %}" />
-  <script src="{% static 'js/leaflet.js' %}" ></script>
-</head>
-<body>
-  <!-- Ваш основной контент здесь -->
-  
-  
+    <!-- ... -->
 
-  <div id="map" class="map"></div>
-  
+    <!-- - - - - - - - - - - - - - - - -->
+    <!-- Это таблица стилей моей карты -->
+    <!-- /* Потом проверить, может это и не нужно тк есть в map.html */ -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}" />
+    <!-- - - - - - - - - - - - - - - - -->
 
-  <!-- - - - - - - - - - - - - - - - -->
-  <script src="{% static 'js/map.js' %}"></script>
-  <!-- - - - - - - - - - - - - - - - -->
+    <!-- Если работаем через интернет -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" /> -->
+    <!-- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script> -->
+    <!-- Если работаем без интернет качаем с сайта https://leafletjs.com/download.html библиотеку Leaflet -->
+    <!-- и указываем путь к ней -->
+    <!-- Внутри архивов, скачанных по указанным выше ссылкам, вы увидите четыре вещи:
+    leaflet.js— Это минимизированный JavaScript-код Leaflet.
+    leaflet-src.js— Это читаемый, неминифицированный JavaScript Leaflet, который иногда полезен при отладке. (integrity=" sha256-tPonvXioSHRQt1+4ztWR5mz/1KG1X3yHNzVXprP2gLo= ")
+    leaflet.css— Это таблица стилей для Leaflet.
+    images– Это папка, содержащая изображения, на которые ссылается leaflet.css. Он должен находиться в том же каталоге, что и leaflet.css.
+    Разархивируйте загруженный архив в каталог шаблонов templates вашего сайта и добавьте в тег head свои пути к .js и .css: -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/leaflet.css' %}" />
+    <script src="{% static 'js/leaflet.js' %}" ></script>
+  </head>
 
-  <style>
-    html, body, #map {
-      height: 100%;
-      width: 100%;
-      margin: auto;
-    }
-  </style>
+  <body>
 
-  <script>
+    <div id="map" class="map"></div>
+    
+    <script src="{% static 'js/map.js' %}"></script>
 
-      var map = L.map('map').setView([54.48887629731281, 21.932593270040424], 11);
-      
-      // Это базовый слой OSM
-      var baselayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        minZoom: 0, // минимальный масштаб
-        maxZoom: 18, // максимальный масштаб
-        tms: false, // использование TMS
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' // ссылка на авторство
-      }).addTo(map); // добавление тайлов OSM как подложки
-      
-      // Это тайловый слой на основе растра - он распологается выше базового
-      // {% static 'Mapnik/' %} - это статичный (не изменяемый) путь к папке с тайлами
-      // которая обязательно должна быть помещена в папку static
-      var mytile = L.tileLayer("{% static 'Mapnik/' %}" + "{z}/{x}/{y}.png", {
-        minZoom: 10,
-        maxZoom: 12,
-        tms: true, // использование TMS
-        attribution: 'Generated by QMetaTiles'
-      }).addTo(map);
+    <style>
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: auto;
+      }
 
-      // Здесь добавляем еще слои по мере необходимости 3-й слой, 4-й слой и т.д
-      var mytile2 = L.tileLayer("{% static 'Mapnik2/' %}" + "{z}/{x}/{y}.png", {
-        minZoom: 15,
-        maxZoom: 18,
-        tms: true, // использование TMS
-        attribution: 'Generated by QMetaTiles'
-      }).addTo(map);
+      #map {
+        height: 80%; /* Высота карты, оставшейся части от общей высоты страницы */
+        width: 100%; /* Ширина карты */
+        overflow: hidden; /* Запретить прокрутку карты */
+      }
+    </style>
 
-      // Далее идут расчетные слои на основе расположения точек и линий
-      var pnts = L.geoJSON(context_pnt, {
-          onEachFeature: function(feature, layer) {
-              layer.bindPopup(feature.properties.name);
-          }
-      }).addTo(map);
+    <script>
 
-      var lines = L.geoJSON(context_line, {
-          onEachFeature: function(feature, layer) {
-              layer.bindPopup(feature.properties.azimuth + ' ' + feature.properties.pn + ' ' + feature.properties.distance);
-          }
-      }).addTo(map);
+        var map = L.map('map').setView([54.48887629731281, 21.932593270040424], 11);
+
+        // Передаем context из вьюшки и забираем значения по ключу словаря 'features'
+        // Django обрабатывает переменную {# {{ |safe}} #} как строку а не интерпретирует как код Python
+        // что предотвращает внедрение вредоносного кода из пользовательского ввода 
+        // safe - безопасный
+
+        var points = {{ context_pnt.features|safe }};
+
+        var lines = {{ context_line.features|safe }};
+        
+        // Это базовый слой OSM
+        var baselayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                minZoom: 0, // минимальный масштаб
+                                maxZoom: 18, // максимальный масштаб
+                                tms: false, // использование TMS
+                                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' // ссылка на авторство
+        }).addTo(map); // добавление тайлов OSM как подложки
+        
+        // Это тайловый слой на основе растра - он распологается выше базового
+        // static 'Mapnik/' - это статичный (не изменяемый) путь к папке с тайлами
+        // которая обязательно должна быть помещена в папку static
+        var mytile = L.tileLayer("{% static 'Mapnik/' %}" + "{z}/{x}/{y}.png", {
+                                minZoom: 10,
+                                maxZoom: 12,
+                                tms: true, // использование TMS
+                                attribution: 'Generated by QMetaTiles'
+        }).addTo(map);
+        
+
+        var maplines = L.geoJSON(lines, {
+            onEachFeature: function(feature, layer) {
+                layer.bindPopup(`${feature.properties.name}
+                                | Аm: ${feature.properties.azimuth} 
+                                | Pn: ${feature.properties.pn} 
+                                | D: ${feature.properties.distance}`);
+            },
+            
+        }).addTo(map);
+
+        
+        var mappoints = L.geoJSON(points, {
+            onEachFeature: function(feature, layer) {
+                
+            map.on('zoomend', function() {
+                if (map.getZoom() < 12) { // Здесь можно указать нужный вам уровень масштабирования
+                  layer.unbindTooltip();
+                } else {
+                  layer.bindTooltip(feature.properties.name, { permanent: true, direction: 'top' });
+                }});
+            },
+            
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                                radius: 8,
+                                fillColor: "#ff7800",
+                                color: "#000",
+                                weight: 1,
+                                opacity: 1,
+                                fillOpacity: 0.8
+                                });
+            }
+        }).addTo(map);
 
 
-      // Настройка переключателя слоёв
-      // L.control.layers({'Базовый слой OSM':baselayer},
-      // {'Landsat8 (офлайн)':mytile},
-      // {'OSM (офлайн)':mytile2},
-      // {'Ориентиры':pnts},
-      // {'Направления':lines}).addTo(map);
+        // Настройка переключателя слоёв
+        L.control.layers(
+                        {'Базовый слой OSM':baselayer},
+                        {'Landsat8 (офлайн)':mytile}
 
-      // Настройка переключателя слоёв
-      L.control.layers(
-      {'Landsat8 (офлайн)':mytile},
-      {'OSM (офлайн)':mytile2}).addTo(map);
+        ).addTo(map);
 
-  </script>
+    </script>
+
+    <table class="table">
+      <thead>
+          <tr>
+          <th>Название</th>
+          <th>Азимут магнитный</th>
+          <th>Поправка направления</th>
+          <th>Расстояние</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for item in context_line.features %}
+          <tr>
+          <td>{{ item.properties.name }}</td>
+          <td>{{ item.properties.azimuth }}</td>
+          <td>{{ item.properties.pn }}</td>
+          <td>{{ item.properties.distance }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+
+    <style>
+
+      table {
+        width: 100%;
+        height: 20%;
+        border-top: 2px solid rgb(85, 85, 85);
+        border-bottom: 2px solid rgb(85, 85, 85);
+        
+      }
+
+      tr:hover {
+        background-color: rgb(245, 245, 245);
+      }
+
+      th {
+        background-color: rgb(240, 240, 240);
+        font-weight: 700;
+      }
+
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid rgb(145, 145, 145);
+        font-size: smaller;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+
+  </body>
+</html>
 
   <!-- <div id="map" style="height: 600px;"></div>
   <script>
@@ -130,5 +201,4 @@
   Теперь у вас есть локальный tileserver, обслуживающий тайлы из вашего .mbtiles файла. -->
 
 
-</body>
-</html>
+

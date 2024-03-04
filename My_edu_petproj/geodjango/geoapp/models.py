@@ -44,6 +44,18 @@ from django.contrib.gis.db import models
 #     def __str__(self):
 #         return self.name
 
+# УПРАВЛЕНИЕ БАЗОЙ ДАННЫХ:
+# - - - - - - - - - - - - - - -
+# - Задаем переменную среды PATH:
+# PATH=/Applications/Postgres.app/Contents/Versions/12/bin/:$PATH
+# - удалить БД:
+# dropdb test
+# - создать БД от USERNAME -U postgres под названием test и сразу подключиться к ней -d
+# psql -U postgres -d test
+# - установить пароль подключения
+# ALTER USER postgres WITH PASSWORD 'admin'
+# - - - - - - - - - - - - - - -
+
 class WorldLine(models.Model):
     
     class Meta:

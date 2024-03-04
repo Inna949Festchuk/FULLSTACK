@@ -22,6 +22,7 @@ class WorldLineSerializerPost(serializers.ModelSerializer):
         model = WorldLine
         fields = ['name', 'azimuth', 'pn', 'distance', 'location',] 
         
+        
 # сериализатор записи связей M:N в БД
 class PointInLineSerializer(serializers.ModelSerializer):
     class Meta:

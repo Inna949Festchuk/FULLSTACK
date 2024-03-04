@@ -12,19 +12,25 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+
+# - - - - - - - - - - - - - - -
 # environment на Mac:
 # conda activate //anaconda3/envs/condageoenv
+# - - - - - - - - - - - - - - -
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# !!!ВНИМАНИЕ!!! Активируй это при работе с WINDOWS 10
+# - - - - - - - - - - - - - - -
 # # use this if setting up on Windows 7, 10 with GDAL installed from OSGeo4W using defaults
 # if os.name == 'nt':
 #     VIRTUAL_ENV_BASE = os.environ['VIRTUAL_ENV']
 #     os.environ['PATH'] = os.path.join(VIRTUAL_ENV_BASE, r'.\Lib\site-packages\osgeo') + ';' + os.environ['PATH']
 #     os.environ['PROJ_LIB'] = os.path.join(VIRTUAL_ENV_BASE, r'.\Lib\site-packages\osgeo\data\proj') + ';' + os.environ['PATH']
+# - - - - - - - - - - - - - - -
 
 # # [...] settings.py code continues
 
@@ -95,6 +101,7 @@ DATABASES = {
         'NAME': 'test',
         'USER': 'postgres',
         'PASSWORD': 'admin',
+        # 'PASSWORD': ':)',
         'HOST': 'localhost',
         'PORT': '5432',
     }
