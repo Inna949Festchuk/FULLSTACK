@@ -7,7 +7,8 @@ from django.contrib.gis.geos import GEOSGeometry, LineString
 from .serializers import PointInLineSerializer, WorldLineSerializer, WorldLineSerializerPost, WorldPointSerializer
 from django.core.serializers import serialize, deserialize
 from django.contrib.gis.geos import GEOSGeometry
-
+# Обеспечиваем атамарность при работе с данными БД (читай ниже)
+from django.db import transaction
 # - - - - - - - - - - - - - - -
 # Импорт шаблонизатора
 from django.views.generic import TemplateView
@@ -122,7 +123,9 @@ def create_line(request):
         return Am, S
     
     # извлечение координат точек из БД и введенных пользователем их имен
-    points, points_name = zip(*[(point.location.coords, point.name) for point in WorldPoint.objects.all()])
+    # points, points_name = zip(*[(point.location.coords, point.name) for point in WorldPoint.objects.all()])
+    points = [point.location.coords for point in WorldPoint.objects.all()]
+    points_name = [point.name for point in WorldPoint.objects.all()]
 
     # извлечение значения поправки направления из тела запроса (десериализация request.data)
     serialline = WorldLineSerializer(data=request.data)
@@ -150,7 +153,7 @@ def create_line(request):
             dictpost = dict(name=myname, azimuth=res[0], pn=float(pn), distance=res[1], location=new_line)
             # сериализуем (параметру запроса data присваеваем словарь dictpost, передаваемый в теле запроса)
             
-            # Избавляем базу данных от дубликато
+            # Избавляем базу данных от дубликатов
             # Для того чтобы код проверял на уникальность данные 
             # и не записывал их в базу данных, если они одинаковы можно 
             # воспользоваться методом get_or_create() модели для того, 
@@ -186,36 +189,68 @@ def create_line(request):
                 # определенных действий в зависимости от ситуации, например, создании нового объекта вместо обращения 
                 # к несуществующему.
 
+        
         # Заполняем таблицу связей 
         # Получаем id экземпляров модели WorldLine
         idlins = [lin.id for lin in WorldLine.objects.all()]
-        
+
         listpointinline = []
 
-        for idlin in idlins:
+        # С помощью транзакции обеспечиваем целостность данных
+        with transaction.atomic():
             # проходим по каждой линии в соответствии с ее id
-            line = WorldLine.objects.get(id=idlin)
-            # и ищем точки с которыми она пересекается location__intersects
-            # где location - поле с геометрией __intersects - метод поиска пересечений
-            pnts_intersect = WorldPoint.objects.filter(location__intersects=line.location)
-            
-            # формируем список со вложенными словарями пересечений
-            # это нужно чтобы сформировать связи между конкретной линией и 
-            # точками с которыми она пересекается 
-            for pnt_intersect in pnts_intersect:
-                data = {'mypoints': pnt_intersect.id, 'mylines': line.id}
-                listpointinline.append(data)
-        
-        # сохраняем все записи одновременно после цикла
-        # формируя таблицу N:M
-        serialpointinline = PointInLineSerializer(data=listpointinline, many=True)
-        if serialpointinline.is_valid():
-            serialpointinline.save()
+            for idlin in idlins:
+                line = WorldLine.objects.get(id=idlin)
+                
+                # и ищем точки с которыми она пересекается location__intersects
+                # где location - поле с геометрией __intersects - метод поиска пересечений
+                pnts_intersect = WorldPoint.objects.filter(location__intersects=line.location)
+                
+                # Если количество пересечений НЕ два это означает, 
+                # что одна из точек в админке удалена, 
+                # удаляем старую линию из базы данных (ориентира то нет)
+                if pnts_intersect.count() == 2:
+                    for pnt_intersect in pnts_intersect:
+                        # формируем список со вложенными словарями пересечений
+                        # это нужно чтобы сформировать связи между конкретной линией и 
+                        # точками с которыми она пересекается
+                        data = {'mypoints': pnt_intersect.id, 'mylines': line.id}
+                        listpointinline.append(data)
+                else:
+                    # Если количество пересечений не равно двум, удаляем линию
+                    line.delete()
+
+                # Использование конструкции with transaction.atomic() в Django обеспечивает 
+                # выполнение операций баз образом, который гарантирует атомарность операций, 
+                # целостность базы данных и избегание проблем конкурентного доступа к данным.
+
+                # Когда блок кода завершается без исключений, все операции внутри with transaction.atomic() 
+                # выполняются и фиксируются в базе данных как единое целое. Если происходит исключение в блоке кода, 
+                # то Django откатывает все изменения, внесенные в базу данных во время выполнения этого блока, 
+                # чтобы гарантировать целостность данных.
+
+                # Таким образом, использование transaction.atomic() помогает избежать непредвиденных изменений 
+                # в базе данных и обеспечивает целостность данных при выполнении нескольких операций.
+
+        # Сохраняем все записи одновременно после цикла, формируя таблицу N:M
+        # Проверяем наличие данных в listpointinline перед использованием сериализатора
+        # Если лист содержит данные сериализуем и записываем их в БД
+        if listpointinline: 
+            serialpointinline = PointInLineSerializer(data=listpointinline, many=True)
+            if serialpointinline.is_valid(raise_exception=True):
+                serialpointinline.save()
+            else:
+                # Эта ошибка появляется когда в списке одна точка пересечения с линией (так как вторую точку мы удалили)
+                # в таком случае данные не пройдут проверку на валидность эту ошибку нужно обработать чтобы выполнение запроса не завершилост
+                # кодом 400
+                errors = serialpointinline.errors
+                print('ERROR! Invalid data N:M:', errors)
+                return Response(errors)
         else:
-            print('ERROR! No valid data N:M!')
-            return Response(serialpointinline.errors)
+            # Если listpointinline совсем пуст, можно вывести сообщение об отсутствии данных
+            print('No valid data for N:M relationship')
         
-        return Response(serialline.data)
+        return Response(serialpointinline.data) # Введи response.content и ты увидешь таблицу M:N 
     else:
         Response(serialline.errors)
 

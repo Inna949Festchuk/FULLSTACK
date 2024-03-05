@@ -44,6 +44,11 @@ from django.contrib.gis.db import models
 #     def __str__(self):
 #         return self.name
 
+# - - - - - - - - - - - - - - -
+# environment на Mac:
+# conda activate //anaconda3/envs/condageoenv
+# - - - - - - - - - - - - - - -
+
 # УПРАВЛЕНИЕ БАЗОЙ ДАННЫХ:
 # - - - - - - - - - - - - - - -
 # - Задаем переменную среды PATH:
