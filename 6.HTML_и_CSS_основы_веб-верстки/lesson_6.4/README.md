@@ -89,15 +89,7 @@
 ```css
 .container {
   display: flex;
-  flex-flow: column wrap;
-}
-```
-или
-
-```css
-.container {
-  display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
 }
 ```
 
