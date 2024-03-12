@@ -1,0 +1,24 @@
+/* ЭТО СВОЙСТВА КОНТЕЙНЕРА */
+.container {
+  width: 100%;
+  height: 100px;
+  border: 3px solid rgb(5, 8, 216);
+
+  /* элементы выстраиваются в ряд */
+  display: flex;
+
+  /* флекс-элементы в строку слева направо */
+  /* flex-direction: row; */
+  /* наоборот */
+  /* flex-direction: row-reverse; */
+  /* флекс-элементы сверху вниз */
+  /* flex-direction: column; */
+  /* наоборот */
+  flex-direction: column-reverse;
+  
+}
+
+/* ЭТО СВОЙСТВА ВХОДЯЩИХ В КОНТЕЙНЕР ФЛЕКС-ЭЛЕМЕНТОВ */
+.flex-element {
+  border: 1px solid red;
+}

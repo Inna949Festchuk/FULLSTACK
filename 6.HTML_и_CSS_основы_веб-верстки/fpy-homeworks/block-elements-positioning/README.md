@@ -9,3 +9,9 @@
 Все задачи обязательны к выполнению. Присылать на проверку можно только когда готовы все три задачи.
 
 Работы должны соответствовать принятому стилю кода для [HTML](https://github.com/netology-code/codestyle/tree/master/html) и [CSS](https://github.com/netology-code/codestyle/tree/master/css).
+
+Мои решения:
+
+1. [Раздел «Наши эксперты](https://codepen.io/Inna949Festchuk/pen/OJGyMWY)
+2. [Курсы Нетологии]()
+3. [Блог Нетологии](https://codepen.io/Inna949Festchuk/pen/MWRypPK)

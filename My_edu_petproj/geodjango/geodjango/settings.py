@@ -13,26 +13,26 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
-# - - - - - - - - - - - - - - -
+# - - - - - - - - - - - - - - - - - - - - 
 # environment на Mac:
 # conda activate //anaconda3/envs/condageoenv
-# - - - - - - - - - - - - - - -
+# - - - - - - - - - - - - - - - - - - - - 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# !!!ВНИМАНИЕ!!! Активируй это при работе с WINDOWS 10
-# - - - - - - - - - - - - - - -
-# # use this if setting up on Windows 7, 10 with GDAL installed from OSGeo4W using defaults
+
+# use this if setting up on Windows 10 with GDAL installed from OSGeo4W using defaults
+# !!!ВКЛЮЧИ НА WINDOWS10!!! - - - - - - - 
 # if os.name == 'nt':
 #     VIRTUAL_ENV_BASE = os.environ['VIRTUAL_ENV']
 #     os.environ['PATH'] = os.path.join(VIRTUAL_ENV_BASE, r'.\Lib\site-packages\osgeo') + ';' + os.environ['PATH']
 #     os.environ['PROJ_LIB'] = os.path.join(VIRTUAL_ENV_BASE, r'.\Lib\site-packages\osgeo\data\proj') + ';' + os.environ['PATH']
-# - - - - - - - - - - - - - - -
+# - - - - - - - - - - - - - - - - - - - - 
 
-# # [...] settings.py code continues
+# [...] settings.py code continues
 
 
 # Quick-start development settings - unsuitable for production
@@ -46,9 +46,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -59,16 +57,25 @@ INSTALLED_APPS = [
     'django.contrib.gis', # Настраеваем geodjango
     'rest_framework', # REST API
     'geoapp', # My App
+    'corsheaders', # CORS
 ]
 
+# Для установки режима запроса "no-cors" в Django, 
+# следует настроить middleware для обработки CORS (Cross-Origin Resource Sharing). 
+# CORS – это механизм веб-безопасности, позволяющий серверам указывать, 
+# какие ресурсы могут быть запрашиваемы скриптами веб-страниц из другого домена.
+# В Django вы можете использовать пакет django-cors-headers для управления настройками CORS. 
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', # CORS (Должно быть одним из первых, чтобы быть применимым к остальным запросам)
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware', # csrf (токены)
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'geodjango.urls'
@@ -146,7 +153,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Пути к медиаресурсам при организации доступа к ним посредствам БД
+# Также создай папку медиа в корне сайта(проекта)
+# MEDIA_URL = 'media/'
+# MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CORS (добавить HOST (не ссылку), подключаемуый к кнопке JS)
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:8000",
+]

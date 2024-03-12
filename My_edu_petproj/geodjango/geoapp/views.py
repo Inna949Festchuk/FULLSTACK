@@ -3,6 +3,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from .models import WorldPoint, WorldLine, PointInLine
 from rest_framework.response import Response
+from rest_framework import status # Отображаем ошибки 404 на странице
 from django.contrib.gis.geos import GEOSGeometry, LineString
 from .serializers import PointInLineSerializer, WorldLineSerializer, WorldLineSerializerPost, WorldPointSerializer
 from django.core.serializers import serialize, deserialize
@@ -35,37 +36,43 @@ import copy
 #     WorldPoint(name=name, x=float(x), y=float(y), location=pnt).save()
 #     return Response({'status': 'point create'})
 
+# сервис добавления ориентиров в базу данных    
 @api_view(['POST'])
-def create_point(request):
+def create_point(request): 
     '''
     ПОДКЛЮЧИ ЭТО К КНОПКЕ
     PATH {{baseUrl}}/api/create_point/
-    {"name": #1,
-    "location": "SRID=4326;POINT(954158.1 4215137.1)"
+    {
+    "name": "WGS84", 
+    "location": "SRID=4326;POINT(21.7 54.5)"
+    }
+    {
+    "name": "Pulkovo42", 
+    "location": "SRID=28404;POINT(4475167 6061130)"
     }
     import requests
     url = "http://127.0.0.1:8000/api/create_point/"
-    response = requests.post(url, data={"name": "1", "location": "SRID=28404;POINT(4475167, 6061130)"})
+    response = requests.post(url, data={"name": "test", "location": "SRID=28404;POINT(4475177 6061145)"})
     response.json()
     '''
-    
+
     # Отправляем байтстринг сериализатору
     serialpoint = WorldPointSerializer(data=request.data)
-    
-    # проверяем десериализованные данные на валидность
+   
+    # Проверяем десериализованные данные на валидность
     if serialpoint.is_valid():
-        # если данные валидны, сохраняем их в БД
         print(serialpoint)
         # >>> WorldPointSerializer(data=<QueryDict: {'name': ['1'], 'location': ['SRID=28404;POINT(4475167, 6061130)']}>)
-        # ИЗВЛЕКИ location  
-        # ВСТАВЬ СЮДА pnt = GEOSGeometry('ВСТАВЬ СЮДА')
-        # ВСТАВЬ pnt в location БД
-        # сохрани serialpoint(location=pnt).save()
-        serialpoint.save()
+        # Если данные валидны, извлекаем название точки и сохраняем их в БД
+        location_data = request.data.get('location')  # Извлекаем данные о местоположении
+        name = request.data.get('name')  # Извлекаем название точки
+        pnt = GEOSGeometry(location_data)  # Создаем объект GEOSGeometry из данных о местоположении
+        serialpoint.validated_data['location'] = pnt  # Присваиваем объект GEOSGeometry полю 'местоположение'
+        serialpoint.validated_data['name'] = name  # Присваиваем название точки полю 'name'
+        serialpoint.save()  # Сохраняем десериализованные данные с объектом GEOSGeometry
         return Response(serialpoint.data)
     else:
-        print('ERROR! No valid data!')
-        return Response(serialpoint.errors)
+        return Response({'error': 'Нет действительных данных POST', 'details': serialpoint.errors}, status.HTTP_404_NOT_FOUND)
 
 # сервис построения схемы движения по азимутам 
 # Декоратор для преобразования простого обработчика в API-бработчик
@@ -124,14 +131,18 @@ def create_line(request):
     
     # извлечение координат точек из БД и введенных пользователем их имен
     # points, points_name = zip(*[(point.location.coords, point.name) for point in WorldPoint.objects.all()])
-    points = [point.location.coords for point in WorldPoint.objects.all()]
-    points_name = [point.name for point in WorldPoint.objects.all()]
+    # код выше дает ошибку распаковки * при отсутствии каких либо данных на карте
+    # но нам нужно как можно меньше обращаться к БД поэтому 
+    # выполняем запрос к базе данных всего лишь один раз и извлекаем все точки
+    all_points = WorldPoint.objects.all()
+
+    # Используем list comprehensions для извлечения координат и имен точек
+    points = [point.location.coords for point in all_points]
+    points_name = [point.name for point in all_points]
 
     # извлечение значения поправки направления из тела запроса (десериализация request.data)
     serialline = WorldLineSerializer(data=request.data)
-    # print(serialline)
-    # проверка поступивших (влияние помех в канале передачи данных)
-    # данных на валидность
+    # проверка поступивших (влияние помех в канале передачи данных) данных на валидность
     if serialline.is_valid():
         # если данных нет принять по-умолчанию ПН=0
         pn = serialline.data.get('pn', 0)
@@ -174,8 +185,12 @@ def create_line(request):
                 if seriallinepost.is_valid():
                     seriallinepost.save()
                 else:
-                    print('ERROR! No valid data POST!')
-                    return Response(seriallinepost.errors)
+                    # возвращаем ответ с ошибкой 404 (Not Found) с сообщением об ошибке и 
+                    # дополнительными деталями ошибок валидации, предоставляемыми seriallinepost.errors.
+                    return Response({'error': 'No valid data POST', 'details': seriallinepost.errors}, status=status.HTTP_404_NOT_FOUND)
+                    # Параметр status=status.HTTP_404_NOT_FOUND используется для установки кода статуса HTTP в ответе КЛИЕНТУ. 
+                    # В данном случае, status.HTTP_404_NOT_FOUND представляет стандартный HTTP-статус "404 Not Found", 
+                    # который указывает на то, что запрошенный ресурс не был найден на сервере.
 
                 # Ошибка ".DoesNotExist" возникает в Django, когда запрашиваемый объект не существует в базе данных. 
                 # Это исключение возникает в том случае, если используется метод, который предполагает наличие объекта, 
@@ -197,6 +212,7 @@ def create_line(request):
         listpointinline = []
 
         # С помощью транзакции обеспечиваем целостность данных
+        # ПОЧИТАТЬ ПРО АТАМАРНОСТЬ https://habr.com/ru/articles/252563/
         with transaction.atomic():
             # проходим по каждой линии в соответствии с ее id
             for idlin in idlins:
@@ -241,18 +257,13 @@ def create_line(request):
                 serialpointinline.save()
             else:
                 # Эта ошибка появляется когда в списке одна точка пересечения с линией (так как вторую точку мы удалили)
-                # в таком случае данные не пройдут проверку на валидность эту ошибку нужно обработать чтобы выполнение запроса не завершилост
-                # кодом 400
-                errors = serialpointinline.errors
-                print('ERROR! Invalid data N:M:', errors)
-                return Response(errors)
-        else:
-            # Если listpointinline совсем пуст, можно вывести сообщение об отсутствии данных
-            print('No valid data for N:M relationship')
+                # в таком случае данные не пройдут проверку на валидность эту ошибку нужно обработать 
+                # чтобы выполнение запроса не завершилось кодом 400
+                return Response({'error': 'Invalid data N:M:', 'details': serialpointinline.errors}, status=status.HTTP_404_NOT_FOUND)
         
-        return Response(serialpointinline.data) # Введи response.content и ты увидешь таблицу M:N 
+        return Response(serialline.data) 
     else:
-        Response(serialline.errors)
+        Response({'error': 'Invalid data поступившие в теле запроса POST', 'details': serialline.errors}, status=status.HTTP_404_NOT_FOUND)
 
 # - - - - - - - - - - - - - - -
 # Создаем обработчик для формирования  
@@ -262,7 +273,7 @@ def get_context_data(request):
     # сериализация (представляет собой процесс преобразования состояния объекта в форму, пригодную для сохранения или передачи)
     # Объекты модели, для сохранения или передачи, нужно СЕРИАЛИЗОВЫВАТЬ - преобразовывать в байт-код (поток)
     
-    # Забираем из БД предварительно сериализовав данные (хорошо бы еще на валидность потом поверить с помлщью GEOSGeometry)
+    # Забираем из БД предварительно сериализовав данные (хорошо бы еще на валидность потом поверить)
     data_geojson_str_pnt = serialize('geojson', WorldPoint.objects.all(),
             geometry_field='location',
             fields=('name', 'location',))
@@ -276,8 +287,10 @@ def get_context_data(request):
         validpoint = json.loads(data_geojson_str_pnt)
         validline = json.loads(data_geojson_str_line)
     except json.JSONDecodeError:
-        print('ERROR! No valid data GeoJSON')
-        return Response({'error': 'No valid GeoJSON data.'})
+        return Response({'error': 'No valid GeoJSON data.'}, status=status.HTTP_400_BAD_REQUEST)
+        # В этом случае, при ошибке парсинга JSON будет возвращен ответ с сообщением "No valid GeoJSON data" 
+        # и кодом статуса HTTP 400 Bad Request. Это поможет понять клиенту, что отправленные данные 
+        # не соответствуют требуемому формату.
     
     context = {
         'context_pnt': validpoint,
