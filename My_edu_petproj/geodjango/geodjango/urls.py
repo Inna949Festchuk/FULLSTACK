@@ -20,7 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('geoapp.urls')),  # подключаем маршруты из приложения geoapp
     # - - - - - - - - - - - - - - -
-    path('geoapp/', include('geoapp.urls')),
+    # path('geoapp/', include('geoapp.urls')),
     # - - - - - - - - - - - - - - -
 ]
 

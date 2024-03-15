@@ -328,6 +328,8 @@ flex: unset;
 - [Game: Flexbox Defense](http://www.flexboxdefense.com/)
 - [Game: Flexbox Ducky](https://courses.cs.washington.edu/courses/cse154/flexboxducky/)
 - [Курс по Флексбоксам от Wes Bos](https://flexbox.io/)
+- 
+- [Псевдоклассы. Генератор формул](https://nthchild.kawalekkodu.pl/en/)
 
 **[На практике](https://doka.guide/css/flexbox-guide/#na-praktike)**
 

@@ -126,37 +126,24 @@
         overflow: hidden; /* Запретить прокрутку карты */
       }
 
-      /* .button-list {
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start; Элементы выравниваются в начале контейнера
-        flex-wrap: wrap;
-        margin-left: 40px;
-        
-      } */
-
-      /* .addPointButton {
-        margin-left: 10px;
-        margin-top: 10px;
-        z-index: 1000; Чтобы кнопка была поверх карты
-            
-      } */
-
+   
       /* MENU */
       .header {
         height: auto;        
         display: flex; /* Распологаем блочный логотип в строку вместе с пунктами меню */
         /* border-top: 2px solid rgb(85, 85, 85); */
         border-bottom: 2px solid rgb(85, 85, 85);
+        flex-wrap: wrap;
       }
 
       /* .menu {
       } */
 
+
       .logo {        
-        margin-left: 12px;
-        margin-top: 10px;
+        padding-left: 12px;
+        padding-top: 10px;
+        padding-right: 20px;
       }
 
       img {
@@ -164,6 +151,7 @@
       }
 
       .menu-list {
+        padding-bottom: 0px;
         padding-left: 0px;  
         list-style-type: none; /* Убираем маркеры списка*/
         display: flex; /* Распологаем блочные элементы пунктов меню в строку*/
@@ -171,7 +159,9 @@
       }
 
       .menu-list-item {
-        margin-left: 50px;      
+        margin-left: 12px; 
+        padding-right: 10px;     
+        align-content: center;
       }
 
       .menu-link {
@@ -283,22 +273,30 @@
 
         // Настройка переключателя слоёв
         L.control.layers(
-                        // {'Базовый слой OSM':baselayer},
-                        {'OSM (оффлайн)':osm},
+                        {'Базовый слой OSM':baselayer},
+                        // {'OSM (оффлайн)':osm},
                         {'Landsat8 (оффлайн)':mytile}
         ).addTo(map);
 
+        map.removeLayer(mytile); // отключим отображение слоя по умолчанию
+
         // Для подключения API к кнопке нужно:
         // 1. Настроить CORS (см. Settings.py)
-        // 2. Получить токен
+        // 2. Получить CSRF-токен
 
         // Сообщение "CSRF Failed: CSRF token missing" (В КОНСОЛИ веб страницы) указывает на отсутствие токена CSRF в вашем запросе. 
         // CSRF (Cross-Site Request Forgery) - это тип атаки, при которой несанкционированный пользователь 
         // отправляет запрос от имени авторизованного пользователя.
         // В Django CSRF-токены используются для защиты от подобных атак. Чтобы решить проблему отсутствия токена CSRF, 
         // убедитесь, что ваш запрос включает правильный CSRF-токен.
-        // Если вы отправляете запрос с использованием JavaScript, убедитесь, что вы получаете CSRF-токен 
+        // Если вы отправляете POST-запрос с использованием JavaScript, убедитесь, что вы получаете CSRF-токен 
         // из куки и включаете его в заголовок вашего запроса. 
+
+        // Второй способ - - - - -
+        // По умолчанию Django проверяет наличие токена CSRF во всех запросах методом POST. 
+        // Тег csrf_token следует вставлять во все формы, передаваемые на обработку методом POST. 
+        // Для этого в Django есть специальный шаблонный тег {#{% csrf_token %}#} 
+        // Более подробно см. 109 "Django 4 в примерах"
 
         // Пишем функцию получения CSRF-токен из куки
         function getCookie(name) {
@@ -336,9 +334,10 @@
                     '<input type="text" id="pnInput" placeholder="Ввод ПН" style="width: 73px">' +
                     '<button id="postBtn">Построить<br>схему</button>';
             container.style.backgroundImage = "url('')"; // Добавляем изображение на кнопку
+            // container.style.textAlign = 'center'; // Выровняйте содержимое по центру горизонтально
             container.style.paddingRight = '0px';
             container.style.display = 'flex'; // Используем flexbox 
-            container.style.flexDirection = 'column'; // для размещения двух кнопок в колонну
+            container.style.flexDirection = 'column'; // для размещения двух кнопок в строку
             container.style.gap = '10px'; // Добавляем зазор между элементами
 
             var postButton = container.querySelector('#postBtn');
@@ -457,16 +456,14 @@
                     'Content-Type': 'application/json',
                     'X-CSRFToken': csrftoken, // Добавляем CSRF-токен в заголовок запроса
                 },
-                // Формируем тело запроса (Здесь указана WGS84 SRID=4326, так как Leaflet координаты маркеров  
-                // представляет пользователю в этой системе, не зависимо от той в которой находится базовый слой. 
-                // При сохранении в БД, т.к. в модели задана SRID=28404 (Pulkovo42), они перепроецируются и будут использованы для расчета,
-                // а потом вновь упадут в координаты базового слоя (н-р, если это OSM, то в EPSG:3857) 
+                // Формируем тело запроса
                 body: JSON.stringify({ name: markerName, location: 'SRID=4326;POINT(' + latlng.lng + ' ' + latlng.lat + ')' })
          })
-                // EPSG:3857 – WGS 84/Pseudo-Mercator (Spherical Mercator) на сфере. 
-                // Эта проекция используется такими сервисами как OSM, Google ...
-                // EPSG:3857 — прямоугольная система координат, основанная на проекции Меркатора, 
-                // построенной по системе параметров WGS84. https://habr.com/ru/companies/bft/articles/773814/
+            
+            // EPSG:3857 – WGS 84/Pseudo-Mercator (Spherical Mercator) на сфере. 
+            // Эта проекция используется такими сервисами как OSM, Google ...
+            // EPSG:3857 — прямоугольная система координат, основанная на проекции Меркатора, 
+            // построенной по системе параметров WGS84. https://habr.com/ru/companies/bft/articles/773814/
 
             .then(response => response.json())
             .then(data => {

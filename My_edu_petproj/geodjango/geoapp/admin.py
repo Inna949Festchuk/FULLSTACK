@@ -31,7 +31,7 @@ from .models import (
 
 # Регистрируем модель точек в админпанели GeoDjango
 @admin.register(WorldPoint)
-class WorldPointAdmin(admin.OSMGeoAdmin):
+class WorldPointAdmin(admin.GISModelAdmin):
     # начиная с django v.4 использовать GISModelAdmin, ниже - OSMGeoAdmin
     list_display = ('name', )
     # Скрыть отображение поля в админке
@@ -39,7 +39,7 @@ class WorldPointAdmin(admin.OSMGeoAdmin):
 
 
 @admin.register(WorldLine)
-class WorldLineAdmin(admin.OSMGeoAdmin):
+class WorldLineAdmin(admin.GISModelAdmin):
     list_display = ('name', 'azimuth', 'pn', 'distance', )
     # Отображение полей с атрибутом только для чтения
     readonly_fields = ('azimuth', 'pn', 'distance', )

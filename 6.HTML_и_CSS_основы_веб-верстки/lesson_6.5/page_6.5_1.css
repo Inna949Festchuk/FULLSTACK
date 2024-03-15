@@ -1,0 +1,9 @@
+.field {
+    /* min-width: 300px; устанавливаем придельные значения поля ввода textarea */
+    /* max-width: 350px;
+    min-height: 200px;
+    max-height: 250px; */
+
+    resize: vertical; /* ограничивае мизменение 
+    поля ввода textarea только по вертикале*/
+}
