@@ -1,0 +1,164 @@
+body {
+	margin: 0;
+	min-height: 100vh;
+
+	font-family: arial, sans-serif;
+	font-size: 16px;	
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-row:nth-child(n+2) {
+	margin-top: 35px;
+}
+
+.form-row:last-child {
+	margin-top: 50px;
+}
+
+.form-group {
+	display: block;
+}
+
+.form-hint {
+	display: block;
+	font-size: 13px;
+	font-weight: 700;
+	margin-bottom: 12px;
+}
+
+.field {
+  box-sizing: border-box;
+  width: 480px;
+	border: 1px solid #dddddd;
+	padding: 15px 20px;
+	
+	font-family: inherit;
+}
+
+.button {
+	border: none;
+	padding: 15px 55px;
+	color: #ffffff;
+	
+	background-color: #e74c3c;
+	font-family: inherit;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #c53b2d;
+}
+
+.form-row:last-child {
+	text-align: center;
+}
+
+.select {
+	display: block;
+	box-sizing: border-box;
+	width: 480px;
+	height: 45px;
+	
+	padding-left: 20px;
+	margin: 0;
+	border: 1px solid #cbd1d4;
+
+	font-family: inherit;
+	font-size: 14px;
+	color: #333333;
+}
+
+.select {	
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.select {	
+	background-image: url("https://netology-code.github.io/resourses/pics/select__min_.svg");
+	background-repeat: no-repeat;
+	background-position: right 5px  center;
+}
+
+
+.field:focus, .select:focus, .button:focus {
+  outline: 2px solid #c53b2d;
+  outline-offset: 5px;
+}
+
+.radio-group-text::before {
+	content: "";
+	display: inline-block;
+	
+	width: 20px;
+	height: 20px;
+
+	background-image: url("https://netology-code.github.io/resourses/pics/radio-no-active.svg");
+	background-repeat: no-repeat;
+	background-position: center  center;
+	background-size: 20px;
+}
+
+.radio-group-text::before {
+  display: inline-block;
+  vertical-align: middle;
+}     
+
+.radio-group-text::before {
+  margin-right: 8px;
+}
+
+.radio-group {
+  display: inline-block;
+  font-size: 15px;
+}
+
+.radio-group:nth-of-type(n+2) {
+  margin-left: 15px;
+}
+.radio:checked ~ .radio-group-text::before {
+	background-image: url("https://netology-code.github.io/resourses/pics/radio-active.svg");
+}
+
+.radio, .checkbox {
+	position: absolute;
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px; 
+	width: 1px; 
+}
+
+.checkbox-group {
+	display: block;
+	font-size: 15px;
+}
+
+.checkbox-text {
+	display: inline-block;
+}
+
+.checkbox-text::before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 8px;
+	
+	width: 20px;
+	height: 20px;
+
+	background-image: url("https://netology-code.github.io/resourses/pics/checkbox2-unchecked.svg");
+	background-repeat: no-repeat;
+	background-position: center  center;
+	background-size: 20px;
+}
+
+.checkbox:checked ~ .checkbox-text::before {
+	background-image: url("https://netology-code.github.io/resourses/pics/checkbox2-checked.svg");
+}
+
+.field:focus, .select:focus, .button:focus, .radio:focus ~ .radio-group-text, .checkbox:focus ~ .checkbox-text {
+	outline: 2px solid #c53b2d;
+	outline-offset: 5px;
+}

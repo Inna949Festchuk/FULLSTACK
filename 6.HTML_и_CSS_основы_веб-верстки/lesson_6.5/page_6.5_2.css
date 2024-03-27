@@ -1,0 +1,8 @@
+.menu {
+    color: green;
+}
+
+/* Наследование */
+.menu__link {
+    color: inherit;
+}

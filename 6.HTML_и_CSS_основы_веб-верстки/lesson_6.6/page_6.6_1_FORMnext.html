@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="page_6.6_1.css">
+</head>
+<body>
+    <form class="form">
+        <div class="form-row">
+            <label class="form-group">
+                <span class="form-hint">Введите ваше имя</span>
+                <input type="text" class="field" placeholder="Например, Иван" required>
+            </label>
+        </div>
+        <div class="form-row">
+            <label class="form-group">
+                <span class="form-hint">Введите ваш email</span>
+                <input type="email" class="field" placeholder="Например, ivan@gmail.com" required>
+            </label>
+        </div>	
+        <div class="form-row">
+            <label class="form-group">
+                <span class="form-hint">Выберите город проживания</span>
+                <select class="select">
+                    <option selected>Москва</option>
+                    <option>Санкт-Петербург</option>
+                    <option>Казань</option>
+                </select>
+            </label>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <span class="form-hint">Выберите пол:</span>
+                <label class="radio-group">
+                    <input type="radio" class="radio" name="radio-group" required>
+                    <span class="radio-group-text">Мужской</span>
+                </label>
+                <label class="radio-group">
+                    <input type="radio" class="radio" name="radio-group" required>
+                    <span class="radio-group-text">Женский</span>
+                </label>	
+            </div>
+        </div>	
+        <div class="form-row">
+            <label class="checkbox-group">
+                <input type="checkbox" class="checkbox" required>
+                <span class="checkbox-text">Вы согласны на обработку персональных данных</span>
+            </label>
+        </div>
+        <div class="form-row">
+            <button class="button">Отправить</button>
+        </div>
+    </form>
+</body>
+</html>
