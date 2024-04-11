@@ -12,4 +12,5 @@
 9. [Aiohttp](lesson_5.2.9/)
 10. [Celery](lesson_5.2.10/)
 
+[Домашние задания](py-homeworks-web-new/)
 
