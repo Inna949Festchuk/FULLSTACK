@@ -41,6 +41,15 @@ https://blog.sedicomm.com/2018/04/06/ispolzovanie-komand-apt-v-linux-polnoe-ruko
 - [Bash скрипты для начинающих](https://habr.com/ru/articles/726316/)
 - [Команда mv на Linux с полезными примерами](https://itisgood.ru/2020/12/16/komanda-mv-na-linux-s-poleznymi-primerami/)
 - [Команда df linux](https://losst.pro/komanda-df-linux)
+- [Перенаправление ввода вывода Linux](https://losst.pro/perenapravlenie-vvoda-vyvoda-linux)
+- [Перенаправление ввода/вывода в Linux](https://selectel.ru/blog/tutorials/linux-redirection/)
+  
+### ПРИВЕТ ИЗ ПРОШЛОГО и что-то новое
+- [Как хранить токены и пароли в программах на Python](https://habr.com/ru/articles/795881/)
+- [](https://pypi.org/project/keyring/)
+- [](https://pypi.org/project/keyrings.alt/)
+- [](https://pypi.org/project/pycryptodomex/)
+- [django-environ. Использование переменных окружения для конфигурирования Django](https://gorbach.me/2021/django-environ/)
 
 ### Управление услугой сервера
 
