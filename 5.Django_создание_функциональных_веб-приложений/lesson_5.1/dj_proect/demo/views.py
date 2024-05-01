@@ -225,18 +225,23 @@ def list_orders(request):
 
 @api_view(['GET'])
 def demo(requests):
+    # Объекты модели, для сохранения или передачи,
+    # нужно СЕРИАЛИЗОВЫВАТЬ (weaponts -> ser) - 
+    # преобразовывать в байт-код (поток) 
     weaponts = Weaponts.objects.all()
     ser = WeaponSerializer(weaponts, many=True)
     # many=True означает что серриалайзер выдаст нам все объекты weaponts, 
     # а не какой-нибудь один
 
     # dictdata = {'message': 'Hello, world!'} 
-    # Словарь передается в Response без сериализации
+    # ВНИМАНИЕ - - - - - - - - - - - - - - - - - - - - 
+    # Словарь dictdata передается в Response без сериализации !!!
+    # потому что Response - аналог класса JSONRender().render(dictdata),
+    # преобразующего (сериализующего) словарь dictdata
+    # в поток байтов (строку) формата JSON для передачи клиенту
+    # - - - - - - - - - - - - - - - - - - - - - - - - - 
     # return Response(dictdata)
-
-    # Объекты модели, для сохранения или передачи,
-    # нужно СЕРИАЛИЗОВЫВАТЬ (weaponts -> ser) - 
-    # преобразовывать в байт-код (поток) 
+    
     return Response(ser.data) 
 
     # ser - сериализованные данные (поток)
@@ -270,7 +275,7 @@ class DemoView(ListAPIView):
     # откуда береем данные передаем в queryset (название переменной не менять)
     queryset = Weaponts.objects.all()
     # с помощью какого сериалайзера превратить объекты модели 
-    # в поток и после сохранения или передачи в словарь JSON
+    # в поток и после сохранения или передачи в словарь
     serializer_class = WeaponSerializer
     
     # если нужно реализовать дополнительное поведение

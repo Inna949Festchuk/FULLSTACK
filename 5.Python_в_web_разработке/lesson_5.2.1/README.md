@@ -46,9 +46,9 @@
   
 ### ПРИВЕТ ИЗ ПРОШЛОГО и что-то новое
 - [Как хранить токены и пароли в программах на Python](https://habr.com/ru/articles/795881/)
-- [](https://pypi.org/project/keyring/)
-- [](https://pypi.org/project/keyrings.alt/)
-- [](https://pypi.org/project/pycryptodomex/)
+- https://pypi.org/project/keyring/
+- https://pypi.org/project/keyrings.alt/
+- https://pypi.org/project/pycryptodomex/
 - [django-environ. Использование переменных окружения для конфигурирования Django](https://gorbach.me/2021/django-environ/)
 
 ### Управление услугой сервера

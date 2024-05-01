@@ -20,11 +20,40 @@ import math
 import copy
 
 # получение point
-# @api_view(['GET'])
-# def show_point(request):
-#     point = WorldPoint.objects.all()
-#     data = WorldPointSerializer(point, many=True)
-#     return Response(data.data)
+@api_view(['GET'])
+def show_point(request):
+    # Создаем объекты модели WorldPoint
+    point = WorldPoint.objects.all()
+    # Сериализуем извлеченные объекты БД:
+    # - - - - - - - - - - - - - - - - - - - - -
+    # Создаем объект класса сериализатора
+    data = WorldPointSerializer(point, many=True) # many=True - сериализуем все записи point
+    
+    print(data, type(data)) # Объект класса сериализатора:
+    # WorldPointSerializer(<QuerySet [<WorldPoint: Ориентир: 1>]>, <WorldPoint: Ориентир: 120>, many=True):
+    # name = CharField(help_text='Введите название ориентира', label='Название ориентира', max_length=250) 
+    # location = ModelField(label='Схема ориентиров', model_field=<django.contrib.gis.db.models.fields.PointField: location>)
+
+    print(data.data, type(data.data)) # Извлекаем из объекта класса сериализатора данные в виде списка словарей OrderedDict:
+    # [OrderedDict([('name', '1'), ('location', 'SRID=28404;POINT (4483847.704276834 6060087.566537171)')]), 
+    # OrderedDict([('name', '120'), ('location', 'SRID=28404;POINT (4499753.881367749 6059924.900537257)')])]
+
+    # return Response(data.data) # Response (аналог JSONRenderer().render(data.data)) 
+                               # сериализует список словарей в JSON, преобразованный в байтовую строку b' И ПЕРЕДАЕТ КЛИЕНТУ (см. ниже ТОЖЕ САМОЕ)
+    # ТОЖЕ САМОЕ
+    from rest_framework.renderers import JSONRenderer
+    print(JSONRenderer().render(data.data)) # сериализует список словарей в JSON, преобразованный в байтовую строку b' 
+    # И ПЕРЕДАЕТ КЛИЕНТУ !!! (так работает функция encoder()) !!!
+    # b'[{"name":"1","location":"SRID=28404;POINT (4483847.704276834 6060087.566537171)"},
+    # {"name":"120","location":"SRID=28404;POINT (4499753.881367749 6059924.900537257)"}]
+    return Response(JSONRenderer().render(data.data))
+
+# получение line
+@api_view(['GET'])
+def show_line(request):
+    line = WorldLine.objects.all()
+    data = WorldLineSerializerPost(line, many=True)
+    return Response(data.data)
 
 # # создание point
 # @api_view(['POST'])
@@ -55,52 +84,47 @@ def create_point(request):
     response = requests.post(url, data={"name": "test", "location": "SRID=28404;POINT(4475177 6061145)"})
     response.json()
     '''
+    # Код ниже относится к процессу обработки 
+    # данных с использованием сериализатора, и включает в себя ДЕСЕРИАЛИЗАЦИЮ данных тела запроса, 
+    # создание объекта класса сериализатора, валидацию и сохранение сериализованных данных в БД. 
+    # СПРАВКА! https://dev-gang.ru/article/kak-ispolzovat-serializatory-v-vebplatforme-django-python-sfru8ukukd/ 
 
-    # СПРАВКА! https://dev-gang.ru/article/kak-ispolzovat-serializatory-v-vebplatforme-django-python-sfru8ukukd/
-    # вы можете создавать или обновлять экземпляры, 
-    # вызывая is_valid() для проверки данных и save() 
-    # для создания или обновления экземпляра
+    # Создаем объект класса сериализатора, 
+    # который, в том числе, используется и для ДЕСЕРИАЛИЗАЦИИ данных тела ЗАПРОСА (data=request.data) и 
+    # далее для валидации сериализованных данных ЗАПРОСА (serialpoint.is_valid())
+    # Данные запроса, А НЕ ОБЪЕКТЫ МОДЕЛИ КАК ПРИ сериализации,
+    # передаем в сериализатор в виде именованных аргументов, 
+    # извлекаемых из тела запроса применением .data
 
-    # serializer = OrderSerializer(**data)
-    # ## обязательно проверить данные, перед вызовом сохранения
-    # serializer.is_valid()
-    # serializer.save()
+    serialpoint = WorldPointSerializer(data=request.data) # здесь .data для извлечения данных из тела запроса
+                                                          # requests.post(url, data={"name": "test", "location": "SRID=28404;POINT(4475177 6061145)"})
+    # # ПОЯСНЯЮЩИЙ АНАЛОГ!
+    # # Пусть в запросе от клиента к нам поступила такая байтовая строка:
+    # import io
+    # stream = io.BytesIO(b'{"name":"test_analog","location":"SRID=28404;POINT(4475177 6061545)"}')
+    # # Используем JSONParser для десериализации (парсим запрос) !!! (так работает функция decoder()) !!!
+    # from rest_framework.parsers import JSONParser
+    # parsdata = JSONParser().parse(stream) # ДЕСЕРИАЛИЗУЕМ
+    # # print(parsdata) >>> {'name': 'test_analog', 'location': 'SRID=28404;POINT(4475177 6061545)'}
+    # serialpoint = WorldPointSerializer(data=parsdata) # Создаем объект класса сериализатора
+    # serialpoint.is_valid() # Проверяем на валидность
+    # location_data = parsdata.get('location')
+    # name = parsdata.get('name')
+    # pnt = GEOSGeometry(location_data)  
+    # serialpoint.validated_data['location'] = pnt # Получаем доступ к проверенным (валидным) данным
+    # serialpoint.validated_data['name'] = name # Получаем доступ к проверенным (валидным) данным
+    # serialpoint.save() # Сохраняем в БД
+    # return Response(serialpoint.data) # Возвращаем клиенту
 
-    # Код, который вы предоставили, относится к процессу сериализации и сохранения данных. 
-    # Давайте разберем его поэтапно:
-
-    # 1. `serializer = OrderSerializer(**data)`: 
-    # В этой строке создается экземпляр сериализатора `OrderSerializer`, 
-    # который используется для сериализации и валидации данных. 
-    # Параметр `**data` означает, что данные будут переданы в сериализатор в виде именованных аргументов.
-
-    # 2. `serializer.is_valid()`: Этот метод проверяет, проходят ли данные через сериализатор валидацию, 
-    # то есть соответствуют ли они ожидаемой структуре и правилам.
-
-    # 3. `serializer.save()`: После успешной валидации, этот метод сохраняет данные, 
-    # которые были сериализованы, например, в базе данных.
-
-    # Таким образом, представленный код относится к процессу обработки 
-    # данных с использованием сериализатора, и включает в себя создание, 
-    # валидацию и сохранение данных.  
-
-
-    # Создаем экземпляр сериализатора, 
-    # который используется для сериализации и валидации данных
-    # данные запроса передаем в сериализатор в виде именованных аргументов.
-    serialpoint = WorldPointSerializer(data=request.data)
-   
     # Проверяем данные на валидность (соответствуют ли они ожидаемой структуре и правилам)
     if serialpoint.is_valid():
-        print(serialpoint)
-        # >>> WorldPointSerializer(data=<QueryDict: {'name': ['1'], 'location': ['SRID=28404;POINT(4475167, 6061130)']}>)
         # Если данные валидны, извлекаем название точки и сохраняем их в БД
         location_data = request.data.get('location')  # Извлекаем данные о местоположении
         name = request.data.get('name')  # Извлекаем название точки
         pnt = GEOSGeometry(location_data)  # Создаем объект GEOSGeometry из данных о местоположении
         serialpoint.validated_data['location'] = pnt  # Присваиваем объект GEOSGeometry полю 'местоположение'
         serialpoint.validated_data['name'] = name  # Присваиваем название точки полю 'name'
-        # "validated_data" в Python используется в контексте сериализации данных. 
+        # "validated_data (проверенные данные)" в Python используется в контексте сериализации данных. 
         # Когда данные проходят процесс валидации веб-формы или API запроса, 
         # они могут быть доступны через "validated_data". 
         # В этом случае, "serialpoint.validated_data['location'] = pnt" указывает на 
@@ -309,8 +333,11 @@ def create_line(request):
 # GeoJSON для визуализации в браузере с помощью Leaflet
 
 def get_context_data(request):
-    # сериализация (представляет собой процесс преобразования состояния объекта в форму, пригодную для передачи по проводам и сохранения в БД)
-    # Объекты модели, для передачи по проводам и сохранения, нужно СЕРИАЛИЗОВЫВАТЬ - преобразовывать в байт-код (поток)
+    # сериализация (представляет собой процесс преобразования объекта модели 
+    # в форму (объект класса сериализатора (в данном случае geojson-строку)), 
+    # пригодную для передачи по проводам и сохранения в БД)
+
+    # Объекты модели, для передачи по проводам и сохранения, нужно СЕРИАЛИЗОВЫВАТЬ - преобразовывать в байт-код (json-строку - поток)
     
     # Забираем из БД предварительно сериализовав данные (хорошо бы еще на валидность потом поверить)
     data_geojson_str_pnt = serialize('geojson', WorldPoint.objects.all(),
@@ -320,7 +347,7 @@ def get_context_data(request):
             geometry_field='location',
             fields=('name', 'azimuth', 'pn', 'distance', 'location',))
     
-    # десериализация (преобразование серриализованныех данныех (потока) обратно в структуру словаря (str->dict))
+    # десериализация (преобразование серриализованныех данныех (потока) из json строки обратно в структуру словаря python  (str->dict))
     # с предварительной проверкой на валидность
     try:
         validpoint = json.loads(data_geojson_str_pnt)
