@@ -1,0 +1,9 @@
+*.pyc
+storage/data/*
+__pycache__
+*.log
+Pipfile.lock
+Pipfile
+*.zip
+.vscode
+updater/tmp/*

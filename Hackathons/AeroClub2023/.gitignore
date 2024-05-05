@@ -1,0 +1,8 @@
+venv/
+in_dataset/
+i18n_GeoPgSqlDump_v0.4/
+dataset_task_1/
+dataset_task_2/
+database_airport-citi/
+Cities.py
+out_cities.csv

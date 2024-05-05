@@ -1,0 +1,7 @@
+transcription/static/speech/model_big
+transcription/static/speech/recasepunc
+wheel_files
+test.py
+transcription/templates/record_audio_test.html
+ffmpeg-7.0-full_build.zip
+media/recorded_audio.mp3
