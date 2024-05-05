@@ -48,6 +48,7 @@ from django.contrib.gis.db import models
 # environment на Mac:
 # conda activate //anaconda3/envs/condageoenv
 # - - - - - - - - - - - - - - -
+#
 
 # УПРАВЛЕНИЕ БАЗОЙ ДАННЫХ:
 # - - - - - - - - - - - - - - -
