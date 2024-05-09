@@ -1,0 +1,2241 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2024-05-03T09:25:19.155Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "UsersTexts object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2024-05-03T09:25:40.269Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "UsersTexts object (2)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2024-05-03T09:25:52.991Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "UsersTexts object (3)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2024-05-03T09:25:59.356Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "UsersTexts object (3)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Usertext\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2024-05-03T09:31:47.874Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Commands object (4)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2024-05-03T09:31:54.827Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Commands object (4)",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2024-05-03T09:32:33.681Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Commands object (5)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2024-05-03T11:06:24.178Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Вы вызвали команду \"Подтверждение\" я поняла, что Вы хотите подтвердить перевод ?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2024-05-03T11:51:40.416Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Вы вызвали команду \"Подтверждение\" я поняла, что Вы хотите подтвердить операцию ?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043a\\u0441\\u0442 \\u043f\\u043e\\u0434\\u0442\\u0432\\u0435\\u0440\\u0436\\u0434\\u0435\\u043d\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2024-05-03T11:51:58.174Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Вы вызвали команду \"Отмена\" я поняла, что Вы хотите выполнить отмену операции ?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043a\\u0441\\u0442 \\u043f\\u043e\\u0434\\u0442\\u0432\\u0435\\u0440\\u0436\\u0434\\u0435\\u043d\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2024-05-03T12:00:40.741Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Вы вызвали команду \"Подтверждение\" я поняла, что подтвердить операцию ?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043a\\u0441\\u0442 \\u043f\\u043e\\u0434\\u0442\\u0432\\u0435\\u0440\\u0436\\u0434\\u0435\\u043d\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2024-05-03T12:00:50.186Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Вы вызвали команду \"Отмена\" я поняла, что выполнить отмену операции ?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043a\\u0441\\u0442 \\u043f\\u043e\\u0434\\u0442\\u0432\\u0435\\u0440\\u0436\\u0434\\u0435\\u043d\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2024-05-03T12:00:57.788Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Вы вызвали команду \"Перевод\" я поняла, что перевести деньги ?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043a\\u0441\\u0442 \\u043f\\u043e\\u0434\\u0442\\u0432\\u0435\\u0440\\u0436\\u0434\\u0435\\u043d\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2024-05-04T21:17:33.424Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Вы вызвали команду \"Отмена\". Я правильно поняла, что Вы хотите выполнить отмену транзакции ?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043a\\u0441\\u0442 \\u043f\\u043e\\u0434\\u0442\\u0432\\u0435\\u0440\\u0436\\u0434\\u0435\\u043d\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2024-05-05T08:38:54.250Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Вы вызвали команду \"Отправить\". Я правильно поняла, что Вы хотите перевести деньги?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u043a\\u043e\\u043c\\u0430\\u043d\\u0434\\u044b\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2024-05-05T08:39:18.053Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Вы вызвали команду \"Отправить\". Я правильно поняла, что Вы хотите отправить платеж?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043a\\u0441\\u0442 \\u043f\\u043e\\u0434\\u0442\\u0432\\u0435\\u0440\\u0436\\u0434\\u0435\\u043d\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2024-05-05T08:41:06.720Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Вы вызвали команду \"Проверить\". Я правильно поняла, что Вы хотите проверить баланс?",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2024-05-05T08:43:12.111Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Вы вызвали команду \"Проверить\". Я правильно поняла, что Вы хотите проверить баланс?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2024-05-05T08:44:08.864Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Вы вызвали команду \"Отправить\". Я правильно поняла, что Вы хотите отправить платеж?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2024-05-05T08:45:18.704Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Вы вызвали команду \"Подтверждение\". Я правильно поняла, что Вы хотите подтвердить операцию?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2024-05-05T08:46:42.672Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Вы вызвали команду \"Отмена\". Я правильно поняла, что Вы хотите выполнить отмену транзакции?",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2024-05-08T17:08:05.378Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Да",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u043a\\u043e\\u043c\\u0430\\u043d\\u0434\\u044b\", \"\\u041a\\u043b\\u044e\\u0447\\u0435\\u0432\\u044b\\u0435 \\u0441\\u043b\\u043e\\u0432\\u0430 \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2024-05-08T17:08:41.089Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Нет",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u043a\\u043e\\u043c\\u0430\\u043d\\u0434\\u044b\", \"\\u041a\\u043b\\u044e\\u0447\\u0435\\u0432\\u044b\\u0435 \\u0441\\u043b\\u043e\\u0432\\u0430 \\u0437\\u0430\\u043f\\u0440\\u043e\\u0441\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2024-05-08T17:10:28.254Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Да",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2024-05-08T17:10:34.978Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Нет",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Slug\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add commands",
+    "content_type": 7,
+    "codename": "add_commands"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change commands",
+    "content_type": 7,
+    "codename": "change_commands"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete commands",
+    "content_type": 7,
+    "codename": "delete_commands"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view commands",
+    "content_type": 7,
+    "codename": "view_commands"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add users texts",
+    "content_type": 8,
+    "codename": "add_userstexts"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change users texts",
+    "content_type": 8,
+    "codename": "change_userstexts"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete users texts",
+    "content_type": 8,
+    "codename": "delete_userstexts"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view users texts",
+    "content_type": 8,
+    "codename": "view_userstexts"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add audio file",
+    "content_type": 9,
+    "codename": "add_audiofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change audio file",
+    "content_type": 9,
+    "codename": "change_audiofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete audio file",
+    "content_type": 9,
+    "codename": "delete_audiofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view audio file",
+    "content_type": 9,
+    "codename": "view_audiofile"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$1lRjvoQdpxPvj42bIbjNQt$GqJ4U/v0CYzyURyN2wjxMB7ssqnHo+ZRA12MzP9QvHU=",
+    "last_login": "2024-05-04T20:13:53.022Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-05-03T08:59:05.701Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "transcription",
+    "model": "commands"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "transcription",
+    "model": "userstexts"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "transcription",
+    "model": "audiofile"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0hn8sb3evz87mce3n42q5n8pw4u1aqwy",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAQRe_iGll4vOChpOcM0SwODiBHylIh7g6RUkD733v_ZTpal9qtc5m6Qc3ZOHP43ZjkUdoG9E7tNloZ2zINbDfF7nS211HL87K7fweV5vqtWU4RM6Dz_VGABDxBASyQexc9E2pyQShAjFmCokN2ylwgKfoUonl_ANrLN58:1s3LlZ:IOkCMVDdx0Yt01mukSA8EOgkHfMXmnLzBIujByM7iQs",
+    "expire_date": "2024-05-18T20:13:53.032Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ogr9316iip221c5l5qklli0sp9ho7p60",
+  "fields": {
+    "session_data": ".eJxVjDsOwyAQBe9CHSHzh5TpfQa0ZpfgJALJ2FWUu0dILpL2zcx7swjHXuLRaYsrsisT7PK7LZCeVAfAB9R746nVfVsXPhR-0s7nhvS6ne7fQYFeRh0ymOyFlU5pLynBZEglQSYgOBektlJZD8pNUgBQ9hIoaRHQGgw6s88X2e03rw:1s2olU:f_wVHL0WnqZJ-M3ICDr9qEiPq9BzSKa8m8WzkuO8B1Y",
+    "expire_date": "2024-05-17T08:59:36.531Z"
+  }
+},
+{
+  "model": "transcription.commands",
+  "pk": 4,
+  "fields": {
+    "commands": "Отправить",
+    "confirmation": "отправить платеж",
+    "slug": "Выполняется функция send_money"
+  }
+},
+{
+  "model": "transcription.commands",
+  "pk": 5,
+  "fields": {
+    "commands": "Нет",
+    "confirmation": "нет отменить",
+    "slug": "!!!Выполняется функция cancellation_of_transfer"
+  }
+},
+{
+  "model": "transcription.commands",
+  "pk": 6,
+  "fields": {
+    "commands": "Да",
+    "confirmation": "да подтвердить",
+    "slug": "!!!Выполняется функция confirm_transfer"
+  }
+},
+{
+  "model": "transcription.commands",
+  "pk": 7,
+  "fields": {
+    "commands": "Проверить",
+    "confirmation": "проверить баланс",
+    "slug": "Выполняется функция check_balance"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 1,
+  "fields": {
+    "usertext": "Я хочу вополнить перевод Иванову",
+    "created": "2024-05-03T09:25:19.142Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 2,
+  "fields": {
+    "usertext": "Я хочу перевести деньги",
+    "created": "2024-05-03T09:25:40.268Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 3,
+  "fields": {
+    "usertext": "Я хочу отменить первод",
+    "created": "2024-05-03T09:25:52.990Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 4,
+  "fields": {
+    "usertext": "здравствуйте я бы хотел выполнить перевод денежных средств",
+    "created": "2024-05-05T05:44:25.270Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 5,
+  "fields": {
+    "usertext": "здравствуйте я бы хотел выполнить перевод денежных средств",
+    "created": "2024-05-05T05:55:03.400Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 6,
+  "fields": {
+    "usertext": "я бы хотел выполнить перевод денежных средств",
+    "created": "2024-05-05T05:57:02.324Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 7,
+  "fields": {
+    "usertext": "средств я бы хотел купить его денежных средств",
+    "created": "2024-05-05T06:00:03.969Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 8,
+  "fields": {
+    "usertext": "тема хотел выполнить перевод денежных средств маме",
+    "created": "2024-05-05T06:02:26.765Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 9,
+  "fields": {
+    "usertext": "здравствуйте им хотел и не денежный перевод маме",
+    "created": "2024-05-05T06:07:44.631Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 10,
+  "fields": {
+    "usertext": "я хочу импульс перевод",
+    "created": "2024-05-05T07:04:17.403Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 11,
+  "fields": {
+    "usertext": "здравствуйте я бы хотел выполнить перевод тебя",
+    "created": "2024-05-05T07:07:47.360Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 12,
+  "fields": {
+    "usertext": "интерес к я хочу узнать свою лоранс",
+    "created": "2024-05-05T08:51:10.665Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 13,
+  "fields": {
+    "usertext": "здравствуйте я бы хотел узнать свой баланс",
+    "created": "2024-05-05T08:52:05.156Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 14,
+  "fields": {
+    "usertext": "размер здравствуйте я бы хотел перевести денежные средства",
+    "created": "2024-05-05T20:46:08.025Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 15,
+  "fields": {
+    "usertext": "нас бред пит",
+    "created": "2024-05-05T20:49:09.874Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 16,
+  "fields": {
+    "usertext": "два три",
+    "created": "2024-05-07T04:08:14.505Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 17,
+  "fields": {
+    "usertext": "перевести деньги",
+    "created": "2024-05-07T04:08:27.284Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 18,
+  "fields": {
+    "usertext": "отправить деньги",
+    "created": "2024-05-07T04:08:58.966Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 19,
+  "fields": {
+    "usertext": "раз два три",
+    "created": "2024-05-07T04:29:51.252Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 20,
+  "fields": {
+    "usertext": "отправить деньги",
+    "created": "2024-05-07T04:32:40.403Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 21,
+  "fields": {
+    "usertext": "отправить деньги",
+    "created": "2024-05-07T04:32:53.292Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 22,
+  "fields": {
+    "usertext": "раз два три",
+    "created": "2024-05-07T04:33:25.921Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 23,
+  "fields": {
+    "usertext": "отправить деньги",
+    "created": "2024-05-07T04:35:03.180Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 24,
+  "fields": {
+    "usertext": "раз два три",
+    "created": "2024-05-07T04:44:47.028Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 25,
+  "fields": {
+    "usertext": "раз два три",
+    "created": "2024-05-07T04:46:23.515Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 26,
+  "fields": {
+    "usertext": "все три",
+    "created": "2024-05-07T04:47:37.153Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 27,
+  "fields": {
+    "usertext": "ног",
+    "created": "2024-05-07T04:48:40.962Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 28,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-07T05:17:40.806Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 29,
+  "fields": {
+    "usertext": "здравствуйте я хочу отправить деньги маме",
+    "created": "2024-05-07T05:26:43.138Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 30,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-07T05:27:18.963Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 31,
+  "fields": {
+    "usertext": "здравствуйте я хочу отправить деньги маме",
+    "created": "2024-05-07T05:28:43.379Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 32,
+  "fields": {
+    "usertext": "здравствуйте я хочу отправить деньги маме",
+    "created": "2024-05-07T05:29:33.946Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 33,
+  "fields": {
+    "usertext": "здравствуйте я хочу отправить деньги маме",
+    "created": "2024-05-07T05:30:53.704Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 34,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-07T05:31:29.297Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 35,
+  "fields": {
+    "usertext": "здравствуйте я хочу отправить деньги маме",
+    "created": "2024-05-07T05:32:07.951Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 36,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-07T05:32:28.516Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 37,
+  "fields": {
+    "usertext": "здравствуйте я хочу крови деньги маме",
+    "created": "2024-05-07T05:32:51.788Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 38,
+  "fields": {
+    "usertext": "раз два три",
+    "created": "2024-05-07T05:33:08.655Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 39,
+  "fields": {
+    "usertext": "здравствуйте я хочу отправить деньги маме",
+    "created": "2024-05-07T05:33:25.650Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 40,
+  "fields": {
+    "usertext": "отправить деньги",
+    "created": "2024-05-07T05:33:44.388Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 41,
+  "fields": {
+    "usertext": "у нас два к и",
+    "created": "2024-05-07T05:35:29.009Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 42,
+  "fields": {
+    "usertext": "раз два три",
+    "created": "2024-05-07T05:36:22.671Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 43,
+  "fields": {
+    "usertext": "здравствуйте я хочу от деньги маме",
+    "created": "2024-05-07T05:37:54.182Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 44,
+  "fields": {
+    "usertext": "здравствуйте я хочу отправить деньги",
+    "created": "2024-05-07T05:38:56.318Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 45,
+  "fields": {
+    "usertext": "и здравствуйте я хочу отправить деньги маме",
+    "created": "2024-05-07T05:41:04.124Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 46,
+  "fields": {
+    "usertext": "подтвердить перевод",
+    "created": "2024-05-08T02:57:34.309Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 47,
+  "fields": {
+    "usertext": "подтвердить перевод",
+    "created": "2024-05-08T03:01:26.536Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 48,
+  "fields": {
+    "usertext": "раз два три",
+    "created": "2024-05-08T03:17:53.323Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 49,
+  "fields": {
+    "usertext": "изнутри",
+    "created": "2024-05-08T03:20:38.006Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 50,
+  "fields": {
+    "usertext": "нас было три",
+    "created": "2024-05-08T03:21:34.885Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 51,
+  "fields": {
+    "usertext": "ты семь восемь девять десять",
+    "created": "2024-05-08T03:29:48.797Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 52,
+  "fields": {
+    "usertext": "стоит ли",
+    "created": "2024-05-08T03:49:17.605Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 53,
+  "fields": {
+    "usertext": "отлично",
+    "created": "2024-05-08T03:54:59.341Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 54,
+  "fields": {
+    "usertext": "и три четыре пять",
+    "created": "2024-05-08T03:56:53.261Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 55,
+  "fields": {
+    "usertext": "праздники",
+    "created": "2024-05-08T03:59:18.007Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 56,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T04:05:25.614Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 57,
+  "fields": {
+    "usertext": "я хочу перевести деньги",
+    "created": "2024-05-08T04:33:43.085Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 58,
+  "fields": {
+    "usertext": "пути",
+    "created": "2024-05-08T04:34:23.994Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 59,
+  "fields": {
+    "usertext": "ты",
+    "created": "2024-05-08T04:35:46.095Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 60,
+  "fields": {
+    "usertext": "я хочу перевести деньги",
+    "created": "2024-05-08T04:41:40.306Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 61,
+  "fields": {
+    "usertext": "отменить перевод",
+    "created": "2024-05-08T04:41:59.055Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 62,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T04:44:55.487Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 63,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T04:46:44.017Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 64,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T04:47:20.708Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 65,
+  "fields": {
+    "usertext": "три",
+    "created": "2024-05-08T04:55:03.915Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 66,
+  "fields": {
+    "usertext": "я хочу перевести",
+    "created": "2024-05-08T05:23:01.489Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 67,
+  "fields": {
+    "usertext": "назад",
+    "created": "2024-05-08T05:27:59.872Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 68,
+  "fields": {
+    "usertext": "перевести деньги",
+    "created": "2024-05-08T05:31:51.935Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 69,
+  "fields": {
+    "usertext": "фай",
+    "created": "2024-05-08T05:34:45.604Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 70,
+  "fields": {
+    "usertext": "здравствуйте я хочу выполнить перевод маме",
+    "created": "2024-05-08T05:35:00.755Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 71,
+  "fields": {
+    "usertext": "и вот",
+    "created": "2024-05-08T17:02:03.031Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 72,
+  "fields": {
+    "usertext": "нет",
+    "created": "2024-05-08T17:05:21.570Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 73,
+  "fields": {
+    "usertext": "отправить платёж",
+    "created": "2024-05-08T17:09:07.717Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 74,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-08T17:09:24.967Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 75,
+  "fields": {
+    "usertext": "а ведь платёж",
+    "created": "2024-05-08T17:22:59.605Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 76,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-08T17:23:12.763Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 77,
+  "fields": {
+    "usertext": "натравить платёж",
+    "created": "2024-05-08T17:23:28.658Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 78,
+  "fields": {
+    "usertext": "не",
+    "created": "2024-05-08T17:23:41.983Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 79,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T17:23:55.581Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 80,
+  "fields": {
+    "usertext": "раз два три",
+    "created": "2024-05-08T17:24:06.504Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 81,
+  "fields": {
+    "usertext": "да строки",
+    "created": "2024-05-08T17:43:17.574Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 82,
+  "fields": {
+    "usertext": "два три",
+    "created": "2024-05-08T17:43:52.722Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 83,
+  "fields": {
+    "usertext": "два три",
+    "created": "2024-05-08T17:45:21.216Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 84,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T17:47:07.644Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 85,
+  "fields": {
+    "usertext": "движителя",
+    "created": "2024-05-08T18:15:03.193Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 86,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T18:29:51.493Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 87,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T18:33:27.078Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 88,
+  "fields": {
+    "usertext": "тут все градоначальник истребители четвёртого поколения чтобы достичь смерть у кого их скоростей конструктора нужно было сделать крылом",
+    "created": "2024-05-08T18:53:56.698Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 89,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T18:58:17.414Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 90,
+  "fields": {
+    "usertext": "раз два три",
+    "created": "2024-05-08T18:59:24.874Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 91,
+  "fields": {
+    "usertext": "мошенничество джаз блюз",
+    "created": "2024-05-08T19:07:13.973Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 92,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T19:10:19.681Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 93,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-08T19:10:52.364Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 94,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-08T19:11:10.625Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 95,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-08T19:11:27.195Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 96,
+  "fields": {
+    "usertext": "тебя нет",
+    "created": "2024-05-08T19:11:49.905Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 97,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T19:12:09.882Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 98,
+  "fields": {
+    "usertext": "раз два три",
+    "created": "2024-05-08T19:12:29.440Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 99,
+  "fields": {
+    "usertext": "здравствуйте я бы хотела отправить платёж",
+    "created": "2024-05-08T19:12:49.214Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 100,
+  "fields": {
+    "usertext": "а да",
+    "created": "2024-05-08T19:13:03.340Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 101,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-08T19:13:28.953Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 102,
+  "fields": {
+    "usertext": "нет",
+    "created": "2024-05-08T19:13:42.949Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 103,
+  "fields": {
+    "usertext": "чарли десятый здравствуй свечками исчез",
+    "created": "2024-05-08T19:48:43.536Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 104,
+  "fields": {
+    "usertext": "здравствуйте я хочу выполнить перевод",
+    "created": "2024-05-08T19:50:09.173Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 105,
+  "fields": {
+    "usertext": "я хочу проверить баланс",
+    "created": "2024-05-08T19:51:38.923Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 106,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T19:52:26.673Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 107,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-08T19:54:34.301Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 108,
+  "fields": {
+    "usertext": "верить полон",
+    "created": "2024-05-08T20:34:36.669Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 109,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-08T20:36:55.916Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 110,
+  "fields": {
+    "usertext": "жить период",
+    "created": "2024-05-08T20:53:04.036Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 111,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T20:53:56.094Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 112,
+  "fields": {
+    "usertext": "стать",
+    "created": "2024-05-08T20:54:58.879Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 113,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T20:56:36.584Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 114,
+  "fields": {
+    "usertext": "верить баланс",
+    "created": "2024-05-08T21:02:57.095Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 115,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T21:04:10.549Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 116,
+  "fields": {
+    "usertext": "перед была",
+    "created": "2024-05-08T21:05:10.698Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 117,
+  "fields": {
+    "usertext": "верить баланс",
+    "created": "2024-05-08T21:08:12.715Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 118,
+  "fields": {
+    "usertext": "подтверждена",
+    "created": "2024-05-08T21:09:32.760Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 119,
+  "fields": {
+    "usertext": "перед баланс",
+    "created": "2024-05-08T21:12:25.370Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 120,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-08T21:12:37.021Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 121,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-08T21:18:15.725Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 122,
+  "fields": {
+    "usertext": "да утверждаю",
+    "created": "2024-05-08T21:18:30.918Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 123,
+  "fields": {
+    "usertext": "баланс",
+    "created": "2024-05-08T21:24:02.916Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 124,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-08T21:29:06.591Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 125,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-08T21:32:51.822Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 126,
+  "fields": {
+    "usertext": "подтверждена",
+    "created": "2024-05-08T21:33:46.911Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 127,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-08T21:36:45.984Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 128,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-08T21:36:58.388Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 129,
+  "fields": {
+    "usertext": "да подтверждают",
+    "created": "2024-05-08T21:37:14.784Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 130,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T05:43:11.797Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 131,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-09T05:44:49.398Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 132,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T05:55:09.129Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 133,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-09T05:55:33.628Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 134,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T05:58:54.298Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 135,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-09T05:59:25.685Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 136,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T06:08:51.080Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 137,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T06:12:55.066Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 138,
+  "fields": {
+    "usertext": "одна упаковка пластиковых пакетов обязательно отец пластиковый пакет да",
+    "created": "2024-05-09T06:14:19.706Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 139,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T06:15:58.655Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 140,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T06:19:25.571Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 141,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-09T06:20:10.802Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 142,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T06:24:32.242Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 143,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-09T06:25:10.892Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 144,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T07:02:40.625Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 145,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-09T07:03:48.029Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 146,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T07:17:40.497Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 147,
+  "fields": {
+    "usertext": "друзья да",
+    "created": "2024-05-09T07:18:45.081Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 148,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T07:29:19.694Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 149,
+  "fields": {
+    "usertext": "пить баланс",
+    "created": "2024-05-09T07:31:27.066Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 150,
+  "fields": {
+    "usertext": "ведь баланс",
+    "created": "2024-05-09T07:33:10.239Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 151,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-09T07:33:21.317Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 152,
+  "fields": {
+    "usertext": "баланс",
+    "created": "2024-05-09T07:36:36.287Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 153,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-09T07:37:01.891Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 154,
+  "fields": {
+    "usertext": "а",
+    "created": "2024-05-09T07:37:20.972Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 155,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-09T07:37:39.995Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 156,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T07:38:25.821Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 157,
+  "fields": {
+    "usertext": "да",
+    "created": "2024-05-09T07:39:21.512Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 158,
+  "fields": {
+    "usertext": "крик баланс",
+    "created": "2024-05-09T07:40:06.321Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 159,
+  "fields": {
+    "usertext": "не",
+    "created": "2024-05-09T07:41:17.127Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 160,
+  "fields": {
+    "usertext": "перед баланс",
+    "created": "2024-05-09T07:51:51.817Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 161,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-09T07:53:06.310Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 162,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-09T07:53:37.044Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 163,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-09T07:54:38.134Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 164,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-09T07:56:40.093Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 165,
+  "fields": {
+    "usertext": "баланс",
+    "created": "2024-05-09T08:01:54.625Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 166,
+  "fields": {
+    "usertext": "да подтвердить",
+    "created": "2024-05-09T08:02:49.441Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 167,
+  "fields": {
+    "usertext": "ведь платёж",
+    "created": "2024-05-09T08:04:40.632Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 168,
+  "fields": {
+    "usertext": "перед тишина",
+    "created": "2024-05-09T08:06:49.497Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 169,
+  "fields": {
+    "usertext": "платёж",
+    "created": "2024-05-09T08:11:08.651Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 170,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-09T08:12:46.395Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 171,
+  "fields": {
+    "usertext": "проверить баланс",
+    "created": "2024-05-09T08:26:59.080Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 172,
+  "fields": {
+    "usertext": "а подтверждает с",
+    "created": "2024-05-09T08:29:40.505Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 173,
+  "fields": {
+    "usertext": "перед баланс",
+    "created": "2024-05-09T08:32:46.336Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 174,
+  "fields": {
+    "usertext": "каждая",
+    "created": "2024-05-09T08:34:05.084Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 175,
+  "fields": {
+    "usertext": "",
+    "created": "2024-05-09T08:34:57.395Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 176,
+  "fields": {
+    "usertext": "ты рждает",
+    "created": "2024-05-09T08:36:40.784Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 177,
+  "fields": {
+    "usertext": "баланс",
+    "created": "2024-05-09T08:38:23.039Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 178,
+  "fields": {
+    "usertext": "а подтверждаю",
+    "created": "2024-05-09T08:39:13.234Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 179,
+  "fields": {
+    "usertext": "здравствуйте я хочу проверить баланс",
+    "created": "2024-05-09T09:06:40.679Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 180,
+  "fields": {
+    "usertext": "ты рждает",
+    "created": "2024-05-09T09:07:23.337Z"
+  }
+},
+{
+  "model": "transcription.userstexts",
+  "pk": 181,
+  "fields": {
+    "usertext": "да подтверждают",
+    "created": "2024-05-09T09:08:11.293Z"
+  }
+}
+]
