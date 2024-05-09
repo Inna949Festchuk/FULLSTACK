@@ -10,7 +10,15 @@
     <title>Record Audio</title>
 </head>
 <body>
-    <h1>Record Audio</h1>
+    <h3>Dialog</h3>
+    <div id="dialog">
+        <p>Username:</p>
+            <div id="input_t"></div>
+        <p>VoskMTS:</p>
+            <div id="output_t"></div>
+    </div>
+
+    <h3>Record Audio</h3>
     <button id="startRecordingBtn">Start Recording</button>
     <button id="stopRecordingBtn">Stop Recording</button>
 
@@ -71,15 +79,20 @@
                     contentType: false,
                     cache: false,
                     url: "{% url 'createaudio' %}",
+                    // url: "http://127.0.0.1:8000/transcription/api/create-audio/",
                     data: formData,
-                    success: function(response) {
-                        console.log('Audio successfully sent to the server');
+                    success: function(data) {
+                        // console.log(data['search_text']);
+                        $('#input_t').text(data['convert_text']);
+                        $('#output_t').text(data['search_text']);
+                        
+                        console.log('input:', data['convert_text'], 'output:', data['search_text']);
                     },
                     error: function(xhr, status, error) {
                         console.error('Error sending the audio to the server');
                     }
                 });
-            };
+            };           
         });
     </script>
     

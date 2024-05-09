@@ -5,3 +5,6 @@ test.py
 transcription/templates/record_audio_test.html
 ffmpeg-7.0-full_build.zip
 media/recorded_audio.mp3
+bin/ffmpeg.exe
+bin/ffplay.exe
+bin/ffprobe.exe

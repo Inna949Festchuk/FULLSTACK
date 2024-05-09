@@ -16,7 +16,7 @@ class Commands(models.Model):
         db_table = "commands_model" # название модели в БД
 
     commands = models.CharField(max_length=250, help_text='Введите команды', verbose_name='Название команды')
-    confirmation = models.CharField(max_length=250, help_text='Текст подтверждения команды', verbose_name='Текст подтверждения')
+    confirmation = models.CharField(max_length=250, help_text='Введите ключевые слова запроса', verbose_name='Ключевые слова запроса')
     # slug = models.SlugField(max_length=250) # слаг для перехода к выполняемой по команде функции
     slug = models.CharField(max_length=250)
      
@@ -25,9 +25,9 @@ class Commands(models.Model):
             models.Index(fields=['commands']),
         ]
 
-    # Настраиваем строку поискового вывода
+    # Настраиваем строку поискового вывода из базы данных
     def __str__(self):
-        return f'Вы вызвали команду "{self.commands}". Я правильно поняла, что Вы хотите {self.confirmation}?'
+        return self.commands
 
 class UsersTexts(models.Model):
 

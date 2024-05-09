@@ -82,22 +82,23 @@ WSGI_APPLICATION = 'iiassistant.wsgi.application'
 # Создаем пользователя:
 # psql 
 # CREATE USER admin WITH PASSWORD 'admin';
-# Создаем БД:
+# Создаем БД с собственником admin:
 # CREATE DATABASE admin OWNER admin ENCODING 'UTF8';
 # \q
 # Создаем миграции
 # python manage.py makemigrations
 # Мигрируем
 # python manage.py migrate
-# Выгружаем данные из фикстуры iiassistat_data.json
-# Загрузка данных в новую базу данных
-# python manage.py loaddata iiassistat_data.json
+# Загружаем данные из фикстуры iiassistat_data.json в БД
+# python manage.py loaddata iiassistant_data.json
 # Если фикстуры не занрузятся очистить БД python manage.py flush
 # и снова применить миграции
 # Настраиваем Поиск по триграммному сходству
 # Дополнительные настройки расширений postgresql:
 # Установить переменную среды PATH (при необходимости)
-# PATH=C:\Users\Prepodavatel\AppData\Local\Programs\Python\Python38;C:\Program Files\PostgreSQL\10\bin;
+# В Windows
+# SET PATH=C:\Users\Prepodavatel\AppData\Local\Programs\Python\Python38;C:\Users\Prepodavatel\AppData\Local\Programs\Python\Python38\Scripts;C:\Program Files\PostgreSQL\10\bin;D:\MyProect\iiassistant\bin;
+# В Unix или MacOS export PATH=...прописать аналогичные пути...
 # psql admin
 # CREATE EXTENSION pg_trgm;
 # Проверяем установленные расширения
@@ -116,6 +117,12 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
