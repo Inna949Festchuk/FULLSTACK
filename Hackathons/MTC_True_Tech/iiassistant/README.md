@@ -14,7 +14,7 @@ venv\Scripts\activate
 python -m pip install -r requirements.txt
 ```
 ### Устанавливаем СУБД Postgresql
-### [Скачиваем кодек ffmpeg](https://ffmpeg.org/download.html) и размещаем в папку bin в корне проекта файл .exe для Windows или пакет для UNIX-систем (он уже там есть)
+### [Скачиваем кодек ffmpeg](https://ffmpeg.org/download.html) и размещаем в папку bin в корне проекта файл .exe для Windows или пакет для UNIX-систем
 ### Настраиваем переменную среды PATH для утилит управления БД и доступа к драйверу ffmpeg (пример для Windows) 
 ### %PATH% - дописываем к существующим вначало
 ```
