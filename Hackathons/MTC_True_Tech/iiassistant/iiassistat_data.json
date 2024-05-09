@@ -325,6 +325,2931 @@
   }
 },
 {
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2024-05-09T18:05:28.776Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "178",
+    "object_repr": "а подтверждаю",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2024-05-09T18:05:28.787Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "178",
+    "object_repr": "а подтверждаю",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2024-05-09T18:05:30.818Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "178",
+    "object_repr": "а подтверждаю",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2024-05-09T18:05:34.530Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "177",
+    "object_repr": "баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2024-05-09T18:05:34.652Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "177",
+    "object_repr": "баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2024-05-09T18:05:34.653Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "177",
+    "object_repr": "баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2024-05-09T18:05:34.895Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "176",
+    "object_repr": "ты рждает",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2024-05-09T18:05:35.382Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "176",
+    "object_repr": "ты рждает",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2024-05-09T18:05:35.383Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "176",
+    "object_repr": "ты рждает",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2024-05-09T18:05:35.627Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "175",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2024-05-09T18:05:36.041Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "175",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2024-05-09T18:05:36.042Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "175",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2024-05-09T18:05:36.207Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "174",
+    "object_repr": "каждая",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2024-05-09T18:05:36.466Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "174",
+    "object_repr": "каждая",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2024-05-09T18:05:36.471Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "174",
+    "object_repr": "каждая",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2024-05-09T18:05:36.661Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "173",
+    "object_repr": "перед баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2024-05-09T18:05:36.663Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "173",
+    "object_repr": "перед баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2024-05-09T18:05:36.822Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "173",
+    "object_repr": "перед баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2024-05-09T18:05:37.029Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "172",
+    "object_repr": "а подтверждает с",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2024-05-09T18:05:37.030Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "172",
+    "object_repr": "а подтверждает с",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2024-05-09T18:05:37.337Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "172",
+    "object_repr": "а подтверждает с",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2024-05-09T18:05:37.691Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "171",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2024-05-09T18:05:38.051Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "171",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2024-05-09T18:05:38.054Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "171",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2024-05-09T18:05:38.267Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "170",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2024-05-09T18:05:38.419Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "170",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2024-05-09T18:05:38.631Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "170",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2024-05-09T18:05:38.635Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "169",
+    "object_repr": "платёж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2024-05-09T18:05:38.868Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "169",
+    "object_repr": "платёж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2024-05-09T18:05:38.869Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "169",
+    "object_repr": "платёж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2024-05-09T18:05:39.179Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "168",
+    "object_repr": "перед тишина",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2024-05-09T18:05:39.360Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "168",
+    "object_repr": "перед тишина",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2024-05-09T18:05:39.796Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "167",
+    "object_repr": "ведь платёж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2024-05-09T18:05:39.967Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "166",
+    "object_repr": "да подтвердить",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2024-05-09T18:05:40.344Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "168",
+    "object_repr": "перед тишина",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2024-05-09T18:05:40.345Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "167",
+    "object_repr": "ведь платёж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2024-05-09T18:05:40.482Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "165",
+    "object_repr": "баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2024-05-09T18:05:40.636Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "166",
+    "object_repr": "да подтвердить",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2024-05-09T18:05:40.638Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "167",
+    "object_repr": "ведь платёж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2024-05-09T18:05:40.818Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "164",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2024-05-09T18:05:40.899Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "165",
+    "object_repr": "баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2024-05-09T18:05:40.901Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "166",
+    "object_repr": "да подтвердить",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2024-05-09T18:05:41.020Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "163",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2024-05-09T18:05:41.142Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "165",
+    "object_repr": "баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2024-05-09T18:05:41.143Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "164",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2024-05-09T18:05:41.263Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "162",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2024-05-09T18:05:41.460Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "164",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.033Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "178",
+    "object_repr": "а подтверждаю",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.144Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "177",
+    "object_repr": "баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.146Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "176",
+    "object_repr": "ты рждает",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.149Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "175",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.151Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "174",
+    "object_repr": "каждая",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.153Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "173",
+    "object_repr": "перед баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.154Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "172",
+    "object_repr": "а подтверждает с",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.157Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "171",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.158Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "170",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.159Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "169",
+    "object_repr": "платёж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.161Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "168",
+    "object_repr": "перед тишина",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.162Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "167",
+    "object_repr": "ведь платёж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.164Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "166",
+    "object_repr": "да подтвердить",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.166Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "165",
+    "object_repr": "баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.188Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "164",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.191Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "163",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.192Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "162",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.194Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "161",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.195Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "160",
+    "object_repr": "перед баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.197Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "159",
+    "object_repr": "не",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.198Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "158",
+    "object_repr": "крик баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.200Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "157",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.201Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "156",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.224Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "155",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 97,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.228Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "154",
+    "object_repr": "а",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 98,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.231Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "153",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 99,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.232Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "152",
+    "object_repr": "баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 100,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.234Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "151",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 101,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.235Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "150",
+    "object_repr": "ведь баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 102,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.238Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "149",
+    "object_repr": "пить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 103,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.255Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "148",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 104,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.257Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "147",
+    "object_repr": "друзья да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 105,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.258Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "146",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 106,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.260Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "145",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 107,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.261Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "144",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 108,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.263Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "143",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 109,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.264Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "142",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 110,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.286Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "141",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 111,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.289Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "140",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 112,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.290Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "139",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 113,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.292Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "138",
+    "object_repr": "одна упаковка пластиковых пакетов обязательно отец пластиковый пакет да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 114,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.293Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "137",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 115,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.294Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "136",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 116,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.296Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "135",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 117,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.297Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "134",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 118,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.300Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "133",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 119,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.302Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "132",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 120,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.303Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "131",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 121,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.304Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "130",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 122,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.345Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "129",
+    "object_repr": "да подтверждают",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 123,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.355Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "128",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 124,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.371Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "127",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 125,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.373Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "126",
+    "object_repr": "подтверждена",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 126,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.374Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "125",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 127,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.375Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "124",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 128,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.376Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "123",
+    "object_repr": "баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 129,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.378Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "122",
+    "object_repr": "да утверждаю",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 130,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.379Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "121",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 131,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.383Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "120",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 132,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.384Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "119",
+    "object_repr": "перед баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 133,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.386Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "118",
+    "object_repr": "подтверждена",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 134,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.387Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "117",
+    "object_repr": "верить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 135,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.388Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "116",
+    "object_repr": "перед была",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 136,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.390Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "115",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 137,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.391Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "114",
+    "object_repr": "верить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 138,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.392Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "113",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 139,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.394Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "112",
+    "object_repr": "стать",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 140,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.395Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "111",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 141,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.397Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "110",
+    "object_repr": "жить период",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 142,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.399Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "109",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 143,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.401Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "108",
+    "object_repr": "верить полон",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 144,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.403Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "107",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 145,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.405Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "106",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 146,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.407Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "105",
+    "object_repr": "я хочу проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 147,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.409Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "104",
+    "object_repr": "здравствуйте я хочу выполнить перевод",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 148,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.410Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "103",
+    "object_repr": "чарли десятый здравствуй свечками исчез",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 149,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.411Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "102",
+    "object_repr": "нет",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 150,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.413Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "101",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 151,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.415Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "100",
+    "object_repr": "а да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 152,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.416Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "99",
+    "object_repr": "здравствуйте я бы хотела отправить платёж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 153,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.418Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "98",
+    "object_repr": "раз два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 154,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.419Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "97",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 155,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.421Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "96",
+    "object_repr": "тебя нет",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 156,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.422Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "95",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 157,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.423Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "94",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 158,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.425Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "93",
+    "object_repr": "проверить баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 159,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.426Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "92",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 160,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.427Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "91",
+    "object_repr": "мошенничество джаз блюз",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 161,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.430Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "90",
+    "object_repr": "раз два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 162,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.431Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "89",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 163,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.434Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "88",
+    "object_repr": "тут все градоначальник истребители четвёртого поколения чтобы достичь смерть у кого их скоростей конструктора нужно было сделать крылом",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 164,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.436Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "87",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 165,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.438Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "86",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 166,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.467Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "85",
+    "object_repr": "движителя",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 167,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.469Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "84",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 168,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.470Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "83",
+    "object_repr": "два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 169,
+  "fields": {
+    "action_time": "2024-05-09T18:10:20.471Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "82",
+    "object_repr": "два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 170,
+  "fields": {
+    "action_time": "2024-05-09T18:10:48.622Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "81",
+    "object_repr": "да строки",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 171,
+  "fields": {
+    "action_time": "2024-05-09T18:10:48.745Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "80",
+    "object_repr": "раз два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 172,
+  "fields": {
+    "action_time": "2024-05-09T18:10:48.827Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "79",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 173,
+  "fields": {
+    "action_time": "2024-05-09T18:10:48.867Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "78",
+    "object_repr": "не",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 174,
+  "fields": {
+    "action_time": "2024-05-09T18:10:48.912Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "77",
+    "object_repr": "натравить платёж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 175,
+  "fields": {
+    "action_time": "2024-05-09T18:10:48.996Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "76",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 176,
+  "fields": {
+    "action_time": "2024-05-09T18:10:48.998Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "75",
+    "object_repr": "а ведь платёж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 177,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.000Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "74",
+    "object_repr": "да",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 178,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.001Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "73",
+    "object_repr": "отправить платёж",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 179,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.003Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "72",
+    "object_repr": "нет",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 180,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.005Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "71",
+    "object_repr": "и вот",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 181,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.007Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "70",
+    "object_repr": "здравствуйте я хочу выполнить перевод маме",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 182,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.008Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "69",
+    "object_repr": "фай",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 183,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.011Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "68",
+    "object_repr": "перевести деньги",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 184,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.013Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "67",
+    "object_repr": "назад",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 185,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.015Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "66",
+    "object_repr": "я хочу перевести",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 186,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.017Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "65",
+    "object_repr": "три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 187,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.018Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "64",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 188,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.021Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "63",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 189,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.023Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "62",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 190,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.024Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "61",
+    "object_repr": "отменить перевод",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 191,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.027Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "60",
+    "object_repr": "я хочу перевести деньги",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 192,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.031Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "59",
+    "object_repr": "ты",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 193,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.033Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "58",
+    "object_repr": "пути",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 194,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.036Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "57",
+    "object_repr": "я хочу перевести деньги",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 195,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.037Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "56",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 196,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.039Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "55",
+    "object_repr": "праздники",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 197,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.040Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "54",
+    "object_repr": "и три четыре пять",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 198,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.042Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "53",
+    "object_repr": "отлично",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 199,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.046Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "52",
+    "object_repr": "стоит ли",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 200,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.049Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "51",
+    "object_repr": "ты семь восемь девять десять",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 201,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.050Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "50",
+    "object_repr": "нас было три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 202,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.052Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "49",
+    "object_repr": "изнутри",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 203,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.053Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "48",
+    "object_repr": "раз два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 204,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.054Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "47",
+    "object_repr": "подтвердить перевод",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 205,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.056Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "46",
+    "object_repr": "подтвердить перевод",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 206,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.057Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "45",
+    "object_repr": "и здравствуйте я хочу отправить деньги маме",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 207,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.060Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "44",
+    "object_repr": "здравствуйте я хочу отправить деньги",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 208,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.064Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "43",
+    "object_repr": "здравствуйте я хочу от деньги маме",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 209,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.066Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "42",
+    "object_repr": "раз два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 210,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.068Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "41",
+    "object_repr": "у нас два к и",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 211,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.069Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "40",
+    "object_repr": "отправить деньги",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 212,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.071Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "39",
+    "object_repr": "здравствуйте я хочу отправить деньги маме",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 213,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.072Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "раз два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 214,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.074Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "37",
+    "object_repr": "здравствуйте я хочу крови деньги маме",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 215,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.077Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "36",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 216,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.081Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "35",
+    "object_repr": "здравствуйте я хочу отправить деньги маме",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 217,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.084Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "34",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 218,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.085Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "33",
+    "object_repr": "здравствуйте я хочу отправить деньги маме",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 219,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.087Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "32",
+    "object_repr": "здравствуйте я хочу отправить деньги маме",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 220,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.088Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "31",
+    "object_repr": "здравствуйте я хочу отправить деньги маме",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 221,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.089Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "30",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 222,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.091Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "29",
+    "object_repr": "здравствуйте я хочу отправить деньги маме",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 223,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.096Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "28",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 224,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.098Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "27",
+    "object_repr": "ног",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 225,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.099Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "26",
+    "object_repr": "все три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 226,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.101Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "25",
+    "object_repr": "раз два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 227,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.103Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "24",
+    "object_repr": "раз два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 228,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.104Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "23",
+    "object_repr": "отправить деньги",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 229,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.105Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "22",
+    "object_repr": "раз два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 230,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.106Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "21",
+    "object_repr": "отправить деньги",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 231,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.109Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "20",
+    "object_repr": "отправить деньги",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 232,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.112Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "19",
+    "object_repr": "раз два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 233,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.114Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "отправить деньги",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 234,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.115Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "17",
+    "object_repr": "перевести деньги",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 235,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.117Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "16",
+    "object_repr": "два три",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 236,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.119Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "15",
+    "object_repr": "нас бред пит",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 237,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.120Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "14",
+    "object_repr": "размер здравствуйте я бы хотел перевести денежные средства",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 238,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.121Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "13",
+    "object_repr": "здравствуйте я бы хотел узнать свой баланс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 239,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.123Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "12",
+    "object_repr": "интерес к я хочу узнать свою лоранс",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 240,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.125Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "здравствуйте я бы хотел выполнить перевод тебя",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 241,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.127Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "я хочу импульс перевод",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 242,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.129Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "здравствуйте им хотел и не денежный перевод маме",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 243,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.133Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "тема хотел выполнить перевод денежных средств маме",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 244,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.135Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "средств я бы хотел купить его денежных средств",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 245,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.137Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "я бы хотел выполнить перевод денежных средств",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 246,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.138Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "здравствуйте я бы хотел выполнить перевод денежных средств",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 247,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.141Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "здравствуйте я бы хотел выполнить перевод денежных средств",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 248,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.144Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Я хочу отменить первод",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 249,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.146Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Я хочу перевести деньги",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 250,
+  "fields": {
+    "action_time": "2024-05-09T18:10:49.147Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Я хочу вополнить перевод Иванову",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
   "model": "auth.permission",
   "pk": 1,
   "fields": {
@@ -788,1430 +3713,6 @@
     "commands": "Проверить",
     "confirmation": "проверить баланс",
     "slug": "Выполняется функция check_balance"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 1,
-  "fields": {
-    "usertext": "Я хочу вополнить перевод Иванову",
-    "created": "2024-05-03T09:25:19.142Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 2,
-  "fields": {
-    "usertext": "Я хочу перевести деньги",
-    "created": "2024-05-03T09:25:40.268Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 3,
-  "fields": {
-    "usertext": "Я хочу отменить первод",
-    "created": "2024-05-03T09:25:52.990Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 4,
-  "fields": {
-    "usertext": "здравствуйте я бы хотел выполнить перевод денежных средств",
-    "created": "2024-05-05T05:44:25.270Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 5,
-  "fields": {
-    "usertext": "здравствуйте я бы хотел выполнить перевод денежных средств",
-    "created": "2024-05-05T05:55:03.400Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 6,
-  "fields": {
-    "usertext": "я бы хотел выполнить перевод денежных средств",
-    "created": "2024-05-05T05:57:02.324Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 7,
-  "fields": {
-    "usertext": "средств я бы хотел купить его денежных средств",
-    "created": "2024-05-05T06:00:03.969Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 8,
-  "fields": {
-    "usertext": "тема хотел выполнить перевод денежных средств маме",
-    "created": "2024-05-05T06:02:26.765Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 9,
-  "fields": {
-    "usertext": "здравствуйте им хотел и не денежный перевод маме",
-    "created": "2024-05-05T06:07:44.631Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 10,
-  "fields": {
-    "usertext": "я хочу импульс перевод",
-    "created": "2024-05-05T07:04:17.403Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 11,
-  "fields": {
-    "usertext": "здравствуйте я бы хотел выполнить перевод тебя",
-    "created": "2024-05-05T07:07:47.360Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 12,
-  "fields": {
-    "usertext": "интерес к я хочу узнать свою лоранс",
-    "created": "2024-05-05T08:51:10.665Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 13,
-  "fields": {
-    "usertext": "здравствуйте я бы хотел узнать свой баланс",
-    "created": "2024-05-05T08:52:05.156Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 14,
-  "fields": {
-    "usertext": "размер здравствуйте я бы хотел перевести денежные средства",
-    "created": "2024-05-05T20:46:08.025Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 15,
-  "fields": {
-    "usertext": "нас бред пит",
-    "created": "2024-05-05T20:49:09.874Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 16,
-  "fields": {
-    "usertext": "два три",
-    "created": "2024-05-07T04:08:14.505Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 17,
-  "fields": {
-    "usertext": "перевести деньги",
-    "created": "2024-05-07T04:08:27.284Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 18,
-  "fields": {
-    "usertext": "отправить деньги",
-    "created": "2024-05-07T04:08:58.966Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 19,
-  "fields": {
-    "usertext": "раз два три",
-    "created": "2024-05-07T04:29:51.252Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 20,
-  "fields": {
-    "usertext": "отправить деньги",
-    "created": "2024-05-07T04:32:40.403Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 21,
-  "fields": {
-    "usertext": "отправить деньги",
-    "created": "2024-05-07T04:32:53.292Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 22,
-  "fields": {
-    "usertext": "раз два три",
-    "created": "2024-05-07T04:33:25.921Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 23,
-  "fields": {
-    "usertext": "отправить деньги",
-    "created": "2024-05-07T04:35:03.180Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 24,
-  "fields": {
-    "usertext": "раз два три",
-    "created": "2024-05-07T04:44:47.028Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 25,
-  "fields": {
-    "usertext": "раз два три",
-    "created": "2024-05-07T04:46:23.515Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 26,
-  "fields": {
-    "usertext": "все три",
-    "created": "2024-05-07T04:47:37.153Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 27,
-  "fields": {
-    "usertext": "ног",
-    "created": "2024-05-07T04:48:40.962Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 28,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-07T05:17:40.806Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 29,
-  "fields": {
-    "usertext": "здравствуйте я хочу отправить деньги маме",
-    "created": "2024-05-07T05:26:43.138Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 30,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-07T05:27:18.963Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 31,
-  "fields": {
-    "usertext": "здравствуйте я хочу отправить деньги маме",
-    "created": "2024-05-07T05:28:43.379Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 32,
-  "fields": {
-    "usertext": "здравствуйте я хочу отправить деньги маме",
-    "created": "2024-05-07T05:29:33.946Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 33,
-  "fields": {
-    "usertext": "здравствуйте я хочу отправить деньги маме",
-    "created": "2024-05-07T05:30:53.704Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 34,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-07T05:31:29.297Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 35,
-  "fields": {
-    "usertext": "здравствуйте я хочу отправить деньги маме",
-    "created": "2024-05-07T05:32:07.951Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 36,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-07T05:32:28.516Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 37,
-  "fields": {
-    "usertext": "здравствуйте я хочу крови деньги маме",
-    "created": "2024-05-07T05:32:51.788Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 38,
-  "fields": {
-    "usertext": "раз два три",
-    "created": "2024-05-07T05:33:08.655Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 39,
-  "fields": {
-    "usertext": "здравствуйте я хочу отправить деньги маме",
-    "created": "2024-05-07T05:33:25.650Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 40,
-  "fields": {
-    "usertext": "отправить деньги",
-    "created": "2024-05-07T05:33:44.388Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 41,
-  "fields": {
-    "usertext": "у нас два к и",
-    "created": "2024-05-07T05:35:29.009Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 42,
-  "fields": {
-    "usertext": "раз два три",
-    "created": "2024-05-07T05:36:22.671Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 43,
-  "fields": {
-    "usertext": "здравствуйте я хочу от деньги маме",
-    "created": "2024-05-07T05:37:54.182Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 44,
-  "fields": {
-    "usertext": "здравствуйте я хочу отправить деньги",
-    "created": "2024-05-07T05:38:56.318Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 45,
-  "fields": {
-    "usertext": "и здравствуйте я хочу отправить деньги маме",
-    "created": "2024-05-07T05:41:04.124Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 46,
-  "fields": {
-    "usertext": "подтвердить перевод",
-    "created": "2024-05-08T02:57:34.309Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 47,
-  "fields": {
-    "usertext": "подтвердить перевод",
-    "created": "2024-05-08T03:01:26.536Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 48,
-  "fields": {
-    "usertext": "раз два три",
-    "created": "2024-05-08T03:17:53.323Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 49,
-  "fields": {
-    "usertext": "изнутри",
-    "created": "2024-05-08T03:20:38.006Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 50,
-  "fields": {
-    "usertext": "нас было три",
-    "created": "2024-05-08T03:21:34.885Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 51,
-  "fields": {
-    "usertext": "ты семь восемь девять десять",
-    "created": "2024-05-08T03:29:48.797Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 52,
-  "fields": {
-    "usertext": "стоит ли",
-    "created": "2024-05-08T03:49:17.605Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 53,
-  "fields": {
-    "usertext": "отлично",
-    "created": "2024-05-08T03:54:59.341Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 54,
-  "fields": {
-    "usertext": "и три четыре пять",
-    "created": "2024-05-08T03:56:53.261Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 55,
-  "fields": {
-    "usertext": "праздники",
-    "created": "2024-05-08T03:59:18.007Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 56,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T04:05:25.614Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 57,
-  "fields": {
-    "usertext": "я хочу перевести деньги",
-    "created": "2024-05-08T04:33:43.085Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 58,
-  "fields": {
-    "usertext": "пути",
-    "created": "2024-05-08T04:34:23.994Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 59,
-  "fields": {
-    "usertext": "ты",
-    "created": "2024-05-08T04:35:46.095Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 60,
-  "fields": {
-    "usertext": "я хочу перевести деньги",
-    "created": "2024-05-08T04:41:40.306Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 61,
-  "fields": {
-    "usertext": "отменить перевод",
-    "created": "2024-05-08T04:41:59.055Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 62,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T04:44:55.487Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 63,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T04:46:44.017Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 64,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T04:47:20.708Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 65,
-  "fields": {
-    "usertext": "три",
-    "created": "2024-05-08T04:55:03.915Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 66,
-  "fields": {
-    "usertext": "я хочу перевести",
-    "created": "2024-05-08T05:23:01.489Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 67,
-  "fields": {
-    "usertext": "назад",
-    "created": "2024-05-08T05:27:59.872Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 68,
-  "fields": {
-    "usertext": "перевести деньги",
-    "created": "2024-05-08T05:31:51.935Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 69,
-  "fields": {
-    "usertext": "фай",
-    "created": "2024-05-08T05:34:45.604Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 70,
-  "fields": {
-    "usertext": "здравствуйте я хочу выполнить перевод маме",
-    "created": "2024-05-08T05:35:00.755Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 71,
-  "fields": {
-    "usertext": "и вот",
-    "created": "2024-05-08T17:02:03.031Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 72,
-  "fields": {
-    "usertext": "нет",
-    "created": "2024-05-08T17:05:21.570Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 73,
-  "fields": {
-    "usertext": "отправить платёж",
-    "created": "2024-05-08T17:09:07.717Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 74,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-08T17:09:24.967Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 75,
-  "fields": {
-    "usertext": "а ведь платёж",
-    "created": "2024-05-08T17:22:59.605Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 76,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-08T17:23:12.763Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 77,
-  "fields": {
-    "usertext": "натравить платёж",
-    "created": "2024-05-08T17:23:28.658Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 78,
-  "fields": {
-    "usertext": "не",
-    "created": "2024-05-08T17:23:41.983Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 79,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T17:23:55.581Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 80,
-  "fields": {
-    "usertext": "раз два три",
-    "created": "2024-05-08T17:24:06.504Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 81,
-  "fields": {
-    "usertext": "да строки",
-    "created": "2024-05-08T17:43:17.574Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 82,
-  "fields": {
-    "usertext": "два три",
-    "created": "2024-05-08T17:43:52.722Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 83,
-  "fields": {
-    "usertext": "два три",
-    "created": "2024-05-08T17:45:21.216Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 84,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T17:47:07.644Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 85,
-  "fields": {
-    "usertext": "движителя",
-    "created": "2024-05-08T18:15:03.193Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 86,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T18:29:51.493Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 87,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T18:33:27.078Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 88,
-  "fields": {
-    "usertext": "тут все градоначальник истребители четвёртого поколения чтобы достичь смерть у кого их скоростей конструктора нужно было сделать крылом",
-    "created": "2024-05-08T18:53:56.698Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 89,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T18:58:17.414Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 90,
-  "fields": {
-    "usertext": "раз два три",
-    "created": "2024-05-08T18:59:24.874Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 91,
-  "fields": {
-    "usertext": "мошенничество джаз блюз",
-    "created": "2024-05-08T19:07:13.973Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 92,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T19:10:19.681Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 93,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-08T19:10:52.364Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 94,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-08T19:11:10.625Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 95,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-08T19:11:27.195Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 96,
-  "fields": {
-    "usertext": "тебя нет",
-    "created": "2024-05-08T19:11:49.905Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 97,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T19:12:09.882Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 98,
-  "fields": {
-    "usertext": "раз два три",
-    "created": "2024-05-08T19:12:29.440Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 99,
-  "fields": {
-    "usertext": "здравствуйте я бы хотела отправить платёж",
-    "created": "2024-05-08T19:12:49.214Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 100,
-  "fields": {
-    "usertext": "а да",
-    "created": "2024-05-08T19:13:03.340Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 101,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-08T19:13:28.953Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 102,
-  "fields": {
-    "usertext": "нет",
-    "created": "2024-05-08T19:13:42.949Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 103,
-  "fields": {
-    "usertext": "чарли десятый здравствуй свечками исчез",
-    "created": "2024-05-08T19:48:43.536Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 104,
-  "fields": {
-    "usertext": "здравствуйте я хочу выполнить перевод",
-    "created": "2024-05-08T19:50:09.173Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 105,
-  "fields": {
-    "usertext": "я хочу проверить баланс",
-    "created": "2024-05-08T19:51:38.923Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 106,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T19:52:26.673Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 107,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-08T19:54:34.301Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 108,
-  "fields": {
-    "usertext": "верить полон",
-    "created": "2024-05-08T20:34:36.669Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 109,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-08T20:36:55.916Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 110,
-  "fields": {
-    "usertext": "жить период",
-    "created": "2024-05-08T20:53:04.036Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 111,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T20:53:56.094Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 112,
-  "fields": {
-    "usertext": "стать",
-    "created": "2024-05-08T20:54:58.879Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 113,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T20:56:36.584Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 114,
-  "fields": {
-    "usertext": "верить баланс",
-    "created": "2024-05-08T21:02:57.095Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 115,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T21:04:10.549Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 116,
-  "fields": {
-    "usertext": "перед была",
-    "created": "2024-05-08T21:05:10.698Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 117,
-  "fields": {
-    "usertext": "верить баланс",
-    "created": "2024-05-08T21:08:12.715Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 118,
-  "fields": {
-    "usertext": "подтверждена",
-    "created": "2024-05-08T21:09:32.760Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 119,
-  "fields": {
-    "usertext": "перед баланс",
-    "created": "2024-05-08T21:12:25.370Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 120,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-08T21:12:37.021Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 121,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-08T21:18:15.725Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 122,
-  "fields": {
-    "usertext": "да утверждаю",
-    "created": "2024-05-08T21:18:30.918Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 123,
-  "fields": {
-    "usertext": "баланс",
-    "created": "2024-05-08T21:24:02.916Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 124,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-08T21:29:06.591Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 125,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-08T21:32:51.822Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 126,
-  "fields": {
-    "usertext": "подтверждена",
-    "created": "2024-05-08T21:33:46.911Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 127,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-08T21:36:45.984Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 128,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-08T21:36:58.388Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 129,
-  "fields": {
-    "usertext": "да подтверждают",
-    "created": "2024-05-08T21:37:14.784Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 130,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T05:43:11.797Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 131,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-09T05:44:49.398Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 132,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T05:55:09.129Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 133,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-09T05:55:33.628Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 134,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T05:58:54.298Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 135,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-09T05:59:25.685Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 136,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T06:08:51.080Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 137,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T06:12:55.066Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 138,
-  "fields": {
-    "usertext": "одна упаковка пластиковых пакетов обязательно отец пластиковый пакет да",
-    "created": "2024-05-09T06:14:19.706Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 139,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T06:15:58.655Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 140,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T06:19:25.571Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 141,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-09T06:20:10.802Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 142,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T06:24:32.242Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 143,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-09T06:25:10.892Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 144,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T07:02:40.625Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 145,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-09T07:03:48.029Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 146,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T07:17:40.497Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 147,
-  "fields": {
-    "usertext": "друзья да",
-    "created": "2024-05-09T07:18:45.081Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 148,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T07:29:19.694Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 149,
-  "fields": {
-    "usertext": "пить баланс",
-    "created": "2024-05-09T07:31:27.066Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 150,
-  "fields": {
-    "usertext": "ведь баланс",
-    "created": "2024-05-09T07:33:10.239Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 151,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-09T07:33:21.317Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 152,
-  "fields": {
-    "usertext": "баланс",
-    "created": "2024-05-09T07:36:36.287Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 153,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-09T07:37:01.891Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 154,
-  "fields": {
-    "usertext": "а",
-    "created": "2024-05-09T07:37:20.972Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 155,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-09T07:37:39.995Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 156,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T07:38:25.821Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 157,
-  "fields": {
-    "usertext": "да",
-    "created": "2024-05-09T07:39:21.512Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 158,
-  "fields": {
-    "usertext": "крик баланс",
-    "created": "2024-05-09T07:40:06.321Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 159,
-  "fields": {
-    "usertext": "не",
-    "created": "2024-05-09T07:41:17.127Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 160,
-  "fields": {
-    "usertext": "перед баланс",
-    "created": "2024-05-09T07:51:51.817Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 161,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-09T07:53:06.310Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 162,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-09T07:53:37.044Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 163,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-09T07:54:38.134Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 164,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-09T07:56:40.093Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 165,
-  "fields": {
-    "usertext": "баланс",
-    "created": "2024-05-09T08:01:54.625Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 166,
-  "fields": {
-    "usertext": "да подтвердить",
-    "created": "2024-05-09T08:02:49.441Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 167,
-  "fields": {
-    "usertext": "ведь платёж",
-    "created": "2024-05-09T08:04:40.632Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 168,
-  "fields": {
-    "usertext": "перед тишина",
-    "created": "2024-05-09T08:06:49.497Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 169,
-  "fields": {
-    "usertext": "платёж",
-    "created": "2024-05-09T08:11:08.651Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 170,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-09T08:12:46.395Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 171,
-  "fields": {
-    "usertext": "проверить баланс",
-    "created": "2024-05-09T08:26:59.080Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 172,
-  "fields": {
-    "usertext": "а подтверждает с",
-    "created": "2024-05-09T08:29:40.505Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 173,
-  "fields": {
-    "usertext": "перед баланс",
-    "created": "2024-05-09T08:32:46.336Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 174,
-  "fields": {
-    "usertext": "каждая",
-    "created": "2024-05-09T08:34:05.084Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 175,
-  "fields": {
-    "usertext": "",
-    "created": "2024-05-09T08:34:57.395Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 176,
-  "fields": {
-    "usertext": "ты рждает",
-    "created": "2024-05-09T08:36:40.784Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 177,
-  "fields": {
-    "usertext": "баланс",
-    "created": "2024-05-09T08:38:23.039Z"
-  }
-},
-{
-  "model": "transcription.userstexts",
-  "pk": 178,
-  "fields": {
-    "usertext": "а подтверждаю",
-    "created": "2024-05-09T08:39:13.234Z"
   }
 },
 {
