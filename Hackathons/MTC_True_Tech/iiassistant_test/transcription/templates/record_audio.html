@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+    <!-- Подключение js-библиотек онлайн/оффлайн https://antonshevchuk.gitbooks.io/jquery-for-beginners/content/10_go_on/ -->
+    <script type="text/javascript" src="{% static 'js\jquery-3.7.0.min.js' %}"></script>
+    <title>Record Audio</title>
+</head>
+<body>
+    <h1>Record Audio</h1>
+    <button id="startRecordingBtn">Start Recording</button>
+    <button id="stopRecordingBtn">Stop Recording</button>
+
+    <script>
+        // JavaScript-код для обработки аудиофайла
+        // const audioElement = document.getElementById('audioElement');
+    
+        // Функция получения CSRF-токена из куки
+        function getCookie(name) {
+          var cookieValue = null;
+          if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+              var cookie = cookies[i].trim();
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+              }
+            }
+          }
+          return cookieValue;
+        }
+    
+        // Получаем CSRF-токен из куки
+        var csrftoken = getCookie('csrftoken');
+    
+        let rec;
+        let gumStream;
+    
+        // Нажатие кнопки для начала записи аудио
+        $('#startRecordingBtn').click(function(){
+            navigator.mediaDevices.getUserMedia({audio: true})
+            .then(function(stream) {
+                gumStream = stream;
+                rec = new MediaRecorder(stream);
+                console.log("Recording started");
+                rec.start();
+            });
+        });
+    
+        // Нажатие кнопки для остановки записи и передачи аудио на сервер
+        $('#stopRecordingBtn').click(function(){
+            console.log("Recording stopped");
+            rec.stop();
+            gumStream.getAudioTracks()[0].stop();
+            
+            rec.ondataavailable = function(e) {
+                let formData = new FormData();
+                formData.append('csrfmiddlewaretoken', getCookie('csrftoken'));
+              
+                // Создание Blob из полученных данных
+                let audioBlob = new Blob([e.data], { type: 'audio/mp3' });
+                formData.append('audio', audioBlob, 'recorded_audio.mp3');
+    
+                $.ajax({
+                    type: "POST",
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    url: "{% url 'createaudio' %}",
+                    data: formData,
+                    success: function(response) {
+                        console.log('Audio successfully sent to the server');
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error sending the audio to the server');
+                    }
+                });
+            };
+        });
+    </script>
+    
+</body>
+</html>
