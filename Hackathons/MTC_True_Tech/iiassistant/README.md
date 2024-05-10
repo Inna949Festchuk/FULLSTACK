@@ -18,7 +18,7 @@ python -m pip install -r requirements.txt
 ### Настраиваем переменную среды PATH для утилит управления БД и доступа к драйверу ffmpeg (пример для Windows) 
 ### %PATH% - дописываем к существующим вначало
 ```
-PATH=C:\Program Files\PostgreSQL\10\bin;D:\MyProect\iiassistant\bin;%PATH%
+PATH=C:\Program Files\PostgreSQL\10\bin;D:\MyPrj\iiassistant\bin;%PATH%
 ```
 ### Запускаем утилиту psql 
 ```cmd

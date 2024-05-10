@@ -7,6 +7,7 @@ class CommandsAdmin(admin.ModelAdmin):
     list_display = ('commands', 'confirmation', 'slug',)
     list_filter = ('commands',)
     search_fields = ('commands', 'confirmation',)
+    prepopulated_fields = {'slug': ('commands',)} # автозаполнение слага в админке по команде
 
 @admin.register(UsersTexts)
 class UsersTextsAdmin(admin.ModelAdmin):

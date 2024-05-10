@@ -25,7 +25,7 @@ from pydub import AudioSegment
 def record_audio(request):
     return render(request, 'record_audio.html')
 
-# Эндпоинт для сохранения и постобработки audioBlob
+# Эндпоинт для обработки audioBlob (команды в функции)
 class CreateAudioView(APIView):
     
     def post(self, request):
@@ -40,7 +40,7 @@ class CreateAudioView(APIView):
             convert_text = sound_in_text(audio_file_mp3) 
             # Выполняем функцию триграммного поиска соответствий в модели БД Commands 
             search_text = trgm_search(convert_text)
-            # Текст ответа в речь (СДЕЛАТЬ НА ФРОНТЕ)
+            # Текст ответа в звуковую речь (СДЕЛАТЬ НА ФРОНТЕ)
             # tts(search_text)
             
             # Использование функции handle_command
@@ -58,50 +58,108 @@ class CreateAudioView(APIView):
 
 # Обработка команд пользователя
 def handle_command(convert_text, search_text):
-    context = {}
     
-    if convert_text and search_text:
-        # command = Commands.objects.filter(commands=search_text).first()
-        command = get_object_or_404(Commands, commands=search_text)
+    try:
+        context = {} # Словарь используемый для ответа на POST-запрос
         
-        # Делаем глобальную переменную, которая будет ожидать 
-        # ответ "Да" пользователя в словаре JSON
-        if search_text != 'Да': 
-            previous_command = command
-            with open(settings.STATICFILES_DIRS[0] + '/command.json', 'w', encoding='utf-8') as infile:  # Открываем файл для добавления данных
-                json.dump(previous_command.slug, infile)  # Добавляем slug в файл
+        if convert_text and search_text:
+            # command = Commands.objects.filter(commands=search_text).first()
+            command = get_object_or_404(Commands, commands=search_text)
+            
+            # Делаем глобальную переменную, которая будет ожидать 
+            # ответ "Да" пользователя в словаре JSON
+            if search_text != 'Да': 
+                previous_command = command
+                with open(settings.STATICFILES_DIRS[0] + '/command.json', 'w', encoding='utf-8') as infile:  # Открываем файл для добавления данных
+                    json.dump(previous_command.slug, infile)  # Добавляем slug в файл
 
-        if command:
-            context['convert_text'] = convert_text
-            context['search_text'] = f'Вы ввели команду {command.confirmation}. Подтверждаете? Ответьте да, нет.'
+            if command:
+                context['convert_text'] = convert_text
+                context['search_text'] = f'Вы ввели команду {command.confirmation}. Подтверждаете? Ответьте да, нет.'
 
-            if search_text == 'Да':
-                with open(settings.STATICFILES_DIRS[0] + '/command.json', 'r', encoding='utf-8') as outfile:
-                    previous_command = json.load(outfile)
-                execute_command(context, previous_command, command.confirmation)
-            elif search_text == 'Нет':
-                context['search_text'] = 'Отменяю операцию. Пока!'
+                if search_text == 'Да':
+                    with open(settings.STATICFILES_DIRS[0] + '/command.json', 'r', encoding='utf-8') as outfile:
+                        previous_command = json.load(outfile)
+                        execute_command(context, previous_command)
+                                
+                elif search_text == 'Нет':
+                    context['search_text'] = 'Отменяю. Пока!'
+            
+            else:
+                context['search_text'] = 'Извините, я Вас не поняла. Переключаю на оператора'
+        
         else:
+            context['convert_text'] = convert_text
             context['search_text'] = 'Извините, я Вас не поняла. Переключаю на оператора'
-    else:
-        context['convert_text'] = convert_text
-        context['search_text'] = 'Извините, я Вас не поняла. Переключаю на оператора'
-    # # Сохраняем текущую команду как предыдущую
-    # previous_command = command
+    except Exception as ex:
+        if search_text == 'Да':
+            context['search_text'] = 'Я не понимаю, что Вы хотите подтердить. Переключаю на оператора'
+        else:
+            context['search_text'] = f'Произошла ошибка: {str(ex)}. Переключаю на оператора'
     return context
 
-def execute_command(context, command, comment):
-    # Выполнение операции с использованием полученной команды
-    context['search_text'] = 'Выполняю операцию!'
-    # Ваша логика выполнения операции здесь
+def execute_command(context, command):
+    '''
+    context - словарь используемый для ответа на POST-запрос
+    '''
+    url = 'http://127.0.0.1:8000/transcription/api' + '/' + command + '/'
+    
+    # Данные для отправки в POST-запросе (Если надо что-то передать, например сумму и кому перводить)
+    data = {
+        # "key1": "value1",
+        # "key2": "value2"
+        } 
 
-# Функция проверки баланса
-def check_balance(request):
-    pass
+    # Отправка POST-запроса на указанный URL
+    response = requests.post(url=url, data=data)
+    
+    # Проверка статуса ответа
+    if response.status_code == 200 or 201:
+        # Если запрос выполнен успешно, можно продолжить с использованием полученных данных
+        
+        # Выполнение операции с использованием полученной команды
+        # context['search_text'] = 'Выполняю операцию! ' + command 
+        context['search_text'] = 'Понятно! {}'.format(response.json())
+    else:
+        # В случае возникновения ошибки обработайте её соответствующим образом
+        context['search_text'] = 'Ошибка: Не удалось выполнить POST-запрос'
 
-# Функция отправки платежа
-def send_money(request):
-    pass
+
+# API проверки баланса
+class CheckBalanceAPIView(APIView):
+    def get(self, request):
+        
+        # Здесь логика обработки GET-запроса
+        
+        content = 'Ваш баланс 2000 рублей.'
+        return Response(content, status=status.HTTP_200_OK)
+
+    def post(self, request):
+
+        # Здесь логика обработки POST-запроса
+       
+        content = 'Ваш баланс 2000 рублей.'
+        return Response(content, status=status.HTTP_201_CREATED)
+        # Если нужно вернуть клиенту контент БД см. test.py
+        # Если нужно вернуть клиенту тело запроса (но перед этим по хорошему пропустить через серриалайзер и валидацию)
+        # return Response(request.data, status=status.HTTP_201_CREATED)
+    
+
+# API отправки платежа
+class SendMoneyAPIView(APIView):
+    def get(self, request):
+        
+        # Здесь логика обработки GET-запроса
+        
+        content = 'Ваш платеж на сумму 500 рублей отправлен.'
+        return Response(content, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        
+        # Здесь логика обработки POST-запроса
+       
+        content = 'Ваш платеж на сумму 500 рублей отправлен.'
+        return Response(content, status=status.HTTP_201_CREATED)
 
 # Транскрибация
 def sound_in_text(audio_file_mp3):

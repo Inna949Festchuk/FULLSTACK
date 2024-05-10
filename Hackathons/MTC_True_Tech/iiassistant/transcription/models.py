@@ -1,4 +1,6 @@
 from django.db import models
+from django.http import HttpResponse
+from django.utils.text import slugify
 
 # Create your models here.
 # Выгрузка существующих данных
@@ -17,17 +19,18 @@ class Commands(models.Model):
 
     commands = models.CharField(max_length=250, help_text='Введите команды', verbose_name='Название команды')
     confirmation = models.CharField(max_length=250, help_text='Введите ключевые слова запроса', verbose_name='Ключевые слова запроса')
-    # slug = models.SlugField(max_length=250) # слаг для перехода к выполняемой по команде функции
-    slug = models.CharField(max_length=250)
+    slug = models.SlugField(unique=True) # слаг для перехода к выполняемой по команде функции
      
     class Meta: # Индексация поиска
         indexes = [
             models.Index(fields=['commands']),
         ]
+    
 
     # Настраиваем строку поискового вывода из базы данных
     def __str__(self):
         return self.commands
+
 
 class UsersTexts(models.Model):
 
