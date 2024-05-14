@@ -202,15 +202,19 @@ button {
 }
 
 #recordBtn {
-    width: 50%;
-    height: 120px;
-    border-radius: 50%;
-    font-size: 20px;
-    color: white;
-    background-color: #555354;
-    transition: 0.2s;
-    margin-bottom: 10px;
-    border: none;
+    width: 120px; /* Определение ширины кнопки в процентах ширины экрана */
+    height: 120px; /* Определение высоты кнопки в процентах ширины экрана */
+    max-width: 120px; /* Максимальная ширина кнопки */
+    max-height: 120px; /* Максимальная высота кнопки */
+    min-width: 120px; /* Минимальная ширина кнопки */
+    min-height: 40px; /* Минимальная высота кнопки */
+    border-radius: 50%; /* Создание округлой формы кнопки */
+    font-size: 20px; /* Размер шрифта в процентах ширины экрана */
+    color: white; /* Цвет текста */
+    background-color: #555354; /* Цвет фона кнопки */
+    transition: 0.2s; /* Плавный переход при изменении состояния кнопки */
+    margin-bottom: 2vw; /* Отступ снизу в процентах ширины экрана */
+    border: none; /* Убрать границу у кнопки */
 }
 
 #recordBtn:hover {
