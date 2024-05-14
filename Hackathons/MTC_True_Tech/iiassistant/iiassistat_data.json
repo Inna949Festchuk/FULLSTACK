@@ -5,7 +5,7 @@
     "pk": 4,
     "fields": {
       "commands": "Отправить",
-      "confirmation": "отправить платеж",
+      "confirmation": "отправить перевод",
       "slug": "otpravit"
     }
   },
@@ -23,7 +23,7 @@
     "pk": 6,
     "fields": {
       "commands": "Да",
-      "confirmation": "да подтвердить",
+      "confirmation": "да подтверждаю",
       "slug": "da"
     }
   },

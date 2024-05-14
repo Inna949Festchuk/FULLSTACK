@@ -23,7 +23,7 @@ from pydub import AudioSegment
 # - - - - - - - - - - - - - - - - - - - 
 # Запускаем запись звука record_audio.html 
 def record_audio(request):
-    return render(request, 'record_audio.html')
+    return render(request, 'index.html')
 
 # Эндпоинт для обработки audioBlob (команды в функции)
 class CreateAudioView(APIView):
@@ -36,15 +36,20 @@ class CreateAudioView(APIView):
             media_path = os.path.join(settings.MEDIA_ROOT, audio_file.name)
             audio_segment = AudioSegment.from_file(audio_file)
             audio_file_mp3 = audio_segment.export(media_path, format="mp3") # Поменять здесь и на фронте audioBlob, 
+            # serializer.save()
             # Выполняем функцию транскрибации
             convert_text = sound_in_text(audio_file_mp3) 
             # Выполняем функцию триграммного поиска соответствий в модели БД Commands 
             search_text = trgm_search(convert_text)
-            # Текст ответа в звуковую речь (СДЕЛАТЬ НА ФРОНТЕ)
-            # tts(search_text)
+            
             
             # Использование функции handle_command
             context = handle_command(convert_text, search_text)
+
+            # Текст ответа в звуковую речь (СДЕЛАТЬ НА ФРОНТЕ)
+            # volume = str(context.get('search_text'))
+            # tts(volume)
+            
             print(context)
                             
             return Response(context, status=status.HTTP_200_OK)
@@ -75,7 +80,7 @@ def handle_command(convert_text, search_text):
 
             if command:
                 context['convert_text'] = convert_text
-                context['search_text'] = f'Вы ввели команду {command.confirmation}. Подтверждаете? Ответьте да, нет.'
+                context['search_text'] = f'Вы ввели команду {command.confirmation}. Подтверждаете?'
 
                 if search_text == 'Да':
                     with open(settings.STATICFILES_DIRS[0] + '/command.json', 'r', encoding='utf-8') as outfile:
@@ -86,16 +91,16 @@ def handle_command(convert_text, search_text):
                     context['search_text'] = 'Отменяю. Пока!'
             
             else:
-                context['search_text'] = 'Извините, я Вас не поняла. Переключаю на оператора'
+                context['search_text'] = 'Извините, я Вас не поняла. Повторите запрос или дождитесь ответа оператора'
         
         else:
             context['convert_text'] = convert_text
-            context['search_text'] = 'Извините, я Вас не поняла. Переключаю на оператора'
+            context['search_text'] = 'Извините, я Вас не поняла. Повторите запрос или дождитесь ответа оператора'
     except Exception as ex:
         if search_text == 'Да':
-            context['search_text'] = 'Я не понимаю, что Вы хотите подтердить. Переключаю на оператора'
+            context['search_text'] = 'Я не понимаю, что Вы хотите подтердить. Произнесите запрос или дождитесь ответа оператора'
         else:
-            context['search_text'] = f'Произошла ошибка: {str(ex)}. Переключаю на оператора'
+            context['search_text'] = f'Произошла непредвиденная ошибка: {str(ex)}. Переключаю на оператора'
     return context
 
 def execute_command(context, command):
@@ -131,14 +136,14 @@ class CheckBalanceAPIView(APIView):
         
         # Здесь логика обработки GET-запроса
         
-        content = 'Ваш баланс 2000 рублей.'
+        content = 'Ваш баланс 2000 (две тысячи) рублей.'
         return Response(content, status=status.HTTP_200_OK)
 
     def post(self, request):
 
         # Здесь логика обработки POST-запроса
        
-        content = 'Ваш баланс 2000 рублей.'
+        content = 'Ваш баланс 2000 (две тысячи) рублей.'
         return Response(content, status=status.HTTP_201_CREATED)
         # Если нужно вернуть клиенту контент БД см. test.py
         # Если нужно вернуть клиенту тело запроса (но перед этим по хорошему пропустить через серриалайзер и валидацию)
@@ -151,14 +156,14 @@ class SendMoneyAPIView(APIView):
         
         # Здесь логика обработки GET-запроса
         
-        content = 'Ваш платеж на сумму 500 рублей отправлен.'
+        content = 'Ваш платеж на сумму 500 (пятьсот) рублей отправлен.'
         return Response(content, status=status.HTTP_200_OK)
 
     def post(self, request):
         
         # Здесь логика обработки POST-запроса
        
-        content = 'Ваш платеж на сумму 500 рублей отправлен.'
+        content = 'Ваш платеж на сумму 500 (пятьсот) рублей отправлен.'
         return Response(content, status=status.HTTP_201_CREATED)
 
 # Транскрибация
