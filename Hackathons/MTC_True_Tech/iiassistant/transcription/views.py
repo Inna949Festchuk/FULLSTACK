@@ -107,7 +107,7 @@ def execute_command(context, command):
     '''
     context - словарь используемый для ответа на POST-запрос
     '''
-    url = 'http://127.0.0.1:8000/transcription/api' + '/' + command + '/'
+    url = 'http://95.163.234.106:22/transcription/api' + '/' + command + '/'
     
     # Данные для отправки в POST-запросе (Если надо что-то передать, например сумму и кому перводить)
     data = {
