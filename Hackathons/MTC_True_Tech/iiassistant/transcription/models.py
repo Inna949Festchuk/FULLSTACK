@@ -2,6 +2,11 @@ from django.db import models
 from django.http import HttpResponse
 from django.utils.text import slugify
 
+# - - - - - - - - - - - - - - -
+# environment на Mac:
+# conda activate //anaconda3/envs/condageoenv
+# - - - - - - - - - - - - - - -
+
 # Create your models here.
 # Выгрузка существующих данных
 # python manage.py dumpdata --indent=2 --output=iiassistat_data.json

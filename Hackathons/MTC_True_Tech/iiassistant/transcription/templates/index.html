@@ -101,90 +101,84 @@
 
         var isRecording = false;
 
-        $('#recordBtn').click(function () {
+        document.getElementById('recordBtn').addEventListener('click', function () {
             if (!isRecording) {
                 // Начало записи
-                navigator.mediaDevices.getUserMedia({ audio: true })
-                    .then(function (stream) {
-                        gumStream = stream;
-                        rec = new MediaRecorder(stream);
-                        console.log("Recording started");
-                        rec.start();
-                        isRecording = true;
-                        $('#recordBtn').text('Стоп');
-                    });
+                navigator.getUserMedia({ audio: true }, function(stream) {
+                    gumStream = stream;
+                    rec = new MediaRecorder(stream);
+                    console.log("Recording started");
+                    rec.start();
+                    isRecording = true;
+                    document.getElementById('recordBtn').innerText = 'Стоп';
+                }, function(error) {
+                    console.error('getUserMedia error: ', error);
+                });
             } else {
                 // Остановка записи
                 console.log("Recording stopped");
                 rec.stop();
                 gumStream.getAudioTracks()[0].stop();
-                
+
                 rec.ondataavailable = function (e) {
                     let formData = new FormData();
                     formData.append('csrfmiddlewaretoken', getCookie('csrftoken'));
-                    
+
                     // Создание Blob из полученных данных
                     let audioBlob = new Blob([e.data], { type: 'audio/mp3' });
                     formData.append('audio', audioBlob, 'recorded_audio.mp3');
 
-                    $.ajax({
-                        type: "POST",
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        url: "{% url 'createaudio' %}",
-                        data: formData,
-                        success: function (data) {
-                            if (data['convert_text'] !== '') {
-                                $('#input_t').text(data['convert_text']).show();
-                            }
-                            if (data['search_text'] !== '') {
-                                $('#output_t').text(data['search_text']).show();
-                            }
-                            
-                            // 
-
-                            fetch('https://endless-presently-basilisk.ngrok-free.app/perform_tts/', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify({
-                                    text: data['search_text'],
-                                    speaker: 'xenia',
-                                    sample_rate: 48000,
-                                }),
-                                })
-                                .then((response) => {
-                                    if (!response.ok) {
-                                    throw new Error('Network response was not ok');
-                                    }
-                                    return response.blob(); // Получаем содержимое ответа в виде Blob
-                                })
-                                .then((blob) => {
-                                    const audioUrl = URL.createObjectURL(blob); // Создаем URL для Blob (аудио)
-                                    const audio = new Audio(audioUrl);
-                                    audio.play();
-                                })
-                                .catch((error) => {
-                                    console.error('There has been a problem with your fetch operation:', error);
-                                });
-                            
-                            console.log('input:', data['convert_text'], 'output:', data['search_text']);
+                    fetch("{% url 'createaudio' %}", {
+                        method: 'POST',
+                        headers: {
+                        'X-CSRFToken': csrftoken, // Добавляем CSRF-токен в заголовок запроса
                         },
-                        error: function (xhr, status, error) {
-                            console.error('Error sending the audio to the server');
+                        body: formData,
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data['convert_text'] !== '') {
+                            document.getElementById('input_t').innerText = data['convert_text'];
+                            document.getElementById('input_t').style.display = 'block';
                         }
+                        if (data['search_text'] !== '') {
+                            document.getElementById('output_t').innerText = data['search_text'];
+                            document.getElementById('output_t').style.display = 'block';
+                        }
+                        
+                        // Fetch для проигрывания аудио
+                        fetch('https://endless-presently-basilisk.ngrok-free.app/perform_tts/', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                text: data['search_text'],
+                                speaker: 'xenia',
+                                sample_rate: 48000,
+                            }),
+                        })
+                        .then((response) => response.blob())
+                        .then((blob) => {
+                            const audioUrl = URL.createObjectURL(blob);
+                            const audio = new Audio(audioUrl);
+                            audio.play();
+                        })
+                        .catch((error) => {
+                            console.error('There has been a problem with your fetch operation:', error);
+                        });
+
+                        console.log('input:', data['convert_text'], 'output:', data['search_text']);
+                    })
+                    .catch(error => {
+                        console.error('Error sending the audio to the server');
                     });
-                    
+
                     isRecording = false;
-                    $('#recordBtn').text('Запись');
+                    document.getElementById('recordBtn').innerText = 'Запись';
                 };
             }
         });
-
     </script>
-
 </body>
-
 </html>
