@@ -5,3 +5,4 @@
 3. [Sovcombank_Team_Challenge_2023](./Sovcombank_Team_Challenge_2023)
 4. [Lider_of_Digital_Transformation](./Lider_of_Digital_Transformation)
 5. [MTC_True_Tech](./MTC_True_Tech)
+6. [Digital_breakthrough](./Digital_breakthrough)
