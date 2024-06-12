@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- - - - - - - - - - - - - - - - -->
+{% load static %}
+<!-- - - - - - - - - - - - - - - - -->
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" type="image/x-icon" href="{% static 'layers.png' %}">
+   <title>Камчатка</title>
+   <style>
+       h1 {
+           font-family: Arial, Helvetica, sans-serif;
+           font-size: normal;
+           font-weight: 700;
+           text-align: center;
+           text-decoration: none;
+           color: rgb(85, 85, 85)
+       }
+       .person-block {
+           border: 1px solid #ddd;
+           padding: 15px;
+           margin-bottom: 15px;
+           font-family: Arial, Helvetica, sans-serif;
+           font-size: smaller;
+           font-weight: 700;
+           text-align: left;
+           text-decoration: none;
+           color: rgb(85, 85, 85)
+       }
+       .incident-block {
+           border: 1px solid #f2f2f2;
+           padding: 10px;
+           margin-top: 10px;
+           font-family: Arial, Helvetica, sans-serif;
+           font-size: smaller;
+           font-weight: 700;
+           text-align: left;
+           text-decoration: none;
+           color: rgb(85, 85, 85)
+       }
+       #map {
+           width: 100%;
+           height: 300px;
+           margin-top: 20px;
+       }
+       .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+   </style>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+   <h1>Менеджер задач</h1>
+   <div id="map"></div>
+   <div id="data-block-container">
+       <!-- Data blocks will be dynamically inserted here -->
+   </div>
+   
+
+   <script>
+        let map; // Глобальная переменная для хранения объекта карты
+        let markers = []; // Глобальный массив для хранения маркеров
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            // Инициализация карты
+            map = L.map('map').setView([53.52718900000008, 158.7820700000001], 12);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+            }).addTo(map);
+
+            // Отслеживаем изменение масштаба карты
+            map.on('zoomend', function() {
+                const currentZoom = map.getZoom();
+                togglePopups(currentZoom);
+            });
+
+            // Получение данных с API
+            fetch('http://127.0.0.1:8000/api/task/')
+                .then(response => response.json())
+                .then(data => {
+                    const dataBlockContainer = document.getElementById('data-block-container');
+
+                    // Итерация по данным и создание блоков для каждого человека
+                    data.forEach(person => {
+                        const personBlock = document.createElement('div');
+                        personBlock.classList.add('person-block');
+                        personBlock.innerHTML = `
+                            <h2>${person.person_name}</h2>
+                        `;
+
+                        // Итерация по инцидентам каждого человека
+                        person.incidents.forEach(incident => {
+                            const personLatitude = incident.location.latitude;
+                            const personLongitude = incident.location.longitude;
+                            // Создание маркера и добавление его на карту
+                            const marker = L.marker([personLatitude, personLongitude]).addTo(map);
+                            markers.push(marker);
+
+                            // Создаем всплывающее окно с информацией об инциденте
+                            const popup = L.popup()
+                                .setLatLng([personLatitude, personLongitude])
+                                .setContent(`
+                                    <h3>Описание инцидента: ${incident.name}</h3>
+                                    <p>Координаты: ${personLatitude} широты, ${personLongitude} долготы</p>
+                                `);
+                            marker.bindPopup(popup);
+
+                            const incidentBlock = document.createElement('div');
+                            incidentBlock.classList.add('incident-block');
+                            incidentBlock.innerHTML = `
+                                <h2>Описание инцидента: ${incident.name}</h2>
+                                <p>Фотография инцидента: ${incident.details}</p>
+                                <p>Координаты: ${personLatitude} широты, ${personLongitude} долготы</p>
+                                <button class="button" onclick="centerMapOnMarker(${personLatitude}, ${personLongitude})">Просмотреть на карте</button>
+                            `;
+                            dataBlockContainer.appendChild(personBlock);
+                            personBlock.appendChild(incidentBlock);
+                        });
+                    });
+                })
+                .catch(error => console.error('Ошибка при получении данных:', error));
+        });
+
+        // Функция для центрирования карты на заданных координатах с плавной прокруткой страницы
+        function centerMapOnMarker(latitude, longitude) {
+            if (map) {
+                map.setView([latitude, longitude], 15);
+                // Плавная прокрутка страницы вверх к карте
+                window.scrollTo({
+                    top: document.getElementById('map').offsetTop,
+                    behavior: 'smooth'
+                });
+            } else {
+                console.error('Карта не инициализирована');
+            }
+        }
+
+        // Функция для отображения/скрытия всплывающих окон в зависимости от масштаба карты
+        function togglePopups(zoom) {
+            markers.forEach(marker => {
+                if (zoom >= 14) {
+                    marker.openPopup();
+                } else {
+                    marker.closePopup();
+                }
+            });
+        }
+
+
+   </script>
+
+   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+</body>
+</html>

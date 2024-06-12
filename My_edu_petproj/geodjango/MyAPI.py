@@ -1,4 +1,5 @@
 import requests
+import json
 
 # Создаем точки
 def i_created_point(name:str, Y:float, X:float):

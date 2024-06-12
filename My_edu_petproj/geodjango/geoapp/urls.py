@@ -1,6 +1,7 @@
 from django.urls import path
 from geoapp.views import (
-    # show_point, 
+    show_point, 
+    show_line,
     create_point,
     create_line,
     get_context_data,
@@ -16,7 +17,9 @@ app_name = 'geoapp'
 urlpatterns = [
     # path('point/', PointAPIView.as_view()),
     # path('point/<pk>/', PointAPIView.as_view()),
-    # path('point/', show_point),
+    
+    path('show_point/', show_point),
+    path('show_line/', show_line),
     path('create_point/', create_point),
     path('create_line/', create_line),
     # - - - - - - - - - - - - - - -

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<!-- - - - - - - - - - - - - - - - -->
+{% load static %}
+<!-- - - - - - - - - - - - - - - - -->
+
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'layers.png' %}">
+    <title>Камчатка</title>
+
+    <!-- ... -->
+
+    <!-- - - - - - - - - - - - - - - - -->
+    <!-- Это таблица стилей моей карты -->
+    <!-- /* Потом проверить, может это и не нужно тк есть в map.html */ -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/map.css' %}" />
+    <!-- - - - - - - - - - - - - - - - -->
+
+    <!-- Если работаем ОНЛАЙН -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" /> -->
+    <!-- <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script> -->
+    
+    <!-- Если работаем ОФФЛАЙН качаем с сайта https://leafletjs.com/download.html библиотеку Leaflet -->
+    <!-- и указываем путь к ней -->
+    <!-- Внутри архивов, скачанных по указанным выше ссылкам, вы увидите четыре вещи:
+    leaflet.js— Это минимизированный JavaScript-код Leaflet.
+    leaflet-src.js— Это читаемый, неминифицированный JavaScript Leaflet, который иногда полезен при отладке. (integrity=" sha256-tPonvXioSHRQt1+4ztWR5mz/1KG1X3yHNzVXprP2gLo= ")
+    leaflet.css— Это таблица стилей для Leaflet.
+    images– Это папка, содержащая изображения, на которые ссылается leaflet.css. Он должен находиться в том же каталоге, что и leaflet.css.
+    Разархивируйте загруженный архив в каталог шаблонов templates вашего сайта и добавьте в тег head свои пути к .js и .css: -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/leaflet.css' %}" />
+    
+    <!-- Подключаем инструменты разработчика -->
+    <!-- ОНЛАЙН -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css"> -->
+    
+    <!-- Подключаем библиотеку leaflet -->
+    <!-- ОФФЛАЙН -->
+    <script src="{% static 'js/leaflet.js' %}" ></script>
+
+    <!-- Подключаем инструменты разработчика -->
+    <!-- ОНЛАЙН -->
+    <!-- <script src="https://unpkg.com/leaflet-draw@0.4.1/dist/leaflet.draw.js"></script> -->
+    
+    <!-- Подключаем инструменты разработчика -->
+    <!-- ОФФЛАЙН -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- Копируем из D:\MyProect\geodjango\geoapp\static\Leaflet.draw-develop\Leaflet.draw-develop\docs\examples\full.html -->
+    <!-- <script src="libs/leaflet-src.js"></script>
+    <link rel="stylesheet" href="libs/leaflet.css"/> -->
+
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/Leaflet.draw.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/Leaflet.Draw.Event.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/leaflet.draw.css' %}"/>
+
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/Toolbar.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/Tooltip.js' %}"></script>
+
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/ext/GeometryUtil.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/ext/LatLngUtil.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/ext/LineUtil.Intersect.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/ext/Polygon.Intersect.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/ext/Polyline.Intersect.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/ext/TouchEvents.js' %}"></script>
+
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/draw/DrawToolbar.js' %}"></script>
+    <!-- <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-devesrc/draw/handler/Draw.Feature.js' %}"></script> -->
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/draw/handler/Draw.Feature.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/draw/handler/Draw.SimpleShape.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/draw/handler/Draw.Polyline.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/draw/handler/Draw.Marker.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/draw/handler/Draw.Circle.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/draw/handler/Draw.CircleMarker.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/draw/handler/Draw.Polygon.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/draw/handler/Draw.Rectangle.js' %}"></script>
+
+
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/edit/EditToolbar.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/edit/handler/EditToolbar.Edit.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/edit/handler/EditToolbar.Delete.js' %}"></script>
+
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/Control.Draw.js' %}"></script>
+
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/edit/handler/Edit.Poly.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/edit/handler/Edit.SimpleShape.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/edit/handler/Edit.Rectangle.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/edit/handler/Edit.Marker.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/edit/handler/Edit.CircleMarker.js' %}"></script>
+    <script src="{% static 'Leaflet.draw-develop/Leaflet.draw-develop/src/edit/handler/Edit.Circle.js' %}"></script>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  </head>
+
+  <body>
+
+    <div id="map" class="map"></div>
+
+    <script src="{% static 'js/map.js' %}"></script>
+
+    <footer class="header">
+      <!-- <a href="#" class="logo">
+        <img src="{% static 'favicon.png' %}" alt="Логотип">
+      </a> -->
+      <nav class="menu">
+        <ul class="menu-list">
+          <li class="menu-list-item">
+            <button class="button" id="getDataButton">Карта оффлайн</button>
+          </li>
+          <li class="menu-list-item">
+            <button class="button" id="#">Начать путь</button>
+          </li>
+          <li class="menu-list-item">
+            <button class="button" id="#">Завершить путь</button>
+          </li>
+          <li class="menu-list-item">
+            <button class="button" id="submitButton">Отправить метки</button>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+
+
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        height: calc(100% - 30px); /* 30px is the height of the logo */
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .logo {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding-left: 12px;
+        padding-top: 10px;
+        padding-right: 20px;
+        z-index: 1; /* Ensure the logo appears above the map */
+      }
+
+      .footer {
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+        align-items: flex-end; /* Align items to the bottom */
+        border-top: 2px solid rgb(85, 85, 85);
+        padding: 10px; /* Adjust padding as needed */
+      }
+
+      img {
+        height: 30px;
+      }
+
+      .menu-list {
+        padding: 0; /* Adjust padding as needed */
+        list-style-type: none;
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+        flex-wrap: wrap;
+      }
+
+      .menu-list-item {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      .menu-link {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: smaller;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+        color: rgb(85, 85, 85);
+      }
+
+      .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    </style>
+    
+
+
+    <script>
+        // Создать новую карту с заданными координатами и уровнем зума
+        var map = L.map('map').setView([53.52718900000008, 158.7820700000001], 12);
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      
+         // Получение trek_points из локального хранилища
+         var trek_points = JSON.parse(localStorage.getItem('savedTrekPoints')) || [];
+        // console.log('Точки маршрута добавлены из локального хранилища!')
+        // Получение trek_lines из локального хранилища
+        var trek_lines = JSON.parse(localStorage.getItem('savedTrekLines')) || [];
+        // console.log('Трек маршрута добавлен из локального хранилища!')
+        
+        // ПОЛУЧАЕМ СОХРАНЕННЫЙ МАРКЕР ИЗ ЛОКАЛЬНОГО ХРАНИЛИЩА БРАУЗЕРА
+        var savedMarkers = JSON.parse(localStorage.getItem('savedMarkers')) || [];
+        
+        // Проход по каждому сохраненному маркеру и добавление их на карту
+        savedMarkers.forEach(function(savedMarker) {
+
+            // Создаем объект для каждого сохраненного маркера
+            var restoredIncident = {
+                "type": "Feature",
+                "properties": {
+                    "name": savedMarker.name
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": savedMarker.coordinates
+                }
+            };
+
+            // Добавляем маркер на карту из сохраненных данных
+            var restoredMarker = L.geoJSON(restoredIncident, {
+                onEachFeature: function(feature, layer) {
+                    layer.bindPopup(`<h3>Описание инцидента: ${feature.properties.name}</h3>
+                                        <p>Координаты long/lat: ${feature.geometry.coordinates}</p>`);
+                }
+            }).addTo(map);
+        });
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        // ПОЛУЧАЕМ СОХРАНЕННЫЙ МАРКЕР ИЗ ЛОКАЛЬНОГО ХРАНИЛИЩА БРАУЗЕРА
+        var savedMarkers = JSON.parse(localStorage.getItem('savedMarkers')) || [];
+
+        // Получение ссылки на кнопку отправить
+        document.getElementById('submitButton').addEventListener('click', function() {
+            // Iterate over each saved marker coordinate and upload to the database
+            savedMarkers.forEach(function(savedMarkers) {
+                saveMarkerToDatabase({ lat: savedMarkers.coordinates[1], lng: savedMarkers.coordinates[0] }, savedMarkers.name);
+            });
+        });
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        // Слои ОНЛАЙН:
+        // Это базовый слой OSM
+        var baselayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                minZoom: 0, // минимальный масштаб
+                                maxZoom: 18, // максимальный масштаб
+                                tms: false, // использование TMS
+                                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' // ссылка на авторство
+        }).addTo(map); // добавление тайлов OSM как подложки
+
+        // Слои ОФФЛАЙН:
+        // var osm = L.tileLayer("{% static 'MapnikOSM/' %}" + "{z}/{x}/{y}.png", {
+        //                         minZoom: 12, // минимальный масштаб в оффлайне -1 уровень (в наличии  с z13 по z16),
+        //                                      // чтобы можно было выйти на z12 растра, если растр отключен в слоях
+        //                         maxZoom: 16, // максимальный масштаб
+        //                         tms: true, // использование TMS
+        //                         attribution: 'Generated by QMetaTiles from OSM' // ссылка на авторство
+        // }).addTo(map); // добавление тайлов OSM как подложки
+
+        // РЕЖИМ ОНЛАЙН
+        // Так если получаем переменные напрямую из функции обработчика
+        var trek_points = {{ context_point_trek.features|safe }};
+        
+        var trek_lines = {{ context_lines_trek.features|safe }};
+
+        // Пишем функцию получения CSRF-токен (он нужен для POST-запрооса) из куки 
+        function getCookie(name) {
+          var cookieValue = null;
+          if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+              var cookie = cookies[i].trim();
+              // Проверяем, начинается ли куки с искомого имени
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                // Извлекаем значение куки
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+              }
+            }
+          }
+          return cookieValue;
+        }
+
+
+        // Получаем CSRF-токен из куки (Это вынесено во внутрь post-запроса)
+        // var csrftoken = getCookie('csrftoken');
+
+        // РЕЖИМ ОФФЛАЙН
+        // Так если получаем через GET-запрос
+        document.getElementById('getDataButton').addEventListener('click', function() {
+          fetch('http://127.0.0.1:8000/api/trek/', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(response => response.json())
+          .then(data => {
+            // Словарь geoJSON выгруженный из базы данных
+            var trek_points = data.context_point_trek.features;
+            var trek_lines = data.context_lines_trek.features;
+
+            // Сохранение trek_points в локальное хранилище
+            localStorage.setItem('savedTrekPoints', JSON.stringify(trek_points));
+
+            // Сохранение trek_lines в локальное хранилище
+            localStorage.setItem('savedTrekLines', JSON.stringify(trek_lines));
+            
+            alert('Ваш маршрут загружен! Режим "ОФФЛАЙН" активен!');
+
+            console.log('Ваш маршрут загружен! Режим "ОФФЛАЙН" активен!')
+          })
+          .catch(error => {
+            console.error('Ошибка:', error);
+          });
+        });
+
+        
+        // Наносим точки на карту
+        var my_trek_points = L.geoJSON(trek_points, {
+            onEachFeature: function(feature, layer) {
+              map.on('zoomend', function() {
+                if (map.getZoom() < 18) {
+                  layer.unbindTooltip();
+                } else {
+                  layer.bindTooltip(feature.properties.name, { permanent: true, direction: 'top' });
+                }
+              });
+            },
+            pointToLayer: function (feature, layer) {
+              return L.circleMarker(layer, {
+                radius: 6,
+                fillColor: "#ff7800",
+                color: "#343a40",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.5
+              });
+            }
+          }).addTo(map);
+
+        // Добавляем линии на карту
+        var my_trek_lines = L.geoJSON(trek_lines, {
+            onEachFeature: function(feature, layer) {
+              layer.bindPopup(`<h3> ${feature.properties.name}</h3> 
+                                <p> Координаты long/lat: ${feature.geometry.coordinates}</p>  
+                                <p> Аm: ${feature.properties.azimuth}</p>  
+                                <p> Pn: ${feature.properties.pn}</p>  
+                                <p> D: ${feature.properties.distance}</p>`);
+            },
+            
+        }).addTo(map);
+
+              
+        // Функция для проверки масштаба и включения/отключения слоев
+        function updateLayerVisibility() {
+            var zoomLevel = map.getZoom();
+            if (zoomLevel >= 17) {
+                if (!map.hasLayer(my_trek_points)) {
+                    my_trek_points.addTo(map);
+                }
+            } else {
+                if (map.hasLayer(my_trek_points)) {
+                    map.removeLayer(my_trek_points);
+                }
+            }
+        }
+
+
+        // Проверка начального уровня зума
+        updateLayerVisibility();
+
+
+        // Обработчик событий при изменении зума
+        map.on('zoomend', function () {
+            updateLayerVisibility();
+        });
+        
+
+        // Подключаем инструменты разработчика
+        var drawnItems = new L.FeatureGroup(); // Создаем новую группу слоев, которая будет редактироваться
+        map.addLayer(drawnItems);
+
+
+        var drawControl = new L.Control.Draw({
+            edit: {
+                featureGroup: drawnItems,
+                edit: false,
+                remove: false // Это кнопки удаления маркера
+            },
+            draw: {
+                marker: true,
+                circle: false,
+                circlemarker: false,
+                polygon: false,
+                polyline: false,
+                rectangle: false
+            }
+          
+        });
+
+
+        map.addControl(drawControl);
+
+        
+        // Ожидание события 'draw:created' на карте, который срабатывает при создании нового слоя на карте.
+        map.on('draw:created', function(e) {
+            var type = e.layerType,
+                layer = e.layer;
+
+            if (type === 'marker') {
+                drawnItems.addLayer(layer);
+                var latlng = layer.getLatLng();
+                var markerName;
+
+                do {
+                    markerName = prompt('Введите краткое описание обнаруженного инциндента. Это обязательно!');
+
+                    if (markerName === null) {
+                        drawnItems.removeLayer(layer);
+                        return;
+                    }
+                } while (markerName === '');
+
+                // В этом месте добавляется взаимодействие с БД для сохранения данных
+
+                // Получение ссылки на кнопку отправить
+                document.getElementById('submitButton').addEventListener('click', function() {
+                    // Iterate over each saved marker coordinate and upload to the database
+                    savedMarkers.forEach(function(marker) {
+                        saveMarkerToDatabase({ lat: marker.coordinates[1], lng: marker.coordinates[0] }, marker.name);
+                    });
+                });
+
+                // Создание объекта для текущего инцидента и добавление его в geoJSON слой
+                var incident = {
+                    "type": "Feature",
+                    "properties": {
+                        "name": markerName
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [latlng.lng, latlng.lat]
+                    }
+                };
+
+                var my_incident = L.geoJSON(incident, {
+                    onEachFeature: function(feature, layer) {
+                        layer.bindPopup(`<h3>Описание инцидента: ${feature.properties.name}</h3>
+                                        <p>Координаты long/lat: ${feature.geometry.coordinates}</p>
+                                            `);
+                    },
+                }).addTo(map);
+
+                // Сохранение координат маркера в localStorage для восстановления после перезагрузки страницы
+                var savedMarkers = JSON.parse(localStorage.getItem('savedMarkers')) || [];
+                savedMarkers.push({ name: markerName, coordinates: [latlng.lng, latlng.lat] });
+                localStorage.setItem('savedMarkers', JSON.stringify(savedMarkers));
+            }
+        });
+
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        // Для этого обработчика (редактирование маркера) 
+        // map.on('draw:editstart', function(e) {
+        //     drawnItems.eachLayer(function (layer) {
+        //         layer.dragging.disable();
+        //     });
+        // });
+
+        // map.on('draw:editstop', function(e) {
+        //     drawnItems.eachLayer(function (layer) {
+        //         layer.dragging.enable();
+        //     });
+        // });
+
+
+        // Настройка переключателя слоёв
+        // var baseMaps = {'Базовый слой OSM': osm};
+        var baseMaps = {'Базовый слой OSM': baselayer};
+        // var baseMaps = {'Базовый слой OSM': my_trek_points};
+        var myMaps = {
+          'Точки маршрута Налычево-Таловские': my_trek_points,
+          'Маршрут Налычево-Таловские': my_trek_lines,
+        };
+        L.control.layers(baseMaps, myMaps).addTo(map); 
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        // Так мы взаимодействуем с API СОЗДАНИЯ ИНЦИДЕНТА
+        // Обработчик эндпоинта http://127.0.0.1:8000/api/create_point/
+        function saveMarkerToDatabase(coordinates, markerName) {
+            fetch('http://127.0.0.1:8000/api/create_point/', {
+                // Задаем метод REST-запроса
+                method: 'POST',
+                // Формируем хедер запроса
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken'), // Добавляем CSRF-токен в заголовок запроса
+                },
+                // Формируем тело запроса
+                body: JSON.stringify({ name: markerName, location: 'SRID=4326;POINT(' + coordinates.lng + ' ' + coordinates.lat + ')' })
+         })
+            // Получаем ответ на запрос
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+            })
+            
+            .catch((error) => {
+                console.error('Ошибка сохранения маркера:', error);
+            });
+            
+        }
+
+    </script>
+
+  </body>
+</html>
+
+ 
+
