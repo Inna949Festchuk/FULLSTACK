@@ -39,12 +39,12 @@ if os.name == 'nt':
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7j(pwu1w*5@8kc!)#hlh5c_kc*4rz25l4821_^!r42nr3o_bm6'
+SECRET_KEY = '2hqtBmzFZYyakoinY6JV25qd39e_88fHog1hJYMjhykADSwsm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*'] # Разрешаем доступ с любого хоста
 
 # Application definition
 INSTALLED_APPS = [
@@ -68,10 +68,12 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', # CORS (Должно быть одним из первых, чтобы быть применимым к остальным запросам)
+    
+    'django.middleware.csrf.CsrfViewMiddleware', # csrf (токены)
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware', # csrf (токены)
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -171,24 +173,25 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOW_CREDENTIALS = True # This allows CORS requests to go in and out
+# CORS_ALLOW_CREDENTIALS = True # This allows CORS requests to go in and out
 
-CORS_ALLOW_HEADERS = (
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-)
+# CORS_ALLOW_HEADERS = (
+#     'accept',
+#     'accept-encoding',
+#     'authorization',
+#     'content-type',
+#     'dnt',
+#     'origin',
+#     'user-agent',
+#     'x-csrftoken',
+#     'x-requested-with',
+# )
 
-CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:8000",
-    # "http://95.163.234.106",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://127.0.0.1:8000",
+# ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 # SHA256:D3LFYmfoQHBJl6M2BEuZyzIy/gggHTb9jKslWjBqJjc
 
@@ -197,4 +200,4 @@ CORS_ALLOWED_ORIGINS = [
 # Если вы используете Django ≥ 4, то теперь необходимо указывать CSRF_TRUSTED_ORIGINS в settings.py:
 # CSRF_TRUSTED_ORIGINS = ['https://your-domain.com', 'https://www.your-domain.com']
 
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'ttp://95.163.234.106']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'https://swan-decent-shrew.ngrok-free.app']

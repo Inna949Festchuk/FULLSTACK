@@ -85,7 +85,7 @@ def create_point(request):
     '''
     import requests
     url = "http://127.0.0.1:8000/api/create_point/"
-    response = requests.post(url, data={"name": "test", "location": "SRID=28404;POINT(4475177 6061145)"})
+    response = requests.post(url, data={"name": "test", "location": "SRID=4326;POINT (158.8025665283203 53.5190837863296)"})
     response.json()
     '''
 
@@ -118,7 +118,7 @@ def web_inc_person(request):
 @api_view(['GET'])
 def view_inc_person(request):
     '''
-    mport requests
+    import requests
     url = "http://127.0.0.1:8000/api/task/"
     response = requests.post(url)
     response.json()
