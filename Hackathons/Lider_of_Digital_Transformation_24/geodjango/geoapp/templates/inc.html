@@ -86,7 +86,7 @@
             });
 
             // Получение данных с API
-            fetch('http://127.0.0.1:8000/api/task/')
+            fetch('https://swan-decent-shrew.ngrok-free.app/api/task/')
                 .then(response => response.json())
                 .then(data => {
                     const dataBlockContainer = document.getElementById('data-block-container');

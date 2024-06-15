@@ -307,7 +307,7 @@
         // РЕЖИМ ОФФЛАЙН
         // Так если получаем через GET-запрос
         document.getElementById('getDataButton').addEventListener('click', function() {
-          fetch('http://127.0.0.1:8000/api/trek/', {
+          fetch('https://swan-decent-shrew.ngrok-free.app/api/trek/', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -510,7 +510,7 @@
         // Так мы взаимодействуем с API СОЗДАНИЯ ИНЦИДЕНТА
         // Обработчик эндпоинта http://127.0.0.1:8000/api/create_point/
         function saveMarkerToDatabase(coordinates, markerName) {
-            fetch('http://127.0.0.1:8000/api/create_point/', {
+            fetch('https://swan-decent-shrew.ngrok-free.app/api/create_point/', {
                 // Задаем метод REST-запроса
                 method: 'POST',
                 // Формируем хедер запроса

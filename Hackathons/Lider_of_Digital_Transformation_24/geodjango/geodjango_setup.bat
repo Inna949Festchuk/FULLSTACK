@@ -1,4 +1,4 @@
-@REM set OSGEO4W_ROOT=C:\Program Files\QGIS 3.12
+python manage.py import_json -c@REM set OSGEO4W_ROOT=C:\Program Files\QGIS 3.12
 @REM set PYTHON_ROOT=C:\Users\prepodavatel\AppData\Local\Programs\Python\Python38
 @REM set GDAL_DATA=%OSGEO4W_ROOT%\share\gdal
 @REM set PROJ_LIB=%OSGEO4W_ROOT%\share\proj
