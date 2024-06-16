@@ -67,6 +67,7 @@
        <!-- Data blocks will be dynamically inserted here -->
    </div>
    
+   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
 
    <script>
         let map; // Глобальная переменная для хранения объекта карты
@@ -141,13 +142,8 @@
                     top: document.getElementById('map').offsetTop,
                     behavior: 'smooth'
                 });
-            } else {
-                console.error('Карта не инициализирована');
-            }
-        }
-
-        // Функция для отображения/скрытия всплывающих окон в зависимости от масштаба карты
-        function togglePopups(zoom) {
+                // Функция для отображения/скрытия всплывающих окон в зависимости от масштаба карты
+                function togglePopups(zoom) {
             markers.forEach(marker => {
                 if (zoom >= 14) {
                     marker.openPopup();
@@ -156,10 +152,13 @@
                 }
             });
         }
-
+            } else {
+                console.error('Карта не инициализирована');
+            }
+        }
 
    </script>
 
-   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+   
 </body>
 </html>
