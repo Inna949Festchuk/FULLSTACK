@@ -307,7 +307,7 @@
         // РЕЖИМ ОФФЛАЙН
         // Так если получаем через GET-запрос
         document.getElementById('getDataButton').addEventListener('click', function() {
-          fetch('http://127.0.0.1:8000/api/trek/', {
+          fetch('https://swan-decent-shrew.ngrok-free.app/api/trek/', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -511,7 +511,7 @@
         // Так мы взаимодействуем с API СОЗДАНИЯ ИНЦИДЕНТА
         // Обработчик эндпоинта http://127.0.0.1:8000/api/create_point/
         function saveMarkerToDatabase(coordinates, markerName) {
-            fetch('http://127.0.0.1:8000/api/create_point/', {
+            fetch('https://swan-decent-shrew.ngrok-free.app/api/create_point/', {
                 // Задаем метод REST-запроса
                 method: 'POST',
                 // Формируем хедер запроса
@@ -554,7 +554,7 @@
         // Так мы взаимодействуем с API СТАРТА
         // Обработчик эндпоинта http://127.0.0.1:8000/api/start/
         function saveStartToDatabase(groupID) {
-            fetch('http://127.0.0.1:8000/api/start/', {
+            fetch('https://swan-decent-shrew.ngrok-free.app/api/start/', {
                 // Задаем метод REST-запроса
                 method: 'POST',
                 // Формируем хедер запроса
@@ -584,7 +584,7 @@
             // Так мы взаимодействуем с API СТОП
             // Обработчик эндпоинта http://127.0.0.1:8000/api/stop/
             function saveStopToDatabase(groupID, groupStopBool) {
-                fetch('http://127.0.0.1:8000/api/start/?idgroup='+groupID, {
+                fetch('https://swan-decent-shrew.ngrok-free.app/api/start/?idgroup='+groupID, {
                     // Задаем метод REST-запроса
                     method: 'PATCH',
                     // Формируем хедер запроса
@@ -609,12 +609,10 @@
                 });
                 // location.reload(); // Перезагрузка текущей страниц
                 
-            }
-            
+            }   
                        
         }
         
-
     </script>
 
   </body>

@@ -83,11 +83,12 @@ python manage.py import_json -c
 ### Работа с административной панелью 
 - переходим по https://swan-decent-shrew.ngrok-free.app/admin/
 - вводим имя: admin, пароль: admin
+- видим таблицу, содержащую поле старта (при нажатии кнопки Начать маршрут считывается системное время) и завершения маршрута (при нажатии Завершить маршрут читается приращение к системному времени) для заданной группы (id группе выдается при регистрации на маршруте). Также в этой таблице имеется поле, содержащее **рассчитанное время нахождения данной группы на маршруте** (эти данные **используются при рассчете антропогенного воздействия данной группы на данную территорию**). Если турист не нажал кнопку Начать маршрут администратор может самостоятельно установить время начала прохода по маршруту. Если турист не нажал кнопку Завершить маршрут администратор может завершить его сам установив булево значение (галочку) в соответствующем поле таблицы
 - видим таблицу инцидентов (жалоб туристов)
 - видим таблицу точек GPS
 - видим таблицу маршрута с расчитанными значениями ориентиров, азимутов магнитных, расстояний в парах шагов от ориентира к ориентиру
 - видим таблицу егерей
-- видим таблицу назначений, с помощью этой таблицы администратор распределяет поступившие от туристов задачи (жалобы) между егерями
+- видим таблицу назначений, с помощью этой таблицы администратор распределяет поступившие от туристов задачи (жалобы) между егерями и контролирует их выполнение (при выполнении задачи егерем администратор снимаетт ее путем удаления инцидента в таблице инцидентов (связь разрушится) или тут напрямую)
 ### Работа с сервисом в роли "Егерь"
 - переходим по https://swan-decent-shrew.ngrok-free.app/api/webtask/
 - видим карту с поступившими задачами 
@@ -13323,4 +13324,88 @@ fetch('https://swan-decent-shrew.ngrok-free.app/api/task/')
 
 <details>
 [{"person_name": "\u0421\u0438\u0434\u043e\u0440\u043e\u0432 \u0421\u0438\u0434\u0440 \u0421\u0438\u0434\u043e\u0440\u043e\u0432\u0438\u0447", "incidents": [{"name": "\u041e\u0431\u043d\u0430\u0440\u0443\u0436\u0435\u043d\u0430 \u043c\u0443\u0441\u043e\u0440\u043d\u0430\u044f \u044f\u043c\u0430!", "location": {"latitude": 53.52663571089894, "longitude": 158.74797821044925}}]}, {"person_name": "\u041f\u0435\u0442\u0440\u043e\u0432 \u041f\u0435\u0442\u0440 \u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447", "incidents": []}, {"person_name": "\u0418\u0432\u0430\u043d\u043e\u0432 \u0418\u0432\u0430\u043d \u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447", "incidents": [{"name": "\u041f\u043e\u0436\u0430\u0440!", "location": {"latitude": 53.54193953598892, "longitude": 158.83209228515628}}]}]
+</details>
+
+#### АПИ кнопки начать маршрут 
+```python
+    POST
+    import requests
+    url = "https://swan-decent-shrew.ngrok-free.app/api/start/"
+    response = requests.post(url, data={"idgroup": "id_группы"})
+    response.json()
+```
+#### и кнопки завершить маршрут
+```python
+    PATCH
+    import requests
+    url = "https://swan-decent-shrew.ngrok-free.app/api/start/?idgroup=12345"
+    response = requests.post(url, data={"idgroup": "12345", "bool_stop": "false" })
+    response.json()
+```
+#### Запрос на JS
+```js
+fetch('https://swan-decent-shrew.ngrok-free.app/api/start/', {
+    // Задаем метод REST-запроса
+    method: 'POST',
+    // Формируем хедер запроса
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken'), // Добавляем CSRF-токен в заголовок запроса
+    },
+    // Формируем тело запроса
+    body: JSON.stringify({ idgroup: groupID })
+})
+// Получаем ответ на запрос
+.then(response => response.json())
+.then(data => {
+    console.log(data);
+})
+
+.catch((error) => {
+    console.error('Ошибка сохранения времени старта:', error);
+});
+
+
+// Получение ссылки на кнопку СТОП
+document.getElementById('stopButton').addEventListener('click', function() {
+    saveStopToDatabase(group_number, true);
+});
+```
+
+#### Ответ
+<details>
+"Маршрут стартовал [datetime.datetime(2024, 6, 22, 16, 36, 45, 253737, tzinfo=datetime.timezone.utc)]"
+</details>
+
+#### Запрос на JS
+```js
+fetch('https://swan-decent-shrew.ngrok-free.app/api/start/?idgroup='+groupID, {
+    // Задаем метод REST-запроса
+    method: 'PATCH',
+    // Формируем хедер запроса
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken'), // Добавляем CSRF-токен в заголовок запроса
+    },
+    // Формируем тело запроса
+    body: JSON.stringify({ idgroup: groupID, bool_stop: groupStopBool })
+})
+// Получаем ответ на запрос
+.then(response => response.json())
+.then(data => {
+    console.log(data);
+    // выводим response в диалоговое окно
+    alert(data); 
+    
+})
+
+.catch((error) => {
+    console.error('Ошибка сохранения времени завершения:', error);
+});
+// location.reload(); // Перезагрузка текущей страниц
+```
+
+#### Ответ
+<details>
+"Маршрут завершен. Время нахождения на маршруте составило 0:04:08.804559"
 </details>
