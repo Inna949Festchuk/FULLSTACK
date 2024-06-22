@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import PointInLine, ImportTrek, ImportTrekLine, ImportInc, Person
+from .models import PointInLine, ImportTrek, ImportTrekLine, ImportInc, Person, Groups
 
 
 class ImportTrekSerializer(serializers.ModelSerializer):
@@ -37,3 +37,15 @@ class PersonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Person
         fields = ['person_name',] 
+
+
+class GroupsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Groups
+        fields = ['idgroup', 'start', 'stop', 'bool_stop', 'result',] 
+
+
+class GroupsStopSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Groups
+        fields = ['idgroup',] 

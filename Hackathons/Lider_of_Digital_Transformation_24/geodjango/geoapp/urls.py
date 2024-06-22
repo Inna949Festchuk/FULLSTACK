@@ -5,6 +5,7 @@ from geoapp.views import (
     create_point,
     view_inc_person,
     web_inc_person,
+    start_time,
     )
 
 app_name = 'geoapp'
@@ -21,5 +22,9 @@ urlpatterns = [
     path('task/', view_inc_person),
     # Создаем путь к шаблону карты персонала
     path('webtask/', web_inc_person),
+    # стартуем маршрут
+    path('start/', start_time),
+    # завершаем маршрут
+    path('start/<pk>/', start_time),
 
 ]

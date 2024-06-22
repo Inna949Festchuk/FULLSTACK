@@ -1,5 +1,6 @@
 from django.contrib.gis.db import models
-
+from django.utils import timezone
+import datetime
 
 class ImportTrek(models.Model):
 
@@ -53,6 +54,7 @@ class ImportInc(models.Model):
         verbose_name_plural = 'Импорт точек инцидента'
         db_table = "my_inc_model" 
         unique_together = [['name', 'location']] # Наборы полей, которые в совокупности должны быть уникальны
+        ordering = ['name'] # Сортируем инциденты по имени
     
     name = models.CharField(max_length=250, default=' - ', blank=True, verbose_name='Название инцидента')
        
@@ -81,3 +83,25 @@ class IncInPerson(models.Model):
 
     incendent = models.ForeignKey(ImportInc, on_delete=models.CASCADE, related_name='person') 
     person = models.ForeignKey(Person, on_delete=models.CASCADE, related_name='incendent') 
+
+class Groups(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Группы туристов'
+        db_table = "groups_model"
+    
+    # ЗАДАЙ УНИКАЛЬНОСТЬ ПРАВИЛЬНО
+    # unique_together = [['idgroup']] # Наборы полей, которые в совокупности должны быть уникальны
+
+    idgroup = models.IntegerField()
+    start = models.DateTimeField(default=timezone.now)
+    stop = models.DateTimeField(auto_now=True)
+    result = models.CharField(max_length=250, default=' группа не завершила маршрут ', blank=True, verbose_name='Время на маршруте, секунды')
+
+    bool_stop = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-start'] 
+    
+    def __str__(self):
+        return str(self.idgroup)

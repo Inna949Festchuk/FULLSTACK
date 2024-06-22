@@ -7,15 +7,19 @@ from geoapp.models import (
     ImportInc,
     Person,
     IncInPerson,
+    Groups,
     )
 from rest_framework.response import Response
 from rest_framework import status # Отображаем ошибки 404 на странице
 from django.contrib.gis.geos import GEOSGeometry
-from geoapp.serializers import ImportIncSerializer
+from geoapp.serializers import ImportIncSerializer, GroupsSerializer, GroupsStopSerializer
 from django.core.serializers import serialize, deserialize
 from django.contrib.gis.geos import GEOSGeometry
 
 import json
+import datetime
+from django.utils import timezone
+
 
 # Функция запуска тестовой странички с картой
 def map_view(request):
@@ -103,7 +107,7 @@ def create_point(request):
         # data = ImportIncSerializer(ImportInc.objects.all(), many=True)
         # return Response(data.data)
         return Response('Данные переданы службам реагирования! С Вами свяжется оператор.')
-    return Response('Эти данные уже были переданы ранее') 
+    return Response('Данные переданы службам реагирования! С Вами свяжется оператор.') 
     # return Response({'error': 'Нет действительных данных POST', 'details': serialinc.errors}, status.HTTP_404_NOT_FOUND)
 
 
@@ -156,6 +160,65 @@ def view_inc_person(request):
             person_data['incidents'].append(incident_data)
         data.append(person_data)
     return JsonResponse(data, safe=False)
+
+
+# сервис расчета времени    
+@api_view(['POST', 'PATCH'])
+def start_time(request): 
+    '''
+    POST
+    import requests
+    url = "http://127.0.0.1:8000/api/start/"
+    response = requests.post(url, data={"idgroup": "id_группы"})
+    response.json()
+    PATCH
+    import requests
+    url = "http://127.0.0.1:8000/api/start/?idgroup=12345"
+    response = requests.post(url, data={"idgroup": "12345", "bool_stop": "false" })
+    response.json()
+    '''
+    if request.method == 'POST':
+        # Создаем экземпляр класса сериализатора
+        serialstart = GroupsSerializer(data=request.data)
+        if serialstart.is_valid():
+            # Если данные валидны, извлекаем данные инцидента и сохраняем их в БД
+            valid_start_data = serialstart.validated_data
+            serialstart.save()
+
+            id_group_data = valid_start_data['idgroup'] # Извлекаем данные об id группы
+            group_start = [group.start for group in Groups.objects.filter(idgroup=id_group_data)]
+            
+            return Response(f'Маршрут стартовал {group_start}')
+    
+        return Response({'error': 'Нет действительных данных POST', 'details': serialstart.errors}, status.HTTP_404_NOT_FOUND)
+  
+    if request.method == 'PATCH':
+        filterid = request.GET.get('idgroup')
+        
+        serialstop = GroupsSerializer(data=request.data)
+        
+        if serialstop.is_valid():                     
+
+            valid_stop_data = serialstop.validated_data
+            id_group_data = valid_stop_data['idgroup'] # Извлекаем данные об id группы            
+            bool_stop = valid_stop_data['bool_stop'] # Устанавливаем галачку завершить маршрут
+            
+            # Фильтруем записи БД по ID группы и обновляем их при нажатии кнопки "Завершить маршрут"
+            groups_filter = Groups.objects.filter(idgroup=filterid)
+
+
+            groups_filter.update(idgroup=id_group_data, stop=timezone.now(), bool_stop=bool_stop) # timezone.now() Обновляем поле времени завершения маршрута
+            
+            group_start = [group.start for group in groups_filter]
+            group_stopt = [group.stop for group in groups_filter]
+
+            result_time = group_stopt[0] - group_start[0]
+
+            groups_filter.update(idgroup=id_group_data, stop=timezone.now(), bool_stop=bool_stop, result=result_time.seconds) # timezone.now() Обновляем поле времени завершения маршрута
+            
+            return Response(f'Маршрут завершен. Время нахождения на маршруте составило {result_time}')
+    
+        return Response({'error': 'Нет действительных данных PATCH', 'details': serialstop.errors}, status.HTTP_404_NOT_FOUND)
 
 
 

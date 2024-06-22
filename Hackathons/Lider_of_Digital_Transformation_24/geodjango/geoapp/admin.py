@@ -6,6 +6,7 @@ from .models import (
     ImportInc,
     Person,
     IncInPerson,
+    Groups,
 )
 
 
@@ -35,3 +36,8 @@ class PersonAdmin(admin.GISModelAdmin):
 class IncInPersonAdmin(admin.GISModelAdmin):
     # начиная с django v.4 использовать GISModelAdmin, ниже - OSMGeoAdmin
     list_display = ('incendent', 'person', )
+
+@admin.register(Groups)
+class GroupsAdmin(admin.GISModelAdmin):
+    # начиная с django v.4 использовать GISModelAdmin, ниже - OSMGeoAdmin
+    list_display = ('idgroup', 'start', 'stop', 'bool_stop', 'result', )

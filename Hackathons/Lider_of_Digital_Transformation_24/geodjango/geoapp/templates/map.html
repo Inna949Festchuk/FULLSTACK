@@ -109,10 +109,10 @@
             <button class="button" id="getDataButton">Карта оффлайн</button>
           </li>
           <li class="menu-list-item">
-            <button class="button" id="#">Начать путь</button>
+            <button class="button" id="startButton">Начать путь</button>
           </li>
           <li class="menu-list-item">
-            <button class="button" id="#">Завершить путь</button>
+            <button class="button" id="stopButton">Завершить путь</button>
           </li>
           <li class="menu-list-item">
             <button class="button" id="submitButton">Отправить метки</button>
@@ -268,7 +268,7 @@
         }).addTo(map); // добавление тайлов OSM как подложки
 
         // Слои ОФФЛАЙН:
-        // var osm = L.tileLayer("{% static 'MapnikOSM/' %}" + "{z}/{x}/{y}.png", {
+        // var baselayer = L.tileLayer("{% static 'sat/' %}" + "{z}/{x}/{y}.png", {
         //                         minZoom: 12, // минимальный масштаб в оффлайне -1 уровень (в наличии  с z13 по z16),
         //                                      // чтобы можно было выйти на z12 растра, если растр отключен в слоях
         //                         maxZoom: 16, // максимальный масштаб
@@ -307,7 +307,7 @@
         // РЕЖИМ ОФФЛАЙН
         // Так если получаем через GET-запрос
         document.getElementById('getDataButton').addEventListener('click', function() {
-          fetch('https://swan-decent-shrew.ngrok-free.app/api/trek/', {
+          fetch('http://127.0.0.1:8000/api/trek/', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -498,6 +498,7 @@
         // Настройка переключателя слоёв
         // var baseMaps = {'Базовый слой OSM': osm};
         var baseMaps = {'Базовый слой OSM': baselayer};
+        // var baseMaps = {'Маршрут Налычево-Таловские': my_trek_lines};
         // var baseMaps = {'Базовый слой OSM': my_trek_points};
         var myMaps = {
           'Точки маршрута Налычево-Таловские': my_trek_points,
@@ -510,7 +511,7 @@
         // Так мы взаимодействуем с API СОЗДАНИЯ ИНЦИДЕНТА
         // Обработчик эндпоинта http://127.0.0.1:8000/api/create_point/
         function saveMarkerToDatabase(coordinates, markerName) {
-            fetch('https://swan-decent-shrew.ngrok-free.app/api/create_point/', {
+            fetch('http://127.0.0.1:8000/api/create_point/', {
                 // Задаем метод REST-запроса
                 method: 'POST',
                 // Формируем хедер запроса
@@ -525,13 +526,94 @@
             .then(response => response.json())
             .then(data => {
               console.log(data);
+              // выводим response в диалоговое окно
+              alert(data); 
             })
             
             .catch((error) => {
                 console.error('Ошибка сохранения маркера:', error);
             });
-            
+            location.reload(); // Перезагрузка текущей страниц
         }
+
+
+
+        // Получение ссылки на кнопку СТАРТ
+        document.getElementById('startButton').addEventListener('click', function() {
+
+          do {
+            group_number = prompt('Введите ID вашей группы. Это обязательно!');
+              if (group_number === null) {
+                  return;
+              }
+          } while (group_number === '');
+
+          saveStartToDatabase(group_number);
+        });
+
+        // Так мы взаимодействуем с API СТАРТА
+        // Обработчик эндпоинта http://127.0.0.1:8000/api/start/
+        function saveStartToDatabase(groupID) {
+            fetch('http://127.0.0.1:8000/api/start/', {
+                // Задаем метод REST-запроса
+                method: 'POST',
+                // Формируем хедер запроса
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken'), // Добавляем CSRF-токен в заголовок запроса
+                },
+                // Формируем тело запроса
+                body: JSON.stringify({ idgroup: groupID })
+         })
+            // Получаем ответ на запрос
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+            })
+            
+            .catch((error) => {
+                console.error('Ошибка сохранения времени старта:', error);
+            });
+
+  
+            // Получение ссылки на кнопку СТОП
+            document.getElementById('stopButton').addEventListener('click', function() {
+              saveStopToDatabase(group_number, true);
+            });
+
+            // Так мы взаимодействуем с API СТОП
+            // Обработчик эндпоинта http://127.0.0.1:8000/api/stop/
+            function saveStopToDatabase(groupID, groupStopBool) {
+                fetch('http://127.0.0.1:8000/api/start/?idgroup='+groupID, {
+                    // Задаем метод REST-запроса
+                    method: 'PATCH',
+                    // Формируем хедер запроса
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken'), // Добавляем CSRF-токен в заголовок запроса
+                    },
+                    // Формируем тело запроса
+                    body: JSON.stringify({ idgroup: groupID, bool_stop: groupStopBool })
+            })
+                // Получаем ответ на запрос
+                .then(response => response.json())
+                .then(data => {
+                  console.log(data);
+                  // выводим response в диалоговое окно
+                  alert(data); 
+                  
+                })
+                
+                .catch((error) => {
+                    console.error('Ошибка сохранения времени завершения:', error);
+                });
+                // location.reload(); // Перезагрузка текущей страниц
+                
+            }
+            
+                       
+        }
+        
 
     </script>
 

@@ -38,7 +38,7 @@ class Command(BaseCommand):
 
         if options['c']:     
 
-            with open('/Users/apple/Documents/Full-stack-Python-developer/FULLSTACK/Hackathons/Lider_of_Digital_Transformation_24/geodjango/geoapp/data/DataSource.json') as f:
+            with open('geoapp\data\DataSource.json') as f:
                 data = json.load(f)
 
             for ft in data['features']:
