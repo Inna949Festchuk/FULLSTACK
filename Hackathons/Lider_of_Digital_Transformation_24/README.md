@@ -164,7 +164,7 @@ function saveMarkerToDatabase(coordinates, markerName) {
 ```py
 import requests
 url = "https://swan-decent-shrew.ngrok-free.app/api/trek/"
-response = requests.post(url)
+response = requests.get(url)
 response.json()
 ```
 #### Запрос на JS
@@ -13269,12 +13269,17 @@ document.getElementById('getDataButton').addEventListener('click', function() {
 ```py
 import requests
 url = "https://swan-decent-shrew.ngrok-free.app/api/task/"
-response = requests.post(url)
+response = requests.get(url)
 response.json()
 ```
 #### Запрос на JS
 ```js
-fetch('https://swan-decent-shrew.ngrok-free.app/api/task/')
+fetch('https://swan-decent-shrew.ngrok-free.app/api/task/', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
     .then(response => response.json())
     .then(data => {
         const dataBlockContainer = document.getElementById('data-block-container');
