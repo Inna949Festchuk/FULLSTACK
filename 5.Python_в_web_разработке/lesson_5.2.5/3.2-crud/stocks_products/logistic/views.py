@@ -19,3 +19,4 @@ class StockViewSet(ModelViewSet):
     serializer_class = StockSerializer
     filterset_fields = ['products']
     pagination_class = LimitOffsetPagination
+
