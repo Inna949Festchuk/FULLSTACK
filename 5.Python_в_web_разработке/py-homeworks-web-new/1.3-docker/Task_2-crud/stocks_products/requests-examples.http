@@ -1,6 +1,6 @@
 # примеры API-запросов
 
-@baseUrl = http://localhost:8080/api/v1
+@baseUrl = http://localhost:8100/api/v1
 
 # создание продукта
 POST {{baseUrl}}/products/
