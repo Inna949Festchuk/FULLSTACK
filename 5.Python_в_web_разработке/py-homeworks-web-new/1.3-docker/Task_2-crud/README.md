@@ -2,7 +2,7 @@
 
 ## ПЕРВЫЙ СПОСОБ (второй ниже прошу обратить на него внимание и ответить на мой вопрос ниже во втором способе)
 
-### Клонируйте проект с GitHub и перейдите в рабочую дирректорию проекта stocks_products
+### Клонируйте [проект](https://github.com/Inna949Festchuk/FULLSTACK/tree/main/5.Python_%D0%B2_web_%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B5/py-homeworks-web-new/1.3-docker/Task_2-crud) с GitHub и перейдите в рабочую дирректорию проекта stocks_products
 
 ```bash
 git clone <URL репозитория>
