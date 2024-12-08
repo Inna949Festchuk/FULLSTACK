@@ -70,7 +70,13 @@ docker run -d --name=container_stocks_products_2 -p 8081:8000 --env-file .env im
 docker image push docker.io/nodatanodata/image_stocks_products:latest
 ```
 
-### Поэтому Вы можете, не создавая образ, сразу ввести команду указав переменные окружения в команде (ЭТО ТРЕТИЙ СПОСОБ ПЕРЕДАЧИ ПЕРЕМЕННЫХ ОКРУЖЕНИЯ)
+### Теперь этот образ можно скачать на локальную машину
+
+```bash
+docker pull nodatanodata/image_stocks_products:latest
+```
+
+### и запустить с помощью команды ниже, либо, сразу ввести эту команду, указав переменные окружения в ней (ЭТО ТРЕТИЙ СПОСОБ ПЕРЕДАЧИ ПЕРЕМЕННЫХ ОКРУЖЕНИЯ)
 
 ```bash
 docker run --rm -d \
