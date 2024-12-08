@@ -44,7 +44,7 @@ docker build -t image_stocks_products:0.1 .
 docker run -d --name=container_stocks_products -p 8080:8000 image_stocks_products:0.1
 ```
 
-### *Используйте файл `requests-examples.http` с расширением VSCode Rest Client для отправки запросов к эндпоинтам или введите в браузере: <http://localhost:8080/api/v1/>*
+### *Используйте файл `requests-examples.http` с расширением VSCode Rest Client для отправки запросов к эндпоинтам (не забудьте указать правильный @baseUrl = <http://localhost:8080/api/v1>) или введите в браузере: <http://localhost:8080/api/v1/>*
 
 ## ВТОРОЙ СПОСОБ (мне кажется он безопаснее потому что файл `.env` не копируется в рабочую дирректорию контейнера (можно проверить `docker exec -it [CONTAINER_ID] sh`), а болтается где-то в другом месте контейнера, так ли это?)
 
@@ -62,7 +62,7 @@ docker build -t image_stocks_products:0.2 .
 docker run -d --name=container_stocks_products_2 -p 8081:8000 --env-file .env image_stocks_products:0.2
 ```
 
-### *Используйте файл `requests-examples.http` с расширением VSCode Rest Client для отправки запросов к эндпоинтам или введите в браузере: <http://localhost:8081/api/v1/>*
+### *Используйте файл `requests-examples.http` с расширением VSCode Rest Client для отправки запросов к эндпоинтам (не забудьте указать правильный @baseUrl = <http://localhost:8081/api/v1>) или введите в браузере: <http://localhost:8081/api/v1/>*
 
 ### Также образ был залит на DockerHub (в первой задаче эта процедура осуществлялась через расшерение VSCode Docker). В любом случае перед push образ должен быть создан как описано выше
 
