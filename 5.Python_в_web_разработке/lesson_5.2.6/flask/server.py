@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask.views import MethodView # Материнский класс для создания CDUD
 from models import Session, User
+
 # Обработка ошибок:
 # sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) 
 # ОШИБКА:  повторяющееся значение ключа нарушает ограничение уникальности "app_users_name_key"
@@ -8,37 +9,14 @@ from models import Session, User
 # Обрабатываем эту ошибку:
 from sqlalchemy.exc import IntegrityError
 
+from shema import CreatUser, UpdateUser # импортируем схемы валидации созданные в  schema.py
+from pydantic import ValidationError
+
 app = Flask("my_server") # Создаем приложение
-
-
-# def hello_world(some_id):
-#     json_data = request.json  # Обрабатываем входящий json из запроса
-#     qs = request.args # Обрабатываем входящий query string из запроса
-#     headers = request.headers # Обрабатываем входящие заголовки из запроса
-#     # Смотрим что нам пришло от клиента
-#     print(f'{some_id=}')
-#     print(f'{json_data=}')
-#     print(f'{qs=}')
-#     print(f'{headers=}')
-
-#     # Сериализуем объект словарь python (словарь, список, строку ...) 
-#     # с помощью функции jsonify() и отправляем ответ клиенту
-#     # в виде строки байтов - b`{JSON}
-#     response = jsonify({"Hello": "world"})
-#     return response
-
-# # Привязываем функцию к url (забиндить)
-# app.add_url_rule(
-#     "/hello/world/<int:some_id>", 
-#     view_func=hello_world, 
-#     methods=["POST"])
-
-# app.run()
 
 # - - - - - - - - - - 
 # ОБРАБОТКА ОШИБОК
 # - - - - - - - - - - 
-
 # Создаем класс ошибок, которые будут обрабатываться error_handler(error)
 class HttpError(Exception):
 
@@ -46,84 +24,181 @@ class HttpError(Exception):
         self.status_code = status_code
         self.message = message
 
-@app.errorhandler(HttpError) # регистрируем функцию и передаем экземпляры класса ошибок
+# ERR-HANDLER позволяет зарегистрировать функцию, которая будет обрабатывать
+# те ошибки, которые мы скажем ей и возвращать нужный нам ответ клиенту
+@app.errorhandler(HttpError)
 def error_handler(error: HttpError):
     response = jsonify({'error': error.message})
     response.status_code = error.status_code
     return response 
 
-def add_user(session, user):
+# ФУНКЦИЯ ДОБАВЛЕНИЯ ПОЛЬЗОВАТЕЛЯ С ПРОВЕРКОЙ НА ПОВТОРНОЕ ИМЯ С ПОМОЩЬЮ
+# СОЗДАННОГО ВЫШЕ ОБРАБОТЧИКА ОШИБОК
+# def add_user(session, user):
+#     # Добавляем в сессию юзера
+#     session.add(session, user)
+#     # Обрабатываем ошибку IntegrityError
+#     try:
+#         # Коминтим изменения
+#         session.commit()
+#     except IntegrityError as er:
+#         raise HttpError(400, "user alredy exist")
+# - - - - - - - - - - 
+# ПОСЛЕ создания @app.before_request и @app.after_request
+# сессии я теперь буду брать из объекта request
+# - - - - - - - - - -
+def add_user(user):
     # Добавляем в сессию юзера
-    session.add(user)
+    request.session.add(user)
     # Обрабатываем ошибку IntegrityError
     try:
         # Коминтим изменения
-        session.commit()
+        request.session.commit()
     except IntegrityError as er:
-        # response = jsonify({'error': "user alredy exist"})
-        # response.status_code = 409
-        raise HttpError(400, "user alredy exist") # созданный выше класс ошибок
-        # return response
-        
-# ЭТУ ФУНКЦИЮ МОЖНО ДОРАБОТАТЬ ВСТРОЕННЫМ ВО FLASK ОБРАБОТЧИКОМ ОШИБОК ERR-HANDLER
-# который позволяет зарегистрировать функцию, которая будет обрабатывать
-# те ошибки, которые мы скажем ей и возвращать нужный нам ответ клиенту
+        raise HttpError(400, "user alredy exist")
+
 
 # - - - - - - - - - - 
+# ФУНКЦИЯ ВАЛИДАЦИИ
 # - - - - - - - - - - 
+def validate(schema_cls: type[CreatUser] or type[UpdateUser], json_data):
+    '''
+    shema_cls - схема проверки входных данных
+    json_data - входящий JSON
+    '''
+    # если произойдет несоответствие скемы входному-му JSON
+    try:
+        # создаем экземпляр класса заданной схемы и 
+        # пробрасываю туда все поля входящего JSON
+        # и преобразую в отвалидированный словарь 
+        # return schema_cls(**json_data).dict(exclude_unset=True)
+        return schema_cls(**json_data).model_dump(exclude_unset=True) # Обновлено в версии >=2.0
+        # exclude_unset=True - если я хочу, чтобы в отвалидированном словаре не было значений None,
+        # так как во входных данных они могут быть
+    except ValidationError as err:
+        # можно самому описать ошибку
+        # raise HttpError(400, "some data is incorrect")
+        # или воспользоваться подробным описанием в pydantic
+        errors = err.errors()
+        for errors in errors:
+            errors.pop("ctx", None) # Удаляем из списка errors поле контекст,
+                                # так как оно не валидируется json
+        raise HttpError(400, errors)
+    pass
 
+# - - - - - - - - - - 
+# ПЕРЕНОСИМ ОТКРЫТИЕ СЕССИЙ СЮДА
+# Функция которая выполняется перед каждым HTTP-запросом
+# - - - - - - - - - - 
+@app.before_request
+def before_requests():
+    session = Session()
+    request.session = session # ДОБАВЛЯЕМ СЕССИЮ В САМ request
+
+# После того, как вьюшка (н-р: post()) завершит работу
+# нужно закрыть сессию для этого:
+@app.after_request # также он позволяет подменить http-ответ, 
+                # который возвращает вьюшка (н-р: post()), если это нужно
+def affter_request(http_response):
+    request.session.close()
+    return http_response
+
+
+# - - - - - - - - - - 
+# ДОБАВИМ ФУНКЦИЮ ПОЛУЧЕНИЯ ПОЛЬЗОВАТЕЛЯ ПО ID
+# - - - - - - - - - - 
+def get_user_by_id(user_id) -> User: # возвращает юзера из БД
+    # Открываем сессию и .get из нее сущьность User по введенному user_id
+    user = request.session.get(User, user_id)
+    if user is None:
+        raise HttpError(404, "user not found")
+    return user
+
+    
 # Создаем класс, который реализует логику CRUD 
 # для пользователей наследуясьот материнского
 # класса MethodView
 class UserView(MethodView):
     def get(self, user_id: int):
-        pass 
+        # ВЫЗЫВАЕМ ФУНКЦИЮ ПОЛУЧЕНИЯ ПОЛЬЗОВАТЕЛЯ ПО ID
+        user = get_user_by_id(user_id) 
+        return jsonify(user.dict)
 
     def post(self):
         # Десериализуем строку байтов - b`{JSON}, 
-        # прешедший в запросе от клиента в объект {JSON} (упорядоченный словарь)
-        json_data = request.json
+        # прешедшую в запросе от клиента в объект {JSON} (упорядоченный словарь)
+        json_data = validate(CreatUser, request.json)
+        # - - - - - - - - - - 
+        # ПОСЛЕ создания @app.before_request и @app.after_request
+        # здесь сессии создавать не нужно
+        # - - - - - - - - - - 
+        # # Открываем сессию
+        # with Session() as session:
+        #     user = User(
+        #         name=json_data['name'],
+        #         password=json_data['password']
+        #     )
+        #     # - - - - - - - - - - 
+        #     # ДОБАВЛЯЕМ ПОЛЬЗОВАТЕЛЯ С ПРОВЕРКОЙ НА ПОВТОРНОЕ ИМЯ С ПОМОЩЬЮ
+        #     # СОЗДАННОГО ВЫШЕ ОБРАБОТЧИКА ОШИБОК
+        #     # - - - - - - - - - - 
+        #     add_user(session, user)
+        #     # - - - - - - - - - -
+        
+
+        # - - - - - - - - - -
+        # ПОСЛЕ создания @app.before_request и @app.after_request 
+        # ЗАМЕНЯЕМ НА ЭТОТ КОД
+        # - - - - - - - - - -
         # Открываем сессию
-        with Session() as session:
-            # Поля, JSON-а ("id", "name", "password" и "registration_time"),
-            # распоковав его, присваиваем классу User(), сформировав экземпляр класса
-            # user - его еще называют объектом user модели Юзер
-            # user = User(**json_data)
-            # либо так, что одно и тоже
-            user = User(
-                name=json_data['name'],
-                password=json_data['password']
-            )
-            # ПЕРЕМЕЩАЕМ ЭТОТ КОД В ОТДЕЛЬНУЮ ФУНКЦИЮ add_user()
-            # - - - - - - - - - - 
-            # # Добавляем в сессию юзера
-            # session.add(user)
-            # # Обрабатываем ошибку IntegrityError
-            # try:
-            #     # Коминтим изменения
-            #     session.commit()
-            # except IntegrityError:
-            #     response = jsonify({'error': "user alredy exist"})
-            #     response.status_code = 409
-            #     return response
+        # Поля, JSON-а ("id", "name", "password" и "registration_time"),
+        # распоковав его, присваиваем классу User(), сформировав экземпляр класса
+        # user - его еще называют объектом user модели Юзер
+        # user = User(**json_data)
+        # либо так, что одно и тоже
+        user = User(
+            name=json_data['name'],
+            password=json_data['password'] # !!!МЫ ЗАПИСЫВАЕМ ПАРОЛЬ В ТОМ ВИДЕ,
+                                # КОТОРЫЙ ПРИХОДИТ ОТ КЛИЕНТА ЧТО НЕ БЕЗОПАСНО
+                                # ПОЭТОМУ ЕГО НУЖНО ЗАХЕШИРОВАТЬ!!!
+                                # И ХРАНИТЬ НЕ В ТОМ ВИДЕ, ЧТО ПРИСЛАЛ КЛИЕНТ, 
+                                # А В ХЕШ-ПАРОЛЕ (БУДЕМ ИСПОЛЬЗОВАТЬ АЛГОРИТМ bcrypt)
+        )
+        # - - - - - - - - - - 
+        # ДОБАВЛЯЕМ ПОЛЬЗОВАТЕЛЯ С ПРОВЕРКОЙ НА ПОВТОРНОЕ ИМЯ С ПОМОЩЬЮ
+        # СОЗДАННОГО ВЫШЕ ОБРАБОТЧИКА ОШИБОК
+        # - - - - - - - - - - 
+        add_user(user)
+        # - - - - - - - - - -
 
-            # - - - - - - - - - - 
-            # ВЫЗЫВАЕМ ОБРАБОТЧИК ОШИБОК
-            # - - - - - - - - - - 
-            add_user(session, user)
-            # - - - - - - - - - -
+        # C помощью свойства класса User() - dict, определенного в файле models.py, 
+        # преобразуем объект user модели в объект словарь python: user.dict.
+        # Сериализуем объект словарь python в байтовую строку - b`{JSON} с помощью функции jsonify()
+        # и отправляем ответ клиенту
+        return jsonify(user.dict)
 
-            # C помощью свойства класса User() - dict, определенного в файле models.py, 
-            # преобразуем объект user модели в объект словарь python: user.dict.
-            # Сериализуем объект словарь python в байтовую строку - b`{JSON} с помощью функции jsonify()
-            # и отправляем ответ клиенту
-            return jsonify(user.dict)
+    def patch(self, user_id: int):
+        # ОБНОВЛЕНИЕ ПОЛЬЗОВАТЕЛЯ
+        # Десериализуем строку байтов - b`{JSON}, 
+        # прешедшую в запросе от клиента в объект {JSON} (упорядоченный словарь)
+        json_data = validate(UpdateUser, request.json) 
+        # ВЫЗЫВАЕМ ФУНКЦИЮ ПОЛУЧЕНИЯ ПОЛЬЗОВАТЕЛЯ ПО ID ДЛЯ ОБНОВЛЕНИЯ
+        user = get_user_by_id(user_id) 
+        for field, value in json_data.items():
+            setattr(user, field, value) # проставляем пришедшие в запросе 
+                            # новые атрибуты пользователю при помощи сеттера
+            # добавляем изменеия в БД с проверкой на дублирование имени пользователя
+            add_user(user)
+        return jsonify(user.dict)
 
-    def path(self, user_id: int):
-        pass 
 
-    def delite(self, user_id: int):
-        pass 
+    def delete(self, user_id: int):
+        # ВЫЗЫВАЕМ ФУНКЦИЮ ПОЛУЧЕНИЯ ПОЛЬЗОВАТЕЛЯ ПО ID И УДАЛЯЕМ ЕГО
+        user = get_user_by_id(user_id) 
+        request.session.delete(user)
+        request.session.commit() # сохраняем изменения
+        return jsonify({"status": "deleted"})
+
 
 # Преобразовываем класс UserView в представление(вьюшку) 
 # для привязки к нему url-ов
@@ -131,9 +206,9 @@ user_view = UserView.as_view("user")
 
 # Выполняем роутинг для вьюшки
 app.add_url_rule(
-    "/user/<int:user_id>", # для "GET", "PATH", "DELETE"
+    "/user/<int:user_id>", # для "GET", "PATCH", "DELETE"
     view_func=user_view,
-    methods=["GET", "PATH", "DELETE"] 
+    methods=["GET", "PATCH", "DELETE"] 
 )
 app.add_url_rule(
     "/user", # для "POST"

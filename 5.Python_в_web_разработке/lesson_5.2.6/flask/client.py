@@ -1,19 +1,32 @@
 import requests
 
+# Создаем пользователя
 # response = requests.post(
-#     "http://127.0.0.1:5000/hello/world/46",
-#     json={"json_key_1": "json_val_1"},
-#     params={'k1': 'v1'}, # query string заменяет такое "http://127.0.0.1:5000/hello/world/46?k1=v1"
-#     headers={'token': 'xxx-xxxxx'} # Заголовок
+#     "http://127.0.0.1:5000/user",
+#     json={"name": "user_38", "password": "12345678"}
 # )
 
+# Обновляем пользователя по id
+response = requests.patch(
+    "http://127.0.0.1:5000/user/1",
+    json={"name": "new_user", "password": "admin12345"}
+)
+print(response.status_code)
+print(response.json())
+
+# Удаляем пользователя по id
+# response = requests.delete(
+#     "http://127.0.0.1:5000/user/18",
+#     json={"name": "new_user", "password": "admin12345"}
+# )
 # print(response.status_code)
 # print(response.json())
 
-response = requests.post(
-    "http://127.0.0.1:5000/user",
-    json={"name": "user_26", "password": "admin"}
+# Получаем пользователя по id
+response = requests.get(
+    "http://127.0.0.1:5000/user/1"
 )
 
 print(response.status_code)
 print(response.json())
+
