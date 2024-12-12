@@ -12,7 +12,30 @@ from sqlalchemy.exc import IntegrityError
 from shema import CreatUser, UpdateUser # импортируем схемы валидации созданные в  schema.py
 from pydantic import ValidationError
 
+from flask_bcrypt import Bcrypt # Для flask нужна эта библиотека
+
 app = Flask("my_server") # Создаем приложение
+
+# - - - - - - - - - - 
+# ХЕШИРОВАНИЕ ПАРОЛЕЙ
+# - - - - - - - - - - 
+bcrypt = Bcrypt(app)
+
+def hash_password(password: str) -> str:
+    password_bytes = password.encode() # преобразовываем пароль в байты
+    password_hashed_bytes = bcrypt.generate_password_hash(password_bytes) # получаю захешированный пароль в виде байтов
+    password_hashed = password_hashed_bytes.decode() # преобразуем байты в строчку
+    return password_hashed
+
+# - - - - - - - - - - 
+# ПРОВЕРКА ПАРОЛЕЙ (применять не будем просто напишем)
+# будет проверять пароль клиента с тем что хранится в БД,
+# если все правильно, будем говорить что пользователь залогинен
+# - - - - - - - - - - 
+def check_password(password: str, hashed_password: str) -> bool:
+    password = password.encode()
+    hashed_password = hash_password.encode()
+    return bcrypt.check_password_hash(hashed_password, password)
 
 # - - - - - - - - - - 
 # ОБРАБОТКА ОШИБОК
@@ -61,6 +84,7 @@ def add_user(user):
 # - - - - - - - - - - 
 # ФУНКЦИЯ ВАЛИДАЦИИ
 # - - - - - - - - - - 
+# def validate(schema_cls: type(CreatUser) or type(UpdateUser), json_data):
 def validate(schema_cls: type[CreatUser] or type[UpdateUser], json_data):
     '''
     shema_cls - схема проверки входных данных
@@ -158,7 +182,7 @@ class UserView(MethodView):
         # либо так, что одно и тоже
         user = User(
             name=json_data['name'],
-            password=json_data['password'] # !!!МЫ ЗАПИСЫВАЕМ ПАРОЛЬ В ТОМ ВИДЕ,
+            password=hash_password(json_data['password']) # !!!МЫ ЗАПИСЫВАЕМ ПАРОЛЬ В ТОМ ВИДЕ,
                                 # КОТОРЫЙ ПРИХОДИТ ОТ КЛИЕНТА ЧТО НЕ БЕЗОПАСНО
                                 # ПОЭТОМУ ЕГО НУЖНО ЗАХЕШИРОВАТЬ!!!
                                 # И ХРАНИТЬ НЕ В ТОМ ВИДЕ, ЧТО ПРИСЛАЛ КЛИЕНТ, 
@@ -182,6 +206,10 @@ class UserView(MethodView):
         # Десериализуем строку байтов - b`{JSON}, 
         # прешедшую в запросе от клиента в объект {JSON} (упорядоченный словарь)
         json_data = validate(UpdateUser, request.json) 
+        
+        if "password" in json_data:
+            json_data['password'] = hash_password(json_data['password'])
+
         # ВЫЗЫВАЕМ ФУНКЦИЮ ПОЛУЧЕНИЯ ПОЛЬЗОВАТЕЛЯ ПО ID ДЛЯ ОБНОВЛЕНИЯ
         user = get_user_by_id(user_id) 
         for field, value in json_data.items():

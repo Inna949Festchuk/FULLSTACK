@@ -1,0 +1,13 @@
+bcrypt
+blinker
+click
+Flask
+Flask-Bcrypt
+greenlet
+itsdangerous
+Jinja2
+MarkupSafe
+psycopg2
+SQLAlchemy
+typing_extensions
+Werkzeug
