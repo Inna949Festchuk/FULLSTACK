@@ -1,13 +1,13 @@
 import requests
 
 # Создаем объявление
-# response = requests.post(
-#     "http://127.0.0.1:5000/press",
-#     json={"title": "Первое объявление", "body": "Продам кота", "onwer": "Иванов А.А."}
-# )
+response = requests.post(
+    "http://127.0.0.1:5000/press",
+    json={"title": "Второе объявление", "body": "Продам пса", "onwer": "Петров И.И."}
+)
 
-# print(response.status_code)
-# print(response.json())
+print(response.status_code)
+print(response.json())
 
 # Обновляем объявление по id
 # response = requests.patch(
