@@ -1,3 +1,7 @@
+## Дополнительные материалы
+### [Документация Flask](https://flask.palletsprojects.com/en/stable/)
+### [RESTful Authentication with Flask](https://blog.miguelgrinberg.com/post/restful-authentication-with-flask)
+
 ## Настройка дебагера
 1. Создать и активировать виртуальную среду
 2. Выбрать исполняемый интерпритатор python
