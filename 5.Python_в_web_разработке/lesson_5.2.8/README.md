@@ -1,0 +1,1 @@
+conda activate //anaconda3/envs/condageoenv
