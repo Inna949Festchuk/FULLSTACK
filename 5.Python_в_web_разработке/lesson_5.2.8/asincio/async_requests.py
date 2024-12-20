@@ -24,8 +24,8 @@ async def main():
     response = await get_people(4) # значение корутины
     print(f'{response=}')
 
-asyncio.run(main()) # run() - это цикл событий event loop  
-#  в него передается main() для вызова асинхронных функций
+asyncio.run(main()) # run() - это метод создающий цикл событий event loop  
+#  в цикл событий передается main() для вызова асинхронных функций
 
 # out:
 # response=42
