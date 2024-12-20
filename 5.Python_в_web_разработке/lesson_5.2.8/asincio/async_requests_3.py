@@ -1,7 +1,7 @@
 # Асинхронный подход (продолжение)
 import asyncio
 # Библиотеку requests использовать мы не можем, т.к.
-# чтобы асинхронные функции давали выигрышь 
+# чтобы асинхронные функции давали выигрыш 
 # они должны использоваться с другими асинхронными ф-ями,
 # которые поставляются в специальных библиотеках
 # аналогом библиотеки requests является библиотека aiohttp
@@ -15,6 +15,7 @@ from more_itertools import chunked
 async def get_people(people_id, session):
     # Отправляем запрос и получаем значение корутины с пом. await
     response = await session.get(f'http://swapi.py4e.com/api/people/{people_id}')
+    # response = await session.get(f'http://127.0.0.1:5000/press/{people_id}')
     # Десериализуем. Получаем json. Ф-я тоже асинхронная (вообще
     # все ф-ии работы с сетью асинхронные)
     json_data = await response.json()
@@ -42,6 +43,7 @@ async def main():
         # разделяем последовательность из 100 элементов на подпоследовательности по 5 элементов
         for coroutins_chunk in chunked(range(1, 100), MAX_COROTINS):
             coroutins = [get_people(i, session) for i in coroutins_chunk]
+            
             result = await asyncio.gather(*coroutins)
             print(result)
 
