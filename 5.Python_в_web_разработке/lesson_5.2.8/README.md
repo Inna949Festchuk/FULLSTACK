@@ -1,3 +1,6 @@
+### [asyncio — Asynchronous I/O](https://docs.python.org/3/library/asyncio.html)
+### [Client Quickstart](https://docs.aiohttp.org/en/stable/client_quickstart.html)
+
 conda activate //anaconda3/envs/condageoenv
 
 В асинхронном программировании на Python, как правило, используются функции из модуля `asyncio`, и основными способами управления асинхронными функциями являются `asyncio.gather` и `asyncio.tasks`. Давайте разберёмся с основными отличиями:
