@@ -22,15 +22,15 @@ async def get_people(people_id, session):
 async def insert_to_database(list_json: list[dict]):
     # # открываем сессию
     # async with Session() as session:
-        # objects = []
-        # for item in list_json:
-        #     # Создаем экземпляр SwapiPeople и кладем в него JSON
-        #     swapi = SwapiPeople(json=item)
-        #     objects.append(swapi)
-        # # Добавляем все объекты в сессию
-        # session.add_all)objects
-        # # Комиттимся
-        # await session.commit()
+    #     objects = []
+    #     for item in list_json:
+    #         # Создаем экземпляр SwapiPeople и кладем в него JSON
+    #         swapi = SwapiPeople(json=item)
+    #         objects.append(swapi)
+    #     # Добавляем все объекты в сессию
+    #     session.add_all(objects)
+    #     # Комиттимся
+    #     await session.commit()
 
     # Перерписываем этот код с помощью компрекейшн выражения
     async with Session() as session:
@@ -73,7 +73,7 @@ async def main():
             # формировать сльедующую пятерку JSON-ов)
             # НЕ ДОЖИДАЯСЬ ЗАВЕРШЕНИЯ ВЫПОЛНЕНИЯ ОПЕРАЦИИ ВСТАВКИ В БД
 
-            # print(result)
+            print(result)
 
     # ЕЩЕ ОДНА ПРОБЛЕМА асинхронного кода - последние 5 JSON-ов не попали в БД. 
     # Это происходит потому, что последния задача вставки в БД insert_to_database(result)
