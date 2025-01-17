@@ -22,15 +22,15 @@ async def get_people(people_id, session):
 async def insert_to_database(list_json: list[dict]):
     # # открываем сессию
     # async with Session() as session:
-        # objects = []
-        # for item in list_json:
-        #     # Создаем экземпляр SwapiPeople и кладем в него JSON
-        #     swapi = SwapiPeople(json=item)
-        #     objects.append(swapi)
-        # # Добавляем все объекты в сессию
-        # session.add_all)objects
-        # # Комиттимся
-        # await session.commit()
+    #     objects = []
+    #     for item in list_json:
+    #         # Создаем экземпляр SwapiPeople и кладем в него JSON
+    #         swapi = SwapiPeople(json=item)
+    #         objects.append(swapi)
+    #     # Добавляем все объекты в сессию
+    #     session.add_all(objects)
+    #     # Комиттимся
+    #     await session.commit()
 
     # Перерписываем этот код с помощью компрекейшн выражения
     async with Session() as session:
