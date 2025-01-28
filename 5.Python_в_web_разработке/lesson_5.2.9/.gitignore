@@ -1,1 +1,3 @@
-/aiohttp/.env
+.env
+*.zip
+
