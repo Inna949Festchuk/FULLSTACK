@@ -51,6 +51,24 @@ class User(Base):
     # с заданием времени добавления пользователя считываемого с базы данных server_default=func.now() Лучший вариант
     registration_time: Mapped[datetime.datetime] =  mapped_column(DateTime, server_default=func.now())
 
+    # Описываем как объект преобразуется в json
+    @property
+    def dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "registration_data": int(self.registration_time.timestamp())
+        }
+        #timestamp - отображает к-во секунд с 1970 года
+
+    # Так как часто нужно возвращать ID  сделаем у модели доп поле dict_id
+    # которое вернет JSON айдишника
+    @property
+    def dict_id(self):
+        return {
+            "id": self.id
+        }
+
 # Инициализируем DB ORM
 async def init_orm():
     # для этого из engine с помощью менеджера контекста with
