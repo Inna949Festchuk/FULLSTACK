@@ -1,5 +1,12 @@
-### [asyncio — Asynchronous I/O](https://docs.python.org/3/library/asyncio.html)
-### [Client Quickstart](https://docs.aiohttp.org/en/stable/client_quickstart.html)
+# asyncio
+
+### [Мой код с лекции](asincio)
+### [Код с лекции от преподавателя](async_100)
+
+### [Домашнее задание]()
+
+## [asyncio — Asynchronous I/O](https://docs.python.org/3/library/asyncio.html)
+## [Client Quickstart](https://docs.aiohttp.org/en/stable/client_quickstart.html)
 
 conda activate //anaconda3/envs/condageoenv
 

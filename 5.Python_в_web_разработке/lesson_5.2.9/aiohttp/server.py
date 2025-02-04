@@ -13,7 +13,7 @@ from sqlalchemy.exc import IntegrityError
 # Создаем экземпляр класса вебсервера (это наше приложение)
 app = web.Application()
 
-# С помощью контекста работы приложения создаем записи в БД
+# С помощью контекста работы приложения создаем первые записи в БД для ее инициализации
 async def orm_context(app):
     # Все что написано до yield выполнится при старте приложения
     print("START")
@@ -74,9 +74,9 @@ async def get_user_by_id(user_id: int, session: Session) -> User:
         raise get_http_error(web.HTTPNotFound, "user not found")
     return user
 
-async def add_user_by_id(user: User, session: Session):
+async def add_user(user: User, session: Session):
     '''
-    Добавление пользователя по его ID
+    Добавление нового пользователя
     '''
     session.add(user)
     # Обрабатываем ошибку уникальности пользователя
@@ -96,7 +96,7 @@ class UserView(web.View):
     def user_id(self) -> int:
         return int(self.request.match_info["user_id"])
     
-    # или возврат сессии
+    # и возврат сессии
     @property
     def session(self) -> Session:
         return self.request.session
