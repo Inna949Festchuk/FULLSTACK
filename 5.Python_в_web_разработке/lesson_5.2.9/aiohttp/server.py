@@ -9,11 +9,39 @@ from models import init_orm, close_orm, Session, User # User - класс из �
 # Ошибка
 from sqlalchemy.exc import IntegrityError
 
+# Используем bcrypt для хеширования передаваемых паролей как во flask 
+# но там была bcrypt адаптированная для flask а тут стандартная 
+from bcrypt import hashpw, checkpw, gensalt
 
 # Создаем экземпляр класса вебсервера (это наше приложение)
 app = web.Application()
 
-# С помощью контекста работы приложения создаем первые записи в БД для ее инициализации
+
+
+# Шифруем пароль
+def hash_password(password: str) -> str:
+    password_bytes = password.encode() # Приобразуем пароль в байты
+    # Эти байты засовываем в метод bcrypt.hashpw
+    hashed_password_bytes = hashpw(password_bytes, gensalt())
+    # gensalt - так наз. СОЛЬ - случайные байты, которые добавятся к паролю
+    # Преобразуем возвращенные байты обратно в строчку - хешированный пароль
+    hashed_password = hashed_password_bytes.decode()
+    return hashed_password
+
+# Функци проверки пароля
+def check_password(password: str, hashed_password: str) -> bool:
+    '''
+    Функци проверки пароля сравнивает пароль клиента 
+    с захешированным паролем который лежит в БД
+    '''
+    # Прелбразуем оба пароля в байты
+    password_bytes = password.encode()
+    hashed_password_bytes = hashed_password.encode()
+    return checkpw(password_bytes, hashed_password_bytes)
+
+
+
+# С помощью контекста работы приложения создаем начальные записи в БД
 async def orm_context(app):
     # Все что написано до yield выполнится при старте приложения
     print("START")
@@ -38,17 +66,17 @@ async def session_middleware(request: web.Request, handler):
     # Здесь до handler делаем манипуляции
     # Например, открываю сессию
     async with Session() as session:
+        #  Добаваляем к объекту request поле session и кладем туда нашу сессию session
+        request.session = session
         result = await handler(request)
         # Здесь после handler делаем манипуляции
         # Например закрываю сессию в cleanup_ctxс ниже 
-
-        # Добаваляем к объекту request поле session и кладем туда нашу сессию session
-        request.session = session
-
+        
     return result
 
 # После создания контекста его нужно зарегистрировать
-app.cleanup_ctx.append(orm_context) # Здесь также закрывается сессия
+app.cleanup_ctx.append(orm_context) # Здесь закрывается сессия
+
 # После создания MIDDLEWARE его нужно зарегистрировать (2 ЭТАП)
 app.middlewares.append(session_middleware)
 
@@ -76,15 +104,21 @@ async def get_user_by_id(user_id: int, session: Session) -> User:
 
 async def add_user(user: User, session: Session):
     '''
-    Добавление нового пользователя
+    Добавление пользователя по его ID
     '''
-    session.add(user)
-    # Обрабатываем ошибку уникальности пользователя
-    try:
+    session.add(user) # Добавляем в БД 
+    # Обрабатываем ошибку уникальности пользователя при записи в БД
+    try: 
         await session.commit()
     except IntegrityError as err:
         raise get_http_error(web.HTTPConflict, "user already exists")
 
+async def delete_user(user: User, session: Session):
+    '''
+    Удаление пользователя по его ID
+    '''
+    await session.delete(user)
+    await session.commit()
 
 # Создаем вьюшку
 # с помощбю классов наследуясь от класса View()
@@ -96,7 +130,7 @@ class UserView(web.View):
     def user_id(self) -> int:
         return int(self.request.match_info["user_id"])
     
-    # и возврат сессии
+    # или возврат сессии
     @property
     def session(self) -> Session:
         return self.request.session
@@ -132,6 +166,11 @@ class UserView(web.View):
 
     async def post(self):
         json_data = await self.request.json() # извлекаем из запроса json
+
+        # Предпологаем что JSON содержит пароль (проверяем валидацией)
+        # Хешируем пароль
+        json_data['password'] = hash_password(json_data['password'])
+
         # Создаем экземпляр класса User
         user = User(**json_data) 
         # Добавляем его в сессию
@@ -139,15 +178,30 @@ class UserView(web.View):
         # Так как часто нужно возвращать ID  сделаем у модели доп поле dict_id
         # которое вернет JSON айдишника
         return web.json_response(user.dict_id)
-        # НУЖНО ЕЩЕ ОТВАЛИДИРОВАТЬ ПОЛЬЗОВАТЕЛЯ (СМ.ЛЕКЦИЮ flask)
+        # НУЖНО ЕЩЕ ОТВАЛИДИРОВАТЬ ПОЛЬЗОВАТЕЛЯ с пом. pydantic (СМ.ЛЕКЦИЮ flask)
         
 
     async def patch(self):
-        pass
+        user = await get_user_by_id(self.user_id, self.session)
+
+        json_data = await self.request.json() # Если прийдет {"name": "Anton"}
+
+        # Проверяем если пришел пароль на обновление то нужно его захешировать
+        if "password" in json_data:
+            json_data['password'] = hash_password(json_data['password'])
+
+        # проходим по полям в JSON и прописываем атрибуты нашему пользователю
+        for field, value in json_data.items():
+            # Устанавливаем для user-а в поле field - name, а в value - Anton
+            setattr(user, field, value) # Т.о. у юзера имя обновится на Антон
+        # Записываем изменения в БД
+        await add_user(user, self.session) # Записываем изменения в БД
+        return web.json_response(user.dict_id) # Возвращаем адишник обновленной записи
 
     async def delete(self):
-        pass
-
+        user = await get_user_by_id(self.user_id, self.session)
+        await delete_user(user, self.session)
+        return web.json_response({"status": "success"})
 
 
 # Привязываем вьюшку к url
