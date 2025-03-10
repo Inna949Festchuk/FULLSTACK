@@ -1,0 +1,67 @@
+version: '3.9'
+
+networks:
+  dev_network:
+
+services:
+
+  db:
+    image: postgres:14.3-alpine3.15
+    ports:
+      - "5431:5432"
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: app
+
+    networks:
+      dev_network:
+        aliases:
+          - postgre
+
+  app:
+    build:
+      context: .
+    environment:
+      PG_USER: ${PG_USER}
+      PG_PASSWORD: ${PG_PASSWORD}
+      PG_HOST: ${PG_HOST}
+      PG_PORT: ${PG_PORT}
+      PG_DB: ${PG_DB}
+      WAIT_HOSTS: ${PG_HOST}:${PG_PORT}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      dev_network:
+        aliases:
+          - api
+    volumes:
+      - ./app:/app
+
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    environment:
+      API_URL: ${API_URL}
+      PG_USER: ${PG_USER}
+      PG_PASSWORD: ${PG_PASSWORD}
+      PG_HOST: ${PG_HOST}
+      PG_PORT: ${PG_PORT}
+      PG_DB: ${PG_DB}
+
+    depends_on:
+      - db
+      - app
+    working_dir: /app
+    entrypoint: pytest -v -s
+
+    networks:
+      dev_network:
+        aliases:
+          - test_client
+    volumes:
+      - ./app/:/app
