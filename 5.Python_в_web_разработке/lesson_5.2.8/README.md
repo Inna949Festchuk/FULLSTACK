@@ -1,12 +1,12 @@
 # asyncio
 
-### [Мой код с лекции](asyncio)
-### [Код с лекции от преподавателя](async_100)
+- [Мой код с лекции](asyncio)
+- [Код с лекции от преподавателя](async_100)
 
-### [Домашнее задание]()
+- [Домашнее задание](5.Python_в_web_разработке/py-homeworks-web-new/2.2-asyncio)
 
-## [asyncio — Asynchronous I/O](https://docs.python.org/3/library/asyncio.html)
-## [Client Quickstart](https://docs.aiohttp.org/en/stable/client_quickstart.html)
+> - [asyncio — Asynchronous I/O](https://docs.python.org/3/library/asyncio.html)
+> - [Client Quickstart](https://docs.aiohttp.org/en/stable/client_quickstart.html)
 
 conda activate //anaconda3/envs/condageoenv
 

@@ -8,7 +8,7 @@
 
 - [Боевой проект от преподавателя](aiohttp_netology-main)
 
-- [Домашнее задание]()
+- [Домашнее задание](5.Python_в_web_разработке/py-homeworks-web-new/2.3-aiohttp)
 
 > - [Welcome to AIOHTTP](https://docs.aiohttp.org/en/stable/)
 > - [Пример боевого проекта](https://github.com/alvassin/backendschool2019)
