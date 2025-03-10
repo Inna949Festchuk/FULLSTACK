@@ -4,7 +4,7 @@
 
 - [Докеризированный celery+Rabbit проект от преподавателя](celery_rabbit_minimal_dockerized_netology-main)
 
-- [Flask_celery_example](flask_celery_example-master)
+- [Flask_celery_example](flask_celery_example-master.zip)
 
 - [Django_celery_example](django_celery_example-master)
 
