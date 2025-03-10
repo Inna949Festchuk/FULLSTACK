@@ -1,15 +1,17 @@
 # aiohttp
 
-### [Клиент-серверное взаимодействие](0_aiohttp_клиент_серверное_взаимодействие)
+- [Клиент-серверное взаимодействие](0_aiohttp_клиент_серверное_взаимодействие)
 
-### [Мой код с лекции](aiohttp)
-### [Код с лекции от преподавателя](aiohttp_100)
-### [Боевой проект от преподавателя](aiohttp_netology)
+- [Мой код с лекции](aiohttp)
 
-### [Домашнее задание]()
+- [Код с лекции от преподавателя](aiohttp_100)
 
-## [Welcome to AIOHTTP](https://docs.aiohttp.org/en/stable/)
-## [Пример боевого проекта](https://github.com/alvassin/backendschool2019)
-## [Пояснительная к боевому применению на Хабре](https://habr.com/ru/companies/yandex/articles/499534/)
+- [Боевой проект от преподавателя](aiohttp_netology-main)
+
+- [Домашнее задание]()
+
+> - [Welcome to AIOHTTP](https://docs.aiohttp.org/en/stable/)
+> - [Пример боевого проекта](https://github.com/alvassin/backendschool2019)
+> - [Пояснительная к боевому применению на Хабре](https://habr.com/ru/companies/yandex/articles/499534/)
 
 conda activate //anaconda3/envs/condageoenv

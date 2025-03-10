@@ -3,6 +3,8 @@ import time
 
 from celery import Celery
 
+
+
 BACKEND = os.getenv("BACKEND")
 BROKER = os.getenv("BROKER")
 
