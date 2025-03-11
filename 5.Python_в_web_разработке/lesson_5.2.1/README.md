@@ -60,4 +60,4 @@
 - [Подключение к Облачному серверу и изменение порта](https://help.reg.ru/support/servery-vps/oblachnyye-servery/rabota-s-serverom/podklyucheniye-k-oblachnomu-serveru#0)
 - [Подключение и настройка SSH на VPS](https://help.reg.ru/support/klassicheskie-vps/osnovi-raboty-s-vps/podklyucheniye-i-nastroyka-ssh-na-vps#0)
 
-### [Домашнее задание](5.Python_в_web_разработке/py-homeworks-web-new/1.1-console)
+### [Домашнее задание](../py-homeworks-web-new/1.1-console)
