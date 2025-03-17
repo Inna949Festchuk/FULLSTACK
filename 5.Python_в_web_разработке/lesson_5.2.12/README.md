@@ -8,7 +8,6 @@
 
 - [Django_celery_example](django_celery_example-master)
 
-<<<<<<< HEAD
 ### **Декомпозиция настройки в Django:**
 
   - Пример https://github.com/tabelsky/django_celery_example/
@@ -20,6 +19,3 @@
   - Вызов задачи https://github.com/tabelsky/django_celery_example/blob/master/example/api/views.py
 
 ### **Домашнее задание**
-=======
-- Домашнее задание
->>>>>>> 5b655f1c0b984429b10211042dedccc47bde0909
