@@ -8,4 +8,14 @@
 
 - [Django_celery_example](django_celery_example-master)
 
-- Домашнее задание
+### **Декомпозиция настройки в Django:**
+
+  - Пример https://github.com/tabelsky/django_celery_example/
+
+  - Настройка https://github.com/tabelsky/django_celery_example/blob/master/django_celery_example/celery.py
+
+  - Задачи https://github.com/tabelsky/django_celery_example/blob/master/example/tasks.py
+
+  - Вызов задачи https://github.com/tabelsky/django_celery_example/blob/master/example/api/views.py
+
+### **Домашнее задание**
