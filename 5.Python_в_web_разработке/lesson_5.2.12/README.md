@@ -4,7 +4,8 @@
 
 - [Докеризированный celery+Rabbit проект от преподавателя](celery_rabbit_minimal_dockerized_netology-main)
 
-- [Flask_celery_example](flask_celery_example-master.zip)
+- [Flask_celery_example](flask_celery_example-master.zip) 
+    - [Flask_celery_example](flask_celery_example-master) ВНИМАНИЕ! Разархивировать 5.Python_в_web_разработке/lesson_5.2.12/flask_celery_example-master/models.zip в папку models
 
 - [Django_celery_example](django_celery_example-master)
 
