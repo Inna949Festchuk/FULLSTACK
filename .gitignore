@@ -188,3 +188,5 @@ My_edu_petproj/django_cicd.zip
 .DS_Store
 .DS_Store
 5.Python_в_web_разработке/.DS_Store
+5.Python_в_web_разработке/lesson_5.2.12/flask_celery_example-master/models/dlib_face_recognition_resnet_model_v1.dat
+5.Python_в_web_разработке/lesson_5.2.12/flask_celery_example-master/models/shape_predictor_68_face_landmarks.dat
