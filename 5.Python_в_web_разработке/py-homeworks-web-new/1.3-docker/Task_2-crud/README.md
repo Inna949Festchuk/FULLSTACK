@@ -66,6 +66,12 @@ docker run -d --name=container_stocks_products_2 -p 8081:8000 --env-file .env im
 
 ### Также образ был залит на DockerHub (в первой задаче эта процедура осуществлялась через расшерение VSCode Docker). В любом случае перед push образ должен быть создан как описано выше
 
+Перед публикацией Авторизация в Docker Hub
+
+```bash
+docker login -u nodatanodata
+# Введите пароль
+```
 ```bash
 docker image push docker.io/nodatanodata/image_stocks_products:latest
 ```
